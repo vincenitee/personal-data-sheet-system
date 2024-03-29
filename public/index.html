@@ -1,266 +1,605 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Personal Data Sheet</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js" defer></script>
+        <script src="index.js" defer></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Data Sheet</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js" defer></script>
-</head>
+    <body class="bg-gray-200 font-poppins">
+        <!-- Form Container -->
+        <div class="container flex justify-center gap-5">
+            <form data-multi-step action="" method="get" class="my-4 w-3/5 rounded-md bg-white-alt px-10 py-5">
+                <!-- Personal Information -->
+                <div class="my-2 grid hidden grid-cols-2 gap-x-4 gap-y-3" data-step>
+                    <!-- Banner -->
+                    <h1 class="col-span-2 text-xl font-bold">1. Personal Information</h1>
+                    <h3 class="col-span-2 my-2 font-bold text-gray-700">Please fill all the fields</h3>
+                    <hr class="col-span-2 border-b border-gray-300" />
 
-<body class="font-poppins bg-gray-200">
-
-    <!-- Form Container -->
-    <div class="container flex justify-center gap-5">
-
-        <form action="" method="get" class="w-1/2 px-10 py-5 my-4 bg-white rounded-md">
-
-            <!-- Banner -->
-            <h1 class="text-xl font-bold col-span-2">1. Personal Information</h1>
-            <h3 class="text-gray-500 font-bold my-3 col-span-2">Please fill all the fields</h3>
-            <hr class="border-b border-gray-300 col-span-2">
-
-            <!-- C1 -->
-            <div class="my-2 grid grid-cols-2 gap-x-4 gap-y-3">
-                <div class="container space-y-1">
-                    <label for="firstname" class="block text-gray-500 font-medium text-sm">First Name</label>
-                    <input type="text" name="firstname" id="firstname" class="inputbox" autocomplete="off">
-                </div>
-                <div class="container space-y-1">
-                    <label for="middlename" class="block text-gray-500 font-medium text-sm">Midle Name</label>
-                    <input type="text" name="middlename" id="middlename" class="inputbox" autocomplete="off">
-                </div>
-
-                <div class="container space-y-1">
-                    <label for="lastname" class="block text-gray-500 font-medium text-sm">Last Name</label>
-                    <input type="text" name="lastname" id="lastname" class="inputbox" autocomplete="off">
-                </div>
-                <div class="container space-y-1">
-                    <label for="suffix" class="block text-gray-500 font-medium text-sm">Suffix</label>
-                    <select name="suffix" id="suffix" class="inputbox">
-                        <option value=""></option>
-                    </select>
-                </div>
-
-                <div class="container space-y-1">
-                    <label for="bdate" class="block text-gray-500 font-medium text-sm">Date of Birth</label>
-                    <div class="inputbox flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                        </svg>
-                        <input type="text" name="bdate" id="bdate" class="w-full p-2 outline-none">
-                    </div>
-                </div>
-                <div class="container space-y-1">
-                    <label for="birthplace" class="block text-gray-500 font-medium text-sm">Place of Birth</label>
-                    <input type="text" name="birthplace" id="birthplace" class="inputbox">
-                </div>
-
-                <div class="container space-y-1">
-                    <label for="sex" class="block text-gray-500 font-medium text-sm">Sex</label>
-                    <select name="sex" id="sex" class="inputbox">
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div class="container space-y-1">
-                    <label for="civilstatus" class="block text-gray-500 font-medium text-sm">Civil Status</label>
-                    <select name="civilstatus" id="civilstatus" class="inputbox">
-                        <option value=""></option>
-                    </select>
-                </div>
-
-                <div class="flex gap-3 col-span-2">
                     <div class="container space-y-1">
-                        <label for="height" class="block text-gray-500 font-medium text-sm">Height</label>
-                        <input type="number" step="0.01" min="0.00" name="height" id="height" class="inputbox">
+                        <label for="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
+                        <input type="text" name="firstname" id="firstname" class="inputbox" autocomplete="off" />
                     </div>
                     <div class="container space-y-1">
-                        <label for="weight" class="block text-gray-500 font-medium text-sm">Weight</label>
-                        <input type="number" step="0.01" min="0.00" name="weight" id="weight" class="inputbox">
+                        <label for="middlename" class="block text-sm font-medium text-gray-700">Midle Name</label>
+                        <input type="text" name="middlename" id="middlename" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
+                        <input type="text" name="lastname" id="lastname" class="inputbox" autocomplete="off" />
                     </div>
                     <div class="container space-y-1">
-                        <label for="bloodtype" class="block text-gray-500 font-medium text-sm">Blood Type</label>
-                        <select name="bloodtype" id="bloodtype" class="inputbox">
+                        <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
+                        <select name="suffix" id="suffix" class="inputbox">
                             <option value=""></option>
                         </select>
                     </div>
-                </div>
 
-                <div class="container space-y-1">
-                    <label for="gsis-id" class="block text-gray-500 font-medium text-sm">GSIS ID Number</label>
-                    <input type="number" name="gsis-id" id="gsis-id" class="inputbox">
-                </div>
-                <div class="container space-y-1">
-                    <label for="pagibig-id" class="block text-gray-500 font-medium text-sm">PAG-IBIG ID Number</label>
-                    <input type="number" name="pagibig-id" id="pagibig-id" class="inputbox">
-                </div>
-
-                <div class="container space-y-1">
-                    <label for="philhealth-id" class="block text-gray-500 font-medium text-sm">PHILHEALTH ID
-                        Number</label>
-                    <input type="number" name="philhealth-id" id="philhealth-id" class="inputbox">
-                </div>
-                <div class="container space-y-1">
-                    <label for="sss-id" class="block text-gray-500 font-medium text-sm">SSS ID Number</label>
-                    <input type="number" name="sss-id" id="sss-id" class="inputbox">
-                </div>
-
-                <div class="container space-y-1">
-                    <label for="tin-id" class="block text-gray-500 font-medium text-sm">TIN ID Number</label>
-                    <input type="number" name="tin-id" id="tin-id" class="inputbox">
-                </div>
-                <div class="container space-y-1">
-                    <label for="agency-no" class="block text-gray-500 font-medium text-sm">Agency Employee
-                        Number</label>
-                    <input type="number" name="agency-no" id="agency-no" class="inputbox">
-                </div>
-
-                <div class="container space-y-1">
-                    <label for="citizenship" class="block text-gray-500 font-medium text-sm">Citizenship</label>
-                    <select name="citizenship" id="citizenship" class="inputbox">
-                        <option value=""></option>
-                        <option value="">Filipino</option>
-                        <option value="">Dual Citizenship</option>
-                    </select>
-                </div>
-
-                <div class="container space-y-1">
-                    <label for="citizenship-category" class="block text-gray-500 font-medium text-sm">Citizen by</label>
-                    <select name="citizenship-category" id="citizenship-category" class="inputbox">
-                        <option value=""></option>
-                        <option value="By Birth">By Birth</option>
-                        <option value="By Naturalization">By Naturalization</option>
-                    </select>
-                </div>
-
-                <div class="container space-y-1 col-span-2 mb-2">
-                    <label for="country" class="block text-gray-500 font-medium text-sm">If holder of dual citizenship,
-                        please indicate country</label>
-                    <select name="country" id="country" class="inputbox">
-                        <option value=""></option>
-                    </select>
-                </div>
-
-                <hr class="col-span-2 border-b border-gray-300">
-
-                <div class="col-span-2">
-                    <h3 class="text-gray-500">Residential Address</h3>
-                </div>
-
-                <div class="container">
-                    <input type="text" name="res-house-no" id="res-house-no" class="inputbox"
-                        placeholder="House no./Block no./Lot no.">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="res-street" id="res-street" class="inputbox" placeholder="Street">
-                </div>
-
-                <div class="container col-span-2">
-                    <input type="text" name="res-village" id="res-village" class="inputbox"
-                        placeholder="Village/Subdivision">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="res-province" id="res-street" class="inputbox" placeholder="Province">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="res-city" id="res-city" class="inputbox" placeholder="City">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="res-brgy" id="res-brgy" class="inputbox" placeholder="Baranggay">
-                </div>
-
-                <div class="container mb-2">
-                    <input type="text" name="res-city" id="res-zip" class="inputbox" placeholder="Zip Code">
-                </div>
-
-                <hr class="col-span-2 border-b border-gray-300">
-
-                <div class="col-span-2">
-                    <h3 class="text-gray-500">Permanent Address</h3>
-                </div>
-
-                <div class="container">
-                    <input type="text" name="perm-house-no" id="perm-house-no" class="inputbox"
-                        placeholder="House no./Block no./Lot no.">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="perm-street" id="perm-street" class="inputbox" placeholder="Street">
-                </div>
-
-                <div class="container col-span-2">
-                    <input type="text" name="perm-village" id="perm-village" class="inputbox"
-                        placeholder="Village/Subdivision">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="perm-province" id="perm-street" class="inputbox" placeholder="Province">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="perm-city" id="perm-city" class="inputbox" placeholder="City">
-                </div>
-
-                <div class="container">
-                    <input type="text" name="perm-brgy" id="perm-brgy" class="inputbox" placeholder="Baranggay">
-                </div>
-
-                <div class="container mb-2">
-                    <input type="text" name="perm-city" id="perm-zip" class="inputbox" placeholder="Zip Code">
-                </div>
-
-                <hr class="col-span-2 border-b border-gray-300">
-
-                <div class="flex gap-3 col-span-2">
                     <div class="container space-y-1">
-                        <label for="tel-no" class="block text-gray-500 font-medium text-sm">Telephone Number</label>
-                        <input type="number" min="0" name="tel-no" id="tel-no" class="inputbox" autocomplete="off">
+                        <label for="bdate" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+                        <input type="text" datepicker datepicker-autohide name="bdate" class="inputbox" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="birthplace" class="block text-sm font-medium text-gray-700">Place of Birth</label>
+                        <input type="text" name="birthplace" id="birthplace" class="inputbox" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="sex" class="block text-sm font-medium text-gray-700">Sex</label>
+                        <select name="sex" id="sex" class="inputbox">
+                            <option value=""></option>
+                        </select>
                     </div>
                     <div class="container space-y-1">
-                        <label for="mobile-no" class="block text-gray-500 font-medium text-sm">Mobile Number</label>
-                        <input type="number" min="0" name="mobile-no" id="mobile-no" class="inputbox"
-                            autocomplete="off">
+                        <label for="civilstatus" class="block text-sm font-medium text-gray-700">Civil Status</label>
+                        <select name="civilstatus" id="civilstatus" class="inputbox">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="col-span-2 flex gap-3">
+                        <div class="container space-y-1">
+                            <label for="height" class="block text-sm font-medium text-gray-700">Height</label>
+                            <input type="number" step="0.01" min="0.00" name="height" id="height" class="inputbox" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
+                            <input type="number" step="0.01" min="0.00" name="weight" id="weight" class="inputbox" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="bloodtype" class="block text-sm font-medium text-gray-700">Blood Type</label>
+                            <select name="bloodtype" id="bloodtype" class="inputbox">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="gsis-id" class="block text-sm font-medium text-gray-700">GSIS ID Number</label>
+                        <input type="number" name="gsis-id" id="gsis-id" class="inputbox" />
                     </div>
                     <div class="container space-y-1">
-                        <label for="email" class="block text-gray-500 font-medium text-sm">Email Address</label>
-                        <input type="email" name="email" id="email" class="inputbox" autocomplete="off">
+                        <label for="pagibig-id" class="block text-sm font-medium text-gray-700">PAG-IBIG ID Number</label>
+                        <input type="number" name="pagibig-id" id="pagibig-id" class="inputbox" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="philhealth-id" class="block text-sm font-medium text-gray-700">PHILHEALTH ID Number</label>
+                        <input type="number" name="philhealth-id" id="philhealth-id" class="inputbox" />
+                    </div>
+                    <div class="container space-y-1">
+                        <label for="sss-id" class="block text-sm font-medium text-gray-700">SSS ID Number</label>
+                        <input type="number" name="sss-id" id="sss-id" class="inputbox" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="tin-id" class="block text-sm font-medium text-gray-700">TIN ID Number</label>
+                        <input type="number" name="tin-id" id="tin-id" class="inputbox" />
+                    </div>
+                    <div class="container space-y-1">
+                        <label for="agency-no" class="block text-sm font-medium text-gray-700">Agency Employee Number</label>
+                        <input type="number" name="agency-no" id="agency-no" class="inputbox" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="citizenship" class="block text-sm font-medium text-gray-700">Citizenship</label>
+                        <select name="citizenship" id="citizenship" class="inputbox">
+                            <option value=""></option>
+                            <option value="">Filipino</option>
+                            <option value="">Dual Citizenship</option>
+                        </select>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="citizenship-category" class="block text-sm font-medium text-gray-700">Citizen by</label>
+                        <select name="citizenship-category" id="citizenship-category" class="inputbox">
+                            <option value=""></option>
+                            <option value="By Birth">By Birth</option>
+                            <option value="By Naturalization">By Naturalization</option>
+                        </select>
+                    </div>
+
+                    <div class="container col-span-2 mb-2 space-y-1">
+                        <label for="country" class="block text-sm font-medium text-gray-700">If holder of dual citizenship, please indicate country</label>
+                        <select name="country" id="country" class="inputbox">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <hr class="col-span-2 border-b border-gray-300" />
+
+                    <div class="col-span-2">
+                        <h3 class="text-gray-700">Residential Address</h3>
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="res-house-no" id="res-house-no" class="inputbox" placeholder="House no./Block no./Lot no." />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="res-street" id="res-street" class="inputbox" placeholder="Street" />
+                    </div>
+
+                    <div class="container col-span-2">
+                        <input type="text" name="res-village" id="res-village" class="inputbox" placeholder="Village/Subdivision" />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="res-province" id="res-street" class="inputbox" placeholder="Province" />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="res-city" id="res-city" class="inputbox" placeholder="City" />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="res-brgy" id="res-brgy" class="inputbox" placeholder="Baranggay" />
+                    </div>
+
+                    <div class="container mb-2">
+                        <input type="text" name="res-city" id="res-zip" class="inputbox" placeholder="Zip Code" />
+                    </div>
+
+                    <hr class="col-span-2 border-b border-gray-300" />
+
+                    <div class="col-span-2">
+                        <h3 class="text-gray-700">Permanent Address</h3>
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="perm-house-no" id="perm-house-no" class="inputbox" placeholder="House no./Block no./Lot no." />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="perm-street" id="perm-street" class="inputbox" placeholder="Street" />
+                    </div>
+
+                    <div class="container col-span-2">
+                        <input type="text" name="perm-village" id="perm-village" class="inputbox" placeholder="Village/Subdivision" />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="perm-province" id="perm-street" class="inputbox" placeholder="Province" />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="perm-city" id="perm-city" class="inputbox" placeholder="City" />
+                    </div>
+
+                    <div class="container">
+                        <input type="text" name="perm-brgy" id="perm-brgy" class="inputbox" placeholder="Baranggay" />
+                    </div>
+
+                    <div class="container mb-2">
+                        <input type="text" name="perm-city" id="perm-zip" class="inputbox" placeholder="Zip Code" />
+                    </div>
+
+                    <hr class="col-span-2 border-b border-gray-300" />
+
+                    <div class="col-span-2 flex gap-3">
+                        <div class="container space-y-1">
+                            <label for="tel-no" class="block text-sm font-medium text-gray-700">Telephone Number</label>
+                            <input type="number" min="0" name="tel-no" id="tel-no" class="inputbox" autocomplete="off" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="mobile-no" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                            <input type="number" min="0" name="mobile-no" id="mobile-no" class="inputbox" autocomplete="off" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" name="email" id="email" class="inputbox" autocomplete="off" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- C2 -->
+                <!-- Family Background -->
+                <div class="my-2 grid hidden grid-cols-2 gap-x-4 gap-y-3" data-step>
+                    <!-- Banner -->
+                    <h1 class="col-span-2 text-xl font-bold">2. Family Background</h1>
+                    <h3 class="col-span-2 my-2 font-bold text-gray-700">Please fill all the fields</h3>
+                    <hr class="col-span-2 my-2 border-b border-gray-300" />
 
-            <!-- Button Container -->
-            <div class="col-span-2 flex justify-end px-1 gap-3">
-                <button class="flex gap-2 px-3 py-1 w-24 rounded-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-                    </svg>
-                    <span class="">Back</span>
-                </button>
+                    <span class="col-span-2 mt-3 text-lg font-semibold">Spouse's Information</span>
 
-                <button
-                    class="flex gap-2 bg-green-500 px-3 py-1 w-24 rounded-sm hover:scale-110 transition-all duration-75">
-                    <span class="text-white">Next</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="white" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                    </svg>
-                </button>
-            </div>
-        </form>
-    </div>
+                    <div class="container space-y-1">
+                        <label for="spouse-firstname" class="block text-sm font-medium text-gray-700">First name</label>
+                        <input type="text" name="spouse-firstname" id="spouse-firstname" class="inputbox" autocomplete="off" />
+                    </div>
 
-</body>
+                    <div class="container space-y-1">
+                        <label for="spouse-middlename" class="block text-sm font-medium text-gray-700">Middle name</label>
+                        <input type="text" name="spouse-middlename" id="spouse-middlename" class="inputbox" autocomplete="off" />
+                    </div>
 
+                    <div class="container space-y-1">
+                        <label for="spouse-surname" class="block text-sm font-medium text-gray-700">Last name</label>
+                        <input type="text" name="spouse-surname" id="spouse-surname" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="spouse-suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
+                        <select name="spouse-suffix" id="spouse-suffix" class="inputbox">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="spouse-occupation" class="block text-sm font-medium text-gray-700">Occupation</label>
+                        <input type="text" name="spouse-occupation" id="spouse-occupation" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="spouse-business" class="block text-sm font-medium text-gray-700">Employer/Business Name</label>
+                        <input type="text" name="spouse-business" id="spouse-business" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="business-addr" class="block text-sm font-medium text-gray-700">Business Address</label>
+                        <input type="text" name="business-addr" id="business-addr" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="spouse-telno" class="block text-sm font-medium text-gray-700">Telephone Number</label>
+                        <input type="text" name="spouse-telno" id="spouse-telno" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <hr class="col-span-2 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-2 mt-3 text-lg font-semibold">Father's Information</span>
+
+                    <div class="container space-y-1">
+                        <label for="father-firstname" class="block text-sm font-medium text-gray-700">First name</label>
+                        <input type="text" name="father-firstname" id="father-firstname" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="father-middlename" class="block text-sm font-medium text-gray-700">Middle name</label>
+                        <input type="text" name="father-middlename" id="father-middlename" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="father-surname" class="block text-sm font-medium text-gray-700">Last name</label>
+                        <input type="text" name="father-surname" id="father-surname" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="father-suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
+                        <select name="father-suffix" id="father-suffix" class="inputbox">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <hr class="col-span-2 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-2 mt-3 text-lg font-semibold">Mother's Information</span>
+
+                    <div class="col-span-2 flex gap-4">
+                        <div class="container space-y-1">
+                            <label for="father-firstname" class="block text-sm font-medium text-gray-700">First name</label>
+                            <input type="text" name="father-firstname" id="father-firstname" class="inputbox" autocomplete="off" />
+                        </div>
+
+                        <div class="container space-y-1">
+                            <label for="father-middlename" class="block text-sm font-medium text-gray-700">Middle name</label>
+                            <input type="text" name="father-middlename" id="father-middlename" class="inputbox" autocomplete="off" />
+                        </div>
+
+                        <div class="container space-y-1">
+                            <label for="father-surname" class="block text-sm font-medium text-gray-700">Last name</label>
+                            <input type="text" name="father-surname" id="father-surname" class="inputbox" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <hr class="col-span-2 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-2 mt-3 text-lg font-semibold">Children Information</span>
+
+                    <div class="col-span-2 space-y-2" id="children-container">
+                        <div class="grid grid-cols-mod-3">
+                            <span>Full name</span>
+                            <span>Date of Birth</span>
+                            <!-- <span class="justify-self-center">Actions</span> -->
+                        </div>
+
+                        <div class="child-entry">
+                            <input type="text" class="inputbox" name="child-name-1" id="child-name-1" />
+                            <input type="text" class="inputbox" name="child-bdate-1" id="child-bdate-1" />
+                            <button type="button" class="flex items-center justify-center rounded-md bg-red-400 px-5 py-2 transition-colors duration-75 ease-in hover:bg-red-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="flex w-32 items-center gap-x-1 rounded-md bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-700" id="add-children">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-4 w-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <span>Add Rows</span>
+                    </button>
+                </div>
+
+                <!-- Educational Background -->
+                <div class="my-2 grid hidden grid-cols-3 gap-x-4 gap-y-2" data-step>
+                    <!-- Banner -->
+                    <h1 class="col-span-3 text-xl font-bold">3. Educational Background</h1>
+                    <h3 class="col-span-3 my-2 font-bold text-gray-700">Please fill all the fields</h3>
+                    <hr class="col-span-3 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-3 mt-3 text-lg font-semibold">Elementary</span>
+
+                    <div class="col-span-2 space-y-1">
+                        <label for="elem-school" class="block text-sm font-medium text-gray-700">Name of School</label>
+                        <input type="text" name="elem-school" id="elem-school" class="inputbox group" autocomplete="off" />
+                    </div>
+
+                    <div class="space-y-1">
+                        <label for="elem-degree" class="block text-sm font-medium text-gray-700">Degree</label>
+                        <input type="text" name="elem-degree" id="elem-degree" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="col-span-2 inline-flex gap-x-2">
+                        <div class="container space-y-1">
+                            <label for="elem-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
+                            <input datepicker datepicker-autohide type="text" name="elem-school-start" id="elem-school-start" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="elem-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
+                            <input datepicker datepicker-autohide type="text" name="elem-school-end" id="elem-school-end" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="elem-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
+                            <input type="text" name="elem-highest-level" id="elem-highest-level" class="inputbox" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="elem-acad-honor" class="block text-sm font-medium text-gray-700">Academic Honors Received</label>
+                        <input type="text" name="elem-acad-honor" id="elem-acad-honor" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <hr class="col-span-3 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-3 mt-3 text-lg font-semibold">Secondary</span>
+
+                    <div class="container col-span-2 space-y-1">
+                        <label for="secondary-school" class="block text-sm font-medium text-gray-700">Name of School</label>
+                        <input type="text" name="secondary-school" id="secondary-school" class="inputbox group" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="secondary-degree" class="block text-sm font-medium text-gray-700">Degree</label>
+                        <input type="text" name="secondary-degree" id="secondary-degree" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="col-span-2 inline-flex gap-x-2">
+                        <div class="container space-y-1">
+                            <label for="secondary-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
+                            <input datepicker datepicker-autohide type="text" name="secondary-school-start" id="secondary-school-start" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="secondary-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
+                            <input datepicker datepicker-autohide type="text" name="secondary-school-end" id="secondary-school-end" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="secondary-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
+                            <input type="text" name="secondary-highest-level" id="secondary-highest-level" class="inputbox" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="secondary-acad-honor" class="block text-sm font-medium text-gray-700">Academic Honors Received</label>
+                        <input type="text" name="secondary-acad-honor" id="secondary-acad-honor" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <hr class="col-span-3 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-3 mt-3 text-lg font-semibold">Vocational/Trade Course</span>
+
+                    <div class="container col-span-2 space-y-1">
+                        <label for="vocational-school" class="block text-sm font-medium text-gray-700">Name of School</label>
+                        <input type="text" name="vocational-school" id="vocational-school" class="inputbox group" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="vocational-degree" class="block text-sm font-medium text-gray-700">Degree</label>
+                        <input type="text" name="vocational-degree" id="vocational-degree" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="col-span-2 inline-flex gap-x-2">
+                        <div class="container space-y-1">
+                            <label for="vocational-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
+                            <input datepicker datepicker-autohide type="text" name="vocational-school-start" id="vocational-school-start" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="vocational-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
+                            <input datepicker datepicker-autohide type="text" name="vocational-school-end" id="vocational-school-end" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="vocational-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
+                            <input type="text" name="vocational-highest-level" id="vocational-highest-level" class="inputbox" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="vocational-acad-honor" class="block text-sm font-medium text-gray-700">Academic Honors Received</label>
+                        <input type="text" name="vocational-acad-honor" id="vocational-acad-honor" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <hr class="col-span-3 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-3 mt-3 text-lg font-semibold">College</span>
+
+                    <div class="container col-span-2 space-y-1">
+                        <label for="college-school" class="block text-sm font-medium text-gray-700">Name of School</label>
+                        <input type="text" name="college-school" id="college-school" class="inputbox group" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="college-degree" class="block text-sm font-medium text-gray-700">Degree</label>
+                        <input type="text" name="college-degree" id="college-degree" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="col-span-2 inline-flex gap-x-2">
+                        <div class="container space-y-1">
+                            <label for="college-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
+                            <input datepicker datepicker-autohide type="text" name="college-school-start" id="college-school-start" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="college-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
+                            <input datepicker datepicker-autohide type="text" name="college-school-end" id="college-school-end" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="container space-y-1">
+                            <label for="college-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
+                            <input type="text" name="college-highest-level" id="college-highest-level" class="inputbox" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="college-acad-honor" class="block text-sm font-medium text-gray-700">Academic Honors Received</label>
+                        <input type="text" name="college-acad-honor" id="college-acad-honor" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <hr class="col-span-3 my-2 border-b border-gray-300" />
+
+                    <span class="col-span-3 mt-3 text-lg font-semibold">Graduate Studies</span>
+
+                    <div class="container col-span-2 space-y-1">
+                        <label for="grad-school" class="block text-sm font-medium text-gray-700">Name of School</label>
+                        <input type="text" name="grad-school" id="grad-school" class="inputbox group" autocomplete="off" />
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="grad-degree" class="block text-sm font-medium text-gray-700">Degree</label>
+                        <input type="text" name="grad-degree" id="grad-degree" class="inputbox" autocomplete="off" />
+                    </div>
+
+                    <div class="col-span-2 inline-flex gap-x-2">
+                        <div class="space-y-1">
+                            <label for="grad-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
+                            <input datepicker datepicker-autohide type="text" name="grad-school-start" id="grad-school-start" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="space-y-1">
+                            <label for="grad-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
+                            <input datepicker datepicker-autohide type="text" name="grad-school-end" id="grad-school-end" class="inputbox" placeholder="Select date" />
+                        </div>
+                        <div class="space-y-1">
+                            <label for="grad-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
+                            <input type="text" name="grad-highest-level" id="grad-highest-level" class="inputbox" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <div class="container space-y-1">
+                        <label for="grad-acad-honor" class="block text-sm font-medium text-gray-700">Academic Honors Received</label>
+                        <input type="text" name="grad-acad-honor" id="grad-acad-honor" class="inputbox" autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="my-2 space-y-3" data-step>
+                    <!-- Banner -->
+                    <h1 class="text-xl font-bold">4. Civil Service Eligibility</h1>
+                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
+                    <hr class="my-2 border-b border-gray-300" />
+
+                    <div class="container space-y-4 last:border-b-0" id="civil-container">
+                        <div class="civil-entry">
+                            <span class="col-span-3 text-lg font-semibold">Civil Entry 1</span>
+                            <div class="container space-y-1">
+                                <label for="civil-exam-1" class="block text-sm font-medium text-gray-700">Eligibility Examination</label>
+                                <input type="text" name="civil-exam-1" id="civil-exam-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="civil-rating-1" class="block text-sm font-medium text-gray-700">Ratings</label>
+                                <input type="number" min="0.00" name="civil-rating-1" id="civil-rating-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="civil-exam-date-1" class="block text-sm font-medium text-gray-700">Date of Examination</label>
+                                <input datepicker datepicker-autohide type="text" name="civil-exam-date-1" id="civil-exam-date-1" class="inputbox" placeholder="Select a date" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="civil-exam-place-1" class="block text-sm font-medium text-gray-700">Place of Examination</label>
+                                <input type="text" name="civil-exam-place-1" id="civil-exam-place-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="license-number-1" class="block text-sm font-medium text-gray-700">License Number</label>
+                                <input type="number" min="0" name="license-number-1" id="license-number-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="license-validity-1" class="block text-sm font-medium text-gray-700">Date of Validity</label>
+                                <input datepicker datepicker-autohide type="text" name="license-validity-1" id="license-validity-1" class="inputbox" placeholder="Select a date" autocomplete="off" />
+                            </div>
+                        </div>
+
+                        <div class="civil-entry">
+                            <span class="col-span-3 text-lg font-semibold">Civil Entry 2</span>
+                            <div class="container space-y-1">
+                                <label for="civil-exam-1" class="block text-sm font-medium text-gray-700">Eligibility Examination</label>
+                                <input type="text" name="civil-exam-1" id="civil-exam-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="civil-rating-1" class="block text-sm font-medium text-gray-700">Ratings</label>
+                                <input type="number" min="0.00" name="civil-rating-1" id="civil-rating-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="civil-exam-date-1" class="block text-sm font-medium text-gray-700">Date of Examination</label>
+                                <input datepicker datepicker-autohide type="text" name="civil-exam-date-1" id="civil-exam-date-1" class="inputbox" placeholder="Select a date" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="civil-exam-place-1" class="block text-sm font-medium text-gray-700">Place of Examination</label>
+                                <input type="text" name="civil-exam-place-1" id="civil-exam-place-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="license-number-1" class="block text-sm font-medium text-gray-700">License Number</label>
+                                <input type="number" min="0" name="license-number-1" id="license-number-1" class="inputbox" autocomplete="off" />
+                            </div>
+                            <div class="container space-y-1">
+                                <label for="license-validity-1" class="block text-sm font-medium text-gray-700">Date of Validity</label>
+                                <input datepicker datepicker-autohide type="text" name="license-validity-1" id="license-validity-1" class="inputbox" placeholder="Select a date" autocomplete="off" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button Container -->
+                <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                    <button disabled type="button" class="cursor-not-allowed opacity-50">Prev</button>
+                    <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700">
+                        <div class="inline-flex items-center gap-1">
+                            <span>Next</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>
