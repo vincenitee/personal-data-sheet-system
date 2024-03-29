@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Data Sheet</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js" defer></script>
+</head>
+
+<body class="font-poppins bg-gray-200">
+
+    <!-- Form Container -->
+    <div class="container flex justify-center gap-5">
+
+        <form action="" method="get" class="w-1/2 px-10 py-5 my-4 bg-white rounded-md">
+
+            <!-- Banner -->
+            <h1 class="text-xl font-bold col-span-2">1. Personal Information</h1>
+            <h3 class="text-gray-500 font-bold my-3 col-span-2">Please fill all the fields</h3>
+            <hr class="border-b border-gray-300 col-span-2">
+
+            <!-- C1 -->
+            <div class="my-2 grid grid-cols-2 gap-x-4 gap-y-3">
+                <div class="container space-y-1">
+                    <label for="firstname" class="block text-gray-500 font-medium text-sm">First Name</label>
+                    <input type="text" name="firstname" id="firstname" class="inputbox" autocomplete="off">
+                </div>
+                <div class="container space-y-1">
+                    <label for="middlename" class="block text-gray-500 font-medium text-sm">Midle Name</label>
+                    <input type="text" name="middlename" id="middlename" class="inputbox" autocomplete="off">
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="lastname" class="block text-gray-500 font-medium text-sm">Last Name</label>
+                    <input type="text" name="lastname" id="lastname" class="inputbox" autocomplete="off">
+                </div>
+                <div class="container space-y-1">
+                    <label for="suffix" class="block text-gray-500 font-medium text-sm">Suffix</label>
+                    <select name="suffix" id="suffix" class="inputbox">
+                        <option value=""></option>
+                    </select>
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="bdate" class="block text-gray-500 font-medium text-sm">Date of Birth</label>
+                    <div class="inputbox flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                        </svg>
+                        <input type="text" name="bdate" id="bdate" class="w-full p-2 outline-none">
+                    </div>
+                </div>
+                <div class="container space-y-1">
+                    <label for="birthplace" class="block text-gray-500 font-medium text-sm">Place of Birth</label>
+                    <input type="text" name="birthplace" id="birthplace" class="inputbox">
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="sex" class="block text-gray-500 font-medium text-sm">Sex</label>
+                    <select name="sex" id="sex" class="inputbox">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="container space-y-1">
+                    <label for="civilstatus" class="block text-gray-500 font-medium text-sm">Civil Status</label>
+                    <select name="civilstatus" id="civilstatus" class="inputbox">
+                        <option value=""></option>
+                    </select>
+                </div>
+
+                <div class="flex gap-3 col-span-2">
+                    <div class="container space-y-1">
+                        <label for="height" class="block text-gray-500 font-medium text-sm">Height</label>
+                        <input type="number" step="0.01" min="0.00" name="height" id="height" class="inputbox">
+                    </div>
+                    <div class="container space-y-1">
+                        <label for="weight" class="block text-gray-500 font-medium text-sm">Weight</label>
+                        <input type="number" step="0.01" min="0.00" name="weight" id="weight" class="inputbox">
+                    </div>
+                    <div class="container space-y-1">
+                        <label for="bloodtype" class="block text-gray-500 font-medium text-sm">Blood Type</label>
+                        <select name="bloodtype" id="bloodtype" class="inputbox">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="gsis-id" class="block text-gray-500 font-medium text-sm">GSIS ID Number</label>
+                    <input type="number" name="gsis-id" id="gsis-id" class="inputbox">
+                </div>
+                <div class="container space-y-1">
+                    <label for="pagibig-id" class="block text-gray-500 font-medium text-sm">PAG-IBIG ID Number</label>
+                    <input type="number" name="pagibig-id" id="pagibig-id" class="inputbox">
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="philhealth-id" class="block text-gray-500 font-medium text-sm">PHILHEALTH ID
+                        Number</label>
+                    <input type="number" name="philhealth-id" id="philhealth-id" class="inputbox">
+                </div>
+                <div class="container space-y-1">
+                    <label for="sss-id" class="block text-gray-500 font-medium text-sm">SSS ID Number</label>
+                    <input type="number" name="sss-id" id="sss-id" class="inputbox">
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="tin-id" class="block text-gray-500 font-medium text-sm">TIN ID Number</label>
+                    <input type="number" name="tin-id" id="tin-id" class="inputbox">
+                </div>
+                <div class="container space-y-1">
+                    <label for="agency-no" class="block text-gray-500 font-medium text-sm">Agency Employee
+                        Number</label>
+                    <input type="number" name="agency-no" id="agency-no" class="inputbox">
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="citizenship" class="block text-gray-500 font-medium text-sm">Citizenship</label>
+                    <select name="citizenship" id="citizenship" class="inputbox">
+                        <option value=""></option>
+                        <option value="">Filipino</option>
+                        <option value="">Dual Citizenship</option>
+                    </select>
+                </div>
+
+                <div class="container space-y-1">
+                    <label for="citizenship-category" class="block text-gray-500 font-medium text-sm">Citizen by</label>
+                    <select name="citizenship-category" id="citizenship-category" class="inputbox">
+                        <option value=""></option>
+                        <option value="By Birth">By Birth</option>
+                        <option value="By Naturalization">By Naturalization</option>
+                    </select>
+                </div>
+
+                <div class="container space-y-1 col-span-2 mb-2">
+                    <label for="country" class="block text-gray-500 font-medium text-sm">If holder of dual citizenship,
+                        please indicate country</label>
+                    <select name="country" id="country" class="inputbox">
+                        <option value=""></option>
+                    </select>
+                </div>
+
+                <hr class="col-span-2 border-b border-gray-300">
+
+                <div class="col-span-2">
+                    <h3 class="text-gray-500">Residential Address</h3>
+                </div>
+
+                <div class="container">
+                    <input type="text" name="res-house-no" id="res-house-no" class="inputbox"
+                        placeholder="House no./Block no./Lot no.">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="res-street" id="res-street" class="inputbox" placeholder="Street">
+                </div>
+
+                <div class="container col-span-2">
+                    <input type="text" name="res-village" id="res-village" class="inputbox"
+                        placeholder="Village/Subdivision">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="res-province" id="res-street" class="inputbox" placeholder="Province">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="res-city" id="res-city" class="inputbox" placeholder="City">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="res-brgy" id="res-brgy" class="inputbox" placeholder="Baranggay">
+                </div>
+
+                <div class="container mb-2">
+                    <input type="text" name="res-city" id="res-zip" class="inputbox" placeholder="Zip Code">
+                </div>
+
+                <hr class="col-span-2 border-b border-gray-300">
+
+                <div class="col-span-2">
+                    <h3 class="text-gray-500">Permanent Address</h3>
+                </div>
+
+                <div class="container">
+                    <input type="text" name="perm-house-no" id="perm-house-no" class="inputbox"
+                        placeholder="House no./Block no./Lot no.">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="perm-street" id="perm-street" class="inputbox" placeholder="Street">
+                </div>
+
+                <div class="container col-span-2">
+                    <input type="text" name="perm-village" id="perm-village" class="inputbox"
+                        placeholder="Village/Subdivision">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="perm-province" id="perm-street" class="inputbox" placeholder="Province">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="perm-city" id="perm-city" class="inputbox" placeholder="City">
+                </div>
+
+                <div class="container">
+                    <input type="text" name="perm-brgy" id="perm-brgy" class="inputbox" placeholder="Baranggay">
+                </div>
+
+                <div class="container mb-2">
+                    <input type="text" name="perm-city" id="perm-zip" class="inputbox" placeholder="Zip Code">
+                </div>
+
+                <hr class="col-span-2 border-b border-gray-300">
+
+                <div class="flex gap-3 col-span-2">
+                    <div class="container space-y-1">
+                        <label for="tel-no" class="block text-gray-500 font-medium text-sm">Telephone Number</label>
+                        <input type="number" min="0" name="tel-no" id="tel-no" class="inputbox" autocomplete="off">
+                    </div>
+                    <div class="container space-y-1">
+                        <label for="mobile-no" class="block text-gray-500 font-medium text-sm">Mobile Number</label>
+                        <input type="number" min="0" name="mobile-no" id="mobile-no" class="inputbox"
+                            autocomplete="off">
+                    </div>
+                    <div class="container space-y-1">
+                        <label for="email" class="block text-gray-500 font-medium text-sm">Email Address</label>
+                        <input type="email" name="email" id="email" class="inputbox" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <!-- C2 -->
+
+            <!-- Button Container -->
+            <div class="col-span-2 flex justify-end px-1 gap-3">
+                <button class="flex gap-2 px-3 py-1 w-24 rounded-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                    </svg>
+                    <span class="">Back</span>
+                </button>
+
+                <button
+                    class="flex gap-2 bg-green-500 px-3 py-1 w-24 rounded-sm hover:scale-110 transition-all duration-75">
+                    <span class="text-white">Next</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="white" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{
+    "name": "personal-data-sheet",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build-css": "tailwindcss -i ./src/styles.css -o ./public/styles.css",
+        "watch-css": "tailwindcss -i ./src/styles.css -o ./public/styles.css --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "flowbite-datepicker": "^1.2.6",
+        "tailwindcss": "^3.4.1"
+    },
+    "devDependencies": {
+        "prettier": "3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.12"
+    }
+}
