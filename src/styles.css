@@ -27,10 +27,18 @@
     @apply grid grid-cols-3 gap-3 border-2 border-dashed border-gray-400 p-4;
 }
 
+.vol-work-entry{
+    @apply grid grid-cols-mod-5 gap-3 border-2 border-dashed border-gray-400 p-4;
+}
+
+.learning-dev-entry{
+    @apply grid grid-cols-2 gap-3 border-2 border-dashed border-gray-400 p-4;
+}
+
 .add-button {
-    @apply flex w-32 items-center gap-x-1 rounded-md bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-700;
+    @apply flex w-32 items-center gap-x-1 rounded-md bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-700 active:bg-blue-950;
 }
 
 .del-button {
-    @apply flex w-10 items-center gap-x-1 rounded-md bg-red-500 px-3 py-2 text-sm text-white hover:bg-red-700;
+    @apply flex w-10 items-center gap-x-1 rounded-md bg-red-500 px-3 py-2 text-sm text-white hover:bg-red-700 active:bg-red-950;
 }

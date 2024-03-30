@@ -24,6 +24,7 @@ module.exports = {
             gridTemplateColumns: {
                 'mod-3': '1fr 1fr 85px',
                 'mod-3-2': '1fr 150px 150px',
+                'mod-5': '1fr 1fr 130px 130px 95px',
             }
         },
     },
