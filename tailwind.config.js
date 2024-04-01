@@ -22,12 +22,16 @@ module.exports = {
                 steel: '#E3EDF8',
             },
             gridTemplateColumns: {
-                'mod-3': '1fr 1fr 85px',
+                'mod-2': '1fr 5%',
+                'mod-3': '1fr 1fr 60px',
+                'mod-4': '1fr 1fr 1fr 50px',
                 'mod-3-2': '1fr 150px 150px',
                 'mod-5': '1fr 1fr 130px 130px 95px',
             }
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
     tailwindAttributes: ['myClassList'],
 }

@@ -10,15 +10,30 @@
     </head>
 
     <body class="bg-gray-200 font-poppins">
+        <!-- Confirm Dialog -->
+        <dialog class="rounded-md p-4" id="delete-dialog">
+            <div class="my-5 flex flex-col items-center justify-center gap-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" class="h-14 w-14">
+                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                </svg>
+                <span>Are you sure you want to delete this?</span>
+            </div>
+            <div class="flex justify-center gap-6">
+                <button type="button" class="w-24 border-2 border-gray-300 p-1" onclick="closeDialog()">Cancel</button>
+                <button type="button" class="w-24 rounded-md bg-red-500 p-1 text-white" id="confirm-delete">Delete</button>
+            </div>
+        </dialog>
         <!-- Form Container -->
         <div class="container flex justify-center gap-5">
-            <form data-multi-step action="" method="get" class="my-4 max-w-6xl w-auto rounded-md bg-white-alt px-10 py-5 transition-all duration-150 ease-in-out">
+            <form data-multi-step action="" method="get" class="my-4 w-3/5 rounded-md bg-white px-10 py-5 transition-all duration-150 ease-in-out">
                 <!-- Personal Information -->
-                <div class="my-2 space-y-4" data-step>
+                <div class="my-2 hidden space-y-4" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">1. Personal Information</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="border-b border-gray-300" />
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">1. Personal Information</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
 
                     <div class="grid grid-cols-2 gap-x-4 gap-y-3">
                         <div class="container space-y-1">
@@ -108,7 +123,7 @@
                             <input type="number" name="agency-no" id="agency-no" class="inputbox" />
                         </div>
 
-                        <div class="col-span-2 flex gap-3 items-end">
+                        <div class="col-span-2 flex items-end gap-3">
                             <div class="container space-y-1">
                                 <label for="citizenship" class="block text-sm font-medium text-gray-700">Citizenship</label>
                                 <select name="citizenship" id="citizenship" class="inputbox">
@@ -220,11 +235,13 @@
                 </div>
 
                 <!-- Family Background -->
-                <div class="my-2 hidden space-y-4" data-step>
+                <div class="my-2 space-y-4" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">2. Family Background</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="my-2 border-b border-gray-300" />
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">2. Family Background</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
 
                     <div class="grid grid-cols-2 gap-x-4 gap-y-3">
                         <span class="col-span-2 mt-3 text-lg font-semibold">Spouse's Information</span>
@@ -332,7 +349,7 @@
                             <div class="child-entry">
                                 <input type="text" class="inputbox" name="child-name-1" id="child-name-1" />
                                 <input type="text" class="inputbox" name="child-bdate-1" id="child-bdate-1" />
-                                <button type="button" class="del-button" id="del-child">
+                                <button type="button" class="del-button" onclick="deleteEntry('child-entry', this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
@@ -352,9 +369,11 @@
                 <!-- Educational Background -->
                 <div class="my-2 hidden space-y-4" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">3. Educational Background</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="my-2 border-b border-gray-300" />
+                    <div class="mb-2 space-y-2">
+                        <h1 class="text-xl font-bold">3. Educational Background</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
 
                     <span class="mt-3 text-lg font-semibold">Elementary</span>
 
@@ -528,17 +547,19 @@
                 </div>
 
                 <!-- Civil Service Eligibility -->
-                <div class="my-2 hidden space-y-3" data-step>
+                <div class="my-2 space-y-3" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">4. Civil Service Eligibility</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="my-2 border-b border-gray-300" />
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">4. Civil Service Eligibility</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
 
                     <div class="container space-y-4" id="civil-container">
                         <div class="civil-entry" id="civil-entry-1">
                             <div class="col-span-3 flex items-center justify-between">
                                 <span class="text-lg font-semibold">Civil Entry 1</span>
-                                <button type="button" class="del-button" id="del-civil">
+                                <button type="button" class="del-button" onclick="deleteEntry('civil-entry', this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
@@ -580,17 +601,19 @@
                 </div>
 
                 <!-- Work Experience -->
-                <div class="my-2 hidden space-y-3" data-step>
+                <div class="my-2 space-y-3" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">5. Work Experience</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="my-2 border-b border-gray-300" />
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">5. Work Experience</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
 
                     <div class="container space-y-4" id="work-container">
                         <div class="work-entry" id="work-entry-1">
                             <div class="col-span-3 flex items-center justify-between">
                                 <span class="text-lg font-semibold">Work Entry 1</span>
-                                <button type="button" class="del-button" id="del-civil">
+                                <button type="button" class="del-button" onclick="deleteEntry('work-entry', this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
@@ -663,18 +686,20 @@
                 </div>
 
                 <!-- Voluntary Work Experience -->
-                <div class="my-2 hidden space-y-3" data-step>
+                <div class="my-2 space-y-3" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">6. Voluntary Work Experience</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="my-2 border-b border-gray-300" />
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">6. Voluntary Work Experience</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
 
                     <div class="container space-y-4" id="voluntary-work-container">
                         <div class="vol-work-entry" id="vol-work-entry-1">
                             <!-- Title -->
                             <div class="col-span-5 flex items-center justify-between">
                                 <span class="text-lg font-semibold">Voluntary Work Entry 1</span>
-                                <button type="button" class="del-button" id="del-civil-entry">
+                                <button type="button" class="del-button" onclick="deleteEntry('vol-work-entry', this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
@@ -712,18 +737,21 @@
                 </div>
 
                 <!-- Learning and Development Trainings -->
-                <div class="my-2 hidden space-y-3" data-step>
+                <div class="my-2 space-y-3" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">7. Learning and Development Trainings</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="my-2 border-b border-gray-300" />
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">7. Learning and Development Trainings</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
 
                     <div class="container space-y-4" id="learning-dev-container">
                         <div class="learning-dev-entry" id="learning-dev-entry-1">
                             <!-- Title -->
                             <div class="col-span-2 flex items-center justify-between">
                                 <span class="text-lg font-semibold">Training Entry 1</span>
-                                <button type="button" class="del-button" id="del-civil-entry">
+
+                                <button type="button" class="del-button" onclick="deleteEntry('learning-dev-entry', this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
@@ -783,14 +811,308 @@
                     </button>
                 </div>
 
-                <!-- Additional Questions -->
-                <div class="my-2 hidden space-y-3" data-step>
+                <!-- Other Information -->
+                <div class="my-2 space-y-3" data-step>
                     <!-- Banner -->
-                    <h1 class="text-xl font-bold">7. Additional Questions</h1>
-                    <h3 class="my-2 font-bold text-gray-700">Please fill all the fields</h3>
-                    <hr class="my-2 border-b border-gray-300" />
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">8. Other Information</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                        <hr class="my-2 border-b border-gray-400" />
+                    </div>
+
+                    <div class="space-y-2" id="other-info-container">
+                        <div class="grid grid-cols-mod-4 gap-3 rounded-sm bg-gray-500 px-4 py-2 text-white">
+                            <span>Skills and Hobbies</span>
+                            <span>Non-academic Recognition</span>
+                            <span>Organization Membership</span>
+                        </div>
+
+                        <div class="other-info-entry">
+                            <input type="text" name="skill-1" id="skill-1" class="inputbox" />
+                            <input type="text" name="non-acad-1" id="non-acad-1" class="inputbox" />
+                            <input type="text" name="membership-1" id="membership-1" class="inputbox" />
+
+                            <div class="del-button mx-auto" onclick="deleteEntry('other-info-entry', this)">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Button Container -->
+
+                <!-- Additional Questions -->
+                <div class="my-2 hidden space-y-3 divide-y-2 divide-gray-400" data-step>
+                    <!-- Banner -->
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">9. Additional Questions</h1>
+                        <h3 class="font-bold text-gray-700">Please fill all the fields</h3>
+                    </div>
+
+                    <!-- Question #34 -->
+                    <div class="grid grid-cols-2 gap-3 p-3">
+                        <!-- Question -->
+                        <p class="prose-slate text-justify before:content-['34._']">Are you related by consanguinity or affinity to the appointing or recommending authority, or to the chief of bureau or office or to the person who has immediate supervision over you in the Office, Bureau or Department where you will be apppointed,</p>
+
+                        <ul class="col-start-1 row-start-2 ml-5 space-y-2">
+                            <li class="prose-slate list-[lower-alpha]">within the third degree?</li>
+                            <li class="prose-slate list-[lower-alpha]">within the fourth degree (for Local Government Unit - Career Employees)?</li>
+                        </ul>
+
+                        <!-- Responses -->
+                        <div class="row-start-2 space-y-2">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="third-degree-yes">Yes</label>
+                                    <input type="checkbox" name="third-degree-yes" id="third-degree-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="third-degree-no">No</label>
+                                    <input type="checkbox" name="third-degree-no" id="third-degree-no" class="size-5" />
+                                </div>
+                            </div>
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="fourth-degree-yes">Yes</label>
+                                    <input type="checkbox" name="fourth-degree-yes" id="fourth-degree-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="fourth-degree-no">No</label>
+                                    <input type="checkbox" name="fourth-degree-no" id="fourth-degree-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="relation-info" id="relation-info" class="question-input" placeholder="If YES, please give details" />
+                        </div>
+                    </div>
+
+                    <!-- Question #35 -->
+                    <div class="grid grid-cols-2 gap-3 p-3">
+                        <!-- Question -->
+                        <p class="prose-slate col-start-1 row-start-1 text-justify before:content-['35._a.']">Have you ever been found guilty of any administrative offense?</p>
+                        <p class="prose-slate col-start-1 row-start-2 before:content-['_b.']">Have you you been criminally charged before any court?</p>
+
+                        <!-- Responses -->
+                        <div class="space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="admin-offense-yes">Yes</label>
+                                    <input type="checkbox" name="admin-offense-yes" id="admin-offense-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="admin-offense-no">No</label>
+                                    <input type="checkbox" name="admin-offense-no" id="admin-offense-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="admin-offense-info" id="admin-offense-info" class="question-input" placeholder="If YES, please give details" />
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="crim-offense-yes">Yes</label>
+                                    <input type="checkbox" name="crim-offense-yes" id="crim-offense-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="crim-offense-no">No</label>
+                                    <input type="checkbox" name="crim-offense-no" id="crim-offense-no" class="size-5" />
+                                </div>
+                            </div>
+
+                            <label class="ml-5 block">If YES, please give details</label>
+
+                            <div class="ml-5 flex gap-3">
+                                <input datepicker datepicker-autohide type="text" name="crim-date-filed" id="crim-date-field" class="inputbox" placeholder="Date Filed" autocomplete="off" />
+                                <input type="text" name="crim-offense-status" id="crim-offense-status" class="inputbox" placeholder="Status of Case/s" autocomplete="off" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question #36 -->
+                    <div class="grid grid-cols-2 gap-3 p-3">
+                        <!-- Question -->
+                        <p class="prose-slate col-start-1 row-start-1 text-justify before:content-['36._']">Have you ever been convicted of any crime or violation of any law, decree, ordinance or regulation by any court or tribunal?</p>
+
+                        <!-- Responses -->
+                        <div class="space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="crime-conviction-yes">Yes</label>
+                                    <input type="checkbox" name="crime-conviction-yes" id="crime-conviction-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="crime-conviction-no">No</label>
+                                    <input type="checkbox" name="crime-conviction-no" id="crime-conviction-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="crime-conviction-info" id="crime-conviction-info" class="question-input" placeholder="If YES, please give details" />
+                        </div>
+                    </div>
+
+                    <!-- Question #37 -->
+                    <div class="grid grid-cols-2 gap-3 p-3">
+                        <!-- Question -->
+                        <p class="prose-slate col-start-1 row-start-1 text-justify before:content-['37._']">Have you ever been separated from the service in any of the following modes: separation, retirement, dropped from the rolls, dismissal, termination, end of term, finished contract or phased out (abolition) in the public or private sector?</p>
+
+                        <!-- Responses -->
+                        <div class="space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="separation-yes">Yes</label>
+                                    <input type="checkbox" name="separation-yes" id="separation-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="separation-no">No</label>
+                                    <input type="checkbox" name="separation-no" id="separation-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="separation-info" id="separation-info" class="question-input" placeholder="If YES, please give details" />
+                        </div>
+                    </div>
+
+                    <!-- Question #38 -->
+                    <div class="grid grid-cols-2 gap-3 p-3">
+                        <!-- Questions -->
+                        <p class="prose-slate text-justify before:content-['38._a.']">Have you ever been a candidate in a national or local election held within the last year (except Barangay election)?</p>
+                        <p class="prose-slate col-start-1 row-start-2 text-justify before:content-['b.']">Have you resigned from the government service during the three (3)-month period before the last election to promote/actively campaign for a national or local candidate?</p>
+
+                        <!-- Response -->
+                        <div class="mb-4 space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="candidate-yes">Yes</label>
+                                    <input type="checkbox" name="candidate-yes" id="candidate-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="candidate-no">No</label>
+                                    <input type="checkbox" name="candidate-no" id="candidate-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="candidate-info" id="candidate-info" class="question-input" placeholder="If YES, please give details" />
+                        </div>
+                        <div class="space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="gov-resignation-yes">Yes</label>
+                                    <input type="checkbox" name="gov-resignation-yes" id="gov-resignation-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="gov-resignation-no">No</label>
+                                    <input type="checkbox" name="gov-resignation-no" id="gov-resignation-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="gov-resignation-info" id="gov-resignation-info" class="question-input" placeholder="If YES, please give details" />
+                        </div>
+                    </div>
+
+                    <!-- Question #39 -->
+                    <div class="grid grid-cols-2 gap-3 p-3">
+                        <!-- Question -->
+                        <p class="prose-slate text-justify before:content-['39._']">Have you acquired the status of an immigrant or permanent resident of another country?</p>
+
+                        <!-- Response -->
+                        <div class="space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="foreign-residency-yes">Yes</label>
+                                    <input type="checkbox" name="foreign-residency-yes" id="foreign-residency-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="foreign-residency-no">No</label>
+                                    <input type="checkbox" name="foreign-residency-no" id="foreign-residency-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="foreign-residency-info" id="foreign-residency-info" class="question-input" placeholder="If YES, please give details(country)" />
+                        </div>
+                    </div>
+
+                    <!-- Question #40 -->
+                    <div class="grid grid-cols-2 gap-3 p-3">
+                        <!-- Question -->
+                        <p class="prose-slate text-justify before:content-['40._']">Pursuant to: (a) Indigenous People's Act (RA 8371); (b) Magna Carta for Disabled Persons (RA 7277); and (c) Solo Parents Welfare Act of 2000 (RA 8972), please answer the following items:</p>
+
+                        <p class="prose-slate col-start-1 row-start-2 text-justify before:content-['a._']">Are you a member of any indeginous group?</p>
+                        <p class="prose-slate col-start-1 row-start-3 text-justify before:content-['a._']">Are you a person with disability?</p>
+                        <p class="prose-slate col-start-1 row-start-4 text-justify before:content-['a._']">Are you a solo parent?</p>
+
+                        <!-- Response -->
+                        <div class="col-start-2 row-start-2 space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="indigenous-yes">Yes</label>
+                                    <input type="checkbox" name="indigenous-yes" id="indigenous-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="indigenous-no">No</label>
+                                    <input type="checkbox" name="indigenous-no" id="indigenous-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="indigenous-info" id="indigenous-info" class="question-input" placeholder="If YES, please specify" />
+                        </div>
+                        <div class="col-start-2 row-start-3 space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="pwd-yes">Yes</label>
+                                    <input type="checkbox" name="pwd-yes" id="pwd-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="pwd-no">No</label>
+                                    <input type="checkbox" name="pwd-no" id="pwd-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="pwd-info" id="pwd-info" class="question-input" placeholder="If YES, please specify ID Number" />
+                        </div>
+                        <div class="col-start-2 row-start-4 space-y-1">
+                            <div class="ml-5 flex justify-start gap-20">
+                                <div class="flex items-center gap-2">
+                                    <label for="solo-parent-yes">Yes</label>
+                                    <input type="checkbox" name="solo-parent-yes" id="solo-parent-yes" class="size-5" />
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label for="solo-parent-no">No</label>
+                                    <input type="checkbox" name="solo-parent-no" id="solo-parent-no" class="size-5" />
+                                </div>
+                            </div>
+                            <input type="text" name="solo-parent-info" id="solo-parent-info" class="question-input" placeholder="If YES, please specify ID Number" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Questions 2 -->
+                <div class="my-2 space-y-3" data-step>
+                    <!-- Banner -->
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">9.1 References</h1>
+                        <h3 class="font-bold text-gray-700">Person not related by consanguinity or affinity to applicant/appointee</h3>
+                    </div>
+
+                    <div class="space-y-2 divide-y-2 divide-gray-400" id="related-person-container">
+                        <div class="grid grid-cols-mod-4 gap-3 rounded-sm bg-gray-500 px-4 py-2 text-white">
+                            <span>Name</span>
+                            <span>Address</span>
+                            <span>Telephone Number</span>
+                        </div>
+
+                        <div class="related-person-entry">
+                            <input type="text" name="related-person-name-1" id="related-person-name-1" class="inputbox" />
+                            <input type="text" name="related-person-name-1" id="related-person-address-1" class="inputbox" />
+                            <input type="text" name="related-person-name-1" id="related-person-telno-1" class="inputbox" />
+
+                            <button type="button" class="del-button mx-auto" onclick="deleteEntry('related-person-entry', this)">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-button" id="add-related-person">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-4 w-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <span>Add Row</span>
+                    </button>
+                </div>
+
+                <!-- Previous & Next Button Container -->
                 <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
                     <button disabled type="button" class="cursor-not-allowed opacity-50">Prev</button>
                     <button class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950">
