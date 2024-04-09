@@ -11,7 +11,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "flowbite-datepicker": "^1.2.6",
+        "flatpickr": "^4.6.13",
         "tailwindcss": "^3.4.1"
     },
     "devDependencies": {

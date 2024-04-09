@@ -7,50 +7,92 @@
     src: url('../public/assets/fonts/Poppins-Medium.ttf');
 }
 
-.inputbox {
-    @apply h-11 w-full rounded-md border-2 border-gray-400 px-2 font-medium text-gray-800 outline-none focus:border-gray-600;
+/* Common input styles */
+.inputbox,
+.dropdown,
+.date-inputbox,
+.address-inputbox,
+.question-input {
+    @apply w-full rounded-sm border-2 border-gray-400 font-medium text-gray-800 outline-none focus:border-gray-600;
 }
 
+.inputbox,
+.dropdown,
+.address-inputbox {
+    @apply h-11 text-sm px-2;
+}
+
+.dropdown{
+    @apply pl-1 pt-3;
+}
+
+.date-inputbox {
+    @apply block p-2 ps-11;
+}
+
+.address-inputbox {
+    @apply p-2 pt-4;
+}
+
+.question-input {
+    @apply ml-3 h-11 border-b-2 px-2;
+}
+
+/* Label styles */
+.inputbox:valid ~ label,
+.dropdown:valid ~ label,
+.date-inputbox ~ label,
+.address-inputbox:valid ~ label {
+    @apply top-1 text-xs leading-4;
+}
+
+/* Debugging */
 .debug {
     @apply border-2 border-red-500;
 }
 
+/* Entry styles */
 .child-entry {
     @apply grid grid-cols-mod-3 justify-items-center gap-x-4;
 }
 
-.civil-entry {
-    @apply grid grid-cols-mod-3-2 gap-3 border-2 border-dashed border-gray-400 p-4;
+.civil-entry,
+.work-entry,
+.vol-work-entry,
+.learning-dev-entry,
+.related-person-entry,
+.other-info-entry {
+    @apply grid gap-3 border-2 border-dashed border-gray-400 p-4;
 }
 
-.work-entry {
-    @apply grid grid-cols-3 gap-3 border-2 border-dashed border-gray-400 p-4;
+.civil-entry {
+    @apply grid-cols-mod-3-2;
 }
 
 .vol-work-entry {
-    @apply grid grid-cols-mod-5 gap-3 border-2 border-dashed border-gray-400 p-4;
+    @apply grid-cols-mod-5;
 }
 
-.learning-dev-entry {
-    @apply grid grid-cols-2 gap-3 border-2 border-dashed border-gray-400 p-4;
-}
-
-.related-person-entry {
-    @apply grid grid-cols-mod-4 gap-3 p-3;
-}
-
-.other-info-entry{
-    @apply grid grid-cols-mod-4 gap-3 px-4 py-2;
-}
-
+/* Buttons */
 .add-button {
     @apply flex w-32 items-center gap-x-1 rounded-md bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-700 active:bg-blue-950;
 }
 
 .del-button {
-    @apply flex w-10 items-center justify-center rounded-md bg-red-500 p-2 text-sm text-white hover:bg-red-700 active:bg-red-950;
+    @apply flex w-10 items-center justify-center rounded-sm bg-red-500 p-2 text-sm text-white hover:bg-red-700 active:bg-red-950;
 }
 
-.question-input {
-    @apply ml-3 h-11 w-full border-b-2 border-gray-400 px-2 font-medium text-gray-800 outline-none focus:border-gray-600;
+/* Active state */
+.active a {
+    @apply border-b-2 border-blue-500 opacity-100;
+}
+
+.active svg,
+.active span {
+    @apply text-blue-500;
+}
+
+/* Hide scrollbar */
+#menu-container::-webkit-scrollbar {
+    display: none;
 }

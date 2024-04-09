@@ -23,11 +23,17 @@ module.exports = {
             },
             gridTemplateColumns: {
                 'mod-2': '1fr 5%',
-                'mod-3': '1fr 1fr 60px',
+                'mod-3': '1fr 1fr 40px',
                 'mod-4': '1fr 1fr 1fr 50px',
                 'mod-3-2': '1fr 150px 150px',
                 'mod-5': '1fr 1fr 130px 130px 95px',
-            }
+            },
+            gridTemplateRows: {
+                'mod-3': 'auto 2fr auto'
+            },
+            transitionProperty: {
+                width: 'width',
+            },
         },
     },
     plugins: [

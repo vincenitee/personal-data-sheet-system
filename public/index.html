@@ -23,11 +23,15 @@
                 <button type="button" class="w-24 rounded-md bg-red-500 p-1 text-white" id="confirm-delete">Delete</button>
             </div>
         </dialog>
+
+        <header>
+            
+        </header>
         <!-- Form Container -->
         <div class="container flex justify-center gap-5">
-            <form data-multi-step action="" method="get" class="my-4 w-3/5 rounded-md bg-white px-10 py-5 transition-all duration-150 ease-in-out">
+            <form data-multi-step action="" method="get" class="my-4 max-w-5xl rounded-md bg-white px-10 py-5 transition-all duration-150 ease-in-out">
                 <!-- Personal Information -->
-                <div class="my-2 hidden space-y-4" data-step>
+                <div class="my-2 space-y-4" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">1. Personal Information</h1>
@@ -38,16 +42,16 @@
                     <div class="grid grid-cols-2 gap-x-4 gap-y-3">
                         <div class="container space-y-1">
                             <label for="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
-                            <input type="text" name="firstname" id="firstname" class="inputbox" autocomplete="off" />
+                            <input type="text" name="firstname" id="firstname" class="inputbox" autocomplete="off" required />
                         </div>
                         <div class="container space-y-1">
                             <label for="middlename" class="block text-sm font-medium text-gray-700">Midle Name</label>
-                            <input type="text" name="middlename" id="middlename" class="inputbox" autocomplete="off" />
+                            <input type="text" name="middlename" id="middlename" class="inputbox" autocomplete="off" required />
                         </div>
 
                         <div class="container space-y-1">
                             <label for="lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
-                            <input type="text" name="lastname" id="lastname" class="inputbox" autocomplete="off" />
+                            <input type="text" name="lastname" id="lastname" class="inputbox" autocomplete="off" required />
                         </div>
                         <div class="container space-y-1">
                             <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
@@ -58,23 +62,30 @@
 
                         <div class="container space-y-1">
                             <label for="bdate" class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                            <input type="text" datepicker datepicker-autohide name="bdate" class="inputbox" />
+                            <div class="relative">
+                                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
+                                    <svg class="h-4 w-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
+                                </div>
+                                <input type="text" datepicker datepicker-autohide name="bdate" class="date-inputbox" autocomplete="off" required />
+                            </div>
                         </div>
 
                         <div class="container space-y-1">
                             <label for="birthplace" class="block text-sm font-medium text-gray-700">Place of Birth</label>
-                            <input type="text" name="birthplace" id="birthplace" class="inputbox" />
+                            <input type="text" name="birthplace" id="birthplace" class="inputbox" autocomplete="off" required />
                         </div>
 
                         <div class="container space-y-1">
                             <label for="sex" class="block text-sm font-medium text-gray-700">Sex</label>
-                            <select name="sex" id="sex" class="inputbox">
+                            <select name="sex" id="sex" class="inputbox" autocomplete="off" required>
                                 <option value=""></option>
                             </select>
                         </div>
                         <div class="container space-y-1">
                             <label for="civilstatus" class="block text-sm font-medium text-gray-700">Civil Status</label>
-                            <select name="civilstatus" id="civilstatus" class="inputbox">
+                            <select name="civilstatus" id="civilstatus" class="inputbox" autocomplete="off" required>
                                 <option value=""></option>
                             </select>
                         </div>
@@ -82,15 +93,15 @@
                         <div class="col-span-2 flex gap-3">
                             <div class="container space-y-1">
                                 <label for="height" class="block text-sm font-medium text-gray-700">Height</label>
-                                <input type="number" step="0.01" min="0.00" name="height" id="height" class="inputbox" />
+                                <input type="number" step="0.01" min="0.00" name="height" id="height" class="inputbox" autocomplete="off" required />
                             </div>
                             <div class="container space-y-1">
                                 <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
-                                <input type="number" step="0.01" min="0.00" name="weight" id="weight" class="inputbox" />
+                                <input type="number" step="0.01" min="0.00" name="weight" id="weight" class="inputbox" autocomplete="off" required />
                             </div>
                             <div class="container space-y-1">
                                 <label for="bloodtype" class="block text-sm font-medium text-gray-700">Blood Type</label>
-                                <select name="bloodtype" id="bloodtype" class="inputbox">
+                                <select name="bloodtype" id="bloodtype" class="inputbox" autocomplete="off" required>
                                     <option value=""></option>
                                 </select>
                             </div>
@@ -98,29 +109,29 @@
 
                         <div class="container space-y-1">
                             <label for="gsis-id" class="block text-sm font-medium text-gray-700">GSIS ID Number</label>
-                            <input type="number" name="gsis-id" id="gsis-id" class="inputbox" />
+                            <input type="number" name="gsis-id" id="gsis-id" class="inputbox" autocomplete="off" />
                         </div>
                         <div class="container space-y-1">
                             <label for="pagibig-id" class="block text-sm font-medium text-gray-700">PAG-IBIG ID Number</label>
-                            <input type="number" name="pagibig-id" id="pagibig-id" class="inputbox" />
+                            <input type="number" name="pagibig-id" id="pagibig-id" class="inputbox" autocomplete="off" />
                         </div>
 
                         <div class="container space-y-1">
                             <label for="philhealth-id" class="block text-sm font-medium text-gray-700">PHILHEALTH ID Number</label>
-                            <input type="number" name="philhealth-id" id="philhealth-id" class="inputbox" />
+                            <input type="number" name="philhealth-id" id="philhealth-id" class="inputbox" autocomplete="off" />
                         </div>
                         <div class="container space-y-1">
                             <label for="sss-id" class="block text-sm font-medium text-gray-700">SSS ID Number</label>
-                            <input type="number" name="sss-id" id="sss-id" class="inputbox" />
+                            <input type="number" name="sss-id" id="sss-id" class="inputbox" autocomplete="off" />
                         </div>
 
                         <div class="container space-y-1">
                             <label for="tin-id" class="block text-sm font-medium text-gray-700">TIN ID Number</label>
-                            <input type="number" name="tin-id" id="tin-id" class="inputbox" />
+                            <input type="number" name="tin-id" id="tin-id" class="inputbox" autocomplete="off" />
                         </div>
                         <div class="container space-y-1">
                             <label for="agency-no" class="block text-sm font-medium text-gray-700">Agency Employee Number</label>
-                            <input type="number" name="agency-no" id="agency-no" class="inputbox" />
+                            <input type="number" name="agency-no" id="agency-no" class="inputbox" autocomplete="off" />
                         </div>
 
                         <div class="col-span-2 flex items-end gap-3">
@@ -153,32 +164,45 @@
                             <h3 class="text-gray-700">Residential Address</h3>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="res-house-no" id="res-house-no" class="inputbox" placeholder="House no./Block no./Lot no." />
+                        <div class="group container relative">
+                            <input type="text" name="res-house-no" id="res-house-no" class="address-inputbox" autocomplete="off" required />
+                            <label for="res-house-no" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">House no./Block no./Lot no.</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="res-street" id="res-street" class="inputbox" placeholder="Street" />
+                        <div class="group container relative">
+                            <input type="text" name="res-street" id="res-street" class="address-inputbox" autocomplete="off" required />
+                            <label for="res-street" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Street</label>
                         </div>
 
-                        <div class="container col-span-2">
-                            <input type="text" name="res-village" id="res-village" class="inputbox" placeholder="Village/Subdivision" />
+                        <div class="group container relative col-span-2">
+                            <input type="text" name="res-village" id="res-village" class="address-inputbox" autocomplete="off" required />
+                            <label for="res-village" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Village</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="res-province" id="res-street" class="inputbox" placeholder="Province" />
+                        <div class="group container relative">
+                            <select name="res-province" id="res-province" class="address-inputbox" required>
+                                <option value=""></option>
+                            </select>
+                            <label for="res-province" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Province</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="res-city" id="res-city" class="inputbox" placeholder="City" />
+                        <div class="group container relative">
+                            <select name="res-municipality" id="res-municipality" class="address-inputbox" required>
+                                <option value=""></option>
+                            </select>
+                            <label for="res-municipality" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Municipality</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="res-brgy" id="res-brgy" class="inputbox" placeholder="Baranggay" />
+                        <div class="group container relative">
+                            <select name="res-brgy" id="res-brgy" class="address-inputbox" required>
+                                <option value=""></option>
+                            </select>
+                            <label for="res-brgy" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Baranggay</label>
                         </div>
 
-                        <div class="container mb-2">
-                            <input type="text" name="res-city" id="res-zip" class="inputbox" placeholder="Zip Code" />
+                        <div class="group container relative">
+                            <input type="text" name="res-zip" id="res-zip" class="address-inputbox" autocomplete="off" required />
+                            <label for="res-zip" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Zip Code</label>
                         </div>
 
                         <hr class="col-span-2 border-b border-gray-300" />
@@ -187,32 +211,45 @@
                             <h3 class="text-gray-700">Permanent Address</h3>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="perm-house-no" id="perm-house-no" class="inputbox" placeholder="House no./Block no./Lot no." />
+                        <div class="group container relative">
+                            <input type="text" name="permanent-house-no" id="permanent-house-no" class="address-inputbox" autocomplete="off" required />
+                            <label for="permanent-house-no" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">House no./Block no./Lot no.</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="perm-street" id="perm-street" class="inputbox" placeholder="Street" />
+                        <div class="group container relative">
+                            <input type="text" name="permanent-street" id="permanent-street" class="address-inputbox" autocomplete="off" required />
+                            <label for="permanent-street" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Street</label>
                         </div>
 
-                        <div class="container col-span-2">
-                            <input type="text" name="perm-village" id="perm-village" class="inputbox" placeholder="Village/Subdivision" />
+                        <div class="group container relative col-span-2">
+                            <input type="text" name="permanent-village" id="permanent-village" class="address-inputbox" autocomplete="off" required />
+                            <label for="permanent-village" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Village</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="perm-province" id="perm-street" class="inputbox" placeholder="Province" />
+                        <div class="group container relative">
+                            <select name="permanent-province" id="permanent-province" class="address-inputbox" required>
+                                <option value=""></option>
+                            </select>
+                            <label for="permanent-province" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Province</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="perm-city" id="perm-city" class="inputbox" placeholder="City" />
+                        <div class="group container relative">
+                            <select name="permanent-municipality" id="permanent-municipality" class="address-inputbox" required>
+                                <option value=""></option>
+                            </select>
+                            <label for="permanent-municipality" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Municipality</label>
                         </div>
 
-                        <div class="container">
-                            <input type="text" name="perm-brgy" id="perm-brgy" class="inputbox" placeholder="Baranggay" />
+                        <div class="group container relative">
+                            <select name="permanent-brgy" id="permanent-brgy" class="address-inputbox" required>
+                                <option value=""></option>
+                            </select>
+                            <label for="permanent-brgy" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Baranggay</label>
                         </div>
 
-                        <div class="container mb-2">
-                            <input type="text" name="perm-city" id="perm-zip" class="inputbox" placeholder="Zip Code" />
+                        <div class="group container relative">
+                            <input type="text" name="permanent-zip" id="permanent-zip" class="address-inputbox" autocomplete="off" required />
+                            <label for="permanent-zip" class="pointer-events-none absolute inset-x-2 inset-y-4 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Zip Code</label>
                         </div>
 
                         <hr class="col-span-2 border-b border-gray-300" />
@@ -220,11 +257,11 @@
                         <div class="col-span-2 flex gap-3">
                             <div class="container space-y-1">
                                 <label for="tel-no" class="block text-sm font-medium text-gray-700">Telephone Number</label>
-                                <input type="number" min="0" name="tel-no" id="tel-no" class="inputbox" autocomplete="off" />
+                                <input type="number" min="0" name="tel-no" id="tel-no" class="inputbox" autocomplete="off" required />
                             </div>
                             <div class="container space-y-1">
                                 <label for="mobile-no" class="block text-sm font-medium text-gray-700">Mobile Number</label>
-                                <input type="number" min="0" name="mobile-no" id="mobile-no" class="inputbox" autocomplete="off" />
+                                <input type="number" min="0" name="mobile-no" id="mobile-no" class="inputbox" autocomplete="off" required />
                             </div>
                             <div class="container space-y-1">
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
@@ -232,10 +269,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button disabled type="button" class="cursor-not-allowed opacity-50" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Family Background -->
-                <div class="my-2 space-y-4" data-step>
+                <div class="my-2 hidden space-y-4 transition-width duration-150 ease-in-out" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">2. Family Background</h1>
@@ -346,9 +397,18 @@
                                 <!-- <span class="justify-self-center">Actions</span> -->
                             </div>
 
-                            <div class="child-entry">
+                            <div class="child-entry" id="child-entry-1">
                                 <input type="text" class="inputbox" name="child-name-1" id="child-name-1" />
                                 <input type="text" class="inputbox" name="child-bdate-1" id="child-bdate-1" />
+                                <button type="button" class="del-button" onclick="deleteEntry('child-entry', this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="child-entry" id="child-entry-2">
+                                <input type="text" class="inputbox" name="child-name-2" id="child-name-2" />
+                                <input type="text" class="inputbox" name="child-bdate-2" id="child-bdate-2" />
                                 <button type="button" class="del-button" onclick="deleteEntry('child-entry', this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
@@ -364,10 +424,24 @@
                         </svg>
                         <span>Add Row</span>
                     </button>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Educational Background -->
-                <div class="my-2 hidden space-y-4" data-step>
+                <div class="my-2 space-y-4" data-step>
                     <!-- Banner -->
                     <div class="mb-2 space-y-2">
                         <h1 class="text-xl font-bold">3. Educational Background</h1>
@@ -391,11 +465,25 @@
                         <div class="col-span-2 inline-flex gap-x-2">
                             <div class="container space-y-1">
                                 <label for="elem-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
-                                <input datepicker datepicker-autohide type="text" name="elem-school-start" id="elem-school-start" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="elem-school-start" id="elem-school-start" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="elem-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
-                                <input datepicker datepicker-autohide type="text" name="elem-school-end" id="elem-school-end" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="elem-school-end" id="elem-school-end" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="elem-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
@@ -425,11 +513,25 @@
                         <div class="col-span-2 inline-flex gap-x-2">
                             <div class="container space-y-1">
                                 <label for="secondary-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
-                                <input datepicker datepicker-autohide type="text" name="secondary-school-start" id="secondary-school-start" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="secondary-school-start" id="secondary-school-start" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="secondary-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
-                                <input datepicker datepicker-autohide type="text" name="secondary-school-end" id="secondary-school-end" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="secondary-school-end" id="secondary-school-end" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="secondary-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
@@ -459,11 +561,25 @@
                         <div class="col-span-2 inline-flex gap-x-2">
                             <div class="container space-y-1">
                                 <label for="vocational-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
-                                <input datepicker datepicker-autohide type="text" name="vocational-school-start" id="vocational-school-start" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="vocational-school-start" id="vocational-school-start" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="vocational-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
-                                <input datepicker datepicker-autohide type="text" name="vocational-school-end" id="vocational-school-end" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="vocational-school-end" id="vocational-school-end" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="vocational-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
@@ -493,11 +609,25 @@
                         <div class="col-span-2 inline-flex gap-x-2">
                             <div class="container space-y-1">
                                 <label for="college-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
-                                <input datepicker datepicker-autohide type="text" name="college-school-start" id="college-school-start" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="college-school-start" id="college-school-start" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="college-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
-                                <input datepicker datepicker-autohide type="text" name="college-school-end" id="college-school-end" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="college-school-end" id="college-school-end" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="container space-y-1">
                                 <label for="college-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
@@ -527,11 +657,25 @@
                         <div class="col-span-2 inline-flex gap-x-2">
                             <div class="space-y-1">
                                 <label for="grad-school-start" class="block text-sm font-medium text-gray-700">A.Y. Start</label>
-                                <input datepicker datepicker-autohide type="text" name="grad-school-start" id="grad-school-start" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="grad-school-start" id="grad-school-start" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="space-y-1">
                                 <label for="grad-school-end" class="block text-sm font-medium text-gray-700">A.Y. End</label>
-                                <input datepicker datepicker-autohide type="text" name="grad-school-end" id="grad-school-end" class="inputbox" placeholder="Select date" />
+                                <div class="relative">
+                                    <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                        <svg class="h-5 w-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-autohide type="text" name="grad-school-end" id="grad-school-end" class="date-inputbox" placeholder="Select date" />
+                                </div>
                             </div>
                             <div class="space-y-1">
                                 <label for="grad-highest-level" class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
@@ -544,10 +688,24 @@
                             <input type="text" name="grad-acad-honor" id="grad-acad-honor" class="inputbox" autocomplete="off" />
                         </div>
                     </div>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Civil Service Eligibility -->
-                <div class="my-2 space-y-3" data-step>
+                <div class="my-2 hidden space-y-3 transition-all duration-150 ease-in-out" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">4. Civil Service Eligibility</h1>
@@ -598,10 +756,24 @@
                         </svg>
                         <span>Add Entries</span>
                     </button>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Work Experience -->
-                <div class="my-2 space-y-3" data-step>
+                <div class="my-2 hidden space-y-3 transition-all duration-150 ease-in-out" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">5. Work Experience</h1>
@@ -613,11 +785,11 @@
                         <div class="work-entry" id="work-entry-1">
                             <div class="col-span-3 flex items-center justify-between">
                                 <span class="text-lg font-semibold">Work Entry 1</span>
-                                <button type="button" class="del-button" onclick="deleteEntry('work-entry', this)">
+                                <!-- <button type="button" class="del-button" onclick="deleteEntry('work-entry', this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-5 w-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
-                                </button>
+                                </button> -->
                             </div>
 
                             <div class="container space-y-1">
@@ -647,7 +819,7 @@
                             <div class="inline-flex gap-2">
                                 <div class="container space-y-1">
                                     <label for="work-start-1" class="block text-sm font-medium text-gray-700">Salary Grade</label>
-                                    <select name="salary-grade-1" class="inputbox" id="salary-grade-1"></select>
+                                    <input type="number" min="1" max="33" name="salary-grade-1" class="inputbox" id="salary-grade-1" />
                                 </div>
                                 <div class="container space-y-1">
                                     <label for="salary-step-1" class="block text-sm font-medium text-gray-700">Salary Step</label>
@@ -683,10 +855,23 @@
                         </svg>
                         <span>Add Entries</span>
                     </button>
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Voluntary Work Experience -->
-                <div class="my-2 space-y-3" data-step>
+                <div class="my-2 hidden space-y-3" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">6. Voluntary Work Experience</h1>
@@ -734,10 +919,23 @@
                         </svg>
                         <span>Add Entries</span>
                     </button>
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Learning and Development Trainings -->
-                <div class="my-2 space-y-3" data-step>
+                <div class="my-2 hidden space-y-3" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">7. Learning and Development Trainings</h1>
@@ -809,10 +1007,24 @@
                         </svg>
                         <span>Add Entries</span>
                     </button>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Other Information -->
-                <div class="my-2 space-y-3" data-step>
+                <div class="my-2 hidden space-y-3" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">8. Other Information</h1>
@@ -820,7 +1032,7 @@
                         <hr class="my-2 border-b border-gray-400" />
                     </div>
 
-                    <div class="space-y-2" id="other-info-container">
+                    <div class="space-y-2">
                         <div class="grid grid-cols-mod-4 gap-3 rounded-sm bg-gray-500 px-4 py-2 text-white">
                             <span>Skills and Hobbies</span>
                             <span>Non-academic Recognition</span>
@@ -838,6 +1050,27 @@
                                 </svg>
                             </div>
                         </div>
+                    </div>
+
+                    <button type="button" class="add-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-4 w-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <span>Add Row</span>
+                    </button>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
                     </div>
                 </div>
 
@@ -906,8 +1139,8 @@
                             <input type="text" name="admin-offense-info" id="admin-offense-info" class="question-input" placeholder="If YES, please give details" />
                         </div>
 
-                        <div class="space-y-2">
-                            <div class="ml-5 flex justify-start gap-20">
+                        <div class="space-y-1">
+                            <div class="mb-4 ml-5 flex justify-start gap-20">
                                 <div class="flex items-center gap-2">
                                     <label for="crim-offense-yes">Yes</label>
                                     <input type="checkbox" name="crim-offense-yes" id="crim-offense-yes" class="size-5" />
@@ -918,11 +1151,24 @@
                                 </div>
                             </div>
 
-                            <label class="ml-5 block">If YES, please give details</label>
-
+                            <label class="ml-5 block">If YES, please give details: </label>
                             <div class="ml-5 flex gap-3">
-                                <input datepicker datepicker-autohide type="text" name="crim-date-filed" id="crim-date-field" class="inputbox" placeholder="Date Filed" autocomplete="off" />
-                                <input type="text" name="crim-offense-status" id="crim-offense-status" class="inputbox" placeholder="Status of Case/s" autocomplete="off" />
+                                <div class="space-y-1">
+                                    <label for="crim-date-filed" class="text-sm">Date Filed</label>
+                                    <div class="relative">
+                                        <div class="pointer-events-non absolute inset-y-0 flex items-center ps-3.5">
+                                            <svg class="h-4 w-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                            </svg>
+                                        </div>
+                                        <input datepicker datepicker-autohide type="text" name="crim-date-filed" id="crim-date-filed" class="date-inputbox" placeholder="Select date" />
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1">
+                                    <label for="crim-offense-status" class="text-sm">Status of Case/s</label>
+                                    <input type="text" name="crim-offense-status" id="crim-offense-status" class="inputbox" placeholder="Status of Case/s" autocomplete="off" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1028,7 +1274,7 @@
                     <!-- Question #40 -->
                     <div class="grid grid-cols-2 gap-3 p-3">
                         <!-- Question -->
-                        <p class="prose-slate text-justify before:content-['40._']">Pursuant to: (a) Indigenous People's Act (RA 8371); (b) Magna Carta for Disabled Persons (RA 7277); and (c) Solo Parents Welfare Act of 2000 (RA 8972), please answer the following items:</p>
+                        <p class="prose-slate text-justify before:content-['40._']">Pursuant to: (a) Indigenous People's Act (RA 8371); (b) Magna Carta for Persons (RA 7277); and (c) Solo Parents Welfare Act of 2000 (RA 8972), please answer the following items:</p>
 
                         <p class="prose-slate col-start-1 row-start-2 text-justify before:content-['a._']">Are you a member of any indeginous group?</p>
                         <p class="prose-slate col-start-1 row-start-3 text-justify before:content-['a._']">Are you a person with disability?</p>
@@ -1075,10 +1321,24 @@
                             <input type="text" name="solo-parent-info" id="solo-parent-info" class="question-input" placeholder="If YES, please specify ID Number" />
                         </div>
                     </div>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Additional Questions 2 -->
-                <div class="my-2 space-y-3" data-step>
+                <div class="my-2 hidden space-y-3" data-step>
                     <!-- Banner -->
                     <div class="space-y-2">
                         <h1 class="text-xl font-bold">9.1 References</h1>
@@ -1104,25 +1364,84 @@
                             </button>
                         </div>
                     </div>
-                    <button type="button" class="add-button" id="add-related-person">
+                    <button type="button" class="add-button">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="h-4 w-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                         <span>Add Row</span>
                     </button>
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button type="button" class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950" data-next>
+                            <div class="inline-flex items-center gap-1">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Previous & Next Button Container -->
-                <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
-                    <button disabled type="button" class="cursor-not-allowed opacity-50">Prev</button>
-                    <button class="w-24 rounded-md bg-green-500 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950">
-                        <div class="inline-flex items-center gap-1">
-                            <span>Next</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                            </svg>
+                <!-- Credentials -->
+                <div class="my-2 hidden space-y-3 divide-y-2 divide-gray-400" data-step>
+                    <!-- Banner -->
+                    <div class="space-y-2">
+                        <h1 class="text-xl font-bold">9.2 Credentials</h1>
+                        <div class="prose-slate">I declare under oath that I have personally accomplished this Personal Data Sheet which is a true, correct and complete statement pursuant to the provisions of pertinent laws, rules and regulations of the Republic of the Philippines. I authorize the agency head/authorized representative to verify/validate the contents stated herein. I agree that any misrepresentation made in this document and its attachments shall cause the filing of administrative/criminal case/s against me.</div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-5 border-b-2 border-gray-700 py-3">
+                        <p class="col-span-full rounded-md bg-gray-500 px-4 py-2 text-white">Government Issued ID (i.e.Passport, GSIS, SSS, PRC, Driver's License, etc.)<br />PLEASE INDICATE ID Number and Date of Issuance</p>
+
+                        <div class="space-y-2">
+                            <label for="gov-issued-id">Government Issued ID</label>
+                            <select name="gov-issued-id" id="gov-issued-id" class="inputbox">
+                                <option value=""></option>
+                            </select>
                         </div>
-                    </button>
+
+                        <div class="space-y-2">
+                            <label for="">ID/License/Passport No.</label>
+                            <input type="number" min="0" name="gov-id-no" id="gov-id-no" class="inputbox" />
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="">Date of Issuance</label>
+                            <input datepicker datepicker-autohide type="text" name="gov-id-issuance" id="gov-id-issuance" class="inputbox" placeholder="Select a date" />
+                        </div>
+
+                        <p class="col-span-full rounded-md bg-gray-500 px-4 py-2 text-white">Upload Pictures</p>
+                        <div class="flex flex-col gap-2">
+                            <input type="file" name="gov-id-file" id="gov-id-file" class="block w-full border-2 border-gray-400 text-sm text-slate-500 file:mr-4 file:rounded-sm file:border-0 file:bg-gray-200 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-700 hover:file:bg-gray-400" />
+
+                            <!-- <div class="mx-auto flex w-full flex-col justify-center gap-5 border-2 border-dashed border-gray-400 p-2 text-xs" id="image-preview">
+                                <img src="" alt="" id="gov-id-preview" />
+                                <p class="text-center text-gray-500">ID picture taken within the last 6 months 3.5 cm. X 4.5 cm (passport size)</p>
+                                <p class="text-center text-gray-500">With full and handwritten name tag and signature over printed name</p>
+                            </div> -->
+                        </div>
+
+                        <div class="space-y-4">
+                            <input type="file" name="gov-id-file" id="gov-id-file" class="block w-full border-2 border-gray-400 text-sm text-slate-500 file:mr-4 file:rounded-sm file:border-0 file:bg-gray-200 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-700 hover:file:bg-gray-400" />
+                        </div>
+                        <div class="space-y-4">
+                            <input type="file" name="gov-id-file" id="gov-id-file" class="block w-full border-2 border-gray-400 text-sm text-slate-500 file:mr-4 file:rounded-sm file:border-0 file:bg-gray-200 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-700 hover:file:bg-gray-400" />
+                        </div>
+                    </div>
+
+                    <!-- Button Container -->
+                    <div class="mt-5 flex justify-end gap-4 border-t-2 border-gray-400 px-2 py-4">
+                        <button type="button" data-prev>Prev</button>
+
+                        <button class="w-20 rounded-md bg-green-500 px-2 py-2 text-white transition-colors duration-75 ease-in hover:bg-green-700 active:bg-green-950">
+                            <div class="inline-flex items-center gap-1">
+                                <span>Submit</span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
