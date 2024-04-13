@@ -13,16 +13,16 @@
 .date-inputbox,
 .address-inputbox,
 .question-input {
-    @apply w-full rounded-sm border-2 border-gray-400 font-medium text-gray-800 outline-none focus:border-gray-600;
+    @apply w-full rounded-md border-2 border-gray-400 font-medium text-gray-800 outline-none focus:border-gray-600;
 }
 
 .inputbox,
 .dropdown,
 .address-inputbox {
-    @apply h-11 text-sm px-2;
+    @apply h-11 px-2 text-sm;
 }
 
-.dropdown{
+.dropdown {
     @apply pl-1 pt-3;
 }
 
@@ -75,11 +75,11 @@
 
 /* Buttons */
 .add-button {
-    @apply flex w-32 items-center gap-x-1 rounded-md bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-700 active:bg-blue-950;
+    @apply flex w-32 items-center justify-center gap-x-3 rounded-md bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-700 active:bg-blue-950;
 }
 
 .del-button {
-    @apply flex w-10 items-center justify-center rounded-sm bg-red-500 p-2 text-sm text-white hover:bg-red-700 active:bg-red-950;
+    @apply flex items-center justify-center rounded-md bg-red-500 p-3 text-sm text-white hover:bg-red-700 active:bg-red-950;
 }
 
 /* Active state */
