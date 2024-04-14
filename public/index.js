@@ -35,7 +35,7 @@ function initYearDropDown(dropdown) {
 }
 
 function initDatePicker(inputElement) {
-    Array.isArray(inputElement) ? inputElement.forEach(element => flatpickr(element, {dateFormat: 'm-d-Y'})) : flatpickr(inputElement, { dateFormat: 'm-d-Y' })
+    Array.isArray(inputElement) ? inputElement.forEach((element) => flatpickr(element, { dateFormat: 'm-d-Y' })) : flatpickr(inputElement, { dateFormat: 'm-d-Y' })
 }
 
 function changeStep(stepChange) {
@@ -67,31 +67,27 @@ function addNewChildEntry() {
 
     const inputData = [
         { type: 'text', namePrefix: `child-name`, className: 'inputbox', autocomplete: 'off' },
-        { type: 'text', name: 'child-bdate', className: 'date-inputbox', autocomplete: 'off', placeholder: 'Select date' }
+        { type: 'text', namePrefix: 'child-bdate', className: 'date-inputbox', autocomplete: 'off', placeholder: 'Select date' },
     ]
 
-    const inputs = inputData.map(data => createInput(createInputAttributes(data, totalEntry)))
-
-    console.log(inputData.map(data => createInputAttributes(data, totalEntry)))
-    const [ childNameInput, childBdateInput ] = inputs
+    // childname input type is undefined: to be fixed!!!
+    const inputs = inputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const [childNameInput, childBdateInput] = inputs
 
     const childEntry = createContainer(containerClasses.mainContainer, 'data-child')
-    const examDateInputContainer = createContainer(containerClasses.relativeContainer)
-    const examDateIconContainer = createContainer(containerClasses.iconContainer)
-
-    examDateIconContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                                </svg>`
-
-    examDateInputContainer.appendChild(examDateIconContainer)
-    childEntry.appendChild(childNameInput)
-    childEntry.appendChild(examDateInputContainer)
-    initDatePicker(childBdateInput)
-    examDateInputContainer.appendChild(childBdateInput)
+    const childBdateInputContainer = createContainer(containerClasses.relativeContainer)
+    const childBdateIconContainer = createContainer(containerClasses.iconContainer)
     const delButton = createDelButton('del-button')
 
+    initDatePicker(childBdateInput)
+
+    appendChildren(childBdateIconContainer, [createCalendarIcon()])
+    appendChildren(childBdateInputContainer, [childBdateIconContainer])
+    appendChildren(childBdateInputContainer, [childBdateInput])
+
+    appendChildren(childEntry, [childNameInput, childBdateInputContainer, delButton])
+    
     delButton.addEventListener('click', () => deleteEntry(delButton, 'data-child'))
-    childEntry.appendChild(delButton)
     entryContainer.appendChild(childEntry)
 }
 
@@ -112,43 +108,43 @@ function addNewCivilEntry() {
 
     const captionData = [
         {
-            tag: 'h2',
+            type: 'h2',
             classes: ['col-span-3', 'text-lg', 'font-semibold'],
             id: `title-${totalEntry + 1}`,
             text: 'Civil Service Entry',
         },
         {
-            tag: 'label',
+            type: 'label',
             classes: captionClasses,
             id: '',
             text: 'Examination Name',
         },
         {
-            tag: 'label',
+            type: 'label',
             classes: captionClasses,
             id: '',
             text: 'Ratings',
         },
         {
-            tag: 'label',
+            type: 'label',
             classes: captionClasses,
             id: '',
             text: 'Date of Examination',
         },
         {
-            tag: 'label',
+            type: 'label',
             classes: captionClasses,
             id: '',
             text: 'Place of Examination',
         },
         {
-            tag: 'label',
+            type: 'label',
             classes: captionClasses,
             id: '',
             text: 'License Number',
         },
         {
-            tag: 'label',
+            type: 'label',
             classes: captionClasses,
             id: '',
             text: 'Date of Issuance',
@@ -164,10 +160,10 @@ function addNewCivilEntry() {
         { type: 'text', namePrefix: 'issue-date', className: 'date-inputbox', autocomplete: 'off', placeholder: 'Select date' },
     ]
 
-    const inputs = inputData.map(data => createInput(createInputAttributes(data, totalEntry)))
-    const [ examNameInput, ratingInput, examDateInput, examPlaceInput, licenseNumInput, issueDateInput ] = inputs
+    const inputs = inputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const [examNameInput, ratingInput, examDateInput, examPlaceInput, licenseNumInput, issueDateInput] = inputs
 
-    const labels = captionData.map(({ tag, classes, id, text }) => createCaption(tag, classes, id, text))
+    const labels = captionData.map(({ type, classes, id, text }) => createCaption(type, classes, id, text))
     const [title, examNameLabel, ratingLabel, examDateLabel, examPlaceLabel, licenseNumLabel, issueDateLabel] = labels
 
     const civilEntry = createContainer(containerClasses.mainContainer, 'data-exam')
@@ -191,12 +187,11 @@ function addNewCivilEntry() {
 
     initDatePicker([examDateInput, issueDateInput])
 
-
     // appends the elements to containers
     appendChildren(titleContainer, [title, delButton])
     appendChildren(examNameContainer, [examNameLabel, examNameInput])
     appendChildren(ratingContainer, [ratingLabel, ratingInput])
-    
+
     appendChildren(examDateIconContainer, [calendarIcon])
     appendChildren(examDateInputContainer, [examDateIconContainer, examDateInput])
     appendChildren(examDateContainer, [examDateLabel, examDateInputContainer])
@@ -208,37 +203,29 @@ function addNewCivilEntry() {
     appendChildren(issueDateInputContainer, [issueDateIconContainer, issueDateInput])
     appendChildren(issueDateContainer, [issueDateLabel, issueDateInputContainer])
 
-    appendChildren(civilEntry, [
-        titleContainer,
-        examNameContainer,
-        ratingContainer,
-        examDateContainer,
-        examPlaceContainer,
-        licenseNumContainer,
-        issueDateContainer
-    ])
+    appendChildren(civilEntry, [titleContainer, examNameContainer, ratingContainer, examDateContainer, examPlaceContainer, licenseNumContainer, issueDateContainer])
 
     entryContainer.appendChild(civilEntry)
 }
 
 // element builder functions
-function appendChildren(container, children){
-    children.forEach(child => container.appendChild(child))
+function appendChildren(container, children) {
+    children.forEach((child) => container.appendChild(child))
 }
 
 function createInput(attributes) {
-    const { tag, name, id, className, placeholder = '', autocomplete } = attributes
+    const { type, name, id, className, placeholder = '', autocomplete } = attributes
 
     const input = document.createElement('input')
 
-    input.type = tag
+    input.type = type
     input.name = name
     input.id = id
     input.className = className
     input.placeholder = placeholder
     input.autocomplete = autocomplete
 
-    if (tag === 'number') {
+    if (type === 'number') {
         input.setAttribute('min', 0)
         input.setAttribute('step', 'any')
     }
@@ -247,11 +234,11 @@ function createInput(attributes) {
     return input
 }
 
-function createInputAttributes({ type, namePrefix, className, autocomplete, placeholder }, totalEntry){
-    return{
+function createInputAttributes({ type, namePrefix, className, autocomplete, placeholder }, totalEntry) {
+    return {
         type,
         name: `${namePrefix}-${totalEntry + 1}`,
-        // id: `${namePrefix}-${totalEntry + 1}`,
+        id: `${namePrefix}-${totalEntry + 1}`,
         className,
         autocomplete,
         placeholder,
