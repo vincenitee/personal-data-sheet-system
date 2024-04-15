@@ -2906,39 +2906,6 @@ video {
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
-/* Entry styles */
-
-.child-entry {
-  display: grid;
-  grid-template-columns: 1fr 1fr 40px;
-  justify-items: center;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
-}
-
-.civil-entry,
-.work-entry,
-.vol-work-entry,
-.learning-dev-entry,
-.related-person-entry,
-.other-info-entry {
-  display: grid;
-  gap: 0.75rem;
-  border-width: 2px;
-  border-style: dashed;
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
-  padding: 1rem;
-}
-
-.civil-entry {
-  grid-template-columns: 1fr 150px 150px;
-}
-
-.vol-work-entry {
-  grid-template-columns: 1fr 1fr 130px 130px 95px;
-}
-
 /* Buttons */
 
 .add-button {
@@ -2978,7 +2945,7 @@ video {
   border-radius: 0.375rem;
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-  padding: 0.75rem;
+  padding: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
