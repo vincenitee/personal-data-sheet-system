@@ -963,7 +963,6 @@
                                 <label class="block text-sm font-medium text-gray-700">Salary Grade</label>
                                 <div class="group relative">
                                     <select name="salary-grade-1" id="salary-grade-1" class="dropdown salary-grade" required>
-                                        <option value=""></option>
                                     </select>
                                     <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Grade</label>
                                 </div>
@@ -973,7 +972,6 @@
                                 <label class="block text-sm font-medium text-gray-700">Salary Step</label>
                                 <div class="group relative">
                                     <select name="salary-step-1" id="salary-step-1" class="dropdown salary-step" required>
-                                        <option value=""></option>
                                     </select>
                                     <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Step</label>
                                 </div>
@@ -982,21 +980,21 @@
                             <div class="space-y-1">
                                 <label class="block text-sm font-medium text-gray-700">Status of Appointment</label>
                                 <div class="group relative">
-                                    <select name="appointment-status-1" id="appointment-status-1" class="dropdown" required>
+                                    <select name="appointment-status-1" id="appointment-status-1" class="dropdown appointment-status" required>
                                         <option value=""></option>
                                         <option value="Permanent">Permanent</option>
                                         <option value="Contractual">Contractual</option>
                                         <option value="Casual">Casual</option>
                                         <option value="Temporary">Temporary</option>
                                     </select>
-                                    <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Status</label>
+                                    <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Status</label>
                                 </div>
                             </div>
 
                             <div class="space-y-1">
                                 <label class="block text-sm font-medium text-gray-700">Government Service</label>
                                 <div class="group relative">
-                                    <select name="salary-step-1" id="salary-step-1" class="dropdown" required>
+                                    <select name="government-service-1" id="government-service-1" class="dropdown government-service" required>
                                         <option value=""></option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1007,7 +1005,7 @@
                         </div>
                     </div>
 
-                    <button type="button" class="add-button mt-5" id="add-work-entry" onclick="addNewWorkEntry()">+ Add More</button>
+                    <button type="button" class="add-button mt-5" id="add-work-entry" >+ Add More</button>
                 </div>
             </form>
         </main>

@@ -8,14 +8,16 @@ export const initYearDropDown = (dropdown) => {
 
 export const initSalaryGrade = (dropdown) => {
     const maxGrade = 33;
-    for (let grade = 1; grade <= maxGrade; grade++) {
+    for (let grade = 0; grade <= maxGrade; grade++) {
+        if(grade === 0) dropdown.add(new Option('', ''))
         dropdown.add(new Option(grade, grade));
     }
 };
 
 export const initSalaryStep = (dropdown) => {
     const maxStep = 8;
-    for (let step = 0; step < maxStep; step++) {
+    for (let step = 0; step <= maxStep; step++) {
+        if(step === 0) dropdown.add(new Option('', ''))
         dropdown.add(new Option(step, step));
     }
 };
