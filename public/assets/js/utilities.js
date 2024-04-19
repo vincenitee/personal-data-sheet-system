@@ -6,6 +6,10 @@ export function selectAll(selector){
     return document.querySelectorAll(selector)
 }
 
+export function selectSiblingByClass(container, childClass){
+    return [...container.getElementsByClassName(childClass)]
+}
+
 export function selectById(elementId){
     return document.getElementById(elementId)
 }

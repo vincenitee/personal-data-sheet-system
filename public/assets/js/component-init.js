@@ -1,32 +1,48 @@
-export const initYearDropDown = (dropdown) => {
-    const startYear = 1924;
-    const currentYear = new Date().getFullYear();
-    for (let year = currentYear; year >= startYear; year--) {
-        dropdown.add(new Option(year, year));
-    }
-};
+export const initDropdown = (dropdown, type) => {
+    switch (type) {
+        case 'year':
+            const startYear = 1924
+            const currentYear = new Date().getFullYear()
+            for (let year = currentYear; year >= startYear; year--) {
+                dropdown.add(new Option(year, year))
+            }
+            break
+        case 'salaryGrade':
+            [0, ...Array.from({ length: 33 }, (_, i) => i + 1)].forEach((grade) => {
+                dropdown.add(new Option(grade === 0 ? '' : grade, grade === 0 ? '' : grade));
+            })
+            break
+        case 'salaryStep':
+            [0, ...Array.from({ length: 8 }, (_, i) => i + 1)].forEach((step) => {
+                dropdown.add(new Option(step === 0 ? '' : step, step === 0 ? '' : step))
+            })
+            break
+        case 'appointmentStatus':
+            ['', 'Permanent', 'Contractual', 'Casual', 'Temporary'].forEach((status) => {
+                dropdown.add(new Option(status, status))
+            })
+            break
+        case 'governmentService':
+            ['', 'Yes', 'No'].forEach((status) => {
+                dropdown.add(new Option(status, status))
+            })
+            break
 
-export const initSalaryGrade = (dropdown) => {
-    const maxGrade = 33;
-    for (let grade = 0; grade <= maxGrade; grade++) {
-        if(grade === 0) dropdown.add(new Option('', ''))
-        dropdown.add(new Option(grade, grade));
+        case 'trainingType':
+            ['', 'Managerial', 'Supervisory', 'Technical', 'Foundation'].forEach((type) => {
+                dropdown.add(new Option(type, type))
+            })
+            break
+            
+        default:
+            console.error('Unknown dropdown type:', type)
     }
-};
-
-export const initSalaryStep = (dropdown) => {
-    const maxStep = 8;
-    for (let step = 0; step <= maxStep; step++) {
-        if(step === 0) dropdown.add(new Option('', ''))
-        dropdown.add(new Option(step, step));
-    }
-};
+}
 
 export const initDatePicker = (inputElement) => {
     if (Array.isArray(inputElement)) {
-        inputElement.forEach((element) => flatpickr(element, { dateFormat: 'm-d-Y' }));
+        inputElement.forEach((element) => flatpickr(element, { dateFormat: 'm-d-Y' }))
     } else {
-        flatpickr(inputElement, { dateFormat: 'm-d-Y' });
+        flatpickr(inputElement, { dateFormat: 'm-d-Y' })
     }
-};
-
+}

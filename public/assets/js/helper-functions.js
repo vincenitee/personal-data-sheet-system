@@ -8,7 +8,6 @@ const setMultipleAttributes = (element, attribute) => {
 
 const setTitleText = ({input, titleId, defaultText}) => {
     const title = selectById(titleId)
-    console.log(titleId)
     const inputContent = input.value
     title.textContent = inputContent === '' ? defaultText : inputContent 
 }

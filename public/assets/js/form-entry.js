@@ -1,11 +1,12 @@
-import { initDatePicker, initSalaryGrade, initSalaryStep } from './component-init.js'
+import { initDropdown, initDatePicker } from './component-init.js'
 import { appendChildren, createCalendarIcon, createCaption, createContainer, createDelButton, createSelectAttribute, createSelect, createInput, createInputAttributes } from './element-builder.js'
-import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData } from './form-config.js'
+import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData } from './form-config.js'
 import { deleteEntry, setTitleText, totalDataEntry } from './helper-functions.js'
-import { selectById } from './utilities.js'
+import { selectAllSibling, selectByClass, selectById, selectSibling, selectSiblingByClass } from './utilities.js'
 
 function addNewChildEntry() {
     const entryContainer = selectById('children-container')
+    const secondChild = entryContainer.querySelectorAll('div')[1]
     const totalEntry = totalDataEntry(entryContainer, 'data-child')
 
     const inputs = childInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
@@ -25,7 +26,7 @@ function addNewChildEntry() {
 
     appendChildren(childEntry, [childNameInput, childBdateInputContainer, delButton])
 
-    appendChildren(entryContainer, [childEntry])
+    entryContainer.insertBefore(childEntry, secondChild)
 }
 
 function addNewCivilEntry() {
@@ -42,52 +43,62 @@ function addNewCivilEntry() {
 
     const [title, examNameLabel, ratingLabel, examDateLabel, examPlaceLabel, licenseNumLabel, issueDateLabel] = labels
 
+    const delButton = createDelButton(['del-button'])
+
     const civilEntry = createContainer(containerClasses.civilContainer, 'data-exam')
+
     const titleContainer = createContainer(containerClasses.titleContainer)
+    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-exam'))
+    appendChildren(titleContainer, [title, delButton])
+
+    // examination name
     const examNameContainer = createContainer(containerClasses.inputContainerSpan2)
+    examNameInput.addEventListener('keyup', () => setTitleText({ input: examNameInput, titleId: `civil-title-${totalEntry + 1}`, defaultText: 'Civil Service Entry' }))
+    appendChildren(examNameContainer, [examNameLabel, examNameInput])
+
+    // ratings
     const ratingContainer = createContainer(containerClasses.inputContainer)
-    const examPlaceContainer = createContainer(containerClasses.inputContainerSpan2)
-    
-    const licenseNumContainer = createContainer(containerClasses.inputContainer)
-    
-    // exam date
+    appendChildren(ratingContainer, [ratingLabel, ratingInput])
+
+    initDatePicker([examDateInput, issueDateInput])
+
+    // examination date
     const examDateContainer = createContainer(containerClasses.inputContainer)
     const examDateInputContainer = createContainer(containerClasses.relativeContainer)
     const examDateIconContainer = createContainer(containerClasses.iconContainer)
+
+    appendChildren(examDateIconContainer, [createCalendarIcon()])
+    appendChildren(examDateInputContainer, [examDateIconContainer, examDateInput])
+    appendChildren(examDateContainer, [examDateLabel, examDateInputContainer])
+
+    // examination place
+    const examPlaceContainer = createContainer(containerClasses.inputContainerSpan2)
+    appendChildren(examPlaceContainer, [examPlaceLabel, examPlaceInput])
+
+    // license number
+    const licenseNumContainer = createContainer(containerClasses.inputContainer)
+    appendChildren(licenseNumContainer, [licenseNumLabel, licenseNumInput])
     
     // date issued
     const issueDateContainer = createContainer(containerClasses.inputContainer)
     const issueDateIconContainer = createContainer(containerClasses.iconContainer)
     const issueDateInputContainer = createContainer(containerClasses.relativeContainer)
 
-    const delButton = createDelButton(['del-button'])
-    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-exam'))
-
-    const calendarIcon = createCalendarIcon()
-
-    examNameInput.addEventListener('keyup', () => setTitleText({ input: examNameInput, titleId: `civil-title-${totalEntry + 1}`, defaultText: 'Civil Service Entry' }))
-
-    initDatePicker([examDateInput, issueDateInput])
-
-    // appends the elements to containers
-    appendChildren(titleContainer, [title, delButton])
-    appendChildren(examNameContainer, [examNameLabel, examNameInput])
-    appendChildren(ratingContainer, [ratingLabel, ratingInput])
-
-    appendChildren(examDateIconContainer, [calendarIcon])
-    appendChildren(examDateInputContainer, [examDateIconContainer, examDateInput])
-    appendChildren(examDateContainer, [examDateLabel, examDateInputContainer])
-
-    appendChildren(examPlaceContainer, [examPlaceLabel, examPlaceInput])
-    appendChildren(licenseNumContainer, [licenseNumLabel, licenseNumInput])
-
-    appendChildren(issueDateIconContainer, [calendarIcon.cloneNode(true)])
+    appendChildren(issueDateIconContainer, [createCalendarIcon()])
     appendChildren(issueDateInputContainer, [issueDateIconContainer, issueDateInput])
     appendChildren(issueDateContainer, [issueDateLabel, issueDateInputContainer])
+    
+    appendChildren(civilEntry, [
+        titleContainer,
+        examNameContainer, 
+        ratingContainer, 
+        examDateContainer, 
+        examPlaceContainer, 
+        licenseNumContainer, 
+        issueDateContainer
+    ])
 
-    appendChildren(civilEntry, [titleContainer, examNameContainer, ratingContainer, examDateContainer, examPlaceContainer, licenseNumContainer, issueDateContainer])
-
-    appendChildren(entryContainer, [civilEntry])
+    entryContainer.prepend(civilEntry)
 }
 
 function addNewWorkEntry() {
@@ -115,19 +126,23 @@ function addNewWorkEntry() {
     
     const delButton = createDelButton('del-button')
 
+    // title
     const titleContainer = createContainer(containerClasses.titleContainer)
     delButton.addEventListener('click', () => deleteEntry(delButton, 'data-work'))
 
     appendChildren(titleContainer, [title, delButton])
 
+    // position 
     const positionContainer = createContainer(containerClasses.inputContainerSpan2)
     positionInput.addEventListener('keyup', () => setTitleText({input: positionInput, titleId: `work-title-${totalEntry + 1}`, defaultText: 'Work Experience Entry'}))
 
     appendChildren(positionContainer, [positionLabel, positionInput])
 
+    // department
     const departmentContainer = createContainer(containerClasses.inputContainerSpan3)
     appendChildren(departmentContainer, [departmentLabel, departmentInput])
 
+    // salary
     const salaryContainer = createContainer(containerClasses.inputContainer)
     appendChildren(salaryContainer, [salaryLabel, salaryInput])
 
@@ -152,7 +167,7 @@ function addNewWorkEntry() {
     appendChildren(endDateContainer, [endDateLabel, endDateInputContainer])
 
     // salary grade
-    initSalaryGrade(gradeSelect)
+    initDropdown(gradeSelect, 'salaryGrade')
     const salaryGradeContainer = createContainer(containerClasses.inputContainer)
     const salarySelectContainer = createContainer(containerClasses.selectContainer)
     
@@ -160,19 +175,29 @@ function addNewWorkEntry() {
     appendChildren(salaryGradeContainer, [salaryGradeLabel, salarySelectContainer])
 
     // salary step
-    initSalaryStep(stepSelect)
+    initDropdown(stepSelect, 'salaryStep')
     const salaryStepContainer = createContainer(containerClasses.inputContainer)
     const stepSelectContainer = createContainer(containerClasses.selectContainer)
 
     appendChildren(stepSelectContainer, [stepSelect, stepSelectLabel])
     appendChildren(salaryStepContainer, [salaryStepLabel, stepSelectContainer])
 
-
     // appointment status
+    initDropdown(appointmentSelect, 'appointmentStatus')
+    const appointmentStatusContainer = createContainer(containerClasses.inputContainer)
+    const appointmentSelectContainer = createContainer(containerClasses.selectContainer)
+    
+    appendChildren(appointmentSelectContainer, [appointmentSelect, appointmentSelectLabel])
+    appendChildren(appointmentStatusContainer, [appointmentLabel, appointmentSelectContainer])
 
     // government service
-
+    initDropdown(govSelect, 'governmentService')
+    const govServiceContainer = createContainer(containerClasses.inputContainer)
+    const govSelectContainer = createContainer(containerClasses.selectContainer)
     
+    appendChildren(govSelectContainer, [govSelect, govSelectLabel])
+    appendChildren(govServiceContainer, [govServiceLabel, govSelectContainer])
+
     appendChildren(workEntry, [
         titleContainer,
         positionContainer,
@@ -181,10 +206,206 @@ function addNewWorkEntry() {
         startDateContainer,
         endDateContainer,
         salaryGradeContainer,
-        salaryStepContainer
+        salaryStepContainer,
+        appointmentStatusContainer,
+        govServiceContainer
     ])
 
-    appendChildren(entryContainer, [workEntry])
+    entryContainer.prepend(workEntry)
 }
 
-export { addNewChildEntry, addNewCivilEntry, addNewWorkEntry }
+function addNewVolWorkEntry() {
+    const entryContainer = selectById('work-vol-container')
+    const totalEntry = totalDataEntry(entryContainer, 'data-work-vol')
+    const workVolEntry = createContainer(containerClasses.workVolContainer, 'data-work-vol')
+    const delButton = createDelButton('del-button')
+
+    const inputs = workVolInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const [orgNameInput, positionInput, workVolStartInput, workVolEndInput, totalHoursInput] = inputs
+    const inputLabels = workVolInputCaptions.map((captionAttributes) => createCaption(captionAttributes, totalEntry))
+    const titleLabel = createCaption({ type: 'h2', classes: ['text-lg', 'font-semibold'], id: `work-vol-title-${totalEntry + 1}`, text: 'Voluntary Work Experience Entry' })
+    inputLabels.unshift(titleLabel)
+    
+    const [title, orgNameLabel, positionLabel, workVolStartLabel, workVolEndLabel, totalHoursLabel] = inputLabels
+
+    // title
+    const titleContainer = createContainer(containerClasses.titleContainer)
+    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-work-vol'))
+    appendChildren(titleContainer, [title, delButton])
+
+    // org name and address
+    const orgNameContainer = createContainer(containerClasses.inputContainerSpan2)
+    orgNameInput.addEventListener('keyup', () => setTitleText({input: orgNameInput, titleId: `work-vol-title-${totalEntry + 1}`, defaultText: 'Voluntary Work Experience Entry'}))
+    appendChildren(orgNameContainer, [orgNameLabel, orgNameInput])
+
+    // position / nature of work
+    const positionContainer = createContainer(containerClasses.inputContainerSpan2)
+    appendChildren(positionContainer, [positionLabel, positionInput])
+    
+    initDatePicker([workVolStartInput, workVolEndInput])
+
+    // voluntary work start
+    const workVolStartDateContainer = createContainer(containerClasses.inputContainer)
+    const workVolStartDateIconContainer = createContainer(containerClasses.iconContainer)
+    const workVolStartDateInputContainer = createContainer(containerClasses.relativeContainer)
+
+    appendChildren(workVolStartDateIconContainer, [createCalendarIcon()])
+    appendChildren(workVolStartDateInputContainer, [workVolStartDateIconContainer, workVolStartInput])
+    appendChildren(workVolStartDateContainer, [workVolStartLabel, workVolStartDateInputContainer])
+
+    // voluntary work end
+    const workVolEndDateContainer = createContainer(containerClasses.inputContainer)
+    const workVolEndDateIconContainer = createContainer(containerClasses.iconContainer)
+    const workVolEndDateInputContainer = createContainer(containerClasses.relativeContainer)
+
+    appendChildren(workVolEndDateIconContainer, [createCalendarIcon()])
+    appendChildren(workVolEndDateInputContainer, [workVolEndDateIconContainer, workVolEndInput])
+    appendChildren(workVolEndDateContainer, [workVolEndLabel, workVolEndDateInputContainer])
+
+    // total hours
+    const totalHoursContainer = createContainer(containerClasses.inputContainer)
+    appendChildren(totalHoursContainer, [totalHoursLabel, totalHoursInput])
+
+    appendChildren(workVolEntry, [
+        titleContainer,
+        orgNameContainer,
+        positionContainer,
+        workVolStartDateContainer,
+        workVolEndDateContainer,
+        totalHoursContainer
+    ])
+
+    entryContainer.prepend(workVolEntry)
+}
+
+function addNewTrainingEntry(){
+    const entryContainer = selectById('training-container')
+    const totalEntry = totalDataEntry(entryContainer, 'data-training')
+    const trainingEntry = createContainer(containerClasses.trainingContainer, 'data-training')
+    const delButton = createDelButton('del-button')
+
+    // inputs
+    const inputs = trainingInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const inputLabels = trainingInputCaptions.map((captionAttributes) => createCaption(captionAttributes))
+    const [trainingTitleInput, trainingSponsorInput, trainingStartInput, trainingEndInput, trainingHoursInput] = inputs
+
+    // dropdowns
+    const selectCollection = trainingSelectData.map((data) => createSelect(createSelectAttribute(data, totalEntry)))
+    const [trainingTypeSelect] = selectCollection
+    const selectLabels = trainingSelectCaptions.map((captionAttributes) => createCaption(captionAttributes))
+    const [trainingTypeSelectLabel] =  selectLabels
+
+    // title
+    const titleLabel = createCaption({ type: 'h2', classes: ['text-lg', 'font-semibold'], id: `training-title-${totalEntry + 1}`, text: 'Learning and Developement Entry' })
+    inputLabels.unshift(titleLabel)
+
+    const [title, trainingTitleLabel, trainingSponsorLabel, trainingStartLabel, trainingEndLabel,trainingTypeLabel ,trainingHoursLabel] = inputLabels
+
+    // title container
+    const titleContainer = createContainer(containerClasses.titleContainer)
+    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-training'))
+    appendChildren(titleContainer, [title, delButton])
+
+    // training title
+    const trainingTitleContainer = createContainer(containerClasses.inputContainerSpan2)
+    trainingTitleInput.addEventListener('keyup', () => setTitleText({input: trainingTitleInput, titleId: `training-title-${totalEntry + 1}`, defaultText: 'Learning and Development ENtry'}))
+    appendChildren(trainingTitleContainer, [trainingTitleLabel, trainingTitleInput])
+
+    // training sponsor
+    const trainingSponsorContainer = createContainer(containerClasses.inputContainerSpan2)
+    appendChildren(trainingSponsorContainer, [trainingSponsorLabel, trainingSponsorInput])
+
+    initDatePicker([trainingStartInput, trainingEndInput])
+
+    // training start date
+    const trainingStartContainer = createContainer(containerClasses.inputContainer)
+    const trainingStartIconContainer = createContainer(containerClasses.iconContainer)
+    const trainingStartInputContainer = createContainer(containerClasses.relativeContainer)
+
+    appendChildren(trainingStartIconContainer, [createCalendarIcon()])
+    appendChildren(trainingStartInputContainer, [trainingStartIconContainer, trainingStartInput])
+    appendChildren(trainingStartContainer, [trainingStartLabel, trainingStartInputContainer])
+
+    // training end date
+    const trainingEndContainer = createContainer(containerClasses.inputContainer)
+    const trainingEndIconContainer = createContainer(containerClasses.iconContainer)
+    const trainingEndInputContainer = createContainer(containerClasses.relativeContainer)
+
+    appendChildren(trainingEndIconContainer, [createCalendarIcon()])
+    appendChildren(trainingEndInputContainer, [trainingEndIconContainer, trainingEndInput])
+    appendChildren(trainingEndContainer, [trainingEndLabel, trainingEndInputContainer])
+
+    // training type
+    initDropdown(trainingTypeSelect, 'trainingType')
+    const trainingTypeContainer = createContainer(containerClasses.inputContainer)
+    const trainingTypeSelectContainer = createContainer(containerClasses.selectContainer)
+
+    appendChildren(trainingTypeSelectContainer, [trainingTypeSelect, trainingTypeSelectLabel])
+    appendChildren(trainingTypeContainer, [trainingTypeLabel, trainingTypeSelectContainer])
+
+    // training hours
+    const trainingHoursContainer = createContainer(containerClasses.inputContainer)
+    appendChildren(trainingHoursContainer, [trainingHoursLabel, trainingHoursInput])
+
+    appendChildren(trainingEntry, [
+        titleContainer,
+        trainingTitleContainer,
+        trainingSponsorContainer,
+        trainingStartContainer,
+        trainingEndContainer,
+        trainingTypeContainer,
+        trainingHoursContainer
+    ])
+
+    entryContainer.prepend(trainingEntry)
+}
+
+function addNewSkillEntry(){
+    const entryContainer = selectById('skill-container')
+    const totalEntry = totalDataEntry(entryContainer, 'data-skill')
+
+    const skillEntry = createContainer(containerClasses.otherInfoContainer, 'data-skill')
+    const inputs = membershipInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const [skillInput] = inputs
+
+    const delButton = createDelButton('del-button')
+    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-skill'))
+    
+    appendChildren(skillEntry, [skillInput, delButton])
+
+    entryContainer.prepend(skillEntry)
+}
+
+function addNewRecognitionEntry(){
+    const entryContainer = selectById('recognition-container')
+    const totalEntry = totalDataEntry(entryContainer, 'data-recognition')
+
+    const recognitionEntry = createContainer(containerClasses.otherInfoContainer, 'data-recognition')
+    const inputs = recognitionInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const [recognitionInput] = inputs
+    
+    const delButton = createDelButton('del-button')
+    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-recognition'))
+
+    appendChildren(recognitionEntry, [recognitionInput, delButton])
+
+    entryContainer.prepend(recognitionEntry)
+}
+
+function addNewMembershipEntry(){
+    const entryContainer = selectById('membership-container')
+    const totalEntry = totalDataEntry(entryContainer, 'data-membership')
+
+    const membershipEntry = createContainer(containerClasses.otherInfoContainer, 'data-membership')
+    const inputs = membershipInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const [membershipInput] = inputs
+    
+    const delButton = createDelButton('del-button')
+    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-membership'))
+
+    appendChildren(membershipEntry, [membershipInput, delButton])
+
+    entryContainer.prepend(membershipEntry)
+}
+
+export { addNewChildEntry, addNewCivilEntry, addNewWorkEntry, addNewVolWorkEntry, addNewTrainingEntry, addNewSkillEntry, addNewRecognitionEntry, addNewMembershipEntry }

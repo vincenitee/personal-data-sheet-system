@@ -1,14 +1,15 @@
-import { yearDropdowns, dateInputs, salaryGradeDropdown, salaryStepDropdown } from './assets/js/dom-selection.js'
+import { yearDropdowns, dateInputs, salaryGradeDropdown, salaryStepDropdown, appointmentStatusDropdown, trainingDropdown } from './assets/js/dom-selection.js'
 
-import { initYearDropDown, initSalaryGrade, initSalaryStep, initDatePicker } from './assets/js/component-init.js'
+import { initDropdown, initDatePicker } from './assets/js/component-init.js'
 
 import setupEventHandlers from './assets/js/event-handlers.js'
 
 setupEventHandlers()
 
-salaryStepDropdown.forEach(initSalaryStep)
-salaryGradeDropdown.forEach(initSalaryGrade)
-yearDropdowns.forEach(initYearDropDown)
+yearDropdowns.forEach((dropdown) => initDropdown(dropdown, 'year'))
 dateInputs.forEach(initDatePicker)
 
-
+initDropdown(appointmentStatusDropdown, 'appointmentStatus')
+initDropdown(salaryStepDropdown, 'salaryStep')
+initDropdown(salaryGradeDropdown, 'salaryGrade')
+initDropdown(trainingDropdown, 'trainingType')

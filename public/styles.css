@@ -1819,7 +1819,7 @@ video {
 }
 
 .grid-cols-mod-2 {
-  grid-template-columns: 1fr 5%;
+  grid-template-columns: 1fr 10%;
 }
 
 .grid-cols-mod-3 {
@@ -1828,6 +1828,10 @@ video {
 
 .grid-cols-mod-4 {
   grid-template-columns: 1fr 1fr 1fr 50px;
+}
+
+.grid-cols-mod-7 {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) 80px;
 }
 
 .grid-rows-3 {
@@ -2833,7 +2837,7 @@ video {
 .address-inputbox,
 .question-input {
   width: 100%;
-  border-radius: 0.375rem;
+  border-radius: 0.125rem;
   border-width: 2px;
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
@@ -2858,7 +2862,6 @@ video {
 .address-inputbox {
   height: 2.75rem;
   padding-left: 0.5rem;
-  padding-right: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -2895,6 +2898,7 @@ video {
 .address-inputbox:valid ~ label {
   top: 0.25rem;
   font-size: 0.75rem;
+  font-weight: 700;
   line-height: 1rem;
 }
 
@@ -2910,7 +2914,6 @@ video {
 
 .add-button {
   display: flex;
-  width: 8rem;
   align-items: center;
   justify-content: center;
   -moz-column-gap: 0.75rem;
@@ -2942,7 +2945,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.375rem;
+  border-radius: 0.125rem;
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
   padding: 0.5rem;
@@ -3074,11 +3077,6 @@ video {
   content: var(--tw-content);
 }
 
-.hover\:bg-blue-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -3107,11 +3105,6 @@ video {
 .active\:bg-blue-700:active {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-
-.active\:bg-blue-800:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
 
 .active\:bg-gray-300:active {
