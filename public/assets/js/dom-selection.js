@@ -13,6 +13,7 @@ const addTrainingBtn = selectById('add-training-entry')
 const addSkillBtn = selectById('add-skill-entry')
 const addRecogBtn = selectById('add-recognition-entry')
 const addOrgBtn = selectById('add-org-entry')
+const addRefBtn = selectById('add-reference-entry')
 
 const yearDropdowns = selectByClass('year')
 const positionInput = selectById('position-1')
@@ -35,9 +36,10 @@ const initialInput = [
     
 ]
 
-const parentAttributes = ['data-exam', 'data-work', 'data-work-vol', 'data-training', 'data-skill', 'data-recognition', 'data-membership']
+const parentAttributes = ['data-child', 'data-exam', 'data-work', 'data-work-vol', 'data-training', 'data-skill', 'data-recognition', 'data-membership', 'data-reference']
 
 const firstDelButtons = [
+    selectSibling(selectById('children-container'), 'button'),
     selectSibling(selectById('exam-container'), 'button'), 
     selectSibling(selectById('work-container'), 'button'), 
     selectSibling(selectById('work-vol-container'), 'button'),
@@ -45,8 +47,8 @@ const firstDelButtons = [
     selectSibling(selectById('skill-container'), 'button'),
     selectSibling(selectById('recognition-container'), 'button'),
     selectSibling(selectById('membership-container'), 'button'),
+    selectSibling(selectById('reference-container'), 'button')
 ]
-console.log(selectSibling(selectById('training-container'), 'button'))
 
 export {
     multiStepForm,
@@ -60,6 +62,7 @@ export {
     addSkillBtn,
     addRecogBtn,
     addOrgBtn,
+    addRefBtn,
     yearDropdowns,
     formSteps,
     menuSteps,

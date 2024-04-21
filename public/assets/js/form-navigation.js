@@ -16,6 +16,8 @@ function showCurrentStep() {
         } else {
             step.classList.add('hidden');
         }
+
+        step.scrollIntoView({behavior: 'smooth', block: 'start'})
     });
 
     const isFirstStep = currentStep === 0;

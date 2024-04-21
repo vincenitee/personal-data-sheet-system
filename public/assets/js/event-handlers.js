@@ -1,5 +1,5 @@
-import { nextBtn, prevBtn ,addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn } from './dom-selection.js'
-import { addNewChildEntry, addNewCivilEntry, addNewMembershipEntry, addNewRecognitionEntry, addNewSkillEntry, addNewTrainingEntry, addNewVolWorkEntry, addNewWorkEntry } from './form-entry.js'
+import { nextBtn, prevBtn ,addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn } from './dom-selection.js'
+import { addNewChildEntry, addNewCivilEntry, addNewMembershipEntry, addNewRecognitionEntry, addNewRefEntry, addNewSkillEntry, addNewTrainingEntry, addNewVolWorkEntry, addNewWorkEntry } from './form-entry.js'
 import { changeStep } from './form-navigation.js'
 import { deleteEntry, setTitleText } from './helper-functions.js'
 
@@ -23,8 +23,7 @@ const setupEventHandlers = () => {
     addSkillBtn.addEventListener('click', addNewSkillEntry)
     addRecogBtn.addEventListener('click', addNewRecognitionEntry)
     addOrgBtn.addEventListener('click', addNewMembershipEntry)
-
-    
+    addRefBtn.addEventListener('click', addNewRefEntry)
 }
 
 export default setupEventHandlers

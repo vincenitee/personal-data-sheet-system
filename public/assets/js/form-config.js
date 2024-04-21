@@ -1,6 +1,7 @@
 import { createLabelObj } from './element-builder.js'
 
 const containerClasses = {
+    referenceContainer: ['grid', 'grid-cols-mod-4', 'gap-2'],
     otherInfoContainer: ['grid', 'grid-cols-mod-2', 'gap-1'],
     trainingContainer: ['mt-3', 'grid', 'grid-cols-4', 'gap-3', 'border-2', 'border-dashed', 'border-gray-500', 'p-3'],
     workVolContainer: ['mt-3', 'grid', 'grid-cols-mod-7', 'gap-3', 'border-2', 'border-dashed', 'border-gray-500', 'p-3'],
@@ -100,5 +101,11 @@ const membershipInputData = [
     { type: 'text', namePrefix: 'membership', classes: 'inputbox', autocomplete: 'off' }
 ]
 
+const referenceInputData = [
+    { type: 'text', namePrefix: 'reference-name', classes: 'inputbox', autocomplete: 'off' },
+    { type: 'text', namePrefix: 'reference-address', classes: 'inputbox', autocomplete: 'off' },
+    { type: 'text', namePrefix: 'reference-telno', classes: 'inputbox', autocomplete: 'off' },
+]
+
 export { containerClasses, childInputData, civilInputData, civilCaptions, inputCaptionClass, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingSelectCaptions, trainingInputCaptions, trainingInputData, 
-trainingSelectData, skillInputData, recognitionInputData, membershipInputData }
+trainingSelectData, skillInputData, recognitionInputData, membershipInputData, referenceInputData }

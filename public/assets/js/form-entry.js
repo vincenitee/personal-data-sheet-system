@@ -1,6 +1,6 @@
 import { initDropdown, initDatePicker } from './component-init.js'
 import { appendChildren, createCalendarIcon, createCaption, createContainer, createDelButton, createSelectAttribute, createSelect, createInput, createInputAttributes } from './element-builder.js'
-import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData } from './form-config.js'
+import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData, referenceInputData } from './form-config.js'
 import { deleteEntry, setTitleText, totalDataEntry } from './helper-functions.js'
 import { selectAllSibling, selectByClass, selectById, selectSibling, selectSiblingByClass } from './utilities.js'
 
@@ -408,4 +408,26 @@ function addNewMembershipEntry(){
     entryContainer.prepend(membershipEntry)
 }
 
-export { addNewChildEntry, addNewCivilEntry, addNewWorkEntry, addNewVolWorkEntry, addNewTrainingEntry, addNewSkillEntry, addNewRecognitionEntry, addNewMembershipEntry }
+function addNewRefEntry(){
+    const entryContainer = selectById('reference-container')
+    const totalEntry = totalDataEntry(entryContainer, 'data-reference')
+    const firstEntry = entryContainer.querySelector('[data-reference]')
+    
+    const refEntry = createContainer(containerClasses.referenceContainer, 'data-reference')
+    const delButton = createDelButton('del-button')
+    delButton.addEventListener('click', () => deleteEntry(delButton, 'data-reference'))
+
+    const inputs = referenceInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const [refNameInput, refAddressInput, refTelInput] = inputs
+
+    appendChildren(refEntry, [
+        refNameInput,
+        refAddressInput,
+        refTelInput,
+        delButton
+    ])
+
+    entryContainer.insertBefore(refEntry, firstEntry)
+}
+
+export { addNewChildEntry, addNewCivilEntry, addNewWorkEntry, addNewVolWorkEntry, addNewTrainingEntry, addNewSkillEntry, addNewRecognitionEntry, addNewMembershipEntry, addNewRefEntry }
