@@ -1,4 +1,4 @@
-<div class="mx-auto hidden w-3/4 space-y-3 py-2" data-step>
+<div class="mx-auto hidden w-[65%] space-y-3 py-2" data-step>
     <!-- Title -->
     <h1 class="text-xl font-bold text-blue-800">9. Additional Questions</h1>
 
@@ -163,7 +163,7 @@
                             <option value=""></option>
                             <option value="N/A">N/A</option>
                         </select>
-                        <label class="pointer-events-none absolute inset-x-2 inset-y-3 text-sm text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">If YES, choose country</label>
+                        <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">If YES, choose country</label>
                     </div>
                 </td>
             </tr>

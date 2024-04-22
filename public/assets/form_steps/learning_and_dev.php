@@ -1,5 +1,5 @@
 <!-- Learning and Developement -->
-<div class="mx-auto hidden w-3/4 py-2" data-step>
+<div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
     <div class="flex items-center justify-between gap-2">
         <h1 class="text-xl font-bold text-blue-800">7. Learning and Developement Interventions / Trainings Attended</h1>
@@ -56,7 +56,7 @@
                 <label class="block text-sm font-medium text-gray-700">Training Type</label>
                 <div class="group relative">
                     <select name="training-type-1" id="training-type-1" class="dropdown" required></select>
-                    <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Status</label>
+                    <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Status</label>
                 </div>
             </div>
 

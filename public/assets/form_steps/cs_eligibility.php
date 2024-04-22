@@ -1,5 +1,5 @@
 <!-- CS Eligibility -->
-<div class="mx-auto hidden w-3/4 py-2" data-step>
+<div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
     <div class="flex items-center justify-between">
         <h1 class="text-xl font-bold text-blue-800">4. Civil Service Eligibility</h1>

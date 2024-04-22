@@ -1,4 +1,4 @@
-<div class="mx-auto w-3/4 space-y-3 py-2" data-step>
+<div class="mx-auto hidden w-3/4 space-y-3 py-2" data-step>
     <div class="space-y-1">
         <h1 class="text-xl font-bold text-blue-800">10. Credentials</h1>
         <p class="rounded-sm bg-gray-200 p-3 text-justify text-sm text-slate-600">I declare under oath that I have personally accomplished this Personal Data Sheet which is a true, correct and complete statement pursuant to the provisions of pertinent laws, rules and regulations of the Republic of the Philippines. I authorize the agency head/authorized representative to verify/validate the contents stated herein. I agree that any misrepresentation made in this document and its attachments shall cause the filing of administrative/criminal case/s against me.</p>
@@ -38,21 +38,21 @@
             <label class="block font-medium text-slate-700">ID Picture</label>
         </div>
         <div class="px-6 py-2">
-            <input type="file" name="gov-id-img" id="gov-id-img" class="border valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
+            <input type="file" name="gov-id-img" id="gov-id-img" class="border text-sm valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
                             file:text-white file:text-sm file:border-0 file:px-2 file:py-2 file:disabled" required>
         </div>
         <div class="px-6 py-2">
             <label class="block font-medium text-slate-700">Right Thumbmark</label>
         </div>
         <div class="px-6 py-2">
-            <input type="file" name="right-thumb-img id=" right-thumb-img" class="border valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
+            <input type="file" name="right-thumb-img" id=" right-thumb-img" class="border text-sm valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
                             file:text-white file:text-sm file:border-0 file:px-2 file:py-2 file:disabled" required>
         </div>
         <div class="px-6 py-2">
             <label class="block font-medium text-slate-700">Signature</label>
         </div>
         <div class="px-6 py-2">
-            <input type="file" name="signature-img" id="signature-img" class="border valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
+            <input type="file" name="signature-img" id="signature-img" class="border text-sm valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
                             file:text-white file:text-sm file:border-0 file:px-2 file:py-2 file:disabled" required>
         </div>
 

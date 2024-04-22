@@ -1,8 +1,8 @@
-import { yearDropdowns, dateInputs, salaryGradeDropdown, salaryStepDropdown, appointmentStatusDropdown, trainingDropdown } from './assets/js/dom-selection.js'
+import { yearDropdowns, dateInputs, salaryGradeDropdown, salaryStepDropdown, appointmentStatusDropdown, trainingDropdown } from './dom-selection.js'
 
-import { initDropdown, initDatePicker } from './assets/js/component-init.js'
+import { initDropdown, initDatePicker } from './component-init.js'
 
-import setupEventHandlers from './assets/js/event-handlers.js'
+import setupEventHandlers from './event-handlers.js'
 
 setupEventHandlers()
 

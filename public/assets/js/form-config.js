@@ -18,12 +18,12 @@ const containerClasses = {
 }
 
 const inputCaptionClass = ['block', 'text-sm', 'font-medium', 'text-gray-700']
-const selectCaptionClass = ['pointer-events-none', 'absolute', 'inset-x-2', 'inset-y-2.5', 'text-gray-500', 'transition-all', 'duration-100', 'ease-in', 'group-focus-within:inset-y-1', 'group-focus-within:text-xs']
+const selectCaptionClass = ['pointer-events-none', 'text-sm', 'absolute', 'inset-x-2', 'inset-y-3', 'text-gray-500', 'transition-all', 'duration-100', 'ease-in', 'group-focus-within:inset-y-1', 'group-focus-within:text-xs']
 
 // labels
-const civilLabels = ['Examination Name', 'Ratings', 'Date of Examination', 'Place of Examination', 'License Number', 'Date of Issuance'];
+const civilLabels = ['Examination Name', 'Ratings', 'Date of Examination', 'Place of Examination', 'License Number', 'Date of Issuance']
 
-const workInputLabels = ['Position/Title', 'Department/Agency', 'Monthly Salary', 'Start Date', 'End Date', 'Salary Grade', 'Salary Step', 'Status of Appointment', 'Government Service'];
+const workInputLabels = ['Position/Title', 'Department/Agency', 'Monthly Salary', 'Start Date', 'End Date', 'Salary Grade', 'Salary Step', 'Appointment Status', 'Government Service']
 
 const workSelectLabels = ['Select Grade', 'Select Step', 'Select Status', 'Select']
 
@@ -34,11 +34,11 @@ const trainingInputLabels = ['Learning and Development Training Title', 'Sponsor
 const trainingSelectLabels = ['Select Type']
 
 // captions
-const civilCaptions = civilLabels.map((text) => createLabelObj(inputCaptionClass, text));
+const civilCaptions = civilLabels.map((text) => createLabelObj(inputCaptionClass, text))
 
-const workInputCaptions = workInputLabels.map((text) => createLabelObj(inputCaptionClass, text));
+const workInputCaptions = workInputLabels.map((text) => createLabelObj(inputCaptionClass, text))
 
-const workSelectCaptions = workSelectLabels.map((text) => createLabelObj(selectCaptionClass, text));
+const workSelectCaptions = workSelectLabels.map((text) => createLabelObj(selectCaptionClass, text))
 
 const workVolInputCaptions = workVolInputLabels.map((text) => createLabelObj(inputCaptionClass, text))
 
@@ -66,14 +66,14 @@ const workInputData = [
     { type: 'text', namePrefix: 'agency', classes: 'inputbox', autocomplete: 'off' },
     { type: 'number', namePrefix: 'salary', classes: 'inputbox', autocomplete: 'off' },
     { type: 'text', namePrefix: 'work-start', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date' },
-    { type: 'text', namePrefix: 'work-end', classes: 'date-inputbox', autocomplete: 'off' , placeholder: 'Select Date'},
+    { type: 'text', namePrefix: 'work-end', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date' },
 ]
 
 const workVolInputData = [
     { type: 'text', namePrefix: 'org-name', classes: 'inputbox', autocomplete: 'off' },
     { type: 'text', namePrefix: 'nature-of-work', classes: 'inputbox', autocomplete: 'off' },
     { type: 'text', namePrefix: 'work-vol-start', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date' },
-    { type: 'text', namePrefix: 'work-vol-end', classes: 'date-inputbox', autocomplete: 'off' , placeholder: 'Select Date'},
+    { type: 'text', namePrefix: 'work-vol-end', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date' },
     { type: 'number', namePrefix: 'work-vol-hours', classes: 'inputbox', autocomplete: 'off' },
 ]
 
@@ -82,24 +82,18 @@ const workSelectData = ['salary-grade', 'salary-step', 'appointment-status', 'go
 const trainingInputData = [
     { type: 'text', namePrefix: 'training-name', classes: 'inputbox', autocomplete: 'off' },
     { type: 'text', namePrefix: 'training-sponsor', classes: 'inputbox', autocomplete: 'off' },
-    { type: 'text', namePrefix: 'training-start', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date'},
-    { type: 'text', namePrefix: 'training-end', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date'},
+    { type: 'text', namePrefix: 'training-start', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date' },
+    { type: 'text', namePrefix: 'training-end', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select Date' },
     { type: 'number', namePrefix: 'training-hours', classes: 'inputbox', autocomplete: 'off' },
 ]
 
 const trainingSelectData = ['training-type']
 
-const skillInputData = [
-    { type: 'text', namePrefix: 'skill', classes: 'inputbox', autocomplete: 'off' }
-]
+const skillInputData = [{ type: 'text', namePrefix: 'skill', classes: 'inputbox', autocomplete: 'off' }]
 
-const recognitionInputData = [
-    { type: 'text', namePrefix: 'recognition', classes: 'inputbox', autocomplete: 'off' }
-]
+const recognitionInputData = [{ type: 'text', namePrefix: 'recognition', classes: 'inputbox', autocomplete: 'off' }]
 
-const membershipInputData = [
-    { type: 'text', namePrefix: 'membership', classes: 'inputbox', autocomplete: 'off' }
-]
+const membershipInputData = [{ type: 'text', namePrefix: 'membership', classes: 'inputbox', autocomplete: 'off' }]
 
 const referenceInputData = [
     { type: 'text', namePrefix: 'reference-name', classes: 'inputbox', autocomplete: 'off' },
@@ -107,5 +101,4 @@ const referenceInputData = [
     { type: 'text', namePrefix: 'reference-telno', classes: 'inputbox', autocomplete: 'off' },
 ]
 
-export { containerClasses, childInputData, civilInputData, civilCaptions, inputCaptionClass, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingSelectCaptions, trainingInputCaptions, trainingInputData, 
-trainingSelectData, skillInputData, recognitionInputData, membershipInputData, referenceInputData }
+export { containerClasses, childInputData, civilInputData, civilCaptions, inputCaptionClass, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingSelectCaptions, trainingInputCaptions, trainingInputData, trainingSelectData, skillInputData, recognitionInputData, membershipInputData, referenceInputData }

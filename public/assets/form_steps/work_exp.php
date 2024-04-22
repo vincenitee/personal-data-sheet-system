@@ -1,6 +1,6 @@
 
 <!-- Work Experience -->
-<div class="mx-auto hidden w-3/4 py-2" data-step>
+<div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
     <div class="flex items-center justify-between">
         <h1 class="text-xl font-bold text-blue-800">5. Work Experience</h1>
@@ -63,7 +63,7 @@
                 <label class="block text-sm font-medium text-gray-700">Salary Grade</label>
                 <div class="group relative">
                     <select name="salary-grade-1" id="salary-grade-1" class="dropdown salary-grade" required></select>
-                    <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Grade</label>
+                    <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Grade</label>
                 </div>
             </div>
 
@@ -71,15 +71,15 @@
                 <label class="block text-sm font-medium text-gray-700">Salary Step</label>
                 <div class="group relative">
                     <select name="salary-step-1" id="salary-step-1" class="dropdown salary-step" required></select>
-                    <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Step</label>
+                    <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Step</label>
                 </div>
             </div>
 
             <div class="space-y-1">
-                <label class="block text-sm font-medium text-gray-700">Status of Appointment</label>
+                <label class="block text-sm font-medium text-gray-700">Appointment Status</label>
                 <div class="group relative">
                     <select name="appointment-status-1" id="appointment-status-1" class="dropdown appointment-status" required></select>
-                    <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Status</label>
+                    <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Status</label>
                 </div>
             </div>
 
@@ -91,7 +91,7 @@
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
-                    <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select</label>
+                    <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select</label>
                 </div>
             </div>
         </div>

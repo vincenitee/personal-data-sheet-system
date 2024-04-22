@@ -1,5 +1,5 @@
 <!-- Other Information -->
-<div class="mx-auto hidden w-3/4 py-2" data-step>
+<div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
     <h1 class="text-xl font-bold text-blue-800">8. Other Information</h1>
 

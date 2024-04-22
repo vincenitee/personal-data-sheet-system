@@ -1,5 +1,6 @@
+
 <!-- Family Background -->
-<div class="mx-auto hidden w-3/4 py-2" data-step>
+<div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
     <h1 class="text-xl font-bold text-blue-800">2. Family Background</h1>
 
@@ -28,9 +29,9 @@
                 <select name="spouse-suffix" id="spouse-suffix" class="dropdown" required>
                     <option value=""></option>
                     <option value="N/A">N/A</option>
-                    <option value="Jr.">Jr.</option>
+                    
                 </select>
-                <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Suffix</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Suffix</label>
             </div>
         </div>
 
@@ -85,7 +86,7 @@
                     <option value="N/A">N/A</option>
                     <option value="Jr.">Jr.</option>
                 </select>
-                <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Suffix</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Suffix</label>
             </div>
         </div>
 

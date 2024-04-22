@@ -50,6 +50,21 @@ const firstDelButtons = [
     selectSibling(selectById('reference-container'), 'button')
 ]
 
+const provinceSelect = [
+    selectById('res-province'),
+    selectById('permanent-province')
+]
+
+const municipalitySelect = [
+    selectById('res-municipality'),
+    selectById('permanent-municipality')
+]
+
+const baranggaySelect = [
+    selectById('res-brgy'),
+    selectById('permanent-brgy')
+]
+
 export {
     multiStepForm,
     menuContainer,
@@ -74,5 +89,8 @@ export {
     firstDelButtons,
     appointmentStatusDropdown,
     addTrainingBtn,
-    trainingDropdown
+    trainingDropdown,
+    provinceSelect,
+    municipalitySelect,
+    baranggaySelect,
 };

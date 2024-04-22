@@ -1,5 +1,5 @@
 <!-- Educational Background -->
-<div class="mx-auto hidden w-3/4 py-2" data-step>
+<div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
     <h1 class="text-xl font-bold text-blue-800">3. Educational Background</h1>
 
@@ -24,7 +24,7 @@
         </div>
 
         <div class="space-y-1">
-            <label class="block text-sm font-medium text-gray-700">Attendance</label>
+            <label class="block text-sm font-medium text-gray-700">Start of Attendance</label>
             <div class="relative">
                 <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
@@ -53,7 +53,7 @@
                 <select name="elem-year-graduated" id="elem-year-graduated" class="dropdown year" required>
                     <option value=""></option>
                 </select>
-                <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -112,7 +112,7 @@
                 <select name="secondary-year-graduated" id="secondary-year-graduated" class="dropdown year" required>
                     <option value=""></option>
                 </select>
-                <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -171,7 +171,7 @@
                 <select name="vocational-year-graduated" id="vocational-year-graduated" class="dropdown year" required>
                     <option value=""></option>
                 </select>
-                <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -230,7 +230,7 @@
                 <select name="college-year-graduated" id="college-year-graduated" class="dropdown year" required>
                     <option value=""></option>
                 </select>
-                <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -289,7 +289,7 @@
                 <select name="graduate-year-graduated" id="graduate-year-graduated" class="dropdown year" required>
                     <option value=""></option>
                 </select>
-                <label class="pointer-events-none absolute inset-x-2 inset-y-2.5 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 

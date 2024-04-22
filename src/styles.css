@@ -4,8 +4,9 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../public/assets/fonts/Poppins-Medium.ttf');
+    src: url('../../assets/fonts/Poppins-Medium.ttf') format('truetype');
 }
+
 
 /* Common input styles */
 .inputbox,
@@ -13,12 +14,13 @@
 .date-inputbox,
 .address-inputbox,
 .question-input {
-    @apply w-full rounded-sm border-2 border-gray-400 font-medium text-gray-800 outline-none focus:border-gray-600;
+    @apply w-full rounded-sm border border-slate-600 text-gray-800 outline-none focus:border-gray-600 focus:ring-2 ring-slate-400;
 }
 
 .inputbox,
 .dropdown,
-.address-inputbox {
+.address-inputbox,
+.date-inputbox {
     @apply h-11 pl-2 text-sm;
 }
 
