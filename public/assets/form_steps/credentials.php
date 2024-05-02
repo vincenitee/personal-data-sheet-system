@@ -1,6 +1,6 @@
 <div class="mx-auto hidden w-3/4 space-y-3 py-2" data-step>
     <div class="space-y-1">
-        <h1 class="text-xl font-bold text-blue-800">10. Credentials</h1>
+        <h1 class="text-xl font-bold text-slate-600">10. Credentials</h1>
         <p class="rounded-sm bg-gray-200 p-3 text-justify text-sm text-slate-600">I declare under oath that I have personally accomplished this Personal Data Sheet which is a true, correct and complete statement pursuant to the provisions of pertinent laws, rules and regulations of the Republic of the Philippines. I authorize the agency head/authorized representative to verify/validate the contents stated herein. I agree that any misrepresentation made in this document and its attachments shall cause the filing of administrative/criminal case/s against me.</p>
     </div>
 
@@ -57,4 +57,5 @@
         </div>
 
     </div>
+    <button type="submit" class="add-button mt-4">Submit Entry</button>
 </div>

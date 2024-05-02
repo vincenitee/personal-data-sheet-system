@@ -1,8 +1,9 @@
-import { fetchBaranggays, fetchMunicipalities } from './api.js'
-import { nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, municipalitySelect, baranggaySelect, provinceSelect } from './dom-selection.js'
+import { fetchBaranggays, fetchCountries, fetchMunicipalities } from './api.js'
+import { nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, municipalitySelect, baranggaySelect, provinceSelect, missingInfoDialog, nationalityDropdown, provinceSelects } from './dom-selection.js'
 import { addNewChildEntry, addNewCivilEntry, addNewMembershipEntry, addNewRecognitionEntry, addNewRefEntry, addNewSkillEntry, addNewTrainingEntry, addNewVolWorkEntry, addNewWorkEntry } from './form-entry.js'
 import { changeStep } from './form-navigation.js'
-import { deleteEntry, setTitleText } from './helper-functions.js'
+import { closeDialog, deleteEntry, disableSelect, enableSelect, setTitleText } from './helper-functions.js'
+import { selectById, selectSibling } from './utilities.js'
 
 const setupEventHandlers = () => {
     const [residentProvince, permanentProvince] = provinceSelect
@@ -26,6 +27,25 @@ const setupEventHandlers = () => {
     permanentProvince.addEventListener('change', () => fetchMunicipalities(permanentProvince.value, permanentMunicipality, permanentBaranggay))
     permanentMunicipality.addEventListener('change', () => fetchBaranggays(permanentMunicipality.value, permanentBaranggay))
 
+    provinceSelects.forEach((select) => {
+        const selectId = select.id
+
+        select.addEventListener('change', () => {
+            const municipalitySelect = selectById(`${selectId.split('-', 1)}-municipality`)
+            const brgySelect = selectById(`${selectId.split('-', 1)}-brgy`)
+
+            if(select.value != ''){
+                enableSelect(municipalitySelect)
+                enableSelect(brgySelect)
+            } else{
+                disableSelect(municipalitySelect)
+                disableSelect(brgySelect)
+            }
+        })
+    })
+
+    nationalityDropdown.addEventListener('change', () => fetchCountries(nationalityDropdown))
+
     addChildBtn.addEventListener('click', addNewChildEntry)
     addCivilBtn.addEventListener('click', addNewCivilEntry)
     addWorkBtn.addEventListener('click', addNewWorkEntry)
@@ -35,6 +55,8 @@ const setupEventHandlers = () => {
     addRecogBtn.addEventListener('click', addNewRecognitionEntry)
     addOrgBtn.addEventListener('click', addNewMembershipEntry)
     addRefBtn.addEventListener('click', addNewRefEntry)
+
+    selectSibling(missingInfoDialog, 'button').addEventListener('click', () => closeDialog(missingInfoDialog))
 }
 
 export default setupEventHandlers

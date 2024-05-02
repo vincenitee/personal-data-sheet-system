@@ -41,8 +41,8 @@ export const initDropdown = (dropdown, type) => {
 
 export const initDatePicker = (inputElement) => {
     if (Array.isArray(inputElement)) {
-        inputElement.forEach((element) => flatpickr(element, { dateFormat: 'm-d-Y' }))
+        inputElement.forEach((element) => flatpickr(element, { dateFormat: 'Y-m-d' }))
     } else {
-        flatpickr(inputElement, { dateFormat: 'm-d-Y' })
+        flatpickr(inputElement, { dateFormat: 'Y-m-d' })
     }
 }

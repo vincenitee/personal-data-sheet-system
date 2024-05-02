@@ -1,8 +1,12 @@
 <!-- CS Eligibility -->
 <div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
-    <div class="flex items-center justify-between">
-        <h1 class="text-xl font-bold text-blue-800">4. Civil Service Eligibility</h1>
+    <div class="space-y-3 py-2 flex justify-between">
+        <div class="space-y-3">
+            <h1 class="text-xl font-bold text-slate-600 ">4. Civil Service Eligibility</h1>
+            <p class="text-sm text-slate-600">Please ensure all required fields are filled up. You can use "N/A" for fields that are not applicable.</p>
+        </div>
+        <input type="text" name="cs-total-entry" id="cs-total-entry" class="hidden" value="1">
         <button type="button" class="add-button" id="add-civil-entry">+ Add More</button>
     </div>
 

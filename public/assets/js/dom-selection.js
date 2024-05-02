@@ -1,10 +1,13 @@
 import { select, selectAllSibling, selectByClass, selectById, selectSibling } from './utilities.js'
 
+const childTotalEntry = selectById('child-total-entry')
+const civilTotalEntry = selectById('cs-total-entry');
 const multiStepForm = select('[data-multi-step]')
 const menuContainer = selectById('menu-container');
 const nextBtn = selectById('next-btn')
 const prevBtn = selectById('prev-btn')
 
+const missingInfoDialog = selectById('missing-info-dialog');
 const addChildBtn = selectById('add-child')
 const addCivilBtn = selectById('add-civil-entry')
 const addWorkBtn = selectById('add-work-entry')
@@ -27,6 +30,11 @@ const salaryGradeDropdown = selectById('salary-grade-1')
 const salaryStepDropdown = selectById('salary-step-1')
 const appointmentStatusDropdown = selectById('appointment-status-1')
 const trainingDropdown = selectById('training-type-1');
+const nationalityDropdown = selectById('nationality');
+const provinceSelects = [
+    selectById('res-province'),
+    selectById('permanent-province')
+]
 
 const initialInput = [
     { input: positionInput, titleId: 'work-title-1', defaultText: 'Work Experience Entry' },
@@ -66,6 +74,8 @@ const baranggaySelect = [
 ]
 
 export {
+    childTotalEntry,
+    civilTotalEntry,
     multiStepForm,
     menuContainer,
     nextBtn,
@@ -90,7 +100,10 @@ export {
     appointmentStatusDropdown,
     addTrainingBtn,
     trainingDropdown,
+    nationalityDropdown,
     provinceSelect,
     municipalitySelect,
     baranggaySelect,
+    provinceSelects,
+    missingInfoDialog
 };

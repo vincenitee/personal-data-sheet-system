@@ -1,7 +1,8 @@
 <?php include './sql_statements.php';
 
 $provinceId = $_GET['provinceId'];
-$sql = "SELECT municipality_id, municipality_desc FROM municipality WHERE prov_id = (SELECT prov_id FROM province WHERE prov_id = '" . $provinceId . "')";
+$sql = "SELECT municipality_id, municipality FROM municipality WHERE province_id = (SELECT province_id FROM province WHERE province_id = '" . $provinceId . "')";
+
 $result = select_info_multiple_key($sql);
 
 $municipalities = array();
@@ -9,7 +10,7 @@ $municipalities = array();
 foreach($result as $r){
     $municipality = array(
         'municipality_id' => $r['municipality_id'],
-        'municipality_desc' => $r['municipality_desc'],
+        'municipality' => $r['municipality'],
     );
 
     $municipalities[] = $municipality;

@@ -3,7 +3,7 @@
 <div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
     <div class="flex items-center justify-between">
-        <h1 class="text-xl font-bold text-blue-800">5. Work Experience</h1>
+        <h1 class="text-xl font-bold text-slate-600">5. Work Experience</h1>
         <button type="button" class="add-button" id="add-work-entry">+ Add More</button>
     </div>
 
@@ -62,7 +62,9 @@
             <div class="space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Salary Grade</label>
                 <div class="group relative">
-                    <select name="salary-grade-1" id="salary-grade-1" class="dropdown salary-grade" required></select>
+                    <select name="salary-grade-1" id="salary-grade-1" class="dropdown salary-grade" required>
+                        <option value="N/A">N/A</option>
+                    </select>
                     <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Grade</label>
                 </div>
             </div>
@@ -70,7 +72,9 @@
             <div class="space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Salary Step</label>
                 <div class="group relative">
-                    <select name="salary-step-1" id="salary-step-1" class="dropdown salary-step" required></select>
+                    <select name="salary-step-1" id="salary-step-1" class="dropdown salary-step" required>
+                        <option value="N/A">N/A</option>
+                    </select>
                     <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Step</label>
                 </div>
             </div>
@@ -78,7 +82,9 @@
             <div class="space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Appointment Status</label>
                 <div class="group relative">
-                    <select name="appointment-status-1" id="appointment-status-1" class="dropdown appointment-status" required></select>
+                    <select name="appointment-status-1" id="appointment-status-1" class="dropdown appointment-status" required>
+                        <option value="N/A">N/A</option>
+                    </select>
                     <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Status</label>
                 </div>
             </div>
@@ -87,7 +93,7 @@
                 <label class="block text-sm font-medium text-gray-700">Government Service</label>
                 <div class="group relative">
                     <select name="government-service-1" id="government-service-1" class="dropdown government-service" required>
-                        <option value=""></option>
+                        <option value="N/A">N/A</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>

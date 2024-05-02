@@ -1,10 +1,12 @@
 import { initDropdown, initDatePicker } from './component-init.js'
+import { childTotalEntry, civilTotalEntry } from './dom-selection.js'
 import { appendChildren, createCalendarIcon, createCaption, createContainer, createDelButton, createSelectAttribute, createSelect, createInput, createInputAttributes } from './element-builder.js'
 import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData, referenceInputData } from './form-config.js'
 import { deleteEntry, setTitleText, totalDataEntry } from './helper-functions.js'
-import { selectAllSibling, selectByClass, selectById, selectSibling, selectSiblingByClass } from './utilities.js'
+import { selectById } from './utilities.js'
 
 function addNewChildEntry() {
+    
     const entryContainer = selectById('children-container')
     const secondChild = entryContainer.querySelectorAll('div')[1]
     const totalEntry = totalDataEntry(entryContainer, 'data-child')
@@ -27,6 +29,9 @@ function addNewChildEntry() {
     appendChildren(childEntry, [childNameInput, childBdateInputContainer, delButton])
 
     entryContainer.insertBefore(childEntry, secondChild)
+
+    childTotalEntry.value = totalDataEntry(entryContainer, 'data-child');
+    // alert(childTotalEntry.value);
 }
 
 function addNewCivilEntry() {
@@ -78,7 +83,7 @@ function addNewCivilEntry() {
     // license number
     const licenseNumContainer = createContainer(containerClasses.inputContainer)
     appendChildren(licenseNumContainer, [licenseNumLabel, licenseNumInput])
-    
+
     // date issued
     const issueDateContainer = createContainer(containerClasses.inputContainer)
     const issueDateIconContainer = createContainer(containerClasses.iconContainer)
@@ -87,18 +92,12 @@ function addNewCivilEntry() {
     appendChildren(issueDateIconContainer, [createCalendarIcon()])
     appendChildren(issueDateInputContainer, [issueDateIconContainer, issueDateInput])
     appendChildren(issueDateContainer, [issueDateLabel, issueDateInputContainer])
-    
-    appendChildren(civilEntry, [
-        titleContainer,
-        examNameContainer, 
-        ratingContainer, 
-        examDateContainer, 
-        examPlaceContainer, 
-        licenseNumContainer, 
-        issueDateContainer
-    ])
+
+    appendChildren(civilEntry, [titleContainer, examNameContainer, ratingContainer, examDateContainer, examPlaceContainer, licenseNumContainer, issueDateContainer])
 
     entryContainer.prepend(civilEntry)
+
+    civilTotalEntry.value = totalDataEntry(entryContainer, 'data-exam')
 }
 
 function addNewWorkEntry() {
@@ -123,7 +122,7 @@ function addNewWorkEntry() {
     const [gradeSelectLabel, stepSelectLabel, appointmentSelectLabel, govSelectLabel] = selectLabels
 
     const workEntry = createContainer(containerClasses.workContainer, 'data-work')
-    
+
     const delButton = createDelButton('del-button')
 
     // title
@@ -132,9 +131,9 @@ function addNewWorkEntry() {
 
     appendChildren(titleContainer, [title, delButton])
 
-    // position 
+    // position
     const positionContainer = createContainer(containerClasses.inputContainerSpan2)
-    positionInput.addEventListener('keyup', () => setTitleText({input: positionInput, titleId: `work-title-${totalEntry + 1}`, defaultText: 'Work Experience Entry'}))
+    positionInput.addEventListener('keyup', () => setTitleText({ input: positionInput, titleId: `work-title-${totalEntry + 1}`, defaultText: 'Work Experience Entry' }))
 
     appendChildren(positionContainer, [positionLabel, positionInput])
 
@@ -170,7 +169,7 @@ function addNewWorkEntry() {
     initDropdown(gradeSelect, 'salaryGrade')
     const salaryGradeContainer = createContainer(containerClasses.inputContainer)
     const salarySelectContainer = createContainer(containerClasses.selectContainer)
-    
+
     appendChildren(salarySelectContainer, [gradeSelect, gradeSelectLabel])
     appendChildren(salaryGradeContainer, [salaryGradeLabel, salarySelectContainer])
 
@@ -186,7 +185,7 @@ function addNewWorkEntry() {
     initDropdown(appointmentSelect, 'appointmentStatus')
     const appointmentStatusContainer = createContainer(containerClasses.inputContainer)
     const appointmentSelectContainer = createContainer(containerClasses.selectContainer)
-    
+
     appendChildren(appointmentSelectContainer, [appointmentSelect, appointmentSelectLabel])
     appendChildren(appointmentStatusContainer, [appointmentLabel, appointmentSelectContainer])
 
@@ -194,22 +193,11 @@ function addNewWorkEntry() {
     initDropdown(govSelect, 'governmentService')
     const govServiceContainer = createContainer(containerClasses.inputContainer)
     const govSelectContainer = createContainer(containerClasses.selectContainer)
-    
+
     appendChildren(govSelectContainer, [govSelect, govSelectLabel])
     appendChildren(govServiceContainer, [govServiceLabel, govSelectContainer])
 
-    appendChildren(workEntry, [
-        titleContainer,
-        positionContainer,
-        departmentContainer,
-        salaryContainer,
-        startDateContainer,
-        endDateContainer,
-        salaryGradeContainer,
-        salaryStepContainer,
-        appointmentStatusContainer,
-        govServiceContainer
-    ])
+    appendChildren(workEntry, [titleContainer, positionContainer, departmentContainer, salaryContainer, startDateContainer, endDateContainer, salaryGradeContainer, salaryStepContainer, appointmentStatusContainer, govServiceContainer])
 
     entryContainer.prepend(workEntry)
 }
@@ -225,7 +213,7 @@ function addNewVolWorkEntry() {
     const inputLabels = workVolInputCaptions.map((captionAttributes) => createCaption(captionAttributes, totalEntry))
     const titleLabel = createCaption({ type: 'h2', classes: ['text-lg', 'font-semibold'], id: `work-vol-title-${totalEntry + 1}`, text: 'Voluntary Work Experience Entry' })
     inputLabels.unshift(titleLabel)
-    
+
     const [title, orgNameLabel, positionLabel, workVolStartLabel, workVolEndLabel, totalHoursLabel] = inputLabels
 
     // title
@@ -235,13 +223,13 @@ function addNewVolWorkEntry() {
 
     // org name and address
     const orgNameContainer = createContainer(containerClasses.inputContainerSpan2)
-    orgNameInput.addEventListener('keyup', () => setTitleText({input: orgNameInput, titleId: `work-vol-title-${totalEntry + 1}`, defaultText: 'Voluntary Work Experience Entry'}))
+    orgNameInput.addEventListener('keyup', () => setTitleText({ input: orgNameInput, titleId: `work-vol-title-${totalEntry + 1}`, defaultText: 'Voluntary Work Experience Entry' }))
     appendChildren(orgNameContainer, [orgNameLabel, orgNameInput])
 
     // position / nature of work
     const positionContainer = createContainer(containerClasses.inputContainerSpan2)
     appendChildren(positionContainer, [positionLabel, positionInput])
-    
+
     initDatePicker([workVolStartInput, workVolEndInput])
 
     // voluntary work start
@@ -266,19 +254,12 @@ function addNewVolWorkEntry() {
     const totalHoursContainer = createContainer(containerClasses.inputContainer)
     appendChildren(totalHoursContainer, [totalHoursLabel, totalHoursInput])
 
-    appendChildren(workVolEntry, [
-        titleContainer,
-        orgNameContainer,
-        positionContainer,
-        workVolStartDateContainer,
-        workVolEndDateContainer,
-        totalHoursContainer
-    ])
+    appendChildren(workVolEntry, [titleContainer, orgNameContainer, positionContainer, workVolStartDateContainer, workVolEndDateContainer, totalHoursContainer])
 
     entryContainer.prepend(workVolEntry)
 }
 
-function addNewTrainingEntry(){
+function addNewTrainingEntry() {
     const entryContainer = selectById('training-container')
     const totalEntry = totalDataEntry(entryContainer, 'data-training')
     const trainingEntry = createContainer(containerClasses.trainingContainer, 'data-training')
@@ -293,13 +274,13 @@ function addNewTrainingEntry(){
     const selectCollection = trainingSelectData.map((data) => createSelect(createSelectAttribute(data, totalEntry)))
     const [trainingTypeSelect] = selectCollection
     const selectLabels = trainingSelectCaptions.map((captionAttributes) => createCaption(captionAttributes))
-    const [trainingTypeSelectLabel] =  selectLabels
+    const [trainingTypeSelectLabel] = selectLabels
 
     // title
     const titleLabel = createCaption({ type: 'h2', classes: ['text-lg', 'font-semibold'], id: `training-title-${totalEntry + 1}`, text: 'Learning and Developement Entry' })
     inputLabels.unshift(titleLabel)
 
-    const [title, trainingTitleLabel, trainingSponsorLabel, trainingStartLabel, trainingEndLabel,trainingTypeLabel ,trainingHoursLabel] = inputLabels
+    const [title, trainingTitleLabel, trainingSponsorLabel, trainingStartLabel, trainingEndLabel, trainingTypeLabel, trainingHoursLabel] = inputLabels
 
     // title container
     const titleContainer = createContainer(containerClasses.titleContainer)
@@ -308,7 +289,7 @@ function addNewTrainingEntry(){
 
     // training title
     const trainingTitleContainer = createContainer(containerClasses.inputContainerSpan2)
-    trainingTitleInput.addEventListener('keyup', () => setTitleText({input: trainingTitleInput, titleId: `training-title-${totalEntry + 1}`, defaultText: 'Learning and Development ENtry'}))
+    trainingTitleInput.addEventListener('keyup', () => setTitleText({ input: trainingTitleInput, titleId: `training-title-${totalEntry + 1}`, defaultText: 'Learning and Development ENtry' }))
     appendChildren(trainingTitleContainer, [trainingTitleLabel, trainingTitleInput])
 
     // training sponsor
@@ -347,20 +328,12 @@ function addNewTrainingEntry(){
     const trainingHoursContainer = createContainer(containerClasses.inputContainer)
     appendChildren(trainingHoursContainer, [trainingHoursLabel, trainingHoursInput])
 
-    appendChildren(trainingEntry, [
-        titleContainer,
-        trainingTitleContainer,
-        trainingSponsorContainer,
-        trainingStartContainer,
-        trainingEndContainer,
-        trainingTypeContainer,
-        trainingHoursContainer
-    ])
+    appendChildren(trainingEntry, [titleContainer, trainingTitleContainer, trainingSponsorContainer, trainingStartContainer, trainingEndContainer, trainingTypeContainer, trainingHoursContainer])
 
     entryContainer.prepend(trainingEntry)
 }
 
-function addNewSkillEntry(){
+function addNewSkillEntry() {
     const entryContainer = selectById('skill-container')
     const totalEntry = totalDataEntry(entryContainer, 'data-skill')
 
@@ -370,20 +343,20 @@ function addNewSkillEntry(){
 
     const delButton = createDelButton('del-button')
     delButton.addEventListener('click', () => deleteEntry(delButton, 'data-skill'))
-    
+
     appendChildren(skillEntry, [skillInput, delButton])
 
     entryContainer.prepend(skillEntry)
 }
 
-function addNewRecognitionEntry(){
+function addNewRecognitionEntry() {
     const entryContainer = selectById('recognition-container')
     const totalEntry = totalDataEntry(entryContainer, 'data-recognition')
 
     const recognitionEntry = createContainer(containerClasses.otherInfoContainer, 'data-recognition')
     const inputs = recognitionInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
     const [recognitionInput] = inputs
-    
+
     const delButton = createDelButton('del-button')
     delButton.addEventListener('click', () => deleteEntry(delButton, 'data-recognition'))
 
@@ -392,14 +365,14 @@ function addNewRecognitionEntry(){
     entryContainer.prepend(recognitionEntry)
 }
 
-function addNewMembershipEntry(){
+function addNewMembershipEntry() {
     const entryContainer = selectById('membership-container')
     const totalEntry = totalDataEntry(entryContainer, 'data-membership')
 
     const membershipEntry = createContainer(containerClasses.otherInfoContainer, 'data-membership')
     const inputs = membershipInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
     const [membershipInput] = inputs
-    
+
     const delButton = createDelButton('del-button')
     delButton.addEventListener('click', () => deleteEntry(delButton, 'data-membership'))
 
@@ -408,11 +381,11 @@ function addNewMembershipEntry(){
     entryContainer.prepend(membershipEntry)
 }
 
-function addNewRefEntry(){
+function addNewRefEntry() {
     const entryContainer = selectById('reference-container')
     const totalEntry = totalDataEntry(entryContainer, 'data-reference')
     const firstEntry = entryContainer.querySelector('[data-reference]')
-    
+
     const refEntry = createContainer(containerClasses.referenceContainer, 'data-reference')
     const delButton = createDelButton('del-button')
     delButton.addEventListener('click', () => deleteEntry(delButton, 'data-reference'))
@@ -420,12 +393,7 @@ function addNewRefEntry(){
     const inputs = referenceInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
     const [refNameInput, refAddressInput, refTelInput] = inputs
 
-    appendChildren(refEntry, [
-        refNameInput,
-        refAddressInput,
-        refTelInput,
-        delButton
-    ])
+    appendChildren(refEntry, [refNameInput, refAddressInput, refTelInput, delButton])
 
     entryContainer.insertBefore(refEntry, firstEntry)
 }

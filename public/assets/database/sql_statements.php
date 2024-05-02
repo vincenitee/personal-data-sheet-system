@@ -10,14 +10,17 @@ $BD_TABLE = 'personal_data_sheet';
 
 function insert_update_delete($query)
 {
-
 	global $DB_HOST, $DB_USER, $DB_PASS, $BD_TABLE;
 	$con = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS);
 	mysqli_select_db($con, $BD_TABLE) or die("Unable to select database");
 
 	mysqli_query($con, $query) or die("Unable to execute query");
+	
+	$row_id = mysqli_insert_id($con);
 
 	mysqli_close($con);
+
+	return $row_id;
 }
 
 function select_info_multiple_key($query)

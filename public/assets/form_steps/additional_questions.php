@@ -1,6 +1,6 @@
 <div class="mx-auto hidden w-[65%] space-y-3 py-2" data-step>
     <!-- Title -->
-    <h1 class="text-xl font-bold text-blue-800">9. Additional Questions</h1>
+    <h1 class="text-xl font-bold text-slate-600">9. Additional Questions</h1>
 
     <!-- Questions -->
     <table class="w-full table-auto border-2 border-slate-400">
@@ -22,10 +22,10 @@
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">a. within the third degree?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="third-degree-yes" id="third-degree-yes" class="mx-auto size-5" />
+                    <input type="radio" name="third-degree" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="third-degree-yes" id="third-degree-yes" class="mx-auto size-5" />
+                    <input type="radio" name="third-degree" value="false" class="mx-auto size-5" />
                 </td>
                 <td class="w-10 px-6 py-4">&nbsp;</td>
             </tr>
@@ -34,10 +34,10 @@
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">b. within the fourth degree (for Local Government Unit - Career Employees)?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="third-degree-yes" id="third-degree-yes" class="mx-auto size-5" />
+                    <input type="radio" name="fourth-degree" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="third-degree-yes" id="third-degree-yes" class="mx-auto size-5" />
+                    <input type="radio" name="fourth-degree" value="false" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -49,10 +49,10 @@
                 <td class="px-6 py-4">35.</td>
                 <td class="px-6 py-4">a. Have you ever been found guilty of any administrative offense?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="admin-offense-yes" id="admin-offense-yes" class="mx-auto size-5" />
+                    <input type="radio" name="admin-offense" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="admin-offense-no" id="admin-offense-no" class="mx-auto size-5" />
+                    <input type="radio" name="admin-offense" value="false" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -64,10 +64,10 @@
                 <td class="px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">b. Have you been criminally charged before any court?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="crim-offense-yes" id="crim-offense-yes" class="mx-auto size-5" />
+                    <input type="radio" name="crim-offense" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="crim-offense-no" id="crim-offense-no" class="mx-auto size-5" />
+                    <input type="radio" name="crim-offense" value="false" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -87,7 +87,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
                             </svg>
                         </div>
-                        <input type="text" name="date-filed" id="date-filed" class="date-inputbox" autocomplete="off" placeholder="Date Filed" required />
+                        <input type="text" name="date-filed" id="date-filed" class="date-inputbox" autocomplete="off" placeholder="Date Filed" />
                     </div>
                 </td>
             </tr>
@@ -95,10 +95,10 @@
                 <td class="px-6 py-4">36.</td>
                 <td class="px-6 py-4">Have you ever been convicted of any crime or violation of any law, decree, ordinance or regulation by any court or tribunal?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="crime-conviction-yes" id="crime-conviction-yes" class="mx-auto size-5" />
+                    <input type="radio" name="crime-conviction" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="crime-conviction-no" id="crime-conviction-no" class="mx-auto size-5" />
+                    <input type="radio" name="crime-conviction" value="false" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -109,10 +109,10 @@
                 <td class="px-6 py-4">37.</td>
                 <td class="px-6 py-4 text-justify">Have you ever been separated from the service in any of the following modes: resignation, retirement, dropped from the rolls, dismissal, termination, end of term, finished contract or phased out (abolition) in the public or private sector?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="separation-yes" id="separation-yes" class="mx-auto size-5" />
+                    <input type="radio" name="separation" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="separation-no" id="separation-no" class="mx-auto size-5" />
+                    <input type="radio" name="separation" value="false" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -123,10 +123,10 @@
                 <td class="px-6 py-4">38.</td>
                 <td class="px-6 py-4 text-justify">a. Have you ever been a candidate in a national or local election held within the last year (except Barangay election)?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="candidate-yes" id="candidate-yes" class="mx-auto size-5" />
+                    <input type="radio" name="candidate" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="candidate-no" id="candidate-no" class="mx-auto size-5" />
+                    <input type="radio" name="candidate" value="false" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -137,12 +137,11 @@
                 <td class="px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4 text-justify">b. Have you resigned from the government service during the three (3)-month period before the last election to promote/actively campaign for a national or local candidate?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="gov-resignation-yes" id="gov-resignation-yes" class="mx-auto size-5" />
+                    <input type="radio" name="gov-resignation" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="gov-resignation-no" id="gov-resignation-no" class="mx-auto size-5" />
+                    <input type="radio" name="gov-resignation" value="false" class="mx-auto size-5" />
                 </td>
-
                 <td class="px-6 py-4">
                     <input type="text" name="gov-resignation-info" class="inputbox mx-auto" placeholder="If YES, provide details" />
                 </td>
@@ -151,16 +150,15 @@
                 <td class="px-6 py-4">39.</td>
                 <td class="px-6 py-4 text-justify">Have you acquired the status of an immigrant or permanent resident of another country?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="foreign-residency-yes" id="foreign-residency-yes" class="mx-auto size-5" />
+                    <input type="radio" name="foreign-residency" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="foreign-residency-no" id="foreign-residency-no" class="mx-auto size-5" />
+                    <input type="radio" name="foreign-residency" value="false" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
                     <div class="group relative">
                         <select name="foreign-residency-info" id="foreign-residency-info" class="dropdown" required>
-                            <option value=""></option>
                             <option value="N/A">N/A</option>
                         </select>
                         <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">If YES, choose country</label>
@@ -175,23 +173,23 @@
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">a. Are you a member of any indigenous group?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="indigenous-yes" id="indigenous-yes" class="mx-auto size-5" />
+                    <input type="radio" name="indigenous" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="indigenous-no" id="indigenous-no" class="mx-auto size-5" />
+                    <input type="radio" name="indigenous" value="false" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="text" name="indigenous-info" class="inputbox mx-auto" placeholder="If YES, please specify" />
+                    <input type="number" name="indigenous-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
                 </td>
             </tr>
             <tr>
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">b. Are you a person with disability?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="pwd-yes" id="pwd-yes" class="mx-auto size-5" />
+                    <input type="radio" name="pwd" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="pwd-no" id="pwd-no" class="mx-auto size-5" />
+                    <input type="radio" name="pwd" value="false" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
                     <input type="number" name="pwd-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
@@ -201,15 +199,16 @@
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">c. Are you a solo parent?</td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="solo-parent-yes" id="solo-parent-yes" class="mx-auto size-5" />
+                    <input type="radio" name="solo-parent" id="solo-parent-yes" value="true" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="checkbox" name="solo-parent-no" id="solo-parent-no" class="mx-auto size-5" />
+                    <input type="radio" name="solo-parent" id="solo-parent-no" value="false" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
                     <input type="number" name="solo-parent-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
                 </td>
             </tr>
+
         </tbody>
     </table>
 

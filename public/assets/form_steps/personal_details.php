@@ -5,11 +5,14 @@
 <div class="mx-auto w-[65%] py-2" data-step id="personal-details">
     <!-- Title -->
 
-    <h1 class="text-xl font-bold text-blue-800">1. Personal Detail</h1>
+    <div class="space-y-3 py-2">
+        <h1 class="text-xl font-bold text-slate-600 ">1. Personal Detail</h1>
+        <p class="text-sm text-slate-600 rounded-sm">Please ensure all required fields are filled up. You can use "N/A" for fields that are not applicable.</p>
+    </div>
 
     <!-- Inputs -->
     <div class="grid grid-cols-4 gap-x-4 gap-y-3">
-        <span class="col-span-full my-4 text-lg font-medium text-gray-900">General Details</span>
+        <span class="col-span-full my-4 text-lg font-medium text-slate-600">General Details</span>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">First Name</label>
@@ -23,15 +26,14 @@
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Last Name</label>
-            <input type="text" name="middlename" id="middlename" class="inputbox" autocomplete="off" required />
+            <input type="text" name="lastname" id="lastname" class="inputbox" autocomplete="off" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Name Extension</label>
-            <div class="group relative">
+            <div class="group relative space-y-1">
                 <select name="suffix" id="suffix" class="dropdown" required>
                     <option value=""></option>
-                    <option value="N/A">N/A</option>
                     <?php
                     $sql = 'SELECT suffix_id, suffix from suffix';
                     $result = select_info_multiple_key($sql);
@@ -41,7 +43,7 @@
                     }
                     ?>
                 </select>
-                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Suffix</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Select Suffix</label>
             </div>
         </div>
 
@@ -64,33 +66,37 @@
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Sex</label>
-            <div class="group relative">
+            <div class="group relative space-y-1">
                 <select name="sex" id="sex" class="dropdown" required>
                     <option value=""></option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
-                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Gender/Sex</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Select Gender/Sex</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Civil Status</label>
-            <div class="group relative">
+            <div class="group relative space-y-1">
                 <select name="civil-status" id="civil-status" class="dropdown" required>
                     <option value=""></option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Legally Separated<">Legally Separated</option>
+                    <?php
+                    $sql = "SELECT * FROM civil_status";
+                    $result = select_info_multiple_key($sql);
+
+                    foreach ($result as $r) {
+                        echo "<option value='{$r[0]}'>{$r[1]}</option>";
+                    }
+                    ?>
                 </select>
-                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Civil Status</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Select Civil Status</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Height(m)</label>
-            <input type="number" min="0.0" name="height" id="height" class="inputbox" autocomplete="off" required />
+            <input type="number" min="0.0" name="height" id="height" class="inputbox" autocomplete="off" step="0.01" required />
         </div>
 
         <div class="space-y-1">
@@ -100,123 +106,120 @@
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Blood Type</label>
-            <div class="group relative">
+            <div class="group relative space-y-1">
                 <select name="blood-type" id="blood-type" class="dropdown" required>
                     <option value=""></option>
-                    <option value="N/A">Unknown</option>
                     <?php
-                    $sql = 'SELECT blood_type_id, blood_type from blood_type';
+                    $sql = "SELECT * from blood_type ORDER BY blood_type ASC";
                     $result = select_info_multiple_key($sql);
 
                     foreach ($result as $r) {
                         echo "<option value='{$r[0]}'>{$r[1]}</option>";
                     }
-
                     ?>
                 </select>
-                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Type</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Select Type</label>
             </div>
         </div>
 
-        <hr class="col-span-full mt-5 border border-gray-500" />
+        <hr class="col-span-full mt-5 border border-slate-600" />
 
-        <span class="col-span-full my-4 text-lg font-medium text-gray-900">Government Identification Details</span>
+        <span class="col-span-full my-4 text-lg font-medium text-slate-600">Government Identification Details</span>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">GSIS ID Number</label>
-            <input type="number" name="gsis-id" id="gsis-id" class="inputbox" autocomplete="off" />
+            <input type="text" name="gsis-id" id="gsis-id" class="inputbox" autocomplete="off" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">PAG-IBIG ID Number</label>
-            <input type="number" name="pagibig-id" id="pagibig-id" class="inputbox" autocomplete="off" />
+            <input type="text" name="pagibig-id" id="pagibig-id" class="inputbox" autocomplete="off" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">PHILHEALTH ID Number</label>
-            <input type="number" name="philhealth-id" id="philhealth-id" class="inputbox" autocomplete="off" />
+            <input type="text" name="philhealth-id" id="philhealth-id" class="inputbox" autocomplete="off" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">SSS ID Number</label>
-            <input type="number" name="sss-id" id="sss-id" class="inputbox" autocomplete="off" />
+            <input type="text" name="sss-id" id="sss-id" class="inputbox" autocomplete="off" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">TIN ID Number</label>
-            <input type="number" name="tin-id" id="tin-id" class="inputbox" autocomplete="off" />
+            <input type="text" name="tin-id" id="tin-id" class="inputbox" autocomplete="off" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Agency Employee Number</label>
-            <input type="number" name="agency-no" id="agency-no" class="inputbox" autocomplete="off" />
+            <input type="text" name="agency-no" id="agency-no" class="inputbox" autocomplete="off" required />
         </div>
 
-        <hr class="col-span-full mt-5 border border-gray-500" />
+        <hr class="col-span-full mt-5 border border-slate-600" />
 
-        <span class="col-span-full my-4 text-lg font-medium text-gray-900">Citizenship</span>
+        <span class="col-span-full my-4 text-lg font-medium text-slate-600">Citizenship</span>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Nationality</label>
-            <div class="group relative">
+            <div class="group relative space-y-1">
                 <select name="nationality" id="nationality" class="dropdown" required>
                     <option value=""></option>
                     <option value="Filipino">Filipino</option>
                     <option value="Dual Citizenship">Dual Citizenship</option>
                 </select>
-                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Nationality</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Select Nationality</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Citizenship Category</label>
-            <div class="group relative">
+            <div class="group relative space-y-1">
                 <select name="citizenship-category" id="citizenship-category" class="dropdown" required>
                     <option value=""></option>
                     <option value="By Birth">By Birth</option>
                     <option value="By Naturalization">By Naturalization</option>
                 </select>
-                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Citizenship Category</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Select Citizenship Category</label>
             </div>
         </div>
 
         <div class="col-span-2 space-y-1">
             <label class="block text-sm text-gray-700">If holder of dual citizenship, indicate country</label>
-            <div class="group relative">
-                <select name="citizenship-country" id="citizenship-country" class="dropdown" required>
-                    <option value=""></option>
+            <div class="group relative space-y-1 opacity-50">
+                <select name="citizenship-country" id="citizenship-country" class="dropdown pointer-events-none">
                     <option value="N/A">N/A</option>
                 </select>
-                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Country</label>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Select Country</label>
             </div>
         </div>
 
-        <hr class="col-span-full mt-5 border border-gray-500" />
+        <hr class="col-span-full mt-5 border border-slate-600" />
 
-        <span class="col-span-full my-4 text-lg font-medium text-gray-900">Address Information</span>
-        <span class="col-span-full mt-2 font-medium text-gray-900">Residential Address</span>
+        <span class="col-span-full my-4 text-lg font-medium text-slate-600">Address Information</span>
+        <span class="col-span-full mt-2 font-medium text-slate-600">Residential Address</span>
 
-        <div class="group relative">
+        <div class="group relative space-y-1">
             <input type="text" name="res-house-no" id="res-house-no" class="address-inputbox" autocomplete="off" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">House no./Block no./Lot no.</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">House no./Block no./Lot no.</label>
         </div>
 
-        <div class="group relative">
+        <div class="group relative space-y-1">
             <input type="text" name="res-street" id="res-street" class="address-inputbox" autocomplete="off" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Street</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Street</label>
         </div>
 
-        <div class="group relative col-span-2">
+        <div class="group relative space-y-1 col-span-2">
             <input type="text" name="res-village" id="res-village" class="address-inputbox" autocomplete="off" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Village</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Village</label>
         </div>
 
-        <div class="group relative">
+        <div class="group relative space-y-1">
             <select name="res-province" id="res-province" class="dropdown" required>
                 <option value=""></option>
                 <?php
-                $sql = 'SELECT prov_id, prov_desc FROM province
-                                ORDER BY prov_desc ASC';
+                $sql = 'SELECT province_id, province FROM province
+                                ORDER BY province ASC';
                 $result = select_info_multiple_key($sql);
 
                 foreach ($result as $r) {
@@ -224,60 +227,51 @@
                 }
                 ?>
             </select>
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Province</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Province</label>
         </div>
 
-        <div class="group relative">
-            <select name="res-municipality" id="res-municipality" class="dropdown" required>
-                <option value=""></option>
-                <?php
-                $sql = 'SELECT municipality_id ,municipality_desc FROM municipality LIMIT 50';
-
-                $result = select_info_multiple_key($sql);
-                foreach ($result as $r) {
-                    echo '<option value ="' . $r[0] . '">' . $r[1] . '</option>';
-                }
-
-                ?>
-            </select>
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Municipality</label>
-        </div>
-
-        <div class="group container relative">
-            <select name="res-brgy" id="res-brgy" class="dropdown" required>
+        <div class="group relative space-y-1 opacity-50">
+            <select name="res-municipality" id="res-municipality" class="dropdown pointer-events-none" required>
                 <option value=""></option>
             </select>
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Baranggay</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Municipality</label>
         </div>
 
-        <div class="group container relative">
+        <div class="group relative space-y-1 opacity-50">
+            <select name="res-brgy" id="res-brgy" class="dropdown pointer-events-none" required>
+                <option value=""></option>
+            </select>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Barangay</label>
+        </div>
+
+        <div class="group relative space-y-1">
             <input name="res-zip" id="res-zip" class="address-inputbox" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Zip Code</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Zip Code</label>
         </div>
 
-        <span class="col-span-full mt-2 font-medium text-gray-900">Permanent Address</span>
+        <span class="col-span-full mt-2 font-medium text-slate-600">Permanent Address</span>
 
-        <div class="group relative">
+        <div class="group relative space-y-1">
             <input type="text" name="permanent-house-no" id="permanent-house-no" class="address-inputbox" autocomplete="off" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">House no./Block no./Lot no.</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">House no./Block no./Lot no.</label>
         </div>
 
-        <div class="group relative">
+        <div class="group relative space-y-1">
             <input type="text" name="permanent-street" id="permanent-street" class="address-inputbox" autocomplete="off" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Street</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Street</label>
         </div>
 
-        <div class="group relative col-span-2">
+        <div class="group relative space-y-1 col-span-2">
             <input type="text" name="permanent-village" id="permanent-village" class="address-inputbox" autocomplete="off" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Village</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Village</label>
         </div>
 
-        <div class="group relative">
+        <div class="group relative space-y-1">
             <select name="permanent-province" id="permanent-province" class="dropdown" required>
                 <option value=""></option>
                 <?php
-                $sql = 'SELECT prov_id, prov_desc FROM province
-                                ORDER BY prov_desc ASC';
+                $sql = 'SELECT province_id, province FROM province
+                                ORDER BY province ASC';
                 $result = select_info_multiple_key($sql);
 
                 foreach ($result as $r) {
@@ -285,35 +279,35 @@
                 }
                 ?>
             </select>
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Province</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Province</label>
         </div>
 
-        <div class="group relative">
-            <select name="permanent-municipality" id="permanent-municipality" class="dropdown" required>
+        <div class="group relative space-y-1 opacity-50">
+            <select name="permanent-municipality" id="permanent-municipality" class="dropdown pointer-events-none" required>
                 <option value=""></option>
             </select>
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Municipality</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Municipality</label>
         </div>
 
-        <div class="group container relative">
-            <select name="permanent-brgy" id="permanent-brgy" class="dropdown" required>
+        <div class="group relative space-y-1 opacity-50">
+            <select name="permanent-brgy" id="permanent-brgy" class="dropdown pointer-events-none" required>
                 <option value=""></option>
             </select>
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Baranggay</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Barangay</label>
         </div>
 
-        <div class="group container relative">
+        <div class="group relative space-y-1">
             <input name="permanent-zip" id="permanent-zip" class="address-inputbox" required />
-            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Zip Code</label>
+            <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Zip Code</label>
         </div>
 
-        <hr class="col-span-full mt-5 border border-gray-500" />
+        <hr class="col-span-full mt-5 border border-slate-600" />
 
-        <span class="col-span-full my-4 text-lg font-medium text-gray-900">Contact Information</span>
+        <span class="col-span-full my-4 text-lg font-medium text-slate-600">Contact Information</span>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Telephone Number</label>
-            <input type="number" min="0" name="tel-no" id="tel-no" class="inputbox" autocomplete="off" required />
+            <input type="text" min="0" value="N/A" name="tel-no" id="tel-no" class="inputbox" autocomplete="off" required />
         </div>
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Mobile Number</label>
@@ -322,7 +316,9 @@
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Email Address</label>
-            <input type="email" name="email" id="email" class="inputbox" autocomplete="off" />
+            <input type="email" name="email" id="email" class="inputbox" autocomplete="off" required />
         </div>
     </div>
+
+
 </div>

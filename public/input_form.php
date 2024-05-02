@@ -12,9 +12,10 @@
 
 <body class="box-border grid h-screen grid-rows-mod-3 bg-gray-200 font-poppins">
     <?php include './assets/components/header.php' ?>
+    <?php include './assets/components/missing_info_dialog.php' ?>
 
     <main class="mx-auto w-full overflow-y-auto rounded-md bg-white p-1">
-        <form data-multi-step action="" method="post" class="p-4">
+        <form data-multi-step action="./assets/database/insert.php" method="post" class="p-4">
             <?php include './assets/form_steps/personal_details.php' ?>
 
             <?php include './assets/form_steps/family_background.php' ?>

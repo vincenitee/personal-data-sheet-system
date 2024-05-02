@@ -1,7 +1,7 @@
 <!-- Other Information -->
 <div class="mx-auto hidden w-[65%] py-2" data-step>
     <!-- Title -->
-    <h1 class="text-xl font-bold text-blue-800">8. Other Information</h1>
+    <h1 class="text-xl font-bold text-slate-600">8. Other Information</h1>
 
     <!-- Inputs -->
     <div class="mt-3 grid grid-cols-3 gap-x-5">

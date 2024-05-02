@@ -28,7 +28,7 @@ const createInput = (inputAttributes) => {
 
 const createInputAttributes = (data, totalEntry) => ({
     type: data.type,
-    name: `${data.namePrefix}-${totalEntry + 1} `,
+    name: `${data.namePrefix}-${totalEntry + 1}`,
     id: `${data.namePrefix}-${totalEntry + 1}`,
     className: data.classes,
     autocomplete: data.autocomplete,
@@ -37,7 +37,7 @@ const createInputAttributes = (data, totalEntry) => ({
 
 const createSelect = (selectAttributes) => {
     const { name, id, classes } = selectAttributes
-    
+
     const select = document.createElement('select')
 
     select.name = name
@@ -50,7 +50,7 @@ const createSelect = (selectAttributes) => {
 
 const createSelectAttribute = (selectName, totalEntry) => {
     const idName = `${selectName}-${totalEntry + 1}`
-    return { name: idName, id: idName, classes: ['dropdown', `${selectName}`]}
+    return { name: idName, id: idName, classes: ['dropdown', `${selectName}`] }
 }
 
 const createContainer = (classes, dataAttribute) => {
@@ -129,6 +129,32 @@ function createDeleteIcon() {
     return svgElement
 }
 
+function createWarningIcon() {
+    const svgNamespace = "http://www.w3.org/2000/svg"
+    const svgElement = document.createElementNS(svgNamespace, "svg");
+    const svgAttributes = {
+        xmlns: svgNamespace,
+        fill: 'none',
+        stroke: 'currentColor',
+        'stroke-width': '2',
+        class: 'h-4 w-4 text-red-500',
+        viewBox: '0 0 24 24'
+    };
+    
+    setMultipleAttributes(svgElement, svgAttributes)
+
+    const pathElement = document.createElementNS(svgNamespace, "path");
+    const pathAttributes = {
+        'stroke-linecap': 'round',
+        'stroke-linejoin': 'round',
+        d: 'M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z'
+    };
+
+    setMultipleAttributes(pathElement, pathAttributes)
+    appendChildren(svgElement, [pathElement])
+    return svgElement;
+}
+
 function createCalendarIcon() {
     const svgNamespace = 'http://www.w3.org/2000/svg'
     const svgElement = document.createElementNS(svgNamespace, 'svg')
@@ -159,4 +185,21 @@ function createCalendarIcon() {
     return svgElement
 }
 
-export { appendChildren, createInput, createInputAttributes, createDelButton, createCaption, createContainer, createCalendarIcon, createLabelObj, createSelect, createSelectAttribute }
+function createWarningMessage(message) {
+    const warningContainerClass = ['bg-red-100', 'px-2', 'py-1', 'flex', 'items-center', 'gap-1']
+    const warningContainer = createContainer(warningContainerClass)
+
+    const icon = createWarningIcon()
+
+    const span = document.createElement('span')
+    const spanClass = ['text-xs', 'text-red-600', 'font-semibold', 'opacity-100']
+
+    span.classList.add(...spanClass)
+    span.textContent = message
+
+    appendChildren(warningContainer, [icon, span])
+
+    return warningContainer
+}
+
+export { appendChildren, createInput, createInputAttributes, createDelButton, createCaption, createContainer, createCalendarIcon, createWarningIcon, createLabelObj, createSelect, createSelectAttribute, createWarningMessage }

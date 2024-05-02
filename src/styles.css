@@ -45,7 +45,7 @@
 .dropdown:valid ~ label,
 .date-inputbox ~ label,
 .address-inputbox:valid ~ label {
-    @apply top-1 text-xs leading-4 font-bold;
+    @apply top-0.5 text-xs leading-4 font-bold;
 }
 
 /* Debugging */
@@ -55,7 +55,7 @@
 
 /* Buttons */
 .add-button {
-    @apply flex items-center justify-center gap-x-3 rounded-md bg-blue-500 px-3 py-2 text-sm text-white hover:bg-blue-700 active:bg-blue-950;
+    @apply flex items-center justify-center gap-x-3 rounded-md bg-blue-700 px-3 py-2 text-sm text-white hover:bg-blue-800 active:bg-blue-950;
 }
 
 .del-button {

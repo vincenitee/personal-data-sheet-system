@@ -20,8 +20,9 @@
     <div class="flex items-center justify-center border-b-2 bg-gray-50">
         <div class="flex w-3/4 justify-around overflow-x-auto" id="menu-container">
             <ul class="flex w-full flex-shrink-0 justify-around gap-12">
-                <li id="personal-details" class="flex-shrink-0 py-1" data-item>
-                    <a href="#reference-container" class="flex items-center justify-center gap-x-1 p-1 opacity-50">
+
+                <li id="personal-details" class="active flex-shrink-0 py-1" data-item>
+                    <a href="" class="flex items-center justify-center gap-x-1 p-1 opacity-50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
@@ -29,7 +30,7 @@
                     </a>
                 </li>
 
-                <li id="family-background" class="active flex-shrink-0 py-1" data-item>
+                <li id="family-background" class="flex-shrink-0 py-1" data-item>
                     <a href="" class="flex items-center justify-center gap-x-1 p-1 opacity-50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-gray-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />

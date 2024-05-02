@@ -2,7 +2,7 @@
 <div class="mx-auto hidden w-[67%] py-2" data-step>
     <!-- Title -->
     <div class="flex items-center justify-between gap-2">
-        <h1 class="text-xl font-bold text-blue-800">6. Voluntary Work Experience</h1>
+        <h1 class="text-xl font-bold text-slate-600">6. Voluntary Work Experience</h1>
         <button type="button" class="add-button" id="add-work-vol-entry">+ Add More</button>
     </div>
 
