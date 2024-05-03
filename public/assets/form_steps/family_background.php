@@ -4,7 +4,7 @@
     <!-- Title -->
     <div class="space-y-3 py-2">
         <h1 class="text-xl font-bold text-slate-600 ">2. Family Background</h1>
-        <p class="text-sm text-slate-600">Please ensure all required fields are filled up. You can use "N/A" for fields that are not applicable.</p>
+        <p class="text-sm text-slate-600">Please ensure all required fields are filled up. You can use <strong>N/A</strong> for fields that are not applicable.</p>
     </div>
 
     <!-- Inputs -->
@@ -65,7 +65,7 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Telephone Number</label>
-            <input type="number" name="spouse-telno" id="spouse-telno" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="spouse-telno" id="spouse-telno" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
         <hr class="col-span-full mt-5 border border-slate-600" />

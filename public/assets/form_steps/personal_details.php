@@ -7,7 +7,7 @@
 
     <div class="space-y-3 py-2">
         <h1 class="text-xl font-bold text-slate-600 ">1. Personal Detail</h1>
-        <p class="text-sm text-slate-600 rounded-sm">Please ensure all required fields are filled up. You can use "N/A" for fields that are not applicable.</p>
+        <p class="text-sm text-slate-600 rounded-sm">Please ensure all required fields are filled up. You can use <strong>N/A</strong> for fields that are not applicable.</p>
     </div>
 
     <!-- Inputs -->
@@ -109,6 +109,7 @@
             <div class="group relative space-y-1">
                 <select name="blood-type" id="blood-type" class="dropdown" required>
                     <option value=""></option>
+                    <option value="N/A">N/A</option>
                     <?php
                     $sql = "SELECT * from blood_type ORDER BY blood_type ASC";
                     $result = select_info_multiple_key($sql);

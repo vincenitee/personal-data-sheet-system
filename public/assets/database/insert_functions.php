@@ -16,7 +16,7 @@ function insert_children($fam_bg_id, $childname, $bdate){
 // for educational background insertion
 function insert_education_info($employee_id, $education_info){
     extract($education_info);
-    $query = "INSERT INTO educational_background (emp_id, edu_lvl_id, school_name, degree_course, sy_start, sy_end, highest_lvl_units, year_graduated) VALUES ('$employee_id', '$educational_level', '$school_name', '$degree', '$school_year_start', '$school_year_end', '$highest_level', '$year_graduated')";
+    $query = "INSERT INTO educational_background (emp_id, education_lvl_id, school_name, degree_course, sy_start, sy_end, highest_lvl_units, year_graduated) VALUES ('$employee_id', '$educational_level', '$school_name', '$degree', '$school_year_start', '$school_year_end', '$highest_level', '$year_graduated')";
     return insert_update_delete($query);
 }
 
@@ -33,9 +33,29 @@ function insert_civil_service_info($employee_id, $civil_service_info){
     return insert_update_delete($query);
 }
 
+// for license info insertion
 function insert_license_info($civil_entry_id, $license_info){
     extract($license_info);
     $query = "INSERT INTO license_info (civil_eligibility_id, license_number, date_of_validity) VALUES ('$civil_entry_id', '$license_number', '$issue_date')";
+    return insert_update_delete($query);
+}
+
+function insert_work_exp_info($employee_id, $work_exp_info){
+    extract($work_exp_info);
+
+    $padded_salary_grade = ($salary_grade !== "N/A") ? str_pad($salary_grade, 2, '0', STR_PAD_LEFT) : "N/A";
+
+    $salary_grade_step = ($salary_grade !== "N/A" && $salary_step !== "N/A") ? "$padded_salary_grade-$salary_step" : "N/A";
+
+    $query = "INSERT INTO work_experience (emp_id, department, position, work_start, work_end, monthly_salary, salary_grade_step, appointment_status, gov_service)
+    VALUES ('$employee_id', '$department', '$position', '$work_start', '$work_end', '$monthly_salary', '$salary_grade_step', '$appointment_status', '$government_service')";
+
+    return insert_update_delete($query);
+}
+
+function insert_vol_work_exp($employee_id, $vol_work_info){
+    extract($vol_work_info);
+    $query = "INSERT INTO vol_work_experience (emp_id, org_name_address, work_start, work_end, total_hours, position) VALUES ('$employee_id', '$org_name_address', '$work_start' ,'$work_end' ,'$total_hours', '$position')";
     return insert_update_delete($query);
 }
 

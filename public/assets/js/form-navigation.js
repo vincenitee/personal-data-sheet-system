@@ -1,20 +1,23 @@
 // Import necessary DOM elements and other dependencies
-import { nextBtn, prevBtn, formSteps, missingInfoDialog } from './dom-selection.js'
+import { nextBtn, prevBtn, formSteps, missingInfoDialog, submitBtn } from './dom-selection.js'
 import { appendChildren, createWarningMessage } from './element-builder.js'
 import { checkInputsValidity } from './helper-functions.js'
 
+// initial value 0, points to the first step
 let currentStep = formSteps.findIndex((step) => !step.classList.contains('hidden'))
+// console.log('Current Step before function Change Step: ', currentStep)
 
+// stepChange value depends on what button is clicked, nextBtn = 1 prevBtn = -1
 function changeStep(stepChange) {
-    console.log('Current Step: ', currentStep)
-
+    // selects all the inputs and select tags within the current step to ensure that all is filled up correctly based on their constraints
     const inputs = [...formSteps[currentStep].querySelectorAll('input')]
     const selects = [...formSteps[currentStep].querySelectorAll('select')]
-    const allValid = true
-    // const allValid = checkInputsValidity(inputs, selects)
+    // const allValid = true
+    const allValid = checkInputsValidity(inputs, selects)
 
     if (allValid) {
         currentStep += stepChange
+        console.log('Current Step after function Change Step: ', currentStep)
         showCurrentStep()
     } else {
         missingInfoDialog.showModal()
@@ -45,7 +48,6 @@ function displayWarningMessage(input) {
 
             if (input.type === 'text' || input.type === 'number') {
                 input.addEventListener('input', () => container.removeChild(warningMessage))
-                // input.addEventListener('change', () => container.removeChild(warningMessage))
             } else if (input.type === 'email') {
                 input.addEventListener('input', () => {
                     if (input.checkValidity()) container.removeChild(warningMessage)
@@ -59,12 +61,24 @@ function displayWarningMessage(input) {
 
 function showCurrentStep() {
     formSteps.forEach((step, index) => {
-        if (currentStep <= 10) {
-            index === currentStep ? step.classList.remove('hidden') : step.classList.add('hidden')
+        if (currentStep < 10) {
+            if (index === currentStep) {
+                step.classList.remove('hidden');
+            } else {
+                step.classList.add('hidden');
+            }
         }
 
-        step.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    })
+        if (currentStep === 9) {
+            nextBtn.classList.add('hidden');
+            submitBtn.classList.remove('hidden');
+        } else {
+            nextBtn.classList.remove('hidden');
+            submitBtn.classList.add('hidden');
+        }
+
+        step.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     const isFirstStep = currentStep === 0
     prevBtn.classList.toggle('cursor-not-allowed', isFirstStep)

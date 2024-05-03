@@ -20,6 +20,7 @@ const createInput = (inputAttributes) => {
     if (type === 'number') {
         input.setAttribute('min', 0)
         input.setAttribute('step', 'any')
+        input.setAttribute('value', 0)
     }
 
     input.setAttribute('required', '')

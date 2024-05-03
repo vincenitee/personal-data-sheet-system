@@ -16,7 +16,6 @@
         </div>
     </div>
 
-    <!-- Form Navigation Start -->
     <div class="flex items-center justify-center border-b-2 bg-gray-50">
         <div class="flex w-3/4 justify-around overflow-x-auto" id="menu-container">
             <ul class="flex w-full flex-shrink-0 justify-around gap-12">

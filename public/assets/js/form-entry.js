@@ -1,5 +1,5 @@
 import { initDropdown, initDatePicker } from './component-init.js'
-import { childTotalEntry, civilTotalEntry } from './dom-selection.js'
+import { childTotalEntry, civilTotalEntry, form, volWorkExpTotalEntry, workExpTotalEntry } from './dom-selection.js'
 import { appendChildren, createCalendarIcon, createCaption, createContainer, createDelButton, createSelectAttribute, createSelect, createInput, createInputAttributes } from './element-builder.js'
 import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData, referenceInputData } from './form-config.js'
 import { deleteEntry, setTitleText, totalDataEntry } from './helper-functions.js'
@@ -200,6 +200,9 @@ function addNewWorkEntry() {
     appendChildren(workEntry, [titleContainer, positionContainer, departmentContainer, salaryContainer, startDateContainer, endDateContainer, salaryGradeContainer, salaryStepContainer, appointmentStatusContainer, govServiceContainer])
 
     entryContainer.prepend(workEntry)
+    
+    workExpTotalEntry.value = totalDataEntry(entryContainer, 'data-work')
+
 }
 
 function addNewVolWorkEntry() {
@@ -257,6 +260,9 @@ function addNewVolWorkEntry() {
     appendChildren(workVolEntry, [titleContainer, orgNameContainer, positionContainer, workVolStartDateContainer, workVolEndDateContainer, totalHoursContainer])
 
     entryContainer.prepend(workVolEntry)
+
+    volWorkExpTotalEntry.value = totalDataEntry(entryContainer, 'data-work-vol')
+    alert(volWorkExpTotalEntry.value)
 }
 
 function addNewTrainingEntry() {
@@ -398,4 +404,8 @@ function addNewRefEntry() {
     entryContainer.insertBefore(refEntry, firstEntry)
 }
 
-export { addNewChildEntry, addNewCivilEntry, addNewWorkEntry, addNewVolWorkEntry, addNewTrainingEntry, addNewSkillEntry, addNewRecognitionEntry, addNewMembershipEntry, addNewRefEntry }
+function submitForm(){
+    form.submit();
+}
+
+export { addNewChildEntry, addNewCivilEntry, addNewWorkEntry, addNewVolWorkEntry, addNewTrainingEntry, addNewSkillEntry, addNewRecognitionEntry, addNewMembershipEntry, addNewRefEntry, submitForm }

@@ -4,7 +4,7 @@
     <div class="space-y-3 py-2 flex justify-between">
         <div class="space-y-3">
             <h1 class="text-xl font-bold text-slate-600 ">4. Civil Service Eligibility</h1>
-            <p class="text-sm text-slate-600">Please ensure all required fields are filled up. You can use "N/A" for fields that are not applicable.</p>
+            <p class="text-sm text-slate-600">Please ensure all required fields are filled up. You can use <strong>N/A</strong>  for fields that are not applicable.</p>
         </div>
         <input type="text" name="cs-total-entry" id="cs-total-entry" class="hidden" value="1">
         <button type="button" class="add-button" id="add-civil-entry">+ Add More</button>
@@ -29,7 +29,7 @@
 
             <div class="space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Ratings</label>
-                <input type="number" min="0" step="any" name="exam-rating-1" id="exam-rating-1" class="inputbox" autocomplete="off" />
+                <input type="number" min="0" step="any" name="exam-rating-1" id="exam-rating-1" class="inputbox" value="0" autocomplete="off" />
             </div>
 
             <div class="space-y-1">
@@ -51,7 +51,7 @@
 
             <div class="space-y-1">
                 <label class="block text-sm font-medium text-gray-700">License Number</label>
-                <input type="number" min="0.00" name="license-number-1" id="license-number-1" class="inputbox" autocomplete="off" />
+                <input type="text" name="license-number-1" id="license-number-1" class="inputbox" autocomplete="off" />
             </div>
 
             <div class="space-y-1">

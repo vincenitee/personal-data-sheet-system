@@ -1,6 +1,6 @@
 import { fetchBaranggays, fetchCountries, fetchMunicipalities } from './api.js'
-import { nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, municipalitySelect, baranggaySelect, provinceSelect, missingInfoDialog, nationalityDropdown, provinceSelects } from './dom-selection.js'
-import { addNewChildEntry, addNewCivilEntry, addNewMembershipEntry, addNewRecognitionEntry, addNewRefEntry, addNewSkillEntry, addNewTrainingEntry, addNewVolWorkEntry, addNewWorkEntry } from './form-entry.js'
+import { nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, municipalitySelect, baranggaySelect, provinceSelect, missingInfoDialog, nationalityDropdown, provinceSelects, submitBtn } from './dom-selection.js'
+import { addNewChildEntry, addNewCivilEntry, addNewMembershipEntry, addNewRecognitionEntry, addNewRefEntry, addNewSkillEntry, addNewTrainingEntry, addNewVolWorkEntry, addNewWorkEntry, submitForm } from './form-entry.js'
 import { changeStep } from './form-navigation.js'
 import { closeDialog, deleteEntry, disableSelect, enableSelect, setTitleText } from './helper-functions.js'
 import { selectById, selectSibling } from './utilities.js'
@@ -56,6 +56,8 @@ const setupEventHandlers = () => {
     addOrgBtn.addEventListener('click', addNewMembershipEntry)
     addRefBtn.addEventListener('click', addNewRefEntry)
 
+    submitBtn.addEventListener('click', () => submitForm())
+    
     selectSibling(missingInfoDialog, 'button').addEventListener('click', () => closeDialog(missingInfoDialog))
 }
 

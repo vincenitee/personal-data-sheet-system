@@ -1,6 +1,7 @@
 <?php
 include 'sql_statements.php';
 include 'insert_functions.php';
+include 'validate.php';
 
 // insertion of employee details
 $lastname = $_POST['lastname'];
@@ -87,7 +88,7 @@ $mother_fname = empty($_POST['mother-firstname']) ? 'N/A' : $_POST['mother-first
 $mother_mname = empty($_POST['mother-middlename']) ? 'N/A' : $_POST['mother-middlename'];
 $mother_lname = empty($_POST['mother-surname']) ? 'N/A' : $_POST['mother-surname'];
 
-$fam_bg_sql = "INSERT INTO family_background (emp_id, spouse_lname, spouse_fname, spouse_mname, spouse_suffix, spouse_occupation, bus_name, bus_address, tel_no, father_lname, father_fname, father_mname, father_suffix, mother_lname, mother_fname, mother_mname) VALUES ('$employee_id', '$spouse_lname', '$spouse_fname', '$spouse_mname', '$spouse_suffix', '$spouse_occupation', '$spouse_business', '$spouse_business_addr', '$spouse_telno', '$father_lname', '$father_fname', '$father_mname', '$father_suffix', '$mother_lname', '$mother_fname', '$mother_mname')";
+$fam_bg_sql = "INSERT INTO family_background (emp_id, spouse_lname, spouse_fname, spouse_mname, spouse_suffix, spouse_occupation, spouse_business, spouse_business_address, tel_no, father_lname, father_fname, father_mname, father_suffix, mother_lname, mother_fname, mother_mname) VALUES ('$employee_id', '$spouse_lname', '$spouse_fname', '$spouse_mname', '$spouse_suffix', '$spouse_occupation', '$spouse_business', '$spouse_business_addr', '$spouse_telno', '$father_lname', '$father_fname', '$father_mname', '$father_suffix', '$mother_lname', '$mother_fname', '$mother_mname')";
 
 $fam_bg_id = insert_update_delete($fam_bg_sql);
 
@@ -97,13 +98,15 @@ $child_total_entry = $_POST['child-total-entry'];
 for ($i = 1; $i <= $child_total_entry; $i++) {
     $child_name = $_POST["child-name-$i"];
     $child_bdate = $_POST["child-bdate-$i"];
-    insert_children($fam_bg_id, $child_name, $child_bdate);
+    if (!empty($child_name) && !empty($child_bdate)) {
+        insert_children($fam_bg_id, $child_name, $child_bdate);
+    }
 }
 
 // educational background details
 $education_prefix = ['elementary', 'secondary', 'vocational', 'college', 'graduate'];
 
-foreach($education_prefix as $index => $prefix){
+foreach ($education_prefix as $index => $prefix) {
     $index++;
 
     $education_background = [
@@ -123,7 +126,7 @@ foreach($education_prefix as $index => $prefix){
 // civil service eligibility details
 $cs_total_entry = $_POST['cs-total-entry'];
 
-for($i = 1; $i <= $cs_total_entry; $i++){
+for ($i = 1; $i <= $cs_total_entry; $i++) {
     $civil_entry_info = [
         'examination_name' => $_POST["exam-name-$i"],
         'rating' => $_POST["exam-rating-$i"],
@@ -138,11 +141,52 @@ for($i = 1; $i <= $cs_total_entry; $i++){
         'issue_date' => $_POST["issue-date-$i"],
     ];
 
-    insert_license_info($civil_entry_id, $license_info);
+    if (checkEmptyFields($civil_entry_info) > 80) {
+        echo "Civil Service Eligibility = " . checkEmptyFields($civil_entry_info);
+        insert_license_info($civil_entry_id, $license_info);
+    }
 }
 
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
-?>
+// work experience
+$work_exp_total_entry = $_POST['work-exp-total'];
+for ($i = 1; $i <= $work_exp_total_entry; $i++) {
+    $work_exp_info = [
+        'department' => $_POST["agency-$i"],
+        'position' => $_POST["position-$i"],
+        'work_start' => $_POST["work-start-$i"],
+        'work_end' => $_POST["work-end-$i"],
+        'monthly_salary' => $_POST["salary-$i"],
+        'salary_grade' => $_POST["salary-grade-$i"],
+        'salary_step' => $_POST["salary-step-$i"],
+        'appointment_status' => $_POST["appointment-status-$i"],
+        'government_service' => $_POST["government-service-$i"]
+    ];
+    if (checkEmptyFields($work_exp_info) > 70) {
+        echo "Work Experience = " . checkEmptyFields($work_exp_info);
+        insert_work_exp_info($employee_id, $work_exp_info);
+    }
+}
+
+
+// voluntary work experience
+$vol_work_exp_total = $_POST['voluntary-work-total'];
+for ($i = 1; $i <= $vol_work_exp_total; $i++) {
+    $vol_work_info = [
+        'org_name_address' => $_POST["org-name-$i"],
+        'work_start' => $_POST["work-vol-start-$i"],
+        'work_end' => $_POST["work-vol-end-$i"],
+        'total_hours' => $_POST["work-vol-hours-$i"],
+        'position' => $_POST["nature-of-work-$i"]
+    ];
+
+    if (checkEmptyFields($vol_work_info) == 100) {
+        insert_vol_work_exp($employee_id, $vol_work_info);
+    }
+}
+
+
+
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";

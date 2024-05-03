@@ -57,7 +57,7 @@ const civilInputData = [
     { type: 'number', namePrefix: 'exam-rating', classes: 'inputbox', autocomplete: 'off' },
     { type: 'text', namePrefix: 'exam-date', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select date' },
     { type: 'text', namePrefix: 'exam-place', classes: 'inputbox', autocomplete: 'off' },
-    { type: 'number', namePrefix: 'license-number', classes: 'inputbox', autocomplete: 'off' },
+    { type: 'text', namePrefix: 'license-number', classes: 'inputbox', autocomplete: 'off' },
     { type: 'text', namePrefix: 'issue-date', classes: 'date-inputbox', autocomplete: 'off', placeholder: 'Select date' },
 ]
 

@@ -9,12 +9,12 @@ export const initDropdown = (dropdown, type) => {
             break
         case 'salaryGrade':
             [0, ...Array.from({ length: 33 }, (_, i) => i + 1)].forEach((grade) => {
-                dropdown.add(new Option(grade === 0 ? '' : grade, grade === 0 ? '' : grade));
+                dropdown.add(new Option(grade === 0 ? 'N/A' : grade, grade === 0 ? 'N/A' : grade));
             })
             break
         case 'salaryStep':
             [0, ...Array.from({ length: 8 }, (_, i) => i + 1)].forEach((step) => {
-                dropdown.add(new Option(step === 0 ? '' : step, step === 0 ? '' : step))
+                dropdown.add(new Option(step === 0 ? 'N/A' : step, step === 0 ? 'N/A' : step))
             })
             break
         case 'appointmentStatus':

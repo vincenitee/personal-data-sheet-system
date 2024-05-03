@@ -19,13 +19,13 @@
             <label class="justify-items-end font-medium text-gray-700">ID/License/Passport No. :</label>
         </div>
         <div class="px-6 py-2">
-            <input type="number" name="gov-issued-id-no" id="gov-issued-id-no" class="inputbox" autocomplete="off" required />
+            <input type="text" name="gov-issued-id-no" id="gov-issued-id-no" class="inputbox" autocomplete="off" required />
         </div>
         <div class="flex items-center px-6 py-2">
             <label class="justify-items-end font-medium text-gray-700">Date/Place of Issuance :</label>
         </div>
         <div class="px-6 py-2">
-            <input type="number" name="gov-issued-id-no" id="gov-issued-id-no" class="inputbox" autocomplete="off" required />
+            <input type="text" name="date-place-issuance" id="date-place-issuance" class="inputbox" autocomplete="off" required />
         </div>
     </div>
 
@@ -56,6 +56,5 @@
                             file:text-white file:text-sm file:border-0 file:px-2 file:py-2 file:disabled" required>
         </div>
 
-    </div>
-    <button type="submit" class="add-button mt-4">Submit Entry</button>
+    </div>  
 </div>

@@ -1,11 +1,16 @@
 import { select, selectAllSibling, selectByClass, selectById, selectSibling } from './utilities.js'
 
+const form = select('form');
+
 const childTotalEntry = selectById('child-total-entry')
-const civilTotalEntry = selectById('cs-total-entry');
+const civilTotalEntry = selectById('cs-total-entry')
+const workExpTotalEntry = selectById('work-exp-total')
+const volWorkExpTotalEntry = selectById('voluntary-work-total');
 const multiStepForm = select('[data-multi-step]')
-const menuContainer = selectById('menu-container');
+const menuContainer = selectById('menu-container')
 const nextBtn = selectById('next-btn')
 const prevBtn = selectById('prev-btn')
+const submitBtn = selectById('submit-btn')
 
 const missingInfoDialog = selectById('missing-info-dialog');
 const addChildBtn = selectById('add-child')
@@ -74,12 +79,16 @@ const baranggaySelect = [
 ]
 
 export {
+    form,
     childTotalEntry,
     civilTotalEntry,
+    workExpTotalEntry,
+    volWorkExpTotalEntry,
     multiStepForm,
     menuContainer,
     nextBtn,
     prevBtn,
+    submitBtn,
     addChildBtn,
     addCivilBtn,
     addWorkVolBtn,

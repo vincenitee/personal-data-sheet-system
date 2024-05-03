@@ -3,7 +3,7 @@
     <!-- Title -->
     <div class="space-y-3 py-2">
         <h1 class="text-xl font-bold text-slate-600 ">3. Educational Background</h1>
-        <p class="text-sm text-slate-600">Please ensure all required fields are filled up. You can use "N/A" for fields that are not applicable.</p>
+        <p class="text-sm text-slate-600">Please ensure all required fields are filled up. You can use <strong>N/A</strong> for fields that are not applicable.</p>
     </div>
 
     <!-- Inputs -->
@@ -23,30 +23,28 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
-            <input type="text" name="elementary-highest-unit" id="elementary-highest-unit" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="elementary-highest-unit" id="elementary-highest-unit" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Start of Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="elementary-start-date" id="elementary-start-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required/>
+            <div class="group relative">
+                <select name="elementary-start-date" id="elementary-start-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">End of Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="elementary-end-date" id="elementary-end-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required/>
+            <div class="group relative">
+                <select name="elementary-end-date" id="elementary-end-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -83,30 +81,29 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
-            <input type="text" name="secondary-highest-unit" id="secondary-highest-unit" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="secondary-highest-unit" id="secondary-highest-unit" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
+        
         <div class="space-y-1">
-            <label class="block text-sm font-medium text-gray-700">Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="secondary-start-date" id="secondary-start-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <label class="block text-sm font-medium text-gray-700">Start of Attendance</label>
+            <div class="group relative">
+                <select name="secondary-start-date" id="secondary-start-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">End of Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="secondary-end-date" id="secondary-end-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <div class="group relative">
+                <select name="secondary-end-date" id="secondary-end-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -143,30 +140,29 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
-            <input type="text" name="vocational-highest-unit" id="vocational-highest-unit" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="vocational-highest-unit" id="vocational-highest-unit" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
+        
         <div class="space-y-1">
-            <label class="block text-sm font-medium text-gray-700">Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="vocational-start-date" id="vocational-start-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <label class="block text-sm font-medium text-gray-700">Start of Attendance</label>
+            <div class="group relative">
+                <select name="vocational-start-date" id="vocational-start-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">End of Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="vocational-end-date" id="vocational-end-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <div class="group relative">
+                <select name="vocational-end-date" id="vocational-end-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -203,30 +199,29 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
-            <input type="text" name="college-highest-unit" id="college-highest-unit" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="college-highest-unit" id="college-highest-unit" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
+        
         <div class="space-y-1">
-            <label class="block text-sm font-medium text-gray-700">Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="college-start-date" id="college-start-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <label class="block text-sm font-medium text-gray-700">Start of Attendance</label>
+            <div class="group relative">
+                <select name="college-start-date" id="college-start-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">End of Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="college-end-date" id="college-end-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <div class="group relative">
+                <select name="college-end-date" id="college-end-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
@@ -263,30 +258,29 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Highest Level Earned</label>
-            <input type="text" name="graduate-highest-unit" id="graduate-highest-unit" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="graduate-highest-unit" id="graduate-highest-unit" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
+        
         <div class="space-y-1">
-            <label class="block text-sm font-medium text-gray-700">Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="graduate-start-date" id="graduate-start-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <label class="block text-sm font-medium text-gray-700">Start of Attendance</label>
+            <div class="group relative">
+                <select name="graduate-start-date" id="graduate-start-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">End of Attendance</label>
-            <div class="relative">
-                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                    </svg>
-                </div>
-                <input type="text" name="graduate-end-date" id="graduate-end-date" class="date-inputbox" autocomplete="off" placeholder="Select date" required />
+            <div class="group relative">
+                <select name="graduate-end-date" id="graduate-end-date" class="dropdown year" required>
+                    <option value=""></option>
+                    <option value="N/A">N/A</option>
+                </select>
+                <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-3 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-1 group-focus-within:text-xs">Select Year</label>
             </div>
         </div>
 
