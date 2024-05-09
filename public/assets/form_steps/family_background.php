@@ -13,17 +13,17 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">First name</label>
-            <input type="text" name="spouse-firstname" id="spouse-firstname" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="spouse-firstname" id="spouse-firstname" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Middle name</label>
-            <input type="text" name="spouse-middlename" id="spouse-middlename" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="spouse-middlename" id="spouse-middlename" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Last name</label>
-            <input type="text" name="spouse-surname" id="spouse-surname" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="spouse-surname" id="spouse-surname" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
         <div class="space-y-1">
@@ -50,17 +50,17 @@
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Occupation</label>
-            <input type="text" name="spouse-occupation" id="spouse-occupation" class="inputbox select-all" autocomplete="off" required/>
+            <input type="text" name="spouse-occupation" id="spouse-occupation" class="inputbox select-all" value="N/A" autocomplete="off" required/>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Employer/Business Name</label>
-            <input type="text" name="spouse-business" id="spouse-business" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="spouse-business" id="spouse-business" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm font-medium text-gray-700">Business Address</label>
-            <input type="text" name="business-addr" id="business-addr" class="inputbox" autocomplete="off" required/>
+            <input type="text" name="business-addr" id="business-addr" class="inputbox" value="N/A" autocomplete="off" required/>
         </div>
 
         <div class="space-y-1">
@@ -92,7 +92,6 @@
             <div class="group relative">
                 <select name="father-suffix" id="father-suffix" class="dropdown" required>
                     <option value=""></option>
-                    <option value="N/A">N/A</option>
                     <?php
                     $sql = 'SELECT suffix_id, suffix from suffix';
                     $result = select_info_multiple_key($sql);

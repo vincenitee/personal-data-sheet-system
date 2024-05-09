@@ -1,5 +1,5 @@
-<header>
-    <div class="flex items-center justify-between bg-blue-500 px-5 py-2">
+<header class="font-poppins">
+    <div class="flex items-center justify-between bg-blue-700 px-5 py-2">
         <!-- Menu & title -->
         <div class="flex items-center gap-2">
             <button class="p-1 active:bg-blue-700">
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="flex items-center justify-center border-b-2 bg-gray-50">
+    <div class="flex items-center justify-center border-b-2 bg-gray-50" id="form-steps">
         <div class="flex w-3/4 justify-around overflow-x-auto" id="menu-container">
             <ul class="flex w-full flex-shrink-0 justify-around gap-12">
 

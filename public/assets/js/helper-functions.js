@@ -1,19 +1,32 @@
-import { selectById, selectAllSibling } from "./utilities.js"
+import { selectById, selectAllSibling } from './utilities.js'
 
 const setMultipleAttributes = (element, attribute) => {
-    for(const [key, value] of Object.entries(attribute)){
+    for (const [key, value] of Object.entries(attribute)) {
         element.setAttribute(key, value)
     }
+}
+
+// retrieves the current date and initializes it as a value to the passed input element
+const getCurrentDate = (input) => {
+    const currentDate = new Date()
+
+    const day = currentDate.getDate() 
+    const month = currentDate.getMonth() + 1 
+    const year = currentDate.getFullYear()
+
+    const formattedDate = `${year}-${month}-${day}`
+
+    input.value = formattedDate
 }
 
 const closeDialog = (dialogElement) => {
     dialogElement.close()
 }
 
-const setTitleText = ({input, titleId, defaultText}) => {
+const setTitleText = ({ input, titleId, defaultText }) => {
     const title = selectById(titleId)
     const inputContent = input.value
-    title.textContent = inputContent === '' ? defaultText : inputContent 
+    title.textContent = inputContent === '' ? defaultText : inputContent
 }
 
 const deleteEntry = (button, parentAttribute) => {
@@ -21,7 +34,7 @@ const deleteEntry = (button, parentAttribute) => {
 }
 
 const validateSelection = (selectYes, selectNo) => {
-    return (selectYes.checked && !selectNo.checked) || (!selectYes.checked && selectNo.checked);
+    return (selectYes.checked && !selectNo.checked) || (!selectYes.checked && selectNo.checked)
 }
 
 function checkInputsValidity(inputs, selects) {
@@ -31,20 +44,16 @@ function checkInputsValidity(inputs, selects) {
     return inputsValidity && selectsValidity
 }
 
+function checkRadioButtonsProgress(step) {
+    const totalRadioButtons = step.querySelectorAll('input[type=radio]').length
+    const totalCheckedRadioButtons = step.querySelectorAll('input[type=radio]:checked').length
+
+    const progress = Math.round((totalCheckedRadioButtons / totalRadioButtons) * 100 * 100) / 100
+    return progress
+}
+
 const totalDataEntry = (parentContainer, childAttribute) => {
     return selectAllSibling(parentContainer, childAttribute).length
 }
 
-function enableSelect(select) {
-    const container = select.closest('div')
-    select.classList.remove('pointer-events-none')
-    container.classList.remove('opacity-50')
-}
-
-function disableSelect(select) {
-    const container = select.closest('div')
-    select.classList.add('pointer-events-none')
-    container.classList.add('opacity-50')
-}
-
-export { setMultipleAttributes, setTitleText, deleteEntry, validateSelection, checkInputsValidity, totalDataEntry, closeDialog, enableSelect, disableSelect }
+export { setMultipleAttributes, setTitleText, deleteEntry, validateSelection, checkInputsValidity, checkRadioButtonsProgress, totalDataEntry, getCurrentDate, closeDialog }

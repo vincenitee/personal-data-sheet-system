@@ -1,7 +1,8 @@
 // Import necessary DOM elements and other dependencies
 import { nextBtn, prevBtn, formSteps, missingInfoDialog, submitBtn } from './dom-selection.js'
 import { appendChildren, createWarningMessage } from './element-builder.js'
-import { checkInputsValidity } from './helper-functions.js'
+import { checkInputsValidity, checkRadioButtonsProgress } from './helper-functions.js'
+import { select } from './utilities.js'
 
 // initial value 0, points to the first step
 let currentStep = formSteps.findIndex((step) => !step.classList.contains('hidden'))
@@ -9,11 +10,13 @@ let currentStep = formSteps.findIndex((step) => !step.classList.contains('hidden
 
 // stepChange value depends on what button is clicked, nextBtn = 1 prevBtn = -1
 function changeStep(stepChange) {
+
     // selects all the inputs and select tags within the current step to ensure that all is filled up correctly based on their constraints
     const inputs = [...formSteps[currentStep].querySelectorAll('input')]
     const selects = [...formSteps[currentStep].querySelectorAll('select')]
-    // const allValid = true
-    const allValid = checkInputsValidity(inputs, selects)
+
+    // let allValid = true
+    let allValid = checkInputsValidity(inputs, selects)
 
     if (allValid) {
         currentStep += stepChange
@@ -63,22 +66,22 @@ function showCurrentStep() {
     formSteps.forEach((step, index) => {
         if (currentStep < 10) {
             if (index === currentStep) {
-                step.classList.remove('hidden');
+                step.classList.remove('hidden')
             } else {
-                step.classList.add('hidden');
+                step.classList.add('hidden')
             }
         }
 
         if (currentStep === 9) {
-            nextBtn.classList.add('hidden');
-            submitBtn.classList.remove('hidden');
+            nextBtn.classList.add('hidden')
+            submitBtn.classList.remove('hidden')
         } else {
-            nextBtn.classList.remove('hidden');
-            submitBtn.classList.add('hidden');
+            nextBtn.classList.remove('hidden')
+            submitBtn.classList.add('hidden')
         }
 
-        step.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+        step.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
 
     const isFirstStep = currentStep === 0
     prevBtn.classList.toggle('cursor-not-allowed', isFirstStep)

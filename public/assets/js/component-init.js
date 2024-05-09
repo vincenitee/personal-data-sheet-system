@@ -18,12 +18,12 @@ export const initDropdown = (dropdown, type) => {
             })
             break
         case 'appointmentStatus':
-            ['', 'Permanent', 'Contractual', 'Casual', 'Temporary'].forEach((status) => {
+            ['N/A', 'Permanent', 'Contractual', 'Casual', 'Temporary'].forEach((status) => {
                 dropdown.add(new Option(status, status))
             })
             break
         case 'governmentService':
-            ['', 'Yes', 'No'].forEach((status) => {
+            ['Yes', 'No'].forEach((status) => {
                 dropdown.add(new Option(status, status))
             })
             break

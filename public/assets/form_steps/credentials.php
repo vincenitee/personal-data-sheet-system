@@ -1,6 +1,7 @@
 <div class="mx-auto hidden w-3/4 space-y-3 py-2" data-step>
     <div class="space-y-1">
         <h1 class="text-xl font-bold text-slate-600">10. Credentials</h1>
+        <input type="text" name="date-accomplished" id="date-accomplished" class="hidden">
         <p class="rounded-sm bg-gray-200 p-3 text-justify text-sm text-slate-600">I declare under oath that I have personally accomplished this Personal Data Sheet which is a true, correct and complete statement pursuant to the provisions of pertinent laws, rules and regulations of the Republic of the Philippines. I authorize the agency head/authorized representative to verify/validate the contents stated herein. I agree that any misrepresentation made in this document and its attachments shall cause the filing of administrative/criminal case/s against me.</p>
     </div>
 
@@ -13,19 +14,32 @@
             <label class="justify-items-end font-medium text-gray-700">Government Issued ID :</label>
         </div>
         <div class="px-6 py-2">
-            <input type="text" name="gov-issued-id" id="gov-issued-id" class="inputbox" autocomplete="off" required />
+            <input type="text" name="gov-issued-id" id="gov-issued-id" class="inputbox" value="N/A" autocomplete="off" />
         </div>
         <div class="flex items-center px-6 py-2">
             <label class="justify-items-end font-medium text-gray-700">ID/License/Passport No. :</label>
         </div>
         <div class="px-6 py-2">
-            <input type="text" name="gov-issued-id-no" id="gov-issued-id-no" class="inputbox" autocomplete="off" required />
+            <input type="text" name="gov-issued-id-no" id="gov-issued-id-no" class="inputbox" value="N/A" autocomplete="off" />
         </div>
         <div class="flex items-center px-6 py-2">
-            <label class="justify-items-end font-medium text-gray-700">Date/Place of Issuance :</label>
+            <label class="justify-items-end font-medium text-gray-700">Date of Issuance :</label>
         </div>
         <div class="px-6 py-2">
-            <input type="text" name="date-place-issuance" id="date-place-issuance" class="inputbox" autocomplete="off" required />
+            <div class="relative">
+                <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                    </svg>
+                </div>
+                <input type="text" name="gov-id-issuance-date" id="gov-id-issuance-date" class="date-inputbox" autocomplete="off" placeholder="Select date" />
+            </div>
+        </div>
+        <div class="flex items-center px-6 py-2">
+            <label class="justify-items-end font-medium text-gray-700">Place of Issuance :</label>
+        </div>
+        <div class="px-6 py-2">
+            <input type="text" name="gov-id-issuance-place" id="gov-id-issuance-place" class="inputbox" value="N/A" autocomplete="off" />
         </div>
     </div>
 
@@ -56,5 +70,5 @@
                             file:text-white file:text-sm file:border-0 file:px-2 file:py-2 file:disabled" required>
         </div>
 
-    </div>  
+    </div>
 </div>

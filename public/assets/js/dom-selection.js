@@ -2,10 +2,19 @@ import { select, selectAllSibling, selectByClass, selectById, selectSibling } fr
 
 const form = select('form');
 
+const currentDateIndicator = selectById('date-accomplished')
+const copyAddress = selectById('copy-address');
+
 const childTotalEntry = selectById('child-total-entry')
 const civilTotalEntry = selectById('cs-total-entry')
 const workExpTotalEntry = selectById('work-exp-total')
+const learningDevTotalEntry = selectById('learning-development-total');
 const volWorkExpTotalEntry = selectById('voluntary-work-total');
+const skillTotalEntry = selectById('skills-total-entry')
+const recognitionTotalEntry = selectById('recognition-total-entry')
+const membershipTotalEntry = selectById('membership-total-entry')
+const referencesTotalEntry = select('reference-total-entry')
+
 const multiStepForm = select('[data-multi-step]')
 const menuContainer = selectById('menu-container')
 const nextBtn = selectById('next-btn')
@@ -39,6 +48,50 @@ const nationalityDropdown = selectById('nationality');
 const provinceSelects = [
     selectById('res-province'),
     selectById('permanent-province')
+]
+
+const residentialAddress = [
+    selectById('res-house-no'),
+    selectById('res-street'),
+    selectById('res-village'),
+    selectById('res-province'),
+    selectById('res-municipality'),
+    selectById('res-brgy'),
+    selectById('res-zip')
+]
+
+const permanentAddress = [
+    selectById('permanent-house-no'),
+    selectById('permanent-street'),
+    selectById('permanent-village'),
+    selectById('permanent-province'),
+    selectById('permanent-municipality'),
+    selectById('permanent-brgy'),
+    selectById('permanent-zip')
+]
+
+const optionalFields = [
+    selectById('gsis-id'),
+    selectById('pagibig-id'),
+    selectById('philhealth-id'),
+    selectById('sss-id'),
+    selectById('tin-id'),
+    selectById('agency-no'),
+    selectById('spouse-firstname'),
+    selectById('spouse-middlename'),
+    selectById('spouse-surname'),
+    selectById('spouse-occupation'),
+    selectById('spouse-business'),
+    selectById('business-addr'),
+    selectById('spouse-telno'),
+    selectById('elementary-highest-unit'),
+    selectById('secondary-highest-unit'),
+    selectById('vocational-highest-unit'),
+    selectById('college-highest-unit'),
+    selectById('graduate-highest-unit'),
+    selectById('gov-id-issuance-place'),
+    selectById('gov-issued-id'),
+    selectById('gov-issued-id-no')
 ]
 
 const initialInput = [
@@ -80,10 +133,17 @@ const baranggaySelect = [
 
 export {
     form,
+    currentDateIndicator,
+    copyAddress,
     childTotalEntry,
     civilTotalEntry,
     workExpTotalEntry,
     volWorkExpTotalEntry,
+    learningDevTotalEntry,
+    skillTotalEntry,
+    recognitionTotalEntry,
+    membershipTotalEntry,
+    referencesTotalEntry,
     multiStepForm,
     menuContainer,
     nextBtn,
@@ -103,6 +163,7 @@ export {
     dateInputs,
     salaryGradeDropdown,
     salaryStepDropdown,
+    optionalFields,
     initialInput,
     parentAttributes,
     firstDelButtons,
@@ -114,5 +175,7 @@ export {
     municipalitySelect,
     baranggaySelect,
     provinceSelects,
+    residentialAddress,
+    permanentAddress,
     missingInfoDialog
 };

@@ -1,12 +1,11 @@
 import { initDropdown, initDatePicker } from './component-init.js'
-import { childTotalEntry, civilTotalEntry, form, volWorkExpTotalEntry, workExpTotalEntry } from './dom-selection.js'
+import { childTotalEntry, civilTotalEntry, form, learningDevTotalEntry, membershipTotalEntry, recognitionTotalEntry, skillTotalEntry, volWorkExpTotalEntry, workExpTotalEntry } from './dom-selection.js'
 import { appendChildren, createCalendarIcon, createCaption, createContainer, createDelButton, createSelectAttribute, createSelect, createInput, createInputAttributes } from './element-builder.js'
-import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData, referenceInputData } from './form-config.js'
+import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData, referenceInputData, skillInputData } from './form-config.js'
 import { deleteEntry, setTitleText, totalDataEntry } from './helper-functions.js'
 import { selectById } from './utilities.js'
 
 function addNewChildEntry() {
-    
     const entryContainer = selectById('children-container')
     const secondChild = entryContainer.querySelectorAll('div')[1]
     const totalEntry = totalDataEntry(entryContainer, 'data-child')
@@ -30,7 +29,7 @@ function addNewChildEntry() {
 
     entryContainer.insertBefore(childEntry, secondChild)
 
-    childTotalEntry.value = totalDataEntry(entryContainer, 'data-child');
+    childTotalEntry.value = totalDataEntry(entryContainer, 'data-child')
     // alert(childTotalEntry.value);
 }
 
@@ -200,9 +199,8 @@ function addNewWorkEntry() {
     appendChildren(workEntry, [titleContainer, positionContainer, departmentContainer, salaryContainer, startDateContainer, endDateContainer, salaryGradeContainer, salaryStepContainer, appointmentStatusContainer, govServiceContainer])
 
     entryContainer.prepend(workEntry)
-    
-    workExpTotalEntry.value = totalDataEntry(entryContainer, 'data-work')
 
+    workExpTotalEntry.value = totalDataEntry(entryContainer, 'data-work')
 }
 
 function addNewVolWorkEntry() {
@@ -337,6 +335,7 @@ function addNewTrainingEntry() {
     appendChildren(trainingEntry, [titleContainer, trainingTitleContainer, trainingSponsorContainer, trainingStartContainer, trainingEndContainer, trainingTypeContainer, trainingHoursContainer])
 
     entryContainer.prepend(trainingEntry)
+    learningDevTotalEntry.value = totalDataEntry(entryContainer, 'data-training')
 }
 
 function addNewSkillEntry() {
@@ -344,7 +343,7 @@ function addNewSkillEntry() {
     const totalEntry = totalDataEntry(entryContainer, 'data-skill')
 
     const skillEntry = createContainer(containerClasses.otherInfoContainer, 'data-skill')
-    const inputs = membershipInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
+    const inputs = skillInputData.map((data) => createInput(createInputAttributes(data, totalEntry)))
     const [skillInput] = inputs
 
     const delButton = createDelButton('del-button')
@@ -353,6 +352,8 @@ function addNewSkillEntry() {
     appendChildren(skillEntry, [skillInput, delButton])
 
     entryContainer.prepend(skillEntry)
+
+    skillTotalEntry.value = totalDataEntry(entryContainer, 'data-skill')
 }
 
 function addNewRecognitionEntry() {
@@ -369,6 +370,7 @@ function addNewRecognitionEntry() {
     appendChildren(recognitionEntry, [recognitionInput, delButton])
 
     entryContainer.prepend(recognitionEntry)
+    recognitionTotalEntry.value = totalDataEntry(entryContainer, 'data-recognition')
 }
 
 function addNewMembershipEntry() {
@@ -385,6 +387,7 @@ function addNewMembershipEntry() {
     appendChildren(membershipEntry, [membershipInput, delButton])
 
     entryContainer.prepend(membershipEntry)
+    membershipTotalEntry.value = totalDataEntry(entryContainer, 'data-membership')
 }
 
 function addNewRefEntry() {
@@ -404,8 +407,8 @@ function addNewRefEntry() {
     entryContainer.insertBefore(refEntry, firstEntry)
 }
 
-function submitForm(){
-    form.submit();
+function submitForm() {
+    form.submit()
 }
 
 export { addNewChildEntry, addNewCivilEntry, addNewWorkEntry, addNewVolWorkEntry, addNewTrainingEntry, addNewSkillEntry, addNewRecognitionEntry, addNewMembershipEntry, addNewRefEntry, submitForm }

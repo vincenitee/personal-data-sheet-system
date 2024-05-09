@@ -109,9 +109,8 @@
             <div class="group relative space-y-1">
                 <select name="blood-type" id="blood-type" class="dropdown" required>
                     <option value=""></option>
-                    <option value="N/A">N/A</option>
                     <?php
-                    $sql = "SELECT * from blood_type ORDER BY blood_type ASC";
+                    $sql = "SELECT * from blood_type";
                     $result = select_info_multiple_key($sql);
 
                     foreach ($result as $r) {
@@ -129,32 +128,32 @@
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">GSIS ID Number</label>
-            <input type="text" name="gsis-id" id="gsis-id" class="inputbox" autocomplete="off" required />
+            <input type="text" name="gsis-id" id="gsis-id" class="inputbox" autocomplete="off" value="N/A" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">PAG-IBIG ID Number</label>
-            <input type="text" name="pagibig-id" id="pagibig-id" class="inputbox" autocomplete="off" required />
+            <input type="text" name="pagibig-id" id="pagibig-id" class="inputbox" autocomplete="off" value="N/A" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">PHILHEALTH ID Number</label>
-            <input type="text" name="philhealth-id" id="philhealth-id" class="inputbox" autocomplete="off" required />
+            <input type="text" name="philhealth-id" id="philhealth-id" class="inputbox" autocomplete="off" value="N/A" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">SSS ID Number</label>
-            <input type="text" name="sss-id" id="sss-id" class="inputbox" autocomplete="off" required />
+            <input type="text" name="sss-id" id="sss-id" class="inputbox" autocomplete="off" value="N/A" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">TIN ID Number</label>
-            <input type="text" name="tin-id" id="tin-id" class="inputbox" autocomplete="off" required />
+            <input type="text" name="tin-id" id="tin-id" class="inputbox" autocomplete="off" value="N/A" required />
         </div>
 
         <div class="space-y-1">
             <label class="block text-sm text-gray-700">Agency Employee Number</label>
-            <input type="text" name="agency-no" id="agency-no" class="inputbox" autocomplete="off" required />
+            <input type="text" name="agency-no" id="agency-no" class="inputbox" autocomplete="off" value="N/A" required />
         </div>
 
         <hr class="col-span-full mt-5 border border-slate-600" />
@@ -231,15 +230,15 @@
             <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Province</label>
         </div>
 
-        <div class="group relative space-y-1 opacity-50">
-            <select name="res-municipality" id="res-municipality" class="dropdown pointer-events-none" required>
+        <div class="group relative space-y-1 ">
+            <select name="res-municipality" id="res-municipality" class="dropdown" required>
                 <option value=""></option>
             </select>
             <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Municipality</label>
         </div>
 
-        <div class="group relative space-y-1 opacity-50">
-            <select name="res-brgy" id="res-brgy" class="dropdown pointer-events-none" required>
+        <div class="group relative space-y-1 ">
+            <select name="res-brgy" id="res-brgy" class="dropdown " required>
                 <option value=""></option>
             </select>
             <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Barangay</label>
@@ -250,7 +249,13 @@
             <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Zip Code</label>
         </div>
 
-        <span class="col-span-full mt-2 font-medium text-slate-600">Permanent Address</span>
+        <div class="col-span-full mt-2 flex items-center justify-between">
+            <span class="font-medium text-slate-600">Permanent Address</span>
+            <div class="flex items-center gap-2">
+                <input type="checkbox" class="w-4 h-4 text-blue-500 bg-gray-100 border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500" id="copy-address">
+                <label for="copy-address" class="font-medium text-slate-600 text-sm select-none">Same as Residential Address</span>
+            </div>
+        </div>
 
         <div class="group relative space-y-1">
             <input type="text" name="permanent-house-no" id="permanent-house-no" class="address-inputbox" autocomplete="off" required />
@@ -283,15 +288,15 @@
             <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Province</label>
         </div>
 
-        <div class="group relative space-y-1 opacity-50">
-            <select name="permanent-municipality" id="permanent-municipality" class="dropdown pointer-events-none" required>
+        <div class="group relative space-y-1">
+            <select name="permanent-municipality" id="permanent-municipality" class="dropdown" required>
                 <option value=""></option>
             </select>
             <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Municipality</label>
         </div>
 
-        <div class="group relative space-y-1 opacity-50">
-            <select name="permanent-brgy" id="permanent-brgy" class="dropdown pointer-events-none" required>
+        <div class="group relative space-y-1">
+            <select name="permanent-brgy" id="permanent-brgy" class="dropdown" required>
                 <option value=""></option>
             </select>
             <label class="pointer-events-none text-sm absolute inset-x-2 inset-y-2 text-gray-500 transition-all duration-100 ease-in group-focus-within:inset-y-0 group-focus-within:text-xs">Barangay</label>

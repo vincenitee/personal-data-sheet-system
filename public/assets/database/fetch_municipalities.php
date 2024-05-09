@@ -1,4 +1,4 @@
-<?php include './sql_statements.php';
+<?php include 'sql_statements.php';
 
 $provinceId = $_GET['provinceId'];
 $sql = "SELECT municipality_id, municipality FROM municipality WHERE province_id = (SELECT province_id FROM province WHERE province_id = '" . $provinceId . "')";

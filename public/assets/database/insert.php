@@ -1,7 +1,7 @@
 <?php
 include 'sql_statements.php';
 include 'insert_functions.php';
-include 'validate.php';
+include 'validate_functions.php';
 
 // insertion of employee details
 $lastname = $_POST['lastname'];
@@ -142,7 +142,6 @@ for ($i = 1; $i <= $cs_total_entry; $i++) {
     ];
 
     if (checkEmptyFields($civil_entry_info) > 80) {
-        echo "Civil Service Eligibility = " . checkEmptyFields($civil_entry_info);
         insert_license_info($civil_entry_id, $license_info);
     }
 }
@@ -163,7 +162,6 @@ for ($i = 1; $i <= $work_exp_total_entry; $i++) {
         'government_service' => $_POST["government-service-$i"]
     ];
     if (checkEmptyFields($work_exp_info) > 70) {
-        echo "Work Experience = " . checkEmptyFields($work_exp_info);
         insert_work_exp_info($employee_id, $work_exp_info);
     }
 }
@@ -181,11 +179,118 @@ for ($i = 1; $i <= $vol_work_exp_total; $i++) {
     ];
 
     if (checkEmptyFields($vol_work_info) == 100) {
-        insert_vol_work_exp($employee_id, $vol_work_info);
+        insert_vol_work_exp_info($employee_id, $vol_work_info);
     }
 }
 
+$learning_dev_total = $_POST["learning-development-total"];
 
+for ($i = 1; $i <= $learning_dev_total; $i++) {
+    $learning_dev_info = [
+        'training_name' => $_POST["training-name-$i"],
+        'training_start' => $_POST["training-start-$i"],
+        'training_end' => $_POST["training-end-$i"],
+        'training_type' => $_POST["training-type-$i"],
+        'training_hours' => $_POST["training-hours-$i"],
+        'training_sponsor' => $_POST["training-sponsor-$i"]
+    ];
+
+    if (checkEmptyFields($learning_dev_info) > 80) {
+        insert_learning_dev_info($employee_id, $learning_dev_info);
+    }
+}
+
+// for skill entries insertion
+$skill_total = $_POST["skills-total-entry"];
+for ($i = 1; $i <= $skill_total; $i++) {
+    $skill_entry = $_POST["skill-$i"];
+    if (!empty($skill_entry)) {
+        insert_skills_info($employee_id, $skill_entry);
+    }
+}
+
+// for recognition entries insertion
+$recognition_total = $_POST["recognition-total-entry"];
+for ($i = 1; $i <= $recognition_total; $i++) {
+    $recognition_entry = $_POST["recognition-$i"];
+    if (!empty($recognition_entry)) {
+        insert_recognition_info($employee_id, $recognition_entry);
+    }
+}
+
+// for membership entries insertion
+$membership_total = $_POST["membership-total-entry"];
+for ($i = 1; $i <= $membership_total; $i++) {
+    $membership_entry = $_POST["membership-$i"];
+    if (!empty($membership_entry)) {
+        insert_membership_info($employee_id, $membership_entry);
+    }
+}
+
+// additional questions entries
+
+if($_POST['crim-offense'] == 1){
+    $query = "INSERT INTO criminal_record (date_filed, case_status) VALUES ('".$_POST['admin-offense-info']."', '". $_POST['date-filed'] ."')";
+
+    $crim_detail_id = insert_update_delete($query);
+}
+
+$questionnaire_reponses = [
+    'relative_third_degree' => $_POST['third-degree'],
+    'relative_fourth_degree' => $_POST['fourth-degree'],
+    'relative_details' => $_POST['consanguinity-info'],
+    'admin_offense' => $_POST['admin-offense'],
+    'admin_offense_details' => ($_POST['admin-offense'] == 1) ? $_POST['admin-offense-info'] : 'N/A',
+    'criminal_offense' => $_POST['crim-offense'],
+    'criminal_offense_status' => $_POST['crim-offense-info'],
+    'criminal_date_filed' => $_POST['date-filed'],
+    'criminal_conviction' => $_POST['crime-conviction'],
+    'criminal_conviction_details' => ($_POST['crime-conviction'] == 1) ? $_POST['crime-conviction'] : 'N/A',
+    'service_separation' => $_POST['separation'],
+    'separation_details' => ($_POST['separation'] == 1) ? $_POST['separation-info'] : 'N/A',
+    'election_candidate' => $_POST['candidate'],
+    'election_candidate_details' => ($_POST['candidate'] == 1) ? $_POST['candidate-info'] : 'N/A',
+    'gov_resignation' => $_POST['gov-resignation'],
+    'gov_resignation_details' => ($_POST['gov-resignation'] == 1) ? $_POST['gov-resignation-info'] : 'N/A',
+    'immigrant' => $_POST['foreign-residency'],
+    'immigrant_details' => ($_POST['foreign-residency'] == 1) ? $_POST['foreign-residency-info'] : 'N/A',
+    'indigenous' => $_POST['indigenous'],
+    'indigenous_details' => ($_POST['indigenous'] == 1) ? $_POST['indigenous-info'] : 'N/A',
+    'disability' => $_POST['pwd'],
+    'disability_id' => ($_POST['pwd'] == 1) ? $_POST['pwd-info'] : 'N/A',
+    'single_parent' => $_POST['solo-parent'],
+    'single_parent_id' => ($_POST['solo-parent'] == 1) ? $_POST['solo-parent-info'] : 'N/A',
+];
+
+insert_questions_responses($employee_id, $questionnaire_reponses);
+
+// persons reference
+$reference_total = $_POST['references-total-entry'];
+for ($i = 1; $i <= $reference_total; $i++){
+    $name = $_POST["reference-name-$i"];
+    $address = $_POST["reference-address-$i"];
+    $telno = $_POST["reference-telno-$i"];
+    
+    if(!empty($name) && !empty($address) && !empty($telno)){
+        insert_reference_info($employee_id, $name, $address, $telno);
+    }
+}
+
+// credentials
+$validation_info = [
+    'id_type' => $_POST['gov-issued-id'],
+    'id_no' => $_POST['gov-issued-id-no'],
+    'issuance_date' => $_POST['gov-id-issuance-date'],
+    'issuance_place' => $_POST['gov-id-issuance-place'],
+    'signature' => $_POST['signature-img'],
+    'date_accomplished' => $_POST['date-accomplished'],
+    'id_photo' => $_POST['gov-id-img'],
+    'right_thumbmark' => $_POST['right-thumb-img'],
+];
+
+insert_validation_info($employee_id, $validation_info);
+
+header('Location: ../../employee_list.php');
 
 echo "<pre>";
 print_r($_POST);

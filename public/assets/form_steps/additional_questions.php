@@ -15,17 +15,17 @@
         </thead>
         <tbody>
             <tr>
-                <td class="px-6 py-4">34.</td>
+                <td class="px-6 py-4">34.<span class="text-red-500 font-semibold">*</span></td>
                 <td class="px-6 py-4 text-justify">Are you related by consanguinity or affinity to the appointing or recommending authority, or to the chief of bureau or office or to the person who has immediate supervision over you in the Office, Bureau or Department where you will be apppointed,</td>
             </tr>
             <tr>
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">a. within the third degree?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="third-degree" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="third-degree" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="third-degree" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="third-degree" value="0" class="mx-auto size-5" />
                 </td>
                 <td class="w-10 px-6 py-4">&nbsp;</td>
             </tr>
@@ -34,10 +34,10 @@
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">b. within the fourth degree (for Local Government Unit - Career Employees)?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="fourth-degree" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="fourth-degree" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="fourth-degree" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="fourth-degree" value="0" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -46,13 +46,13 @@
             </tr>
 
             <tr class="border-t-2 border-slate-400">
-                <td class="px-6 py-4">35.</td>
+                <td class="px-6 py-4">35.<span class="text-red-500 font-semibold">*</span></td>
                 <td class="px-6 py-4">a. Have you ever been found guilty of any administrative offense?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="admin-offense" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="admin-offense" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="admin-offense" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="admin-offense" value="0" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -64,10 +64,10 @@
                 <td class="px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">b. Have you been criminally charged before any court?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="crim-offense" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="crim-offense" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="crim-offense" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="crim-offense" value="0" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -92,13 +92,13 @@
                 </td>
             </tr>
             <tr class="border-t-2 border-slate-400">
-                <td class="px-6 py-4">36.</td>
+                <td class="px-6 py-4">36.<span class="text-red-500 font-semibold">*</span></td>
                 <td class="px-6 py-4">Have you ever been convicted of any crime or violation of any law, decree, ordinance or regulation by any court or tribunal?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="crime-conviction" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="crime-conviction" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="crime-conviction" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="crime-conviction" value="0" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -106,13 +106,13 @@
                 </td>
             </tr>
             <tr class="border-t-2 border-slate-400">
-                <td class="px-6 py-4">37.</td>
+                <td class="px-6 py-4">37.<span class="text-red-500 font-semibold">*</span></td>
                 <td class="px-6 py-4 text-justify">Have you ever been separated from the service in any of the following modes: resignation, retirement, dropped from the rolls, dismissal, termination, end of term, finished contract or phased out (abolition) in the public or private sector?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="separation" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="separation" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="separation" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="separation" value="0" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -120,13 +120,13 @@
                 </td>
             </tr>
             <tr class="border-t-2 border-slate-400">
-                <td class="px-6 py-4">38.</td>
+                <td class="px-6 py-4">38.<span class="text-red-500 font-semibold">*</span></td>
                 <td class="px-6 py-4 text-justify">a. Have you ever been a candidate in a national or local election held within the last year (except Barangay election)?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="candidate" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="candidate" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="candidate" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="candidate" value="0" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -137,23 +137,23 @@
                 <td class="px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4 text-justify">b. Have you resigned from the government service during the three (3)-month period before the last election to promote/actively campaign for a national or local candidate?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="gov-resignation" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="gov-resignation" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="gov-resignation" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="gov-resignation" value="0" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
                     <input type="text" name="gov-resignation-info" class="inputbox mx-auto" placeholder="If YES, provide details" />
                 </td>
             </tr>
             <tr class="border-t-2 border-slate-400">
-                <td class="px-6 py-4">39.</td>
+                <td class="px-6 py-4">39.<span class="text-red-500 font-semibold">*</span></td>
                 <td class="px-6 py-4 text-justify">Have you acquired the status of an immigrant or permanent resident of another country?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="foreign-residency" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="foreign-residency" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="foreign-residency" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="foreign-residency" value="0" class="mx-auto size-5" />
                 </td>
 
                 <td class="px-6 py-4">
@@ -166,46 +166,46 @@
                 </td>
             </tr>
             <tr class="border-t-2 border-slate-400">
-                <td class="px-6 py-4">40.</td>
+                <td class="px-6 py-4">40.<span class="text-red-500 font-semibold">*</span></td>
                 <td class="px-6 py-4 text-justify">Pursuant to: (a) Indigenous People's Act (RA 8371); (b) Magna Carta for Disabled Persons (RA 7277); and (c) Solo Parents Welfare Act of 2000 (RA 8972), please answer the following items:</td>
             </tr>
             <tr>
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">a. Are you a member of any indigenous group?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="indigenous" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="indigenous" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="indigenous" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="indigenous" value="0" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="number" name="indigenous-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
+                    <input type="text" name="indigenous-info" class="inputbox mx-auto" placeholder="If YES, please specify" />
                 </td>
             </tr>
             <tr>
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">b. Are you a person with disability?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="pwd" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="pwd" value="1" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="pwd" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="pwd" value="0" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="number" name="pwd-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
+                    <input type="text" name="pwd-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
                 </td>
             </tr>
             <tr>
                 <td class="w-10 px-6 py-4">&nbsp;</td>
                 <td class="px-6 py-4">c. Are you a solo parent?</td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="solo-parent" id="solo-parent-yes" value="true" class="mx-auto size-5" />
+                    <input type="radio" name="solo-parent" id="solo-parent-yes" value="1" class="mx-auto size-5" required/>
                 </td>
                 <td class="px-6 py-4">
-                    <input type="radio" name="solo-parent" id="solo-parent-no" value="false" class="mx-auto size-5" />
+                    <input type="radio" name="solo-parent" id="solo-parent-no" value="0" class="mx-auto size-5" />
                 </td>
                 <td class="px-6 py-4">
-                    <input type="number" name="solo-parent-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
+                    <input type="text" name="solo-parent-info" class="inputbox mx-auto" placeholder="If YES, provide ID Number" />
                 </td>
             </tr>
 
@@ -215,6 +215,7 @@
     <div class="space-y-3">
         <div class="flex items-center justify-between bg-blue-200 px-6 py-4">
             <h1>41. References <span class="text-sm font-medium italic">(Person or not related by consanguinity or affinity to applicant/appointee)</span></h1>
+            <input type="text" name="reference-total-entry" id="reference-total-entry" class="hidden" value="1">
             <button type="button" class="add-button" id="add-reference-entry">&plus; Add Row</button>
         </div>
 

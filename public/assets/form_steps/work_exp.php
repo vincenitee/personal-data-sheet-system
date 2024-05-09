@@ -33,7 +33,7 @@
 
             <div class="space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Monthly Salary</label>
-                <input type="number" min="0" name="salary-1" id="salary-1" class="inputbox" autocomplete="off" />
+                <input type="number" min="0" name="salary-1" id="salary-1" class="inputbox" value="0" autocomplete="off" />
             </div>
 
             <div class="space-y-1">
@@ -91,7 +91,6 @@
                 <label class="block text-sm font-medium text-gray-700">Government Service</label>
                 <div class="group relative">
                     <select name="government-service-1" id="government-service-1" class="dropdown government-service" required>
-                        <option value=""></option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
