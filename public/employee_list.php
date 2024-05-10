@@ -8,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Employees</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script type="module" src="./assets/js/index.js" defer></script>
 </head>
 
 <body class="font-poppins bg-gray-100">
     <?php include './assets/components/header.php' ?>
-
+    <?php include './assets/components/sidebar.php' ?>
     <div class="w-[80%] px-7 py-4 mx-auto my-6 space-y-3 bg-white rounded-md">
         <div class="flex justify-between items-center">
             <h1 class="text-lg font-semibold">List of Employees</h1>

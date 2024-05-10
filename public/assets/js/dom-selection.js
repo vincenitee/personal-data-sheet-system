@@ -5,6 +5,10 @@ const form = select('form');
 const currentDateIndicator = selectById('date-accomplished')
 const copyAddress = selectById('copy-address');
 
+const openSidebarBtn = selectById('open-sidebar')
+const closeSidebarBtn = selectById('close-sidebar')
+const sidebar = select('aside');
+
 const childTotalEntry = selectById('child-total-entry')
 const civilTotalEntry = selectById('cs-total-entry')
 const workExpTotalEntry = selectById('work-exp-total')
@@ -135,6 +139,9 @@ export {
     form,
     currentDateIndicator,
     copyAddress,
+    openSidebarBtn,
+    sidebar,
+    closeSidebarBtn,
     childTotalEntry,
     civilTotalEntry,
     workExpTotalEntry,

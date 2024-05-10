@@ -12,6 +12,7 @@
 
 <body class="box-border grid h-screen grid-rows-mod-3 bg-gray-200 font-poppins">
     <?php include './assets/components/header.php' ?>
+    <?php include './assets/components/sidebar.php' ?>
     <?php include './assets/components/missing_info_dialog.php' ?>
 
     <main class="mx-auto w-full overflow-y-auto rounded-md bg-white p-1">

@@ -1,5 +1,5 @@
 import { fetchBaranggays, fetchCountries, fetchMunicipalities } from './api.js'
-import { nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, municipalitySelect, baranggaySelect, provinceSelect, missingInfoDialog, nationalityDropdown, provinceSelects, submitBtn, copyAddress, residentialAddress, permanentAddress, optionalFields, currentDateIndicator } from './dom-selection.js'
+import { nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, firstDelButtons, initialInput, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, municipalitySelect, baranggaySelect, provinceSelect, missingInfoDialog, nationalityDropdown, provinceSelects, submitBtn, copyAddress, residentialAddress, permanentAddress, optionalFields, currentDateIndicator, openSidebarBtn, sidebar, closeSidebarBtn } from './dom-selection.js'
 import { addNewChildEntry, addNewCivilEntry, addNewMembershipEntry, addNewRecognitionEntry, addNewRefEntry, addNewSkillEntry, addNewTrainingEntry, addNewVolWorkEntry, addNewWorkEntry, submitForm } from './form-entry.js'
 import { changeStep } from './form-navigation.js'
 import { closeDialog, deleteEntry, getCurrentDate, setTitleText } from './helper-functions.js'
@@ -12,6 +12,18 @@ const setupEventHandlers = () => {
 
     nextBtn.addEventListener('click', () => changeStep(1))
     prevBtn.addEventListener('click', () => changeStep(-1))
+
+    debugger;
+
+    console.log(sidebar);
+
+    openSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.remove('-translate-x-full')
+    })
+
+    closeSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.add('-translate-x-full');
+    })
 
     firstDelButtons.forEach((button, index) => {
         button.addEventListener('click', () => deleteEntry(button, parentAttributes[index]))
