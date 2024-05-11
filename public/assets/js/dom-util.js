@@ -1,27 +1,29 @@
-export function select(selector){
+function select(selector){
     return document.querySelector(selector)
 }
 
-export function selectAll(selector){
+function selectAll(selector){
     return document.querySelectorAll(selector)
 }
 
-export function selectSiblingByClass(container, childClass){
+function selectSiblingByClass(container, childClass){
     return [...container.getElementsByClassName(childClass)]
 }
 
-export function selectById(elementId){
+function selectById(elementId){
     return document.getElementById(elementId)
 }
 
-export function selectByClass(elementClass){
+function selectByClass(elementClass){
     return [...document.getElementsByClassName(elementClass)]
 }
 
-export function selectSibling(container, child){
+function selectSibling(container, child){
     return container.querySelector(child)
 }
 
-export function selectAllSibling(container, child){
+function selectAllSibling(container, child){
     return [...container.querySelectorAll(`[${child}]`)]
 }
+
+export { select, selectAll, selectSiblingByClass, selectById, selectByClass, selectSibling, selectAllSibling }

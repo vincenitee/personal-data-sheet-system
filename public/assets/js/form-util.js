@@ -1,4 +1,4 @@
-import { selectById, selectAllSibling } from './utilities.js'
+import { selectById, selectAllSibling } from './dom-util.js'
 
 const setMultipleAttributes = (element, attribute) => {
     for (const [key, value] of Object.entries(attribute)) {

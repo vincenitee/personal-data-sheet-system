@@ -1,4 +1,4 @@
-import { setMultipleAttributes } from './helper-functions.js'
+import { setMultipleAttributes } from './form-util.js'
 
 const appendChildren = (container, siblings) => {
     siblings.forEach((sibling) => {

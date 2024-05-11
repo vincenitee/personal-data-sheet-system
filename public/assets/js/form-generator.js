@@ -1,9 +1,14 @@
-import { initDropdown, initDatePicker } from './component-init.js'
-import { childTotalEntry, civilTotalEntry, form, learningDevTotalEntry, membershipTotalEntry, recognitionTotalEntry, skillTotalEntry, volWorkExpTotalEntry, workExpTotalEntry } from './dom-selection.js'
-import { appendChildren, createCalendarIcon, createCaption, createContainer, createDelButton, createSelectAttribute, createSelect, createInput, createInputAttributes } from './element-builder.js'
+import { initDropdown, initDatePicker } from './form-init.js'
+
+import { childTotalEntry, civilTotalEntry, form, learningDevTotalEntry, membershipTotalEntry, recognitionTotalEntry, skillTotalEntry, volWorkExpTotalEntry, workExpTotalEntry } from './form-element.js'
+
+import { appendChildren, createCalendarIcon, createCaption, createContainer, createDelButton, createSelectAttribute, createSelect, createInput, createInputAttributes } from './form-builder.js'
+
 import { containerClasses, childInputData, civilInputData, civilCaptions, workInputCaptions, workSelectCaptions, workSelectData, workInputData, workVolInputCaptions, workVolInputData, trainingInputData, trainingSelectData, trainingInputCaptions, trainingSelectCaptions, membershipInputData, recognitionInputData, referenceInputData, skillInputData } from './form-config.js'
-import { deleteEntry, setTitleText, totalDataEntry } from './helper-functions.js'
-import { selectById } from './utilities.js'
+
+import { deleteEntry, setTitleText, totalDataEntry } from './form-util.js'
+
+import { selectById } from './dom-util.js'
 
 function addNewChildEntry() {
     const entryContainer = selectById('children-container')

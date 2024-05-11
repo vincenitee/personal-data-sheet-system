@@ -1,4 +1,4 @@
-export const initDropdown = (dropdown, type) => {
+const initDropdown = (dropdown, type) => {
     switch (type) {
         case 'year':
             const startYear = 1924
@@ -39,10 +39,12 @@ export const initDropdown = (dropdown, type) => {
     }
 }
 
-export const initDatePicker = (inputElement) => {
+const initDatePicker = (inputElement) => {
     if (Array.isArray(inputElement)) {
         inputElement.forEach((element) => flatpickr(element, { dateFormat: 'Y-m-d' }))
     } else {
         flatpickr(inputElement, { dateFormat: 'Y-m-d' })
     }
 }
+
+export {initDropdown, initDatePicker}

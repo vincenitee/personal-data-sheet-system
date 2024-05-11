@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     <script type="module" src="./assets/js/index.js" defer></script>
+    <script type="module" src="./assets/js/sidebar.js"></script>
 </head>
 
 <body class="box-border grid h-screen grid-rows-mod-3 bg-gray-200 font-poppins">

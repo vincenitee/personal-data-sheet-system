@@ -1,10 +1,6 @@
-import { select, selectAllSibling, selectByClass, selectById, selectSibling } from './dom-util.js'
-const openSidebarBtn = selectById('open-sidebar')
-const closeSidebarBtn = selectById('close-sidebar')
-const sidebar = select('aside')
+import { select, selectAllSibling, selectByClass, selectById, selectSibling } from "./dom-util.js"
 
 const form = select('form')
-
 const currentDateIndicator = selectById('date-accomplished')
 const copyAddress = selectById('copy-address')
 
@@ -56,7 +52,7 @@ const permanentAddress = [selectById('permanent-house-no'), selectById('permanen
 
 const optionalFields = [selectById('gsis-id'), selectById('pagibig-id'), selectById('philhealth-id'), selectById('sss-id'), selectById('tin-id'), selectById('agency-no'), selectById('spouse-firstname'), selectById('spouse-middlename'), selectById('spouse-surname'), selectById('spouse-occupation'), selectById('spouse-business'), selectById('business-addr'), selectById('spouse-telno'), selectById('elementary-highest-unit'), selectById('secondary-highest-unit'), selectById('vocational-highest-unit'), selectById('college-highest-unit'), selectById('graduate-highest-unit'), selectById('gov-id-issuance-place'), selectById('gov-issued-id'), selectById('gov-issued-id-no')]
 
-const initialInput = [
+const initialInputs = [
     { input: positionInput, titleId: 'work-title-1', defaultText: 'Work Experience Entry' },
     { input: examInput, titleId: 'civil-title-1', defaultText: 'Civil Service Entry' },
     { input: orgNameInput, titleId: 'work-vol-title-1', defaultText: 'Voluntary Work Experience' },
@@ -65,7 +61,7 @@ const initialInput = [
 
 const parentAttributes = ['data-child', 'data-exam', 'data-work', 'data-work-vol', 'data-training', 'data-skill', 'data-recognition', 'data-membership', 'data-reference']
 
-const firstDelButtons = [selectSibling(selectById('children-container'), 'button'), selectSibling(selectById('exam-container'), 'button'), selectSibling(selectById('work-container'), 'button'), selectSibling(selectById('work-vol-container'), 'button'), selectSibling(selectById('training-container'), 'button'), selectSibling(selectById('skill-container'), 'button'), selectSibling(selectById('recognition-container'), 'button'), selectSibling(selectById('membership-container'), 'button'), selectSibling(selectById('reference-container'), 'button')]
+const initialDelButtons = [selectSibling(selectById('children-container'), 'button'), selectSibling(selectById('exam-container'), 'button'), selectSibling(selectById('work-container'), 'button'), selectSibling(selectById('work-vol-container'), 'button'), selectSibling(selectById('training-container'), 'button'), selectSibling(selectById('skill-container'), 'button'), selectSibling(selectById('recognition-container'), 'button'), selectSibling(selectById('membership-container'), 'button'), selectSibling(selectById('reference-container'), 'button')]
 
 const provinceSelect = [selectById('res-province'), selectById('permanent-province')]
 
@@ -73,5 +69,4 @@ const municipalitySelect = [selectById('res-municipality'), selectById('permanen
 
 const baranggaySelect = [selectById('res-brgy'), selectById('permanent-brgy')]
 
-
-export { form, currentDateIndicator, copyAddress, openSidebarBtn, sidebar, closeSidebarBtn, childTotalEntry, civilTotalEntry, workExpTotalEntry, volWorkExpTotalEntry, learningDevTotalEntry, skillTotalEntry, recognitionTotalEntry, membershipTotalEntry, referencesTotalEntry, multiStepForm, menuContainer, nextBtn, prevBtn, submitBtn, addChildBtn, addCivilBtn, addWorkVolBtn, addWorkBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, yearDropdowns, formSteps, menuSteps, dateInputs, salaryGradeDropdown, salaryStepDropdown, optionalFields, initialInput, parentAttributes, firstDelButtons, appointmentStatusDropdown, addTrainingBtn, trainingDropdown, nationalityDropdown, provinceSelect, municipalitySelect, baranggaySelect, provinceSelects, residentialAddress, permanentAddress, missingInfoDialog }
+export { form, currentDateIndicator, copyAddress, childTotalEntry, civilTotalEntry, workExpTotalEntry, learningDevTotalEntry, volWorkExpTotalEntry, skillTotalEntry, recognitionTotalEntry, membershipTotalEntry, referencesTotalEntry, multiStepForm, menuContainer, nextBtn, prevBtn, submitBtn, missingInfoDialog, addChildBtn, addCivilBtn, addWorkBtn, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, yearDropdowns, positionInput, examInput, orgNameInput, trainingNameInput, formSteps, menuSteps, dateInputs, salaryGradeDropdown, salaryStepDropdown, appointmentStatusDropdown, trainingDropdown, nationalityDropdown, provinceSelects, residentialAddress, permanentAddress, optionalFields, initialInputs, parentAttributes, initialDelButtons, provinceSelect, municipalitySelect, baranggaySelect }

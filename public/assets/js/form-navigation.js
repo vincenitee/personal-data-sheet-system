@@ -1,8 +1,7 @@
 // Import necessary DOM elements and other dependencies
-import { nextBtn, prevBtn, formSteps, missingInfoDialog, submitBtn } from './dom-selection.js'
-import { appendChildren, createWarningMessage } from './element-builder.js'
-import { checkInputsValidity, checkRadioButtonsProgress } from './helper-functions.js'
-import { select } from './utilities.js'
+import { nextBtn, prevBtn, formSteps, missingInfoDialog, submitBtn } from './form-element.js'
+import { appendChildren, createWarningMessage } from './form-builder.js'
+import { checkInputsValidity } from './form-util.js'
 
 // initial value 0, points to the first step
 let currentStep = formSteps.findIndex((step) => !step.classList.contains('hidden'))

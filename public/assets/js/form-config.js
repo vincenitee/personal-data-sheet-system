@@ -1,4 +1,4 @@
-import { createLabelObj } from './element-builder.js'
+import { createLabelObj } from './form-builder.js'
 
 const containerClasses = {
     referenceContainer: ['grid', 'grid-cols-mod-4', 'gap-2'],

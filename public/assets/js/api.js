@@ -1,6 +1,6 @@
-import { selectById } from './utilities.js'
+import { selectById } from './dom-util.js'
 
-function fetchMunicipalities(selectedProvinceId, municipalitySelect, brgySelect, callback) {
+function fetchMunicipalities(selectedProvinceId, municipalitySelect, brgySelect) {
     var xhr = new XMLHttpRequest()
     xhr.open('GET', `../public/assets/database/fetch_municipalities.php?provinceId=${selectedProvinceId}`, true)
     xhr.onreadystatechange = () => {
@@ -19,9 +19,6 @@ function fetchMunicipalities(selectedProvinceId, municipalitySelect, brgySelect,
                 fetchBaranggays(municipalities[0].municipality_id, brgySelect) // Assuming you have residentBarangay select element
             }
 
-            if (typeof callback === 'function') {
-                callback();
-            }
         }
     }
 
@@ -29,7 +26,7 @@ function fetchMunicipalities(selectedProvinceId, municipalitySelect, brgySelect,
 }
 
 // Modified fetchBaranggays function to populate the barangay select
-function fetchBaranggays(selectedMunicipalityId, brgySelect, callback) {
+function fetchBaranggays(selectedMunicipalityId, brgySelect) {
     var xhr = new XMLHttpRequest()
 
     xhr.open('GET', `../public/assets/database/fetch_baranggays.php?municipalityId=${selectedMunicipalityId}`, true)
@@ -41,10 +38,6 @@ function fetchBaranggays(selectedMunicipalityId, brgySelect, callback) {
             barangay.forEach((brgy, index) => {
                 brgySelect.appendChild((index === 0) ? new Option('', '') : new Option(brgy.brgy, brgy.brgy_id))
             })
-
-            if(typeof callback === 'function'){
-                callback();
-            }
 
         }
     }
