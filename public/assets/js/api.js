@@ -6,19 +6,18 @@ function fetchMunicipalities(selectedProvinceId, municipalitySelect, brgySelect)
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             municipalitySelect.innerHTML = ''
-            
+
             // console.log(xhr.responseText)
 
             var municipalities = JSON.parse(xhr.responseText)
             municipalities.forEach((municipality, index) => {
-                municipalitySelect.appendChild((index === 0) ? new Option('', '') : new Option(municipality.municipality, municipality.municipality_id))
+                municipalitySelect.appendChild(index === 0 ? new Option('', '') : new Option(municipality.municipality, municipality.municipality_id))
             })
 
             // After populating municipalities, trigger fetching barangays
             if (municipalities.length > 0) {
                 fetchBaranggays(municipalities[0].municipality_id, brgySelect) // Assuming you have residentBarangay select element
             }
-
         }
     }
 
@@ -36,9 +35,8 @@ function fetchBaranggays(selectedMunicipalityId, brgySelect) {
 
             var barangay = JSON.parse(xhr.responseText)
             barangay.forEach((brgy, index) => {
-                brgySelect.appendChild((index === 0) ? new Option('', '') : new Option(brgy.brgy, brgy.brgy_id))
+                brgySelect.appendChild(index === 0 ? new Option('', '') : new Option(brgy.brgy, brgy.brgy_id))
             })
-
         }
     }
 
@@ -55,11 +53,11 @@ function fetchCountries(dropdown) {
         countrySelect.classList.remove('pointer-events-none')
         parentContainer.classList.remove('opacity-50')
 
-        const xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest()
 
         xhr.open('GET', '../public/assets/database/fetch_countries.php', true)
         xhr.onreadystatechange = () => {
-            if((xhr.readyState == 4) & (xhr.status == 200)){
+            if ((xhr.readyState == 4) & (xhr.status == 200)) {
                 const countries = JSON.parse(xhr.responseText)
 
                 countries.forEach((country) => {
@@ -69,7 +67,6 @@ function fetchCountries(dropdown) {
         }
 
         xhr.send()
-
     } else {
         countrySelect.classList.add('pointer-events-none')
         parentContainer.classList.add('opacity-50')
@@ -78,5 +75,22 @@ function fetchCountries(dropdown) {
     }
 }
 
+function deleteEmployee(emp_id) {
+    var xhr = new XMLHttpRequest()
 
-export { fetchMunicipalities, fetchBaranggays, fetchCountries }
+    xhr.open('GET', `../public/assets/database/delete_employee.php?emp_id=${emp_id}`, true)
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                window.location = '../public/employee_list.php';
+            } else {
+                console.error('Failed to delete employee')
+            }
+        }
+    }
+
+    xhr.send()
+}
+
+export { fetchMunicipalities, fetchBaranggays, fetchCountries, deleteEmployee }

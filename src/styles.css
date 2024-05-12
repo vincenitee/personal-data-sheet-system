@@ -7,7 +7,6 @@
     src: url('../../assets/fonts/Poppins-Medium.ttf') format('truetype');
 }
 
-
 /* Common input styles */
 .inputbox,
 .dropdown,
@@ -63,6 +62,10 @@
 }
 
 /* Active state */
+.sidebar-item-active{
+    @apply border-r-2 border-blue-500;
+}
+
 .active a {
     @apply border-b-2 border-blue-500 opacity-100;
 }
