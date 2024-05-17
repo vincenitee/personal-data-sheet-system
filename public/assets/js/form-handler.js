@@ -1,6 +1,6 @@
 import { fetchBaranggays, fetchCountries, fetchMunicipalities } from './api.js'
 
-import { dateInputs, yearDropdowns, nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, initialDelButtons, initialInputs, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, missingInfoDialog, nationalityDropdown, submitBtn, copyAddress, residentialAddress, permanentAddress, optionalFields, currentDateIndicator, appointmentStatusDropdown, salaryStepDropdown, salaryGradeDropdown, trainingDropdown } from './form-element.js'
+import { dateInputs, yearDropdowns, nextBtn, prevBtn, addChildBtn, addCivilBtn, addWorkBtn, initialDelButtons, initialInputs, parentAttributes, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, nationalityDropdown, submitBtn, copyAddress, residentialAddress, permanentAddress, optionalFields, currentDateIndicator, appointmentStatusDropdown, salaryStepDropdown, salaryGradeDropdown, trainingDropdown, fileInputs, closeDialogBtn, errorDialog } from './form-element.js'
 
 import { addNewChildEntry, addNewCivilEntry, addNewMembershipEntry, addNewRecognitionEntry, addNewRefEntry, addNewSkillEntry, addNewTrainingEntry, addNewVolWorkEntry, addNewWorkEntry, submitForm } from './form-generator.js'
 
@@ -8,15 +8,14 @@ import { changeStep } from './form-navigation.js'
 
 import { closeDialog, deleteEntry, getCurrentDate, setTitleText } from './form-util.js'
 
-import { selectSibling } from './dom-util.js'
+import { initDropdown, initDatePicker } from './form-init.js'
 
-import { initDropdown, initDatePicker } from './form-init.js' 
+import { addFileInputChangeListener } from './util.js'
 
 const setupEventHandlers = () => {
+    const [residentHouse, residentStreet, residentVillage, residentProvince, residentMunicipality, residentBarangay, residentZip] = residentialAddress
 
-    const [ residentHouse, residentStreet, residentVillage, residentProvince, residentMunicipality, residentBarangay, residentZip ] = residentialAddress;
-
-    const [ permanentHouse, permanentStreet, permanentVillage, permanentProvince, permanentMunicipality, permanentBarangay, permanentZip ] = permanentAddress;
+    const [permanentHouse, permanentStreet, permanentVillage, permanentProvince, permanentMunicipality, permanentBarangay, permanentZip] = permanentAddress
 
     // Navigation buttons
     nextBtn.addEventListener('click', () => changeStep(1))
@@ -79,33 +78,37 @@ const setupEventHandlers = () => {
     addOrgBtn.addEventListener('click', addNewMembershipEntry)
     addRefBtn.addEventListener('click', addNewRefEntry)
 
+    fileInputs.forEach(addFileInputChangeListener)
+
     // Submit form
     submitBtn.addEventListener('click', () => submitForm())
 
+    closeDialogBtn.addEventListener('click', () => {
+        closeDialog(errorDialog);
+    })
+    
     // copy address from residential to permanent
     copyAddress.addEventListener('change', () => {
-
-        if(copyAddress.checked){
-            for(let i = 0; i < residentialAddress.length; i++){
-                if(residentialAddress[i].tagName.toLowerCase() === 'select'){
+        if (copyAddress.checked) {
+            for (let i = 0; i < residentialAddress.length; i++) {
+                if (residentialAddress[i].tagName.toLowerCase() === 'select') {
                     copyOptions(residentialAddress[i], permanentAddress[i])
                     permanentAddress[i].value = residentialAddress[i].value
-                } else{
+                } else {
                     permanentAddress[i].value = residentialAddress[i].value
                 }
             }
-        }
-        else{
+        } else {
             permanentAddress.forEach((field) => {
                 // clears all the copies value from resident inputs (house, street, village)
-                if(field.tagName.toLowerCase() === 'input'){
+                if (field.tagName.toLowerCase() === 'input') {
                     field.value = ''
                 }
                 // clears all the copied values from resident select (province, municipality, barangay)
                 else {
-                    if(field.id === 'permanent-province'){
+                    if (field.id === 'permanent-province') {
                         field.selectedIndex = 0
-                    } else{
+                    } else {
                         field.innerHTML = ''
                     }
                 }
@@ -113,16 +116,14 @@ const setupEventHandlers = () => {
         }
     })
 
-    // Handle missing info dialog
-    selectSibling(missingInfoDialog, 'button').addEventListener('click', () => closeDialog(missingInfoDialog))
 }
 
-const copyOptions = (source, target) =>{
+const copyOptions = (source, target) => {
     target.innerHTML = ''
 
-    for(let i = 0; i < source.options.length; i++){
+    for (let i = 0; i < source.options.length; i++) {
         const option = source.options[i]
-        target.appendChild(new Option (option.textContent, option.value))
+        target.appendChild(new Option(option.textContent, option.value))
     }
 }
 

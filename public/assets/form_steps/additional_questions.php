@@ -1,4 +1,4 @@
-<div class="mx-auto hidden w-[65%] space-y-3 py-2" data-step>
+<div class="mx-auto hidden space-y-3 py-2" data-step>
     <!-- Title -->
     <h1 class="text-xl font-bold text-slate-600">9. Additional Questions</h1>
 

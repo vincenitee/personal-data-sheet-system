@@ -7,36 +7,55 @@
     <title>Signup</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-    <script type="module" src="./assets/js/index.js" defer></script>
+    <script type="module" src="./assets/js/form.js" defer></script>
     <script type="module" src="./assets/js/sidebar.js"></script>
 </head>
 
 <body class="box-border grid h-screen grid-rows-mod-3 bg-gray-200 font-poppins">
-    <?php include './assets/components/header.php' ?>
+    <?php include './assets/components/header_nav.php' ?>
     <?php include './assets/components/sidebar.php' ?>
-    <?php include './assets/components/missing_info_dialog.php' ?>
+    <?php include './assets/components/error_dialog.php' ?>
 
     <main class="mx-auto w-full overflow-y-auto rounded-md bg-white p-1">
         <form data-multi-step action="./assets/database/insert_pds_entry.php" method="post" class="p-4">
-            <?php include './assets/form_steps/personal_details.php' ?>
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/personal_details.php' ?>
+            </div>
 
-            <?php include './assets/form_steps/family_background.php' ?>
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/family_background.php' ?>
+            </div>
 
-            <?php include './assets/form_steps/education_background.php' ?>
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/education_background.php' ?>
+            </div>
 
-            <?php include './assets/form_steps/cs_eligibility.php' ?>
-            
-            <?php include './assets/form_steps/work_exp.php' ?> 
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/cs_eligibility.php' ?>
+            </div>
 
-            <?php include './assets/form_steps/vol_work_exp.php' ?>
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/work_exp.php' ?>
+            </div>
 
-            <?php include './assets/form_steps/learning_and_dev.php' ?>
+            <div class="w-[67%] mx-auto">
+                <?php include './assets/form_steps/vol_work_exp.php' ?>
+            </div>
 
-            <?php include './assets/form_steps/other_info.php' ?>
-            
-            <?php include './assets/form_steps/additional_questions.php' ?>
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/learning_and_dev.php' ?>
+            </div>
 
-            <?php include './assets/form_steps/credentials.php' ?>
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/other_info.php' ?>
+            </div>
+
+            <div class="w-[65%] mx-auto">
+                <?php include './assets/form_steps/additional_questions.php' ?>
+            </div>
+            <div class="w-3/4 mx-auto">
+                <?php include './assets/form_steps/credentials.php' ?>
+            </div>
         </form>
     </main>
 

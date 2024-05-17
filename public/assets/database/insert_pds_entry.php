@@ -2,6 +2,7 @@
 include 'sql_statements.php';
 include 'insert_functions.php';
 include 'validate_functions.php';
+include 'image-upload.php';
 
 // insertion of employee details
 $lastname = $_POST['lastname'];
@@ -28,7 +29,19 @@ $citizenship = $_POST['nationality'];
 $citizenship_method = $_POST['citizenship-category'];
 $country_id = $_POST['citizenship-country'];
 
+$tel_no = $_POST['tel-no'];
+$mobile_no = $_POST['mobile-no'];
+$email = $_POST['email'];
+
+// echo $permanent_entry_id;
+
+$query = "INSERT INTO employee (last_name, first_name, middle_name, suffix_id, birthdate, birthplace, sex, civil_status_id, height, weight, blood_type_id, gsis_no, pagibig_no, philhealth_no, sss_no, tin_no, agency_emp_no, citizenship, citizenship_method, country_id, telephone_no, mobile_no, email) VALUES ('$lastname', '$firstname', '$middlename', '$suffix_id', '$bdate', '$birthplace', '$sex', '$civil_status_id', '$height', '$weight', '$blood_type_id', '$gsis_id', '$pagibig_id', '$philhealth_id', '$sss_id', '$tin_id', '$agency_no', '$citizenship', '$citizenship_method', '$country_id', '$tel_no', '$mobile_no', '$email')";
+
+// employee id
+$employee_id = insert_update_delete($query);
+
 $residential_address = [
+    'emp_id' => $employee_id,
     'house' => $_POST['res-house-no'],
     'street' => $_POST['res-street'],
     'village' => $_POST['res-village'],
@@ -38,7 +51,10 @@ $residential_address = [
     'zip' => $_POST['res-zip']
 ];
 
+echo $residential_address['emp_id'];
+
 $permanent_address = [
+    'emp_id' => $employee_id,
     'house' => $_POST['permanent-house-no'],
     'street' => $_POST['permanent-street'],
     'village' => $_POST['permanent-village'],
@@ -48,20 +64,9 @@ $permanent_address = [
     'zip' => $_POST['permanent-zip'],
 ];
 
-$tel_no = $_POST['tel-no'];
-$mobile_no = $_POST['mobile-no'];
-$email = $_POST['email'];
-
 $res_entry_id = insert_address('residential_address', $residential_address);
 
 $permanent_entry_id = insert_address('permanent_address', $permanent_address);
-
-// echo $permanent_entry_id;
-
-$query = "INSERT INTO employee (last_name, first_name, middle_name, suffix_id, birthdate, birthplace, sex, civil_status_id, height, weight, blood_type_id, gsis_no, pagibig_no, philhealth_no, sss_no, tin_no, agency_emp_no, citizenship, citizenship_method, country_id, res_address_id, perm_address_id, telephone_no, mobile_no, email) VALUES ('$lastname', '$firstname', '$middlename', '$suffix_id', '$bdate', '$birthplace', '$sex', '$civil_status_id', '$height', '$weight', '$blood_type_id', '$gsis_id', '$pagibig_id', '$philhealth_id', '$sss_id', '$tin_id', '$agency_no', '$citizenship', '$citizenship_method', '$country_id', '$res_entry_id', '$permanent_entry_id', '$tel_no', '$mobile_no', '$email')";
-
-// employee id
-$employee_id = insert_update_delete($query);
 
 // insertion of family background
 
@@ -276,22 +281,34 @@ for ($i = 1; $i <= $reference_total; $i++){
     }
 }
 
-// credentials
+$baseDir = dirname(__FILE__) . '/assets/uploads';
+
+$id_photo = handleFileUpload("gov-id-img", $baseDir . '/profile');
+$right_thumbmark = handleFileUpload("right-thumb-img", $baseDir . '/thumbmark');
+$signature = handleFileUpload("signature-img", $baseDir . '/signature');
+
 $validation_info = [
     'id_type' => $_POST['gov-issued-id'],
     'id_no' => $_POST['gov-issued-id-no'],
     'issuance_date' => $_POST['gov-id-issuance-date'],
     'issuance_place' => $_POST['gov-id-issuance-place'],
-    'signature' => $_POST['signature-img'],
+    'signature' => $signature['file-name'],
+    'signature_type' => $signature['file-type'],
     'date_accomplished' => $_POST['date-accomplished'],
-    'id_photo' => $_POST['gov-id-img'],
-    'right_thumbmark' => $_POST['right-thumb-img'],
+    'id_photo' => $id_photo['file-name'],
+    'id_photo_type' => $id_photo['file-type'],
+    'right_thumbmark' => $right_thumbmark['file-name'],
+    'right_thumbmark_type' => $right_thumbmark['file-type'],
 ];
 
 insert_validation_info($employee_id, $validation_info);
 
 header('Location: ../../employee_list.php');
+exit();
+//for uploading images
+// include '../../assets/added-n/image-upload.php'; 
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";

@@ -19,9 +19,4 @@ function initActiveItem(){
     }
 }
 
-function handleOutsideClick(event){
-    if(sidebar.contains(event.target)){
-        sidebar.classList.add('-translate-x-full')
-    }
-}
-export { initActiveItem, setActiveItem, handleOutsideClick }
+export { initActiveItem, setActiveItem }

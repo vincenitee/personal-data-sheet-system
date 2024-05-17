@@ -6,72 +6,24 @@
         <title>PDS FORM</title>
         <link rel="stylesheet" href="./assets/css/styles.css" />
     </head>
-    <body>
 
-        <div class="mx-auto w-[80%]">
-            <table class="w-full border border-slate-700">
-                <tbody>
-                    <tr>
-                        <td colspan="12">
-                            <i colspan="12"><b>CS Form No.212</b></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="12">
-                            <small
-                                ><i><b>Revised 2017</b></i></small
-                            >
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="12" class="py-5 text-center text-4xl font-extrabold">
-                            <h1><b>PERSONAL DATA SHEET</b></h1>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="12" class="text-sm">
-                            <i><b>WARNING: Any misrepresentation made in the Personal Data Sheet and the Work Experience Sheet shall cause the filing of administrative/criminal case/s against the person concerned.</b></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="12" class="text-sm">
-                            <i><b>READ THE ATTACHED GUIDE TO FILLING OUT THE PERSONAL DATA SHEET (PDS) BEFORE ACCOMPLISHING THE PDS FORM</b></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="9" class="text-sm">Print legibly. Tick appropriate boxes ( <input type="checkbox" checked /> ) and use seperate sheet if necessary. Indicate N/A if not applicable. <b>DO NOT ABBREVIATE.</b></td>
-                        <td class="border border-black bg-gray-400"><small>1. CS ID No.</small></td>
-                        <td colspan="2" class="border border-black"><small>(Do not fill up. For CSC use only)</small></td>
-                    </tr>
+    <body class="min-h-screen">
+        <!-- Missing Information Dialog -->
+        <dialog class="absolute left-1/2 top-20 z-50 m-0 w-[24rem] -translate-x-1/2 translate-y-0 transform rounded-md p-5 opacity-100 shadow-lg transition-transform duration-500 ease-in-out" id="missing-info-dialog">
+            <div class="flex items-center gap-2 px-2 py-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6 text-slate-900">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                </svg>
 
-                    <tr>
-                        <td colspan="12" class="border border-black bg-gray-400"><i>I. Personal Information</i></td>
-                    </tr>
-                    <tr>
-                        <td class="border-b-0 bg-gray-200 text-sm" colspan="2">2. SURNAME</td>
-                        <td class="border border-black" colspan="11">
-                            <input type="text" class="w-full font-medium uppercase outline-none" disabled value="test" id="emp-lname" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="border-b-0 bg-gray-200 text-sm" colspan="2">3. FIRST NAME</td>
-                        <td class="border border-black" colspan="2">
-                            <input type="text" class="w-full font-medium uppercase outline-none" disabled value="test" id="emp-fname" />
-                        </td>
-                        <td colspan="2">
-                            <span class="text-xs">NAME EXTENSION (JR., SR)</span>
-                            <input type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="border-b-0 bg-gray-200 text-sm" colspan="2">4. MIDDLE NAME</td>
-                        <td class="border border-black" colspan="10">
-                            <input type="text" class="w-full font-medium uppercase outline-none" disabled value="test" id="emp-mname" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-
+                <span class="font-semibold text-slate-900">Invalid File Type</span>
+            </div>
+            <p class="mb-5 px-2 py-3 text-sm text-slate-600">Please select a PNG or JPEG image file.</p>
+            <div class="flex justify-end">
+                <button class="select-none rounded-md bg-blue-500 px-10 py-1 text-sm text-white hover:bg-blue-600 active:bg-blue-700">Close</button>
+            </div>
+        </dialog>
     </body>
+    <script>
+        document.querySelector('dialog').showModal()
+    </script>
 </html>

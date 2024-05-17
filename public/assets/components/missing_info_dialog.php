@@ -11,6 +11,6 @@
         Please ensure all required fields are filled out correctly before moving to the next section or submitting the form.
     </p>
     <div class="flex justify-end">
-        <button class="px-10 select-none rounded-md py-1 bg-blue-500 text-white text-sm hover:bg-blue-600 active:bg-blue-700">Close</button>
+        <button type="button" class="px-10 select-none rounded-md py-1 bg-blue-500 text-white text-sm hover:bg-blue-600 active:bg-blue-700" data-close-dialog>Close</button>
     </div>
 </dialog>

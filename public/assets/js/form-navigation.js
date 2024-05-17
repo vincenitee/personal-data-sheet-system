@@ -1,7 +1,8 @@
 // Import necessary DOM elements and other dependencies
-import { nextBtn, prevBtn, formSteps, missingInfoDialog, submitBtn } from './form-element.js'
+import { nextBtn, prevBtn, formSteps, submitBtn, errorDialog, errorTitle, errorContent } from './form-element.js'
 import { appendChildren, createWarningMessage } from './form-builder.js'
 import { checkInputsValidity } from './form-util.js'
+import { populateAndDisplayDialog } from './util.js'
 
 // initial value 0, points to the first step
 let currentStep = formSteps.findIndex((step) => !step.classList.contains('hidden'))
@@ -9,7 +10,6 @@ let currentStep = formSteps.findIndex((step) => !step.classList.contains('hidden
 
 // stepChange value depends on what button is clicked, nextBtn = 1 prevBtn = -1
 function changeStep(stepChange) {
-
     // selects all the inputs and select tags within the current step to ensure that all is filled up correctly based on their constraints
     const inputs = [...formSteps[currentStep].querySelectorAll('input')]
     const selects = [...formSteps[currentStep].querySelectorAll('select')]
@@ -22,7 +22,17 @@ function changeStep(stepChange) {
         console.log('Current Step after function Change Step: ', currentStep)
         showCurrentStep()
     } else {
-        missingInfoDialog.showModal()
+        // error dialog will be displayed here
+        const dialogContent = {
+            dialog: errorDialog,
+            titleContainer: errorTitle,
+            title: 'Missing or Incorrect Information',
+            contentContainer: errorContent,
+            content: 'Please ensure all required fields are filled out correctly before moving to the next section or submitting the form.',
+        }
+
+        populateAndDisplayDialog(dialogContent)
+
         inputs.forEach(displayWarningMessage)
         selects.forEach(displayWarningMessage)
     }

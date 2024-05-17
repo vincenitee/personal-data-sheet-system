@@ -1,5 +1,5 @@
 <!-- Learning and Developement -->
-<div class="mx-auto hidden w-[65%] py-2" data-step>
+<div class="mx-auto hidden py-2" data-step>
     <!-- Title -->
     <div class="flex items-center justify-between gap-2">
         <h1 class="text-xl font-bold text-slate-600">7. Learning and Developement Interventions / Trainings Attended</h1>

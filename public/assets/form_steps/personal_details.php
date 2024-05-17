@@ -2,7 +2,7 @@
 
 
 <!--Personal details -->
-<div class="mx-auto w-[65%] py-2" data-step id="personal-details">
+<div class="mx-auto py-2" data-step id="personal-details">
     <!-- Title -->
 
     <div class="space-y-3 py-2">
@@ -325,6 +325,5 @@
             <input type="email" name="email" id="email" class="inputbox" autocomplete="off" required />
         </div>
     </div>
-
 
 </div>

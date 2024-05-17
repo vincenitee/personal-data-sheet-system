@@ -1,4 +1,6 @@
-<div class="mx-auto hidden w-3/4 space-y-3 py-2" data-step>
+<?php include './assets/components/invalid_file_type_dialog.php' ?>
+
+<div class="mx-auto hidden space-y-3 py-2" data-step>
     <div class="space-y-1">
         <h1 class="text-xl font-bold text-slate-600">10. Credentials</h1>
         <input type="text" name="date-accomplished" id="date-accomplished" class="hidden">
@@ -59,7 +61,7 @@
             <label class="block font-medium text-slate-700">Right Thumbmark</label>
         </div>
         <div class="px-6 py-2">
-            <input type="file" name="right-thumb-img" id=" right-thumb-img" class="border text-sm valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
+            <input type="file" name="right-thumb-img" id="right-thumb-img" class="border text-sm valid:text-slate-700 text-slate-500 border-slate-600 file:bg-blue-500
                             file:text-white file:text-sm file:border-0 file:px-2 file:py-2 file:disabled" required>
         </div>
         <div class="px-6 py-2">

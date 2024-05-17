@@ -4,7 +4,7 @@
 function insert_address($tablename, $address_info)
 {
     extract($address_info);
-    $query = "INSERT INTO $tablename (house_no, street, village, brgy_id, municipality_id, province_id, zip) VALUES ('$house', '$street', '$village', '$brgy_id', '$municipality_id', '$province_id', '$zip')";
+    $query = "INSERT INTO $tablename (emp_id, house_no, street, village, brgy_id, municipality_id, province_id, zip) VALUES ('$emp_id', '$house', '$street', '$village', '$brgy_id', '$municipality_id', '$province_id', '$zip')";
     return insert_update_delete($query);
 }
 
@@ -121,7 +121,7 @@ function insert_reference_info($employee_id, $name, $address, $telno)
 function insert_validation_info($employee_id, $validation_info)
 {
     extract($validation_info);
-    $query = "INSERT INTO validation (emp_id, id_type, id_no, issuance_date, issuance_place, signature, date_accomplished, id_photo, right_thumbmark)
-            VALUES ('$employee_id', '$id_type', '$id_no', '$issuance_date' , '$issuance_place', '$signature', '$date_accomplished', '$id_photo', '$right_thumbmark')";
+    $query = "INSERT INTO validation (emp_id, id_type, id_no, issuance_date, issuance_place, signature, signature_type, date_accomplished, id_photo, id_photo_type, right_thumbmark, right_thumbmark_type)
+            VALUES ('$employee_id', '$id_type', '$id_no', '$issuance_date' , '$issuance_place', '$signature', '$signature_type', '$date_accomplished', '$id_photo', '$id_photo_type', '$right_thumbmark', '$right_thumbmark_type')";
     return insert_update_delete($query);
 }

@@ -1,0 +1,13 @@
+<dialog class="absolute left-1/2 top-20 z-50 m-0 w-[24rem] -translate-x-1/2 translate-y-0 transform rounded-md p-5 opacity-100 shadow-lg transition-transform duration-500 ease-in-out" id="error-dialog">
+    <div class="flex items-center gap-2 px-2 py-1">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6 text-slate-900">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+        </svg>
+
+        <span class="font-semibold text-slate-900" id="error-title-container">Invalid File Type</span>
+    </div>
+    <p class="mb-5 px-2 py-3 text-sm text-slate-600" id="error-content-container">Please select a PNG or JPEG image file.</p>
+    <div class="flex justify-end">
+        <button type="button" class="select-none rounded-md bg-blue-500 px-10 py-1 text-sm text-white hover:bg-blue-600 active:bg-blue-700" data-close-dialog>Close</button>
+    </div>
+</dialog>

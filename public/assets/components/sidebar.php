@@ -1,4 +1,4 @@
-<aside class="absolute top-0 inline-block min-h-screen bg-slate-900 p-2 -translate-x-full shadow-md transition-all duration-200">
+<aside class="absolute top-0 inline-block min-h-screen -translate-x-full bg-slate-900 p-2 shadow-md transition-all duration-200">
 
     <div class="flex items-center justify-between gap-10 border-b py-2 pr-2">
         <div class="flex items-center gap-2 p-2">
@@ -28,7 +28,7 @@
 
         <div class="space-y-3">
             <h5 class="pt-2 text-sm font-medium text-white">Overview</h5>
-            <a href="" class="flex items-center gap-2 transition-all duration-75 hover:bg-blue-600 px-0.5 py-1 text-white" id="dashboard-link">
+            <a href="test.php" class="flex items-center gap-2 transition-all duration-75 hover:bg-blue-600 px-0.5 py-1 text-white" id="dashboard-link">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />

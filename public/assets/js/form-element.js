@@ -20,7 +20,12 @@ const nextBtn = selectById('next-btn')
 const prevBtn = selectById('prev-btn')
 const submitBtn = selectById('submit-btn')
 
-const missingInfoDialog = selectById('missing-info-dialog')
+// dialog elements
+const errorDialog = selectById('error-dialog')
+const errorTitle = selectById('error-title-container')
+const errorContent = selectById('error-content-container')
+const closeDialogBtn = select('[data-close-dialog]')
+
 const addChildBtn = selectById('add-child')
 const addCivilBtn = selectById('add-civil-entry')
 const addWorkBtn = selectById('add-work-entry')
@@ -69,4 +74,10 @@ const municipalitySelect = [selectById('res-municipality'), selectById('permanen
 
 const baranggaySelect = [selectById('res-brgy'), selectById('permanent-brgy')]
 
-export { form, currentDateIndicator, copyAddress, childTotalEntry, civilTotalEntry, workExpTotalEntry, learningDevTotalEntry, volWorkExpTotalEntry, skillTotalEntry, recognitionTotalEntry, membershipTotalEntry, referencesTotalEntry, multiStepForm, menuContainer, nextBtn, prevBtn, submitBtn, missingInfoDialog, addChildBtn, addCivilBtn, addWorkBtn, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, yearDropdowns, positionInput, examInput, orgNameInput, trainingNameInput, formSteps, menuSteps, dateInputs, salaryGradeDropdown, salaryStepDropdown, appointmentStatusDropdown, trainingDropdown, nationalityDropdown, provinceSelects, residentialAddress, permanentAddress, optionalFields, initialInputs, parentAttributes, initialDelButtons, provinceSelect, municipalitySelect, baranggaySelect }
+const fileInputs = [
+    selectById('gov-id-img'),
+    selectById('right-thumb-img'),
+    selectById('signature-img')
+]
+
+export { form, currentDateIndicator, copyAddress, childTotalEntry, civilTotalEntry, workExpTotalEntry, learningDevTotalEntry, volWorkExpTotalEntry, skillTotalEntry, recognitionTotalEntry, membershipTotalEntry, referencesTotalEntry, multiStepForm, menuContainer, nextBtn, prevBtn, submitBtn, errorDialog, errorTitle, errorContent, closeDialogBtn, addChildBtn, addCivilBtn, addWorkBtn, addWorkVolBtn, addTrainingBtn, addSkillBtn, addRecogBtn, addOrgBtn, addRefBtn, yearDropdowns, positionInput, examInput, orgNameInput, trainingNameInput, formSteps, menuSteps, dateInputs, salaryGradeDropdown, salaryStepDropdown, appointmentStatusDropdown, trainingDropdown, nationalityDropdown, provinceSelects, residentialAddress, permanentAddress, optionalFields, initialInputs, parentAttributes, initialDelButtons, provinceSelect, municipalitySelect, baranggaySelect, fileInputs }

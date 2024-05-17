@@ -1,13 +1,32 @@
 import { deleteEmployee } from './api.js'
-import { deleteButtons } from './employee-elements.js'
-import { hideExtraNav } from './employee-util.js'
+import { actionButtons, closeEditDialog, editDialog, extraNav } from './employee-element.js'
 
-window.addEventListener('load', hideExtraNav)
+const addEventHandler = () => {
+    actionButtons.forEach((button) => {
+        const action = button.getAttribute('data-action')
+        const empId = button.getAttribute('data-emp-id')
 
-deleteButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        const container = button.closest('tr')
-        const emp_id = container.dataset.employeeId
-        deleteEmployee(emp_id)
+        switch (action) {
+            case 'edit':
+                button.addEventListener('click', () => {
+                    editDialog.showModal()
+                })
+                break
+
+            case 'delete':
+                button.addEventListener('click', () => {
+                    deleteEmployee(empId)
+                })
+                break
+
+            case 'print':
+                break
+        }
     })
-})
+
+    closeEditDialog.addEventListener('click', () => {
+        editDialog.close()
+    })
+}
+
+export { addEventHandler }
