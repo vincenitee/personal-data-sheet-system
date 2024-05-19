@@ -1,5 +1,5 @@
 import { deleteEmployee } from './api.js'
-import { actionButtons, closeEditDialog, editDialog, extraNav } from './employee-element.js'
+import { actionButtons, clearSearchBtn, closeEditDialog, editDialog, extraNav, searchInput } from './employee-element.js'
 
 const addEventHandler = () => {
     actionButtons.forEach((button) => {
@@ -9,7 +9,8 @@ const addEventHandler = () => {
         switch (action) {
             case 'edit':
                 button.addEventListener('click', () => {
-                    editDialog.showModal()
+                    const empId = button.closest('tr').dataset.employeeId;
+                    
                 })
                 break
 
@@ -26,6 +27,10 @@ const addEventHandler = () => {
 
     closeEditDialog.addEventListener('click', () => {
         editDialog.close()
+    })
+
+    clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = ''
     })
 }
 

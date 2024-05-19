@@ -9,6 +9,98 @@ $DB_USER = 'root';
 $DB_PASS = '';
 $BD_TABLE = 'personal_data_sheet';
 
+function get_all_tables_names(){
+	global $DB_HOST, $DB_USER, $DB_PASS, $BD_TABLE;
+    $con = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $BD_TABLE);
+
+	$tables = [];
+	$result = mysqli_query($con, "SHOW TABLES");
+	while($row = mysqli_fetch_assoc($result)){
+		$tables[] = $row[0];
+	}
+
+	return $tables;
+}
+
+function get_all_tables($con) {
+    $tables = [];
+    $result = mysqli_query($con, "SHOW TABLES");
+    while ($row = mysqli_fetch_array($result)) {
+        $tables[] = $row[0];
+    }
+    return $tables;
+}
+
+function get_table_columns($con, $table) {
+    $columns = [];
+    $result = mysqli_query($con, "SHOW COLUMNS FROM $table");
+    while ($row = mysqli_fetch_assoc($result)) {
+        $columns[] = $row['Field'];
+    }
+    return $columns;
+}
+
+function search_all_tables($keyword) {
+    global $DB_HOST, $DB_USER, $DB_PASS, $BD_TABLE;
+    $con = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $BD_TABLE);
+    if (mysqli_connect_errno()) {
+        die("Failed to connect to MySQL: " . mysqli_connect_error());
+    }
+
+    // Sanitize keyword
+    $keyword = htmlspecialchars(strip_tags($keyword));
+    $likeKeyword = '%' . $keyword . '%';
+
+    $tables = get_all_tables($con);
+    $results = [];
+
+    foreach ($tables as $table) {
+        $columns = get_table_columns($con, $table);
+        if (empty($columns)) {
+            continue;
+        }
+
+        $placeholders = implode(' LIKE ? OR ', $columns) . ' LIKE ?';
+        $query = "SELECT * FROM $table WHERE $placeholders";
+
+        $stmt = $con->prepare($query);
+        if ($stmt === false) {
+            die("Failed to prepare the statement: " . $con->error);
+        }
+
+        // Dynamically bind parameters
+        $types = str_repeat('s', count($columns)); // assuming all columns are strings
+        $params = array_merge([$types], array_fill(0, count($columns), $likeKeyword));
+
+        // Use call_user_func_array to bind the parameters
+        $bind_names = [$types];
+        for ($i = 0; $i < count($columns); $i++) {
+            $bind_name = 'bind' . $i;
+            $$bind_name = $likeKeyword;
+            $bind_names[] = &$$bind_name;
+        }
+
+        call_user_func_array([$stmt, 'bind_param'], $bind_names);
+
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        if ($res->num_rows > 0) {
+            while ($r = $res->fetch_assoc()) {
+                $results[$table][] = array_map(function($value) {
+                    return html_entity_decode(stripslashes($value), ENT_QUOTES);
+                }, $r);
+            }
+        }
+
+        $stmt->close();
+    }
+
+    mysqli_close($con);
+
+    return $results;
+}
+
 function insert_update_delete($query)
 {
 	global $DB_HOST, $DB_USER, $DB_PASS, $BD_TABLE;

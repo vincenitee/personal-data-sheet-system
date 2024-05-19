@@ -139,7 +139,7 @@
             </div>
 
             <div class="grid grid-cols-mod-3 gap-3" data-child>
-                <input type="text" name="child-name-1" id="child-name-1" class="inputbox" autocomplete="off" />
+                <input type="text" name="child-name-1" id="child-name-1" class="inputbox" autocomplete="off" required />
 
                 <div class="space-y-1">
                     <div class="relative">

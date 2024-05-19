@@ -139,14 +139,13 @@ for ($i = 1; $i <= $cs_total_entry; $i++) {
         'examination_place' => $_POST["exam-place-$i"],
     ];
 
-    $civil_entry_id = insert_civil_service_info($employee_id, $civil_entry_info);
-
     $license_info = [
         'license_number' => $_POST["license-number-$i"],
         'issue_date' => $_POST["issue-date-$i"],
     ];
 
     if (checkEmptyFields($civil_entry_info) > 80) {
+        $civil_entry_id = insert_civil_service_info($employee_id, $civil_entry_info);
         insert_license_info($civil_entry_id, $license_info);
     }
 }

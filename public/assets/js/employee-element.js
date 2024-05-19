@@ -4,5 +4,7 @@ const actionButtons = selectAll('[data-action]')
 const editDialog = select('dialog')
 const closeEditDialog = selectById('close-edit-dialog')
 const extraNav = selectById('form-steps')
+const clearSearchBtn = selectById('clear-search')
+const searchInput = selectById('search')
 
-export { actionButtons, editDialog, closeEditDialog, extraNav }
+export { actionButtons, editDialog, closeEditDialog, extraNav, clearSearchBtn, searchInput }

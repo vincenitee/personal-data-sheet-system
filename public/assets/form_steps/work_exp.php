@@ -8,6 +8,8 @@
         <button type="button" class="add-button" id="add-work-entry">+ Add More</button>
     </div>
 
+    <p class="text-sm text-slate-600 rounded-sm">Please ensure all required fields are filled up. You can use <strong>N/A</strong> for fields that are not applicable.</p>
+
     <!-- Inputs -->
     <div class="space-y-3" id="work-container">
         <div class="mt-3 grid grid-cols-6 gap-3 border-2 border-dashed border-gray-500 p-3" data-work>
@@ -23,12 +25,12 @@
 
             <div class="col-span-2 space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Position/Title</label>
-                <input type="text" name="position-1" id="position-1" class="inputbox title" autocomplete="off" />
+                <input type="text" name="position-1" id="position-1" class="inputbox title" autocomplete="off" required />
             </div>
 
             <div class="col-span-3 space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Department/Agency</label>
-                <input type="text" name="agency-1" id="agency-1" class="inputbox" autocomplete="off" />
+                <input type="text" name="agency-1" id="agency-1" class="inputbox" autocomplete="off" required />
             </div>
 
             <div class="space-y-1">

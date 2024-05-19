@@ -93,4 +93,10 @@ function deleteEmployee(emp_id) {
     xhr.send()
 }
 
+function fetchEmployee(emp_id){
+    var xhr = new XMLHttpRequest()
+
+    xhr.open('GET', )
+}
+
 export { fetchMunicipalities, fetchBaranggays, fetchCountries, deleteEmployee }

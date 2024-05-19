@@ -5,7 +5,7 @@
         <h1 class="text-xl font-bold text-slate-600">6. Voluntary Work Experience</h1>
         <button type="button" class="add-button" id="add-work-vol-entry">+ Add More</button>
     </div>
-
+    <p class="text-sm text-slate-600 rounded-sm">Please ensure all required fields are filled up. You can use <strong>N/A</strong> for fields that are not applicable.</p>
     <!-- Inputs -->
     <div class="space-y-3" id="work-vol-container">
         <div class="mt-3 grid grid-cols-mod-7 gap-3 border-2 border-dashed border-gray-500 p-3" data-work-vol>
@@ -21,12 +21,12 @@
 
             <div class="col-span-2 space-y-1">
                 <label for="org-name-1" class="block text-sm font-medium text-gray-700">Name & Address of Organization</label>
-                <input type="text" name="org-name-1" id="org-name-1" class="inputbox" autocomplete="off" />
+                <input type="text" name="org-name-1" id="org-name-1" class="inputbox" autocomplete="off" required />
             </div>
 
             <div class="col-span-2 space-y-1">
                 <label for="nature-of-work-1" class="block text-sm font-medium text-gray-700">Position/Nature of Work</label>
-                <input type="text" name="nature-of-work-1" id="nature-of-work-1" class="inputbox" autocomplete="off" />
+                <input type="text" name="nature-of-work-1" id="nature-of-work-1" class="inputbox" autocomplete="off" required />
             </div>
 
             <div class="space-y-1">

@@ -6,6 +6,8 @@
         <button type="button" class="add-button" id="add-training-entry">+ Add More</button>
     </div>
 
+    <p class="text-sm text-slate-600 rounded-sm">Please ensure all required fields are filled up. You can use <strong>N/A</strong> for fields that are not applicable.</p>
+
     <!-- Inputs -->
     <div class="space-y-3" id="training-container">
         <div class="mt-3 grid grid-cols-4 gap-3 border-2 border-dashed border-gray-500 p-3" data-training>
@@ -18,6 +20,8 @@
                     </svg>
                 </button>
             </div>
+
+            
 
             <div class="col-span-2 space-y-1">
                 <label class="block text-sm font-medium text-gray-700">Learning and Development Training Title</label>
