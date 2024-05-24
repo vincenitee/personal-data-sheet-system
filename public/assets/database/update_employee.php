@@ -28,7 +28,6 @@ function update_children($children)
                 child_bdate = '$child_bdate'
                 WHERE child_id = $child_id";
 
-    // echo "<br><br> $query";
 
     insert_update_delete($children_query);
 }
@@ -165,6 +164,39 @@ function update_membership($membership_info)
     insert_update_delete($membership_query);
 }
 
+function update_questionnaire($responses)
+{
+    extract($responses);
+    $questionnaire_query = "UPDATE questionnaire
+                            SET 
+                                relative_third_degree = '$relative_third_degree',
+                                relative_fourth_degree = '$relative_fourth_degree',
+                                relative_details = '$relative_details',
+                                admin_offense = '$admin_offense',
+                                admin_offense_details = '$admin_offense_details',
+                                criminal_offense = '$criminal_offense',
+                                criminal_case_status = '$criminal_offense_status',
+                                criminal_date_filed = '$criminal_date_filed',
+                                criminal_conviction = '$criminal_conviction',
+                                criminal_conviction_details = '$criminal_conviction_details',
+                                service_separation = '$service_separation',
+                                separation_details = '$separation_details',
+                                election_candidate = '$election_candidate',
+                                election_candidate_details = '$election_candidate_details',
+                                gov_resignation = '$gov_resignation',
+                                gov_resignation_details = '$gov_resignation_details',
+                                immigrant = '$immigrant',
+                                immigrant_details = '$immigrant_details',
+                                indigenous = '$indigenous',
+                                indigenous_details = '$indigenous_details',
+                                disability = '$disability',
+                                disability_id = '$disability_id',
+                                single_parent = '$single_parent',
+                                single_parent_id = '$single_parent_id'
+                            WHERE emp_id = '$emp_id'";
+
+    insert_update_delete($questionnaire_query);
+}
 // personal details
 $emp_id = $_POST['emp_id'];
 $lastname = $_POST['lastname'];
@@ -290,7 +322,7 @@ $update_family_bg = "UPDATE family_background
                         mother_mname = '$mother_mname'
                     WHERE emp_id = $emp_id";
 
-echo "<br><br>$update_family_bg";
+insert_update_delete($update_family_bg);
 
 // children details
 $child_total_entry = $_POST['child-total-entry'];
@@ -418,6 +450,8 @@ for ($i = 1; $i <= $vol_work_exp_total; $i++) {
         }
     }
 
+    pretty_print($vol_work_info);
+
     if ($all_values_present) {
         if (isset($vol_work_info['entry_id'])) {
             update_vol_work_entry($vol_work_info);
@@ -447,9 +481,7 @@ for ($i = 1; $i <= $learning_dev_total; $i++) {
             $all_values_present = false;
             break;
         }
-    }   
-
-    
+    }
 
     if ($all_values_present) {
         if (isset($learning_dev_info['entry_id'])) {
@@ -492,6 +524,36 @@ for ($i = 1; $i <= $membership_total; $i++) {
 
     update_membership($membership_info);
 }
+
+$questionnaire_reponses = [
+    'emp_id' => $emp_id,
+    'relative_third_degree' => $_POST['third-degree'],
+    'relative_fourth_degree' => $_POST['fourth-degree'],
+    'relative_details' => $_POST['consanguinity-info'],
+    'admin_offense' => $_POST['admin-offense'],
+    'admin_offense_details' => ($_POST['admin-offense'] == 1) ? $_POST['admin-offense-info'] : 'N/A',
+    'criminal_offense' => $_POST['crim-offense'],
+    'criminal_offense_status' => $_POST['crim-offense-info'],
+    'criminal_date_filed' => $_POST['date-filed'],
+    'criminal_conviction' => $_POST['crime-conviction'],
+    'criminal_conviction_details' => ($_POST['crime-conviction'] == 1) ? $_POST['crime-conviction'] : 'N/A',
+    'service_separation' => $_POST['separation'],
+    'separation_details' => ($_POST['separation'] == 1) ? $_POST['separation-info'] : 'N/A',
+    'election_candidate' => $_POST['candidate'],
+    'election_candidate_details' => ($_POST['candidate'] == 1) ? $_POST['candidate-info'] : 'N/A',
+    'gov_resignation' => $_POST['gov-resignation'],
+    'gov_resignation_details' => ($_POST['gov-resignation'] == 1) ? $_POST['gov-resignation-info'] : 'N/A',
+    'immigrant' => $_POST['foreign-residency'],
+    'immigrant_details' => ($_POST['foreign-residency'] == 1) ? $_POST['foreign-residency-info'] : 'N/A',
+    'indigenous' => $_POST['indigenous'],
+    'indigenous_details' => ($_POST['indigenous'] == 1) ? $_POST['indigenous-info'] : 'N/A',
+    'disability' => $_POST['pwd'],
+    'disability_id' => ($_POST['pwd'] == 1) ? $_POST['pwd-info'] : 'N/A',
+    'single_parent' => $_POST['solo-parent'],
+    'single_parent_id' => ($_POST['solo-parent'] == 1) ? $_POST['solo-parent-info'] : 'N/A',
+];
+
+update_questionnaire($questionnaire_reponses);
 
 
 

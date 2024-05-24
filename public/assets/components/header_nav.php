@@ -9,6 +9,8 @@
             </button>
             <span class="text-xl text-white">Personal Data Sheet</span>
         </div>
+    
+
     </div>
 
     <div class="flex items-center justify-center border-b-2 bg-gray-50" id="form-steps">

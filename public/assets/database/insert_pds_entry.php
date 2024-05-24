@@ -301,9 +301,13 @@ $validation_info = [
 ];
 
 insert_validation_info($employee_id, $validation_info);
-
-header('Location: ../../employee_list.php');
-exit();
+if($_POST['source'] == 'admin'){
+    echo "<script> window.location = '../../employee_list.php";
+    exit(); 
+} else{
+    echo "<script> window.location = '../../user_dashboard.php?submit=true' </script>";
+    exit(); 
+}
 //for uploading images
 // include '../../assets/added-n/image-upload.php'; 
 

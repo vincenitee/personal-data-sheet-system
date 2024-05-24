@@ -1,10 +1,10 @@
 <?php
+
 session_start();
-if(!isset($_SESSION['admin_id'])){
+if(!isset($_SESSION['user_id'])){
     header('Location: index.php');
     exit();
 }
-
 ?>
 
 <!doctype html>
@@ -22,12 +22,12 @@ if(!isset($_SESSION['admin_id'])){
 
 <body class="box-border grid h-screen grid-rows-mod-3 bg-gray-200 font-poppins">
     <?php include './assets/components/header_nav.php' ?>
-    <?php include './assets/components/sidebar.php' ?>
+    <?php include './assets/components/user_sidebar.php' ?>
     <?php include './assets/components/error_dialog.php' ?>
 
     <main class="mx-auto w-full overflow-y-auto rounded-md bg-white p-1">
+        <input type="text" name="source" id="source" value="user" class="hidden">
         <form data-multi-step action="./assets/database/insert_pds_entry.php" method="post" class="p-4">
-            <input type="text" name="source" id="" value="admin" class="hidden">
             <div class="w-[65%] mx-auto">
                 <?php include './assets/form_steps/personal_details.php' ?>
             </div>
@@ -70,7 +70,14 @@ if(!isset($_SESSION['admin_id'])){
     </main>
 
     <?php include './assets/components/button_section.php' ?>
-
+    <?php 
+        if(isset($_GET['submit']) && $_GET['submit'] == true){
+            echo "<script>
+                    alert('Recorded Sucessfully')
+                    window.location = 'user_dashboard.php'
+                </script>";
+        }
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 

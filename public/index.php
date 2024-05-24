@@ -53,12 +53,15 @@
     </div>
 
     <?php
-    if(isset($_GET['logout'])){
+    if (isset($_GET['logout'])) {
         $logout = $_GET['logout'];
     }
 
-    if(isset($logout) && $logout == true){
-        echo "<script>alert('Logout Successfull')</script>";
+    if (isset($logout) && $logout == true) {
+        echo "<script>
+                alert('Logout Successfull')
+                window.location = 'index.php';
+                </script>";
     }
     ?>
 </body>
