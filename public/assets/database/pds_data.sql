@@ -16,6 +16,24 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`personal_data_sheet` /*!40100 DEFAULT C
 
 USE `personal_data_sheet`;
 
+/*Table structure for table `admin` */
+
+DROP TABLE IF EXISTS `admin`;
+
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_id` int(11) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`admin_id`),
+  KEY `emp_id` (`emp_id`),
+  CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `admin` */
+
+insert  into `admin`(`admin_id`,`emp_id`,`username`,`password`) values (4,168,'admin','admin123');
+
 /*Table structure for table `award_scholarship` */
 
 DROP TABLE IF EXISTS `award_scholarship`;
@@ -27,11 +45,11 @@ CREATE TABLE `award_scholarship` (
   PRIMARY KEY (`award_id`),
   KEY `education_id` (`edu_id`),
   CONSTRAINT `FK_award_scholarship_edu_id` FOREIGN KEY (`edu_id`) REFERENCES `educational_background` (`edu_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1769 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2299 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `award_scholarship` */
 
-insert  into `award_scholarship`(`award_id`,`edu_id`,`award_scholarship_name`) values (1539,6,'ASDASD'),(1540,7,'SADSADSA'),(1541,8,'DSASDSD'),(1542,9,'SADSAD'),(1543,10,'SADASD'),(1544,11,'ASDASD'),(1545,12,'SADSADSA'),(1546,13,'DSASDSD'),(1547,14,'SADSAD'),(1548,15,'SADASD'),(1549,16,'ASDASD'),(1550,17,'SADSADSA'),(1551,18,'DSASDSD'),(1552,19,'SADSAD'),(1553,20,'SADASD'),(1554,21,'sadsad'),(1555,22,'sadsad'),(1556,23,'asdasdasd'),(1557,24,'sadsadasd'),(1558,25,'asdsdasd'),(1559,26,'sadsad'),(1560,27,'sadsad'),(1561,28,'asdasdasd'),(1562,29,'sadsadasd'),(1563,30,'asdsdasd'),(1564,31,'sadsad'),(1565,32,'sadsad'),(1566,33,'asdasdasd'),(1567,34,'sadsadasd'),(1568,35,'asdsdasd'),(1569,36,'sadsad'),(1570,37,'sadsad'),(1571,38,'asdasdasd'),(1572,39,'sadsadasd'),(1573,40,'asdsdasd'),(1574,41,'sadsad'),(1575,42,'sadsad'),(1576,43,'asdasdasd'),(1577,44,'sadsadasd'),(1578,45,'asdsdasd'),(1579,46,'sadsad'),(1580,47,'sadsad'),(1581,48,'asdasdasd'),(1582,49,'sadsadasd'),(1583,50,'asdsdasd'),(1584,51,'sadsad'),(1585,52,'sadsad'),(1586,53,'asdasdasd'),(1587,54,'sadsadasd'),(1588,55,'asdsdasd'),(1589,56,'sdfsdf'),(1590,57,'xczxcxzczx'),(1591,58,'xzcxzcxzc'),(1592,59,'cxzcxzcxczxc'),(1593,60,'sdfsdfsdf'),(1594,61,'asdasd'),(1595,62,'asdasd'),(1596,63,'asdasdsd'),(1597,64,'asdasdad'),(1598,65,'asdadads'),(1599,66,'asdasd'),(1600,67,'asdasd'),(1601,68,'asdasd'),(1602,69,'asdasd'),(1603,70,'asdasd'),(1604,71,'ASDASDAD'),(1605,72,'ASDASDASD'),(1606,73,'ASDASDASD'),(1607,74,'ASDASD'),(1608,75,'ASDASDASD'),(1609,76,'ASDASDAD'),(1610,77,'ASDASDASD'),(1611,78,'ASDASDASD'),(1612,79,'ASDASD'),(1613,80,'ASDASDASD'),(1614,81,'ASDASDAD'),(1615,82,'ASDASDASD'),(1616,83,'ASDASDASD'),(1617,84,'ASDASD'),(1618,85,'ASDASDASD'),(1619,86,'ASDASDAD'),(1620,87,'ASDASDASD'),(1621,88,'ASDASDASD'),(1622,89,'ASDASD'),(1623,90,'ASDASDASD'),(1624,91,'ASDASDAD'),(1625,92,'ASDASDASD'),(1626,93,'ASDASDASD'),(1627,94,'ASDASD'),(1628,95,'ASDASDASD'),(1629,96,'ASDASDAD'),(1630,97,'ASDASDASD'),(1631,98,'ASDASDASD'),(1632,99,'ASDASD'),(1633,100,'ASDASDASD'),(1634,101,'ASDASDAD'),(1635,102,'ASDASDASD'),(1636,103,'ASDASDASD'),(1637,104,'ASDASD'),(1638,105,'ASDASDASD'),(1639,106,'ASDASDAD'),(1640,107,'ASDASDASD'),(1641,108,'ASDASDASD'),(1642,109,'ASDASD'),(1643,110,'ASDASDASD'),(1644,111,'ASDASDAD'),(1645,112,'ASDASDASD'),(1646,113,'ASDASDASD'),(1647,114,'ASDASD'),(1648,115,'ASDASDASD'),(1649,116,'ASDASDAD'),(1650,117,'ASDASDASD'),(1651,118,'ASDASDASD'),(1652,119,'ASDASD'),(1653,120,'ASDASDASD'),(1654,121,'ASDASDAD'),(1655,122,'ASDASDASD'),(1656,123,'ASDASDASD'),(1657,124,'ASDASD'),(1658,125,'ASDASDASD'),(1659,126,'ASDASDAD'),(1660,127,'ASDASDASD'),(1661,128,'ASDASDASD'),(1662,129,'ASDASD'),(1663,130,'ASDASDASD'),(1664,131,'ASDASDAD'),(1665,132,'ASDASDASD'),(1666,133,'ASDASDASD'),(1667,134,'ASDASD'),(1668,135,'ASDASDASD'),(1669,136,'ASDASDAD'),(1670,137,'ASDASDASD'),(1671,138,'ASDASDASD'),(1672,139,'ASDASD'),(1673,140,'ASDASDASD'),(1674,141,'ASDASDAD'),(1675,142,'ASDASDASD'),(1676,143,'ASDASDASD'),(1677,144,'ASDASD'),(1678,145,'ASDASDASD'),(1679,146,'ASDASDAD'),(1680,147,'ASDASDASD'),(1681,148,'ASDASDASD'),(1682,149,'ASDASD'),(1683,150,'ASDASDASD'),(1684,151,'ASDASDAD'),(1685,152,'ASDASDASD'),(1686,153,'ASDASDASD'),(1687,154,'ASDASD'),(1688,155,'ASDASDASD'),(1689,156,'asdasdasd'),(1690,157,'asdasdasd'),(1691,158,'asdasdasd'),(1692,159,'asasasd'),(1693,160,'asdasasd'),(1694,161,'asdasd'),(1695,162,'asdasdd'),(1696,163,'asdasdad'),(1697,164,'asd'),(1698,165,'asdad'),(1699,166,'asdasd'),(1700,167,'asdasdd'),(1701,168,'asdasdad'),(1702,169,'asd'),(1703,170,'asdad'),(1704,171,'asdasd'),(1705,172,'asdasdd'),(1706,173,'asdasdad'),(1707,174,'asd'),(1708,175,'asdad'),(1709,176,'asdasd'),(1710,177,'asdasdd'),(1711,178,'asdasdad'),(1712,179,'asd'),(1713,180,'asdad'),(1714,181,'asdasd'),(1715,182,'asdasdd'),(1716,183,'asdasdad'),(1717,184,'asd'),(1718,185,'asdad'),(1719,186,'asdasd'),(1720,187,'asdasdd'),(1721,188,'asdasdad'),(1722,189,'asd'),(1723,190,'asdad'),(1724,191,'asdasd'),(1725,192,'asdasdd'),(1726,193,'asdasdad'),(1727,194,'asd'),(1728,195,'asdad'),(1729,196,'asdad'),(1730,197,'adasdad'),(1731,198,'asdasdad'),(1732,199,'asdasd'),(1733,200,'sdasdasd'),(1734,201,'asdad'),(1735,202,'adasdad'),(1736,203,'asdasdad'),(1737,204,'asdasd'),(1738,205,'sdasdasd'),(1739,206,'s'),(1740,207,'s'),(1741,208,'s'),(1742,209,'s'),(1743,210,'s'),(1744,211,'s'),(1745,212,'s'),(1746,213,'s'),(1747,214,'s'),(1748,215,'s'),(1749,216,'s'),(1750,217,'s'),(1751,218,'s'),(1752,219,'s'),(1753,220,'s'),(1754,221,'s'),(1755,222,'s'),(1756,223,'s'),(1757,224,'s'),(1758,225,'s'),(1759,226,'s'),(1760,227,'s'),(1761,228,'s'),(1762,229,'s'),(1763,230,'s'),(1764,231,'s'),(1765,232,'s'),(1766,233,'s'),(1767,234,'s'),(1768,235,'s');
+insert  into `award_scholarship`(`award_id`,`edu_id`,`award_scholarship_name`) values (2279,746,'N/A'),(2280,747,'SALUTATORIAN'),(2281,748,'N/A'),(2282,749,'N/A'),(2283,750,'N/A'),(2294,761,'asd'),(2295,762,'2'),(2296,763,'2'),(2297,764,'2'),(2298,765,'2');
 
 /*Table structure for table `blood_type` */
 
@@ -41,11 +59,11 @@ CREATE TABLE `blood_type` (
   `blood_type_id` int(11) NOT NULL AUTO_INCREMENT,
   `blood_type` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`blood_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `blood_type` */
 
-insert  into `blood_type`(`blood_type_id`,`blood_type`) values (1,'O-'),(2,'O+'),(3,'A-'),(4,'A+'),(5,'B-'),(6,'B+'),(7,'AB-'),(8,'AB+');
+insert  into `blood_type`(`blood_type_id`,`blood_type`) values (1,'O-'),(2,'O+'),(3,'A-'),(4,'A+'),(5,'B-'),(6,'B+'),(7,'AB-'),(8,'AB+'),(9,'N/A');
 
 /*Table structure for table `brgy` */
 
@@ -80,11 +98,11 @@ CREATE TABLE `children` (
   PRIMARY KEY (`child_id`),
   KEY `fam_bg_id` (`fam_bg_id`),
   CONSTRAINT `children_ibfk_1` FOREIGN KEY (`fam_bg_id`) REFERENCES `family_background` (`fam_bg_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `children` */
 
-insert  into `children`(`child_id`,`fam_bg_id`,`child_name`,`child_bdate`) values (8,6,'2','2024-04-17'),(9,6,'2','0000-00-00'),(10,6,'2','0000-00-00'),(11,7,'','0000-00-00'),(12,8,'','0000-00-00'),(13,9,'','0000-00-00'),(14,10,'','0000-00-00'),(15,11,'asdasdas','2024-05-21'),(16,11,'asdsadasd','2024-05-22'),(17,11,'asdasdasd','2024-05-24'),(18,11,'sdasdasd','2024-05-28'),(19,12,'asdasdas','2024-05-21'),(20,12,'asdsadasd','2024-05-22'),(21,12,'asdasdasd','2024-05-24'),(22,12,'sdasdasd','2024-05-28'),(23,13,'asdasdas','2024-05-21'),(24,13,'asdsadasd','2024-05-22'),(25,13,'asdasdasd','2024-05-24'),(26,13,'sdasdasd','2024-05-28'),(27,14,'asdasdas','2024-05-21'),(28,14,'asdsadasd','2024-05-22'),(29,14,'asdasdasd','2024-05-24'),(30,14,'sdasdasd','2024-05-28'),(31,15,'asdasdas','2024-05-21'),(32,15,'asdsadasd','2024-05-22'),(33,15,'asdasdasd','2024-05-24'),(34,15,'sdasdasd','2024-05-28'),(35,16,'asdasdas','2024-05-21'),(36,16,'asdsadasd','2024-05-22'),(37,16,'asdasdasd','2024-05-24'),(38,16,'sdasdasd','2024-05-28'),(39,17,'asdasdas','2024-05-21'),(40,17,'asdsadasd','2024-05-22'),(41,17,'asdasdasd','2024-05-24'),(42,17,'sdasdasd','2024-05-28'),(43,18,'asdasdasd','2024-05-21'),(44,18,'asdsadsd','2024-05-21'),(45,18,'asdasdasdsd','2024-05-28'),(46,18,'asdasdasd','2024-05-28'),(47,18,'sffsdfsdf','2024-05-22'),(48,18,'sdfsdfsdf','2024-05-28'),(49,19,'asdasdasda','2024-05-24'),(50,19,'asdasdasdasd','2024-05-12'),(51,19,'asdasdasdasd','2024-05-21'),(52,19,'asdasdasdasd','2024-05-28'),(53,19,'asdadasdasd','2024-05-29'),(54,19,'asdasdasdasd','2024-05-28'),(55,20,'asdasda','2024-05-15'),(56,20,'asdasdasd','2024-05-20'),(57,20,'asdasdasd','2024-05-06'),(58,38,'asdadasd','2024-05-28'),(59,38,'adasasdasd','2024-05-21'),(60,39,'asdasdasd','2024-05-20'),(61,39,'asdd','2024-05-27'),(62,40,'asdasdasd','2024-05-20'),(63,40,'asdd','2024-05-27'),(64,41,'asdasdasd','2024-05-20'),(65,41,'asdd','2024-05-27'),(66,42,'asdasdasd','2024-05-20'),(67,42,'asdd','2024-05-27'),(68,43,'asdasdasd','2024-05-20'),(69,43,'asdd','2024-05-27'),(70,44,'asdasdasd','2024-05-20'),(71,44,'asdd','2024-05-27'),(72,45,'asdasdasd','2024-05-20'),(73,45,'asdd','2024-05-27'),(74,46,'asasdasdasdasdasd','2024-05-22'),(75,47,'asasdasdasdasdasd','2024-05-22'),(76,48,'s','2024-05-13'),(77,48,'s','2024-05-21'),(78,49,'s','2024-05-13'),(79,49,'s','2024-05-21'),(80,50,'s','2024-05-13'),(81,50,'s','2024-05-21'),(82,51,'ss','2024-05-21'),(83,51,'s','2024-05-17'),(84,51,'ss','2024-05-30'),(85,51,'ss','2024-05-29'),(86,52,'w','2024-05-30'),(87,52,'s','2024-05-20'),(88,52,'s','2024-05-29'),(89,52,'ss','2024-06-05'),(90,53,'w','2024-05-30'),(91,53,'s','2024-05-20'),(92,53,'s','2024-05-29'),(93,53,'ss','2024-06-05');
+insert  into `children`(`child_id`,`fam_bg_id`,`child_name`,`child_bdate`) values (363,156,'LEAH FE M. SUGANOB','1988-08-15'),(364,156,'BRYAN KIM M. SUGANOB			','1993-12-30'),(365,156,'ARLYN FARED S. DOMINE			','1988-08-29'),(366,156,'QUEENIE MARIE S. DOMINE			','2001-10-31'),(369,159,'asdadasd','2024-05-21'),(370,159,'asdad','2024-05-29');
 
 /*Table structure for table `civil_service_eligibility` */
 
@@ -100,11 +118,11 @@ CREATE TABLE `civil_service_eligibility` (
   PRIMARY KEY (`civil_eligibility_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `FK_civil_service_eligibility_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `civil_service_eligibility` */
 
-insert  into `civil_service_eligibility`(`civil_eligibility_id`,`emp_id`,`examination_name`,`rating`,`examination_date`,`examination_place`) values (1,13,'SADASD',123,'2024-05-07','ZSADSAD'),(2,13,'ASDASDASD',123,'2024-04-29','ASDSAD'),(3,14,'SADASD',123,'2024-05-07','ZSADSAD'),(4,14,'ASDASDASD',123,'2024-04-29','ASDSAD'),(5,15,'SADASD',123,'2024-05-07','ZSADSAD'),(6,15,'ASDASDASD',123,'2024-04-29','ASDSAD'),(7,16,'sdasdasd',0,'2024-05-06','asdasdsadasd'),(8,16,'asdsadasd',78.9,'2024-05-06','sdasdasd'),(9,17,'sdasdasd',0,'2024-05-06','asdasdsadasd'),(10,17,'asdsadasd',78.9,'2024-05-06','sdasdasd'),(11,18,'sdasdasd',0,'2024-05-06','asdasdsadasd'),(12,18,'asdsadasd',78.9,'2024-05-06','sdasdasd'),(13,19,'sdasdasd',0,'2024-05-06','asdasdsadasd'),(14,19,'asdsadasd',78.9,'2024-05-06','sdasdasd'),(15,20,'sdasdasd',0,'2024-05-06','asdasdsadasd'),(16,20,'asdsadasd',78.9,'2024-05-06','sdasdasd'),(17,21,'sdasdasd',0,'2024-05-06','asdasdsadasd'),(18,21,'asdsadasd',78.9,'2024-05-06','sdasdasd'),(19,22,'sdasdasd',0,'2024-05-06','asdasdsadasd'),(20,22,'asdsadasd',78.9,'2024-05-06','sdasdasd'),(21,23,'sdfdsfsdf',0,'2024-05-27','sdfsdfsdfsdf'),(22,23,'sdfsdfsdf',0,'2024-05-06','asdasdsad'),(23,24,'asdasdasd',99.2,'2024-05-13','asdasd'),(24,24,'asdasdasd',89.3,'2024-05-13','asdasdad'),(25,25,'adasdasd',0,'2024-05-06','adadas'),(26,25,'asdasdasd',0,'2024-05-06','asdasdad'),(27,51,'s',0,'0000-00-00',''),(28,52,'s',0,'0000-00-00',''),(29,53,'s',0,'2024-05-06','s'),(30,53,'s',0,'0000-00-00','sa'),(31,54,'s',0,'2024-05-06','s'),(32,54,'s',0,'0000-00-00','sa'),(33,55,'s',0,'2024-05-06','s'),(34,55,'s',0,'0000-00-00','sa'),(35,56,'s',34.4,'2024-05-06','s'),(36,56,'s',30.23,'2024-05-06','s'),(37,57,'s',99.9,'2024-05-13','s'),(38,57,'s',56.3,'2024-05-07','s'),(39,58,'s',99.9,'2024-05-13','s'),(40,58,'s',56.3,'2024-05-07','s');
+insert  into `civil_service_eligibility`(`civil_eligibility_id`,`emp_id`,`examination_name`,`rating`,`examination_date`,`examination_place`) values (243,168,'CAREER SERVICE LICENSURE EXAMINATION',83.1,'1991-10-20',' SAN FRANCISCO,AGUSAN DEL SUR		'),(246,171,'asdasd',3332,'2024-05-06','asdad');
 
 /*Table structure for table `civil_status` */
 
@@ -140,12 +158,17 @@ DROP TABLE IF EXISTS `criminal_record`;
 
 CREATE TABLE `criminal_record` (
   `criminal_record_id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) DEFAULT NULL,
   `date_filed` date DEFAULT NULL,
-  `case_status` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`criminal_record_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `case_status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`criminal_record_id`),
+  KEY `question_id` (`question_id`),
+  CONSTRAINT `criminal_record_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questionnaire` (`question_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `criminal_record` */
+
+insert  into `criminal_record`(`criminal_record_id`,`question_id`,`date_filed`,`case_status`) values (2,35,'0000-00-00','2024-05-29');
 
 /*Table structure for table `education_level` */
 
@@ -171,20 +194,20 @@ CREATE TABLE `educational_background` (
   `education_lvl_id` int(11) DEFAULT NULL,
   `school_name` varchar(50) DEFAULT NULL,
   `degree_course` varchar(50) DEFAULT NULL,
-  `sy_start` int(11) DEFAULT NULL,
-  `sy_end` int(11) DEFAULT NULL,
-  `highest_lvl_units` int(11) DEFAULT 0,
-  `year_graduated` int(11) DEFAULT NULL,
+  `sy_start` varchar(11) DEFAULT NULL,
+  `sy_end` varchar(11) DEFAULT NULL,
+  `highest_lvl_units` varchar(11) DEFAULT NULL,
+  `year_graduated` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`edu_id`),
   KEY `educational_background_ibfk_2` (`education_lvl_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `FK_educational_background_el_id` FOREIGN KEY (`education_lvl_id`) REFERENCES `education_level` (`edu_level_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_educational_background_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=236 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=766 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `educational_background` */
 
-insert  into `educational_background`(`edu_id`,`emp_id`,`education_lvl_id`,`school_name`,`degree_course`,`sy_start`,`sy_end`,`highest_lvl_units`,`year_graduated`) values (6,13,1,'ASDASD','ASDASD',0,0,0,0),(7,13,2,'SADSADS','ADSAD',0,0,0,2010),(8,13,3,'SADSAD','SADSDSD',0,0,0,2011),(9,13,4,'SADSAD','SADSD',0,0,0,2010),(10,13,5,'ASDSADSA','SADASD',0,0,0,2013),(11,14,1,'ASDASD','ASDASD',0,0,0,0),(12,14,2,'SADSADS','ADSAD',0,0,0,2010),(13,14,3,'SADSAD','SADSDSD',0,0,0,2011),(14,14,4,'SADSAD','SADSD',0,0,0,2010),(15,14,5,'ASDSADSA','SADASD',0,0,0,2013),(16,15,1,'ASDASD','ASDASD',0,0,0,0),(17,15,2,'SADSADS','ADSAD',0,0,0,2010),(18,15,3,'SADSAD','SADSDSD',0,0,0,2011),(19,15,4,'SADSAD','SADSD',0,0,0,2010),(20,15,5,'ASDSADSA','SADASD',0,0,0,2013),(21,16,1,'asdsad','sadsadasd',2024,2024,0,2009),(22,16,2,'sadsad','sadsad',2024,2024,0,2016),(23,16,3,'sadasda','sdsdasd',2024,2024,0,2010),(24,16,4,'sadsadsad','asdasdsad',2024,2024,0,2010),(25,16,5,'asdsadsad','asdasd',2024,2024,0,2009),(26,17,1,'asdsad','sadsadasd',2024,2024,0,2009),(27,17,2,'sadsad','sadsad',2024,2024,0,2016),(28,17,3,'sadasda','sdsdasd',2024,2024,0,2010),(29,17,4,'sadsadsad','asdasdsad',2024,2024,0,2010),(30,17,5,'asdsadsad','asdasd',2024,2024,0,2009),(31,18,1,'asdsad','sadsadasd',2024,2024,0,2009),(32,18,2,'sadsad','sadsad',2024,2024,0,2016),(33,18,3,'sadasda','sdsdasd',2024,2024,0,2010),(34,18,4,'sadsadsad','asdasdsad',2024,2024,0,2010),(35,18,5,'asdsadsad','asdasd',2024,2024,0,2009),(36,19,1,'asdsad','sadsadasd',2024,2024,0,2009),(37,19,2,'sadsad','sadsad',2024,2024,0,2016),(38,19,3,'sadasda','sdsdasd',2024,2024,0,2010),(39,19,4,'sadsadsad','asdasdsad',2024,2024,0,2010),(40,19,5,'asdsadsad','asdasd',2024,2024,0,2009),(41,20,1,'asdsad','sadsadasd',2024,2024,0,2009),(42,20,2,'sadsad','sadsad',2024,2024,0,2016),(43,20,3,'sadasda','sdsdasd',2024,2024,0,2010),(44,20,4,'sadsadsad','asdasdsad',2024,2024,0,2010),(45,20,5,'asdsadsad','asdasd',2024,2024,0,2009),(46,21,1,'asdsad','sadsadasd',2024,2024,0,2009),(47,21,2,'sadsad','sadsad',2024,2024,0,2016),(48,21,3,'sadasda','sdsdasd',2024,2024,0,2010),(49,21,4,'sadsadsad','asdasdsad',2024,2024,0,2010),(50,21,5,'asdsadsad','asdasd',2024,2024,0,2009),(51,22,1,'asdsad','sadsadasd',2024,2024,0,2009),(52,22,2,'sadsad','sadsad',2024,2024,0,2016),(53,22,3,'sadasda','sdsdasd',2024,2024,0,2010),(54,22,4,'sadsadsad','asdasdsad',2024,2024,0,2010),(55,22,5,'asdsadsad','asdasd',2024,2024,0,2009),(56,23,1,'dfsdfsdf','sdfsdfsdfsdf',2024,2024,0,2008),(57,23,2,'xczxczxzx','czxczxczxc',2024,2024,0,2010),(58,23,3,'zxczxczxc','zxczxczxczxc',2024,2024,0,2007),(59,23,4,'zxcxzcxzc','zxczxczxcxzc',2024,2024,0,2009),(60,23,5,'xzcxzcxzcxzc','xzczxcdfsdfsdfsdfs',2024,2024,0,2011),(61,24,1,'asdasdasd','asdasdasd',2010,2011,0,2010),(62,24,2,'asdasd','asdasdasd',2010,2009,0,2011),(63,24,3,'asdasdas','dasdasdas',2021,2022,0,2022),(64,24,4,'asdasdasd','asdasdasd',2011,2015,0,2013),(65,24,5,'asdasd','adsasdasd',2011,2012,0,1989),(66,25,1,'asdasd','asdadasd',2024,2012,0,2012),(67,25,2,'asdasd','asdasd',2013,2012,0,2011),(68,25,3,'asdasdasd','asdasd',2009,2009,0,2009),(69,25,4,'asdad','asdasd',1990,2012,0,2011),(70,25,5,'asdasd','asdasd',2015,2013,0,2013),(71,26,1,'ASDASDA','ASDASD',2013,2012,0,2013),(72,26,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(73,26,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(74,26,4,'ASDASD','ASDASDA',2011,2011,0,2012),(75,26,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(76,27,1,'ASDASDA','ASDASD',2013,2012,0,2013),(77,27,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(78,27,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(79,27,4,'ASDASD','ASDASDA',2011,2011,0,2012),(80,27,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(81,28,1,'ASDASDA','ASDASD',2013,2012,0,2013),(82,28,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(83,28,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(84,28,4,'ASDASD','ASDASDA',2011,2011,0,2012),(85,28,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(86,29,1,'ASDASDA','ASDASD',2013,2012,0,2013),(87,29,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(88,29,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(89,29,4,'ASDASD','ASDASDA',2011,2011,0,2012),(90,29,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(91,30,1,'ASDASDA','ASDASD',2013,2012,0,2013),(92,30,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(93,30,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(94,30,4,'ASDASD','ASDASDA',2011,2011,0,2012),(95,30,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(96,31,1,'ASDASDA','ASDASD',2013,2012,0,2013),(97,31,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(98,31,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(99,31,4,'ASDASD','ASDASDA',2011,2011,0,2012),(100,31,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(101,32,1,'ASDASDA','ASDASD',2013,2012,0,2013),(102,32,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(103,32,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(104,32,4,'ASDASD','ASDASDA',2011,2011,0,2012),(105,32,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(106,33,1,'ASDASDA','ASDASD',2013,2012,0,2013),(107,33,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(108,33,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(109,33,4,'ASDASD','ASDASDA',2011,2011,0,2012),(110,33,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(111,34,1,'ASDASDA','ASDASD',2013,2012,0,2013),(112,34,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(113,34,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(114,34,4,'ASDASD','ASDASDA',2011,2011,0,2012),(115,34,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(116,35,1,'ASDASDA','ASDASD',2013,2012,0,2013),(117,35,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(118,35,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(119,35,4,'ASDASD','ASDASDA',2011,2011,0,2012),(120,35,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(121,36,1,'ASDASDA','ASDASD',2013,2012,0,2013),(122,36,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(123,36,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(124,36,4,'ASDASD','ASDASDA',2011,2011,0,2012),(125,36,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(126,37,1,'ASDASDA','ASDASD',2013,2012,0,2013),(127,37,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(128,37,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(129,37,4,'ASDASD','ASDASDA',2011,2011,0,2012),(130,37,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(131,38,1,'ASDASDA','ASDASD',2013,2012,0,2013),(132,38,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(133,38,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(134,38,4,'ASDASD','ASDASDA',2011,2011,0,2012),(135,38,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(136,39,1,'ASDASDA','ASDASD',2013,2012,0,2013),(137,39,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(138,39,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(139,39,4,'ASDASD','ASDASDA',2011,2011,0,2012),(140,39,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(141,40,1,'ASDASDA','ASDASD',2013,2012,0,2013),(142,40,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(143,40,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(144,40,4,'ASDASD','ASDASDA',2011,2011,0,2012),(145,40,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(146,41,1,'ASDASDA','ASDASD',2013,2012,0,2013),(147,41,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(148,41,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(149,41,4,'ASDASD','ASDASDA',2011,2011,0,2012),(150,41,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(151,42,1,'ASDASDA','ASDASD',2013,2012,0,2013),(152,42,2,'ASDASD','DASDASDSA',2017,2010,0,2010),(153,42,3,'ASDAD','ASDASDASD',2010,2012,0,2010),(154,42,4,'ASDASD','ASDASDA',2011,2011,0,2012),(155,42,5,'AASDASDASD','ASDASDASD',2021,2014,0,2016),(156,43,1,'asdadasd','asdasdasdad',2009,2011,0,2010),(157,43,2,'asdasd','asdasd',2009,2012,0,2013),(158,43,3,'asdadas','dadada',2012,2012,0,2012),(159,43,4,'asdasa','sdasadasd',2011,2011,0,2014),(160,43,5,'asdasd','adasasda',2018,2018,0,2016),(161,44,1,'asdasd','asdasd',1992,2009,0,2012),(162,44,2,'asdad','adadad',2010,2010,0,2011),(163,44,3,'adad','adadad',2010,2014,0,2014),(164,44,4,'asdadasd','asdasd',2014,2011,0,2014),(165,44,5,'asdasd','asdad',2013,2013,0,2013),(166,45,1,'asdasd','asdasd',1992,2009,0,2012),(167,45,2,'asdad','adadad',2010,2010,0,2011),(168,45,3,'adad','adadad',2010,2014,0,2014),(169,45,4,'asdadasd','asdasd',2014,2011,0,2014),(170,45,5,'asdasd','asdad',2013,2013,0,2013),(171,46,1,'asdasd','asdasd',1992,2009,0,2012),(172,46,2,'asdad','adadad',2010,2010,0,2011),(173,46,3,'adad','adadad',2010,2014,0,2014),(174,46,4,'asdadasd','asdasd',2014,2011,0,2014),(175,46,5,'asdasd','asdad',2013,2013,0,2013),(176,47,1,'asdasd','asdasd',1992,2009,0,2012),(177,47,2,'asdad','adadad',2010,2010,0,2011),(178,47,3,'adad','adadad',2010,2014,0,2014),(179,47,4,'asdadasd','asdasd',2014,2011,0,2014),(180,47,5,'asdasd','asdad',2013,2013,0,2013),(181,48,1,'asdasd','asdasd',1992,2009,0,2012),(182,48,2,'asdad','adadad',2010,2010,0,2011),(183,48,3,'adad','adadad',2010,2014,0,2014),(184,48,4,'asdadasd','asdasd',2014,2011,0,2014),(185,48,5,'asdasd','asdad',2013,2013,0,2013),(186,49,1,'asdasd','asdasd',1992,2009,0,2012),(187,49,2,'asdad','adadad',2010,2010,0,2011),(188,49,3,'adad','adadad',2010,2014,0,2014),(189,49,4,'asdadasd','asdasd',2014,2011,0,2014),(190,49,5,'asdasd','asdad',2013,2013,0,2013),(191,50,1,'asdasd','asdasd',1992,2009,0,2012),(192,50,2,'asdad','adadad',2010,2010,0,2011),(193,50,3,'adad','adadad',2010,2014,0,2014),(194,50,4,'asdadasd','asdasd',2014,2011,0,2014),(195,50,5,'asdasd','asdad',2013,2013,0,2013),(196,51,1,'asdad','asdasdasd',2009,2010,0,2008),(197,51,2,'asdasas','dasdasdasd',2011,2011,0,2010),(198,51,3,'asdasdasdad','asdadad',2021,1995,0,2014),(199,51,4,'asdasdasdasda','adadasd',2011,2011,0,2011),(200,51,5,'asdasdasd','asdasdasda',2008,2012,0,2012),(201,52,1,'asdad','asdasdasd',2009,2010,0,2008),(202,52,2,'asdasas','dasdasdasd',2011,2011,0,2010),(203,52,3,'asdasdasdad','asdadad',2021,1995,0,2014),(204,52,4,'asdasdasdasda','adadasd',2011,2011,0,2011),(205,52,5,'asdasdasd','asdasdasda',2008,2012,0,2012),(206,53,1,'s','s',2009,2009,0,2010),(207,53,2,'s','s',2010,2011,0,2009),(208,53,3,'s','s',2011,2012,0,2011),(209,53,4,'s','s',2008,2011,0,2007),(210,53,5,'s','s',2015,2011,0,2010),(211,54,1,'s','s',2009,2009,0,2010),(212,54,2,'s','s',2010,2011,0,2009),(213,54,3,'s','s',2011,2012,0,2011),(214,54,4,'s','s',2008,2011,0,2007),(215,54,5,'s','s',2015,2011,0,2010),(216,55,1,'s','s',2009,2009,0,2010),(217,55,2,'s','s',2010,2011,0,2009),(218,55,3,'s','s',2011,2012,0,2011),(219,55,4,'s','s',2008,2011,0,2007),(220,55,5,'s','s',2015,2011,0,2010),(221,56,1,'s','s',2011,2009,0,2008),(222,56,2,'s','s',2010,2009,0,2010),(223,56,3,'s','s',2009,2009,0,2009),(224,56,4,'s','s',2010,2010,0,2009),(225,56,5,'s','s',2010,2012,0,2011),(226,57,1,'ss','s',2007,2008,0,2006),(227,57,2,'s','s',2009,2008,0,2007),(228,57,3,'s','s',2010,2010,0,2014),(229,57,4,'s','s',2010,2010,0,2011),(230,57,5,'s','s',2010,2011,0,2009),(231,58,1,'ss','s',2007,2008,0,2006),(232,58,2,'s','s',2009,2008,0,2007),(233,58,3,'s','s',2010,2010,0,2014),(234,58,4,'s','s',2010,2010,0,2011),(235,58,5,'s','s',2010,2011,0,2009);
+insert  into `educational_background`(`edu_id`,`emp_id`,`education_lvl_id`,`school_name`,`degree_course`,`sy_start`,`sy_end`,`highest_lvl_units`,`year_graduated`) values (746,168,1,'BAGUMBAYAN CENT. ELEM. SCHOOL		','ELEMENTARY		','1974','1980','N/A','1980'),(747,168,2,'MINDANAO CHRISTIAN ACADEMY','SECONDARY		','1980','1985','N/A','1985'),(748,168,3,'N/A','N/A','','','N/A',''),(749,168,4,'PHILIPPINE NORMAL UNIVERSITY		','BACHELOR  IN ELEM. EDUCATION		','1985','1993','N/A','1993'),(750,168,5,'N/A','N/A','','','N/A',''),(761,171,1,'asdasdasd','asdasd','2024','2024','N/A','2024'),(762,171,2,'2','2','2024','2024','N/A','2024'),(763,171,3,'2','2','2024','2024','N/A','2024'),(764,171,4,'2','2','2024','2024','N/A','2024'),(765,171,5,'2','2','2024','2024','N/A','2024');
 
 /*Table structure for table `employee` */
 
@@ -211,29 +234,23 @@ CREATE TABLE `employee` (
   `agency_emp_no` varchar(20) DEFAULT NULL,
   `citizenship` varchar(20) DEFAULT NULL,
   `citizenship_method` varchar(20) DEFAULT NULL,
-  `country_id` int(11) DEFAULT NULL,
-  `res_address_id` int(11) DEFAULT NULL,
-  `perm_address_id` int(11) DEFAULT NULL,
+  `country_id` varchar(10) DEFAULT NULL,
   `telephone_no` varchar(15) DEFAULT NULL,
   `mobile_no` varchar(15) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`emp_id`),
   KEY `blood_type_id` (`blood_type_id`),
-  KEY `res_address` (`res_address_id`),
   KEY `civil_status_id` (`civil_status_id`),
   KEY `suffix_id` (`suffix_id`),
   KEY `sex_id` (`sex`),
-  KEY `perm_address_id` (`perm_address_id`),
   CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`civil_status_id`) REFERENCES `civil_status` (`civil_status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`blood_type_id`) REFERENCES `blood_type` (`blood_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `employee_ibfk_4` FOREIGN KEY (`suffix_id`) REFERENCES `suffix` (`suffix_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `employee_ibfk_5` FOREIGN KEY (`res_address_id`) REFERENCES `residential_address` (`residential_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `employee_ibfk_6` FOREIGN KEY (`perm_address_id`) REFERENCES `permanent_address` (`permanent_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  CONSTRAINT `employee_ibfk_4` FOREIGN KEY (`suffix_id`) REFERENCES `suffix` (`suffix_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `employee` */
 
-insert  into `employee`(`emp_id`,`last_name`,`first_name`,`middle_name`,`suffix_id`,`birthdate`,`birthplace`,`sex`,`civil_status_id`,`height`,`weight`,`blood_type_id`,`gsis_no`,`pagibig_no`,`philhealth_no`,`sss_no`,`tin_no`,`agency_emp_no`,`citizenship`,`citizenship_method`,`country_id`,`res_address_id`,`perm_address_id`,`telephone_no`,`mobile_no`,`email`) values (11,'asd','asd','asd',2,'2024-04-23','asd','Male',2,2,2,7,'2','2','2','2','2','2','Dual Citizenship','By Birth',0,18,6,'N/A','2','ada@Aa'),(12,'Bolinget','Vincent','Almoite',7,'2024-05-14','Bontoc, Mt. Province','Male',1,2,45,4,'22','22','22','22','22','223','Filipino','By Birth',0,19,7,'N/A','09273995484','vincentbolinget@gmail.com'),(13,'asd','asdasd','asd',3,'2024-05-22','asdsad','Male',3,121,1212,6,'sdasd','asds','asdasd','asdasd','asdasdas','dasdasd','Filipino','By Naturalization',0,20,8,'N/A','2131231','2@A'),(14,'asd','asdasd','asd',3,'2024-05-22','asdsad','Male',3,121,1212,6,'sdasd','asds','asdasd','asdasd','asdasdas','dasdasd','Filipino','By Naturalization',0,21,9,'N/A','2131231','2@A'),(15,'asd','asdasd','asd',3,'2024-05-22','asdsad','Male',3,121,1212,6,'sdasd','asds','asdasd','asdasd','asdasdas','dasdasd','Filipino','By Naturalization',0,22,10,'N/A','2131231','2@A'),(16,'asdasda','asdsad','sadasd',2,'2024-05-15','asdsd','Male',2,123,213,5,'213123','123213','123123','123123123','12321312','3123213','Dual Citizenship','By Birth',0,23,11,'N/A','23123','123213@a'),(17,'asdasda','asdsad','sadasd',2,'2024-05-15','asdsd','Male',2,123,213,5,'213123','123213','123123','123123123','12321312','3123213','Dual Citizenship','By Birth',0,24,12,'N/A','23123','123213@a'),(18,'asdasda','asdsad','sadasd',2,'2024-05-15','asdsd','Male',2,123,213,5,'213123','123213','123123','123123123','12321312','3123213','Dual Citizenship','By Birth',0,25,13,'N/A','23123','123213@a'),(19,'asdasda','asdsad','sadasd',2,'2024-05-15','asdsd','Male',2,123,213,5,'213123','123213','123123','123123123','12321312','3123213','Dual Citizenship','By Birth',0,26,14,'N/A','23123','123213@a'),(20,'asdasda','asdsad','sadasd',2,'2024-05-15','asdsd','Male',2,123,213,5,'213123','123213','123123','123123123','12321312','3123213','Dual Citizenship','By Birth',0,27,15,'N/A','23123','123213@a'),(21,'asdasda','asdsad','sadasd',2,'2024-05-15','asdsd','Male',2,123,213,5,'213123','123213','123123','123123123','12321312','3123213','Dual Citizenship','By Birth',0,28,16,'N/A','23123','123213@a'),(22,'asdasda','asdsad','sadasd',2,'2024-05-15','asdsd','Male',2,123,213,5,'213123','123213','123123','123123123','12321312','3123213','Dual Citizenship','By Birth',0,29,17,'N/A','23123','123213@a'),(23,'dasdas','sadsad','sadsdas',3,'2024-05-15','sdasdasd','Female',2,23,3,5,'2312','3123123','12123123','123123123','123123123','1232312','Filipino','By Naturalization',0,30,18,'N/A','213213','21323@a'),(24,'asdasd','sasdas','dasdasd',4,'2024-05-29','asdasd','Male',3,123123,21312,8,'123123','123123','123123','123123','123123123','213123','Dual Citizenship','By Naturalization',0,31,19,'N/A','123123','123123@a'),(25,'asdasd','asdasd','asdasd',2,'2024-05-29','asdasd','Female',1,23,123,6,'213321','123123','123123','123123123','1231231','23123123','Dual Citizenship','By Naturalization',0,37,20,'N/A','123123','12@a'),(26,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,38,21,'N/A','213123','123123!@AS'),(27,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,39,22,'N/A','213123','123123!@AS'),(28,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,40,23,'N/A','213123','123123!@AS'),(29,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,41,24,'N/A','213123','123123!@AS'),(30,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,42,25,'N/A','213123','123123!@AS'),(31,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,43,26,'N/A','213123','123123!@AS'),(32,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,44,27,'N/A','213123','123123!@AS'),(33,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,45,28,'N/A','213123','123123!@AS'),(34,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,46,29,'N/A','213123','123123!@AS'),(35,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,47,30,'N/A','213123','123123!@AS'),(36,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,48,31,'N/A','213123','123123!@AS'),(37,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,49,32,'N/A','213123','123123!@AS'),(38,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,50,33,'N/A','213123','123123!@AS'),(39,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,51,34,'N/A','213123','123123!@AS'),(40,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,52,35,'N/A','213123','123123!@AS'),(41,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,53,36,'N/A','213123','123123!@AS'),(42,'asdasd','asdas','dasd',5,'2024-05-23','asdasd','Female',3,123,123,7,'21312','31231','2312312','3123123','1231231','23213123','Filipino','By Naturalization',0,54,37,'N/A','213123','123123!@AS'),(43,'asdasdadasd','asdasd','asdad',3,'2024-05-28','asasd','Male',3,12312,3123123,7,'asasd','adasdasd','asd','asdasdad','assada','sdasdasdasd','Filipino','By Birth',0,55,38,'N/A','12312321','a@a'),(44,'adadas','asd','asdasd',3,'2024-05-15','sadasd','Male',2,123,123,6,'123123','213213','21312312','3123123123','12312312','312331','Filipino','By Naturalization',0,56,39,'N/A','123123123','s@a'),(45,'adadas','asd','asdasd',3,'2024-05-15','sadasd','Male',2,123,123,6,'123123','213213','21312312','3123123123','12312312','312331','Filipino','By Naturalization',0,57,40,'N/A','123123123','s@a'),(46,'adadas','asd','asdasd',3,'2024-05-15','sadasd','Male',2,123,123,6,'123123','213213','21312312','3123123123','12312312','312331','Filipino','By Naturalization',0,58,41,'N/A','123123123','s@a'),(47,'adadas','asd','asdasd',3,'2024-05-15','sadasd','Male',2,123,123,6,'123123','213213','21312312','3123123123','12312312','312331','Filipino','By Naturalization',0,59,42,'N/A','123123123','s@a'),(48,'adadas','asd','asdasd',3,'2024-05-15','sadasd','Male',2,123,123,6,'123123','213213','21312312','3123123123','12312312','312331','Filipino','By Naturalization',0,60,43,'N/A','123123123','s@a'),(49,'adadas','asd','asdasd',3,'2024-05-15','sadasd','Male',2,123,123,6,'123123','213213','21312312','3123123123','12312312','312331','Filipino','By Naturalization',0,61,44,'N/A','123123123','s@a'),(50,'adadas','asd','asdasd',3,'2024-05-15','sadasd','Male',2,123,123,6,'123123','213213','21312312','3123123123','12312312','312331','Filipino','By Naturalization',0,62,45,'N/A','123123123','s@a'),(51,'sdasd','asdasd','adsasda',4,'2024-05-21','adasdas','Male',1,23,33,5,'3324','23423423','4234234','234234234','234234','234234234','Filipino','By Naturalization',0,63,46,'N/A','324324','23424234@a'),(52,'sdasd','asdasd','adsasda',4,'2024-05-21','adasdas','Male',1,23,33,5,'3324','23423423','4234234','234234234','234234','234234234','Filipino','By Naturalization',0,64,47,'N/A','324324','23424234@a'),(53,'asdasdasd','asdasd','asdasdasd',3,'2024-05-21','asasd','Female',2,123,123,5,'asda','sdadasd','asdad','asasasd','asdasd','adas','Dual Citizenship','By Birth',0,65,48,'N/A','22','#@s'),(54,'asdasdasd','asdasd','asdasdasd',3,'2024-05-21','asasd','Female',2,123,123,5,'asda','sdadasd','asdad','asasasd','asdasd','adas','Dual Citizenship','By Birth',0,66,49,'N/A','22','#@s'),(55,'asdasdasd','asdasd','asdasdasd',3,'2024-05-21','asasd','Female',2,123,123,5,'asda','sdadasd','asdad','asasasd','asdasd','adas','Dual Citizenship','By Birth',0,67,50,'N/A','22','#@s'),(56,'s','s','s',2,'2024-05-28','s','Male',2,2,2,3,'2','2','2','2','2','2','Filipino','By Birth',0,68,51,'N/A','2','2A2@a'),(57,'s','s','s',2,'2024-05-23','s','Male',2,2,1,2,'q','q','q','q','q','q','Filipino','By Birth',0,69,52,'N/A','2222','2@a'),(58,'s','s','s',2,'2024-05-23','s','Male',2,2,1,2,'q','q','q','q','q','q','Filipino','By Birth',0,70,53,'N/A','2222','2@a');
+insert  into `employee`(`emp_id`,`last_name`,`first_name`,`middle_name`,`suffix_id`,`birthdate`,`birthplace`,`sex`,`civil_status_id`,`height`,`weight`,`blood_type_id`,`gsis_no`,`pagibig_no`,`philhealth_no`,`sss_no`,`tin_no`,`agency_emp_no`,`citizenship`,`citizenship_method`,`country_id`,`telephone_no`,`mobile_no`,`email`) values (168,'DOMINE','MARLYN  ','SUGANOB',7,'1967-08-30','Sagunto,La Paz ,Agusan del Sur		             ','Female',2,2,48,2,'006-0106-5845-9		 		','1830-0057-9790		 		','1830-0057-9790		','08-1313674-7		','194-310-389		','5022578		','Filipino','By Birth','N/A','N/A','09103297137','marilyndomine@gmail.com'),(171,'asdasd','asd','asdasd',2,'2024-05-30','asd','Male',1,123,123,8,'N/A','N/A','N/A','N/A','N/A','N/A','Dual Citizenship','By Birth','AL','N/A','123123','2QA@a');
 
 /*Table structure for table `family_background` */
 
@@ -260,11 +277,11 @@ CREATE TABLE `family_background` (
   PRIMARY KEY (`fam_bg_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `FK_family_background_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=160 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `family_background` */
 
-insert  into `family_background`(`fam_bg_id`,`emp_id`,`spouse_lname`,`spouse_fname`,`spouse_mname`,`spouse_suffix`,`spouse_occupation`,`spouse_business`,`spouse_business_address`,`tel_no`,`father_lname`,`father_fname`,`father_mname`,`father_suffix`,`mother_lname`,`mother_fname`,`mother_mname`) values (6,11,'w','w','w','N/A','w','w','w',2,'2','2','2','1','2','2','2'),(7,12,'N/A','N/A','N/A','N/A','N/A','N/A','N/A',0,'Bolinget','Leonard','Barbosa','N/A','Bolinget','Gilyn','Almoite'),(8,13,'N/A','N/A','N/A','N/A','N/A','N/A','N/A',12321,'DASDASD','SADSAD','SADASDAS','N/A','SDASDASD','SADASD','ASDASDAS'),(9,14,'N/A','N/A','N/A','N/A','N/A','N/A','N/A',12321,'DASDASD','SADSAD','SADASDAS','N/A','SDASDASD','SADASD','ASDASDAS'),(10,15,'N/A','N/A','N/A','N/A','N/A','N/A','N/A',12321,'DASDASD','SADSAD','SADASDAS','N/A','SDASDASD','SADASD','ASDASDAS'),(11,16,'asdasdasd','assad','asdasdasd','N/A','asdasdasd','asdasdas','asdasdasd',0,'asdsadsad','asdasdasdsadsad','sdasdasd','N/A','sadasdsad','asdsad','sasad'),(12,17,'asdasdasd','assad','asdasdasd','N/A','asdasdasd','asdasdas','asdasdasd',0,'asdsadsad','asdasdasdsadsad','sdasdasd','N/A','sadasdsad','asdsad','sasad'),(13,18,'asdasdasd','assad','asdasdasd','N/A','asdasdasd','asdasdas','asdasdasd',0,'asdsadsad','asdasdasdsadsad','sdasdasd','N/A','sadasdsad','asdsad','sasad'),(14,19,'asdasdasd','assad','asdasdasd','N/A','asdasdasd','asdasdas','asdasdasd',0,'asdsadsad','asdasdasdsadsad','sdasdasd','N/A','sadasdsad','asdsad','sasad'),(15,20,'asdasdasd','assad','asdasdasd','N/A','asdasdasd','asdasdas','asdasdasd',0,'asdsadsad','asdasdasdsadsad','sdasdasd','N/A','sadasdsad','asdsad','sasad'),(16,21,'asdasdasd','assad','asdasdasd','N/A','asdasdasd','asdasdas','asdasdasd',0,'asdsadsad','asdasdasdsadsad','sdasdasd','N/A','sadasdsad','asdsad','sasad'),(17,22,'asdasdasd','assad','asdasdasd','N/A','asdasdasd','asdasdas','asdasdasd',0,'asdsadsad','asdasdasdsadsad','sdasdasd','N/A','sadasdsad','asdsad','sasad'),(18,23,'asdasdad','sadsad','asdasd','N/A','asdasdsad','sdasdds','asdasd',0,'sadsdasd','asdsadas','sdasd','1','asdasdsasd','asdsdas','dsadasd'),(19,24,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasdas','dasdasd',0,'asdasd','asdasdas','dasdasd','4','asdasdasd','asdasd','asdasd'),(20,25,'adsasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdadsa',0,'asdasdasd','asdasd','adadad','2','dadadasd','asdasd','asdasda'),(21,26,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(22,27,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(23,28,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(24,29,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(25,30,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(26,31,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(27,32,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(28,33,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(29,34,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(30,35,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(31,36,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(32,37,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(33,38,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(34,39,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(35,40,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(36,41,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(37,42,'ASDASDASDAD','ASDASD','ADASD','N/A','ADADA','SDADAS','DADASDASD',0,'DASDASDASD','ASDASD','ADASD','2','DASDASD','ASDASD','ASDASDAS'),(38,43,'asdasdasda','asas','dasdasd','N/A','dsasd','asdasd','asdasdasd',0,'dadasdasd','asdasd','asdasdas','3','dasdasdasd','asdasd','asdasdas'),(39,44,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdad',0,'dadasd','asdasd','asdas','3','asdasdasd','adasd','adsasd'),(40,45,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdad',0,'dadasd','asdasd','asdas','3','asdasdasd','adasd','adsasd'),(41,46,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdad',0,'dadasd','asdasd','asdas','3','asdasdasd','adasd','adsasd'),(42,47,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdad',0,'dadasd','asdasd','asdas','3','asdasdasd','adasd','adsasd'),(43,48,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdad',0,'dadasd','asdasd','asdas','3','asdasdasd','adasd','adsasd'),(44,49,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdad',0,'dadasd','asdasd','asdas','3','asdasdasd','adasd','adsasd'),(45,50,'asdasdasd','asdasd','asdasd','N/A','asdasd','asdasd','asdad',0,'dadasd','asdasd','asdas','3','asdasdasd','adasd','adsasd'),(46,51,'sadasd','asasd','asdasd','N/A','asdasd','asdasd','asdsdasdasd',0,'asdasdasd','asdad','asdasdasd','2','asdasdas','asd','adasdsd'),(47,52,'sadasd','asasd','asdasd','N/A','asdasd','asdasd','asdsdasdasd',0,'asdasdasd','asdad','asdasdasd','2','asdasdas','asd','adasdsd'),(48,53,'s','s','s','N/A','s','s','s',0,'s','s','ss','3','s','s','s'),(49,54,'s','s','s','N/A','s','s','s',0,'s','s','ss','3','s','s','s'),(50,55,'s','s','s','N/A','s','s','s',0,'s','s','ss','3','s','s','s'),(51,56,'s','asd','s','N/A','s','s','s',0,'s','s','s','4','s','s','s'),(52,57,'w','w','w','N/A','w','w','w',0,'w','w','w','2','w','w','w'),(53,58,'w','w','w','N/A','w','w','w',0,'w','w','w','2','w','w','w');
+insert  into `family_background`(`fam_bg_id`,`emp_id`,`spouse_lname`,`spouse_fname`,`spouse_mname`,`spouse_suffix`,`spouse_occupation`,`spouse_business`,`spouse_business_address`,`tel_no`,`father_lname`,`father_fname`,`father_mname`,`father_suffix`,`mother_lname`,`mother_fname`,`mother_mname`) values (156,168,'DOMINE				','ARMANDO		','EUGENIO				','','REVENUE COLLECTION CLERK II				','LOCAL GOVERNMENT UNIT				','LA PAZ, AGUSAN DEL SUR				',2147483647,'SUGANOB 				','HUESCA				','ELEUTERIO (DECEASED)		','7','MONTADAS				','ALFREDA ( DECEASED )				','GOMEZ				'),(159,171,'N/A','N/A','N/A','N/A','N/A','N/A','N/A',0,'sdasd','asda','sdasda','4','adad','asd','asdasd');
 
 /*Table structure for table `learning_dev` */
 
@@ -282,11 +299,9 @@ CREATE TABLE `learning_dev` (
   PRIMARY KEY (`learning_dev_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `FK_learning_dev_attended_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `learning_dev` */
-
-insert  into `learning_dev`(`learning_dev_id`,`emp_id`,`training_name`,`training_start`,`training_end`,`total_hours`,`training_type`,`sponsor`) values (1,57,'asadadad','2024-05-14','2024-05-13',0,'Supervisory','adadasdasd'),(2,57,'asdasda','2024-05-22','2024-05-13',0,'Foundation','dadasdasd'),(3,57,'asdada','2024-05-14','2024-05-13',0,'Foundation','dasdasasd'),(4,58,'asadadad','2024-05-14','2024-05-13',23,'Supervisory','adadasdasd'),(5,58,'asdasda','2024-05-22','2024-05-13',54,'Foundation','dadasdasd'),(6,58,'asdada','2024-05-14','2024-05-13',343434,'Foundation','dasdasasd');
 
 /*Table structure for table `license_info` */
 
@@ -300,11 +315,11 @@ CREATE TABLE `license_info` (
   PRIMARY KEY (`license_id`),
   KEY `civil_eligibility_id` (`civil_eligibility_id`),
   CONSTRAINT `FK_license_info_ce_id` FOREIGN KEY (`civil_eligibility_id`) REFERENCES `civil_service_eligibility` (`civil_eligibility_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `license_info` */
 
-insert  into `license_info`(`license_id`,`civil_eligibility_id`,`license_number`,`date_of_validity`) values (1,1,'','2024-05-28'),(2,2,'123','2024-05-13'),(3,3,'','2024-05-28'),(4,4,'123','2024-05-13'),(5,5,'','2024-05-28'),(6,6,'123','2024-05-13'),(7,7,'0','2024-05-27'),(8,8,'0','2024-05-27'),(9,9,'0','2024-05-27'),(10,10,'0','2024-05-27'),(11,11,'0','2024-05-27'),(12,12,'0','2024-05-27'),(13,13,'0','2024-05-27'),(14,14,'0','2024-05-27'),(15,15,'0','2024-05-27'),(16,16,'0','2024-05-27'),(17,17,'0','2024-05-27'),(18,18,'0','2024-05-27'),(19,19,'0','2024-05-27'),(20,20,'0','2024-05-27'),(21,21,'sdfsdf','2024-05-20'),(22,22,'dasdsadsad','2024-05-06'),(23,23,'asdasdasdasd','2024-05-28'),(24,24,'asdasdasd','2024-05-27'),(25,25,'dasdasdasd','2024-05-28'),(26,26,'sadasdasd','2024-05-27'),(27,35,'ss','2024-05-27'),(28,36,'s','2024-05-27'),(29,37,'s','2024-05-28'),(30,38,'s','2024-05-28'),(31,39,'s','2024-05-28'),(32,40,'s','2024-05-28');
+insert  into `license_info`(`license_id`,`civil_eligibility_id`,`license_number`,`date_of_validity`) values (195,243,'N/A ','1991-10-20'),(198,246,'ad','2024-05-29');
 
 /*Table structure for table `municipality` */
 
@@ -328,15 +343,17 @@ insert  into `municipality`(`municipality_id`,`province_id`,`municipality`) valu
 DROP TABLE IF EXISTS `non_acad_recognition`;
 
 CREATE TABLE `non_acad_recognition` (
-  `non_acad_recog_id` int(11) NOT NULL AUTO_INCREMENT,
+  `recognition_id` int(11) NOT NULL AUTO_INCREMENT,
   `emp_id` int(11) DEFAULT NULL,
-  `non_acad_recog` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`non_acad_recog_id`),
+  `recognition` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`recognition_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `non_acad_recognition_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `non_acad_recognition` */
+
+insert  into `non_acad_recognition`(`recognition_id`,`emp_id`,`recognition`) values (178,168,'N/A'),(181,171,'asdasda');
 
 /*Table structure for table `org_membership` */
 
@@ -349,9 +366,11 @@ CREATE TABLE `org_membership` (
   PRIMARY KEY (`org_membership_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `org_membership_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `org_membership` */
+
+insert  into `org_membership`(`org_membership_id`,`emp_id`,`org_membership`) values (101,168,'Women Ministries Inc.		'),(104,171,'asdad');
 
 /*Table structure for table `permanent_address` */
 
@@ -359,6 +378,7 @@ DROP TABLE IF EXISTS `permanent_address`;
 
 CREATE TABLE `permanent_address` (
   `permanent_id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_id` int(11) DEFAULT NULL,
   `house_no` int(11) DEFAULT NULL,
   `street` varchar(100) DEFAULT NULL,
   `village` varchar(100) DEFAULT NULL,
@@ -370,14 +390,16 @@ CREATE TABLE `permanent_address` (
   KEY `municipality_id` (`municipality_id`),
   KEY `prov_id` (`province_id`),
   KEY `brgy_id` (`brgy_id`),
+  KEY `emp_id` (`emp_id`),
   CONSTRAINT `permanent_address_ibfk_1` FOREIGN KEY (`brgy_id`) REFERENCES `brgy` (`brgy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `permanent_address_ibfk_2` FOREIGN KEY (`municipality_id`) REFERENCES `municipality` (`municipality_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `permanent_address_ibfk_3` FOREIGN KEY (`province_id`) REFERENCES `province` (`province_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `permanent_address_ibfk_3` FOREIGN KEY (`province_id`) REFERENCES `province` (`province_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `permanent_address_ibfk_4` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `permanent_address` */
 
-insert  into `permanent_address`(`permanent_id`,`house_no`,`street`,`village`,`brgy_id`,`municipality_id`,`province_id`,`zip`) values (6,2,'2','2',28980,87804,878,'2'),(7,2,'2','2',1707,13313,133,'2506'),(8,123213,'123','12323',31245,101314,1013,'2323123'),(9,123213,'123','12323',31245,101314,1013,'2323123'),(10,123213,'123','12323',31245,101314,1013,'2323123'),(11,2131,'123213','123213',22031,71218,712,'213213'),(12,2131,'123213','123213',22031,71218,712,'213213'),(13,2131,'123213','123213',22031,71218,712,'213213'),(14,2131,'123213','123213',22031,71218,712,'213213'),(15,2131,'123213','123213',22031,71218,712,'213213'),(16,2131,'123213','123213',22031,71218,712,'213213'),(17,2131,'123213','123213',22031,71218,712,'213213'),(18,23123,'123213','213213',28961,87803,878,'213213'),(19,123123,'123123','123123',37582,141110,1411,'123123'),(20,123123,'123123','123123123',31341,101318,1013,'123213123'),(21,12332,'123123','123123123',21997,71216,712,'123123'),(22,12332,'123123','123123123',21997,71216,712,'123123'),(23,12332,'123123','123123123',21997,71216,712,'123123'),(24,12332,'123123','123123123',21997,71216,712,'123123'),(25,12332,'123123','123123123',21997,71216,712,'123123'),(26,12332,'123123','123123123',21997,71216,712,'123123'),(27,12332,'123123','123123123',21997,71216,712,'123123'),(28,12332,'123123','123123123',21997,71216,712,'123123'),(29,12332,'123123','123123123',21997,71216,712,'123123'),(30,12332,'123123','123123123',21997,71216,712,'123123'),(31,12332,'123123','123123123',21997,71216,712,'123123'),(32,12332,'123123','123123123',21997,71216,712,'123123'),(33,12332,'123123','123123123',21997,71216,712,'123123'),(34,12332,'123123','123123123',21997,71216,712,'123123'),(35,12332,'123123','123123123',21997,71216,712,'123123'),(36,12332,'123123','123123123',21997,71216,712,'123123'),(37,12332,'123123','123123123',21997,71216,712,'123123'),(38,0,'asdasd','asdasdas',18868,61913,619,'asdasdasd'),(39,0,'qweq','weqewqwe',6845,34916,349,'qweqwe'),(40,0,'qweq','weqewqwe',6845,34916,349,'qweqwe'),(41,0,'qweq','weqewqwe',6845,34916,349,'qweqwe'),(42,0,'qweq','weqewqwe',6845,34916,349,'qweqwe'),(43,0,'qweq','weqewqwe',6845,34916,349,'qweqwe'),(44,0,'qweq','weqewqwe',6845,34916,349,'qweqwe'),(45,0,'qweq','weqewqwe',6845,34916,349,'qweqwe'),(46,23423,'423423','4234',28966,87803,878,'3234234'),(47,23423,'423423','4234',28966,87803,878,'3234234'),(48,2,'2','2',22043,71219,712,'22'),(49,2,'2','2',22043,71219,712,'22'),(50,2,'2','2',22043,71219,712,'22'),(51,2,'2','2',31338,101318,1013,'2'),(52,0,'q','q',22010,71217,712,'213213'),(53,0,'q','q',22010,71217,712,'213213');
+insert  into `permanent_address`(`permanent_id`,`emp_id`,`house_no`,`street`,`village`,`brgy_id`,`municipality_id`,`province_id`,`zip`) values (158,168,0,'N/A','N/A',41078,160304,1603,'8508'),(161,171,0,'asd','asdasd',40864,160204,1602,'23123');
 
 /*Table structure for table `province` */
 
@@ -398,38 +420,41 @@ insert  into `province`(`province_id`,`province`) values (128,'ILOCOS NORTE'),(1
 DROP TABLE IF EXISTS `questionnaire`;
 
 CREATE TABLE `questionnaire` (
-  `ques_id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) NOT NULL AUTO_INCREMENT,
   `emp_id` int(11) DEFAULT NULL,
   `relative_third_degree` tinyint(1) DEFAULT NULL,
   `relative_fourth_degree` tinyint(1) DEFAULT NULL,
-  `relative_detail` varchar(255) DEFAULT NULL,
-  `found_guilty` tinyint(1) DEFAULT NULL,
-  `criminal_detail` varchar(255) DEFAULT NULL,
-  `criminal_record_id` int(11) DEFAULT NULL,
-  `convicted` tinyint(1) DEFAULT NULL,
-  `convicted_detail` varchar(255) DEFAULT NULL,
+  `relative_details` varchar(100) DEFAULT NULL,
+  `admin_offense` tinyint(1) DEFAULT NULL,
+  `admin_offense_details` varchar(255) DEFAULT NULL,
+  `criminal_offense` tinyint(1) DEFAULT NULL,
+  `criminal_case_status` varchar(50) DEFAULT NULL,
+  `criminal_date_filed` date DEFAULT NULL,
+  `criminal_conviction` tinyint(1) DEFAULT NULL,
+  `criminal_conviction_details` varchar(100) DEFAULT NULL,
   `service_separation` tinyint(1) DEFAULT NULL,
-  `separation_detail` varchar(255) DEFAULT NULL,
-  `candidate` tinyint(1) DEFAULT NULL,
-  `candidate_detail` varchar(255) DEFAULT NULL,
-  `gov_resigned` tinyint(1) DEFAULT NULL,
-  `gov_resigned_detail` varchar(255) DEFAULT NULL,
+  `separation_details` varchar(100) DEFAULT NULL,
+  `election_candidate` tinyint(1) DEFAULT NULL,
+  `election_candidate_details` varchar(100) DEFAULT NULL,
+  `gov_resignation` tinyint(1) DEFAULT NULL,
+  `gov_resignation_details` varchar(100) DEFAULT NULL,
   `immigrant` tinyint(1) DEFAULT NULL,
-  `immigrant_detail` varchar(255) DEFAULT NULL,
+  `immigrant_details` varchar(100) DEFAULT NULL,
   `indigenous` tinyint(1) DEFAULT NULL,
-  `indi_detail` varchar(255) DEFAULT NULL,
+  `indigenous_details` varchar(100) DEFAULT NULL,
   `disability` tinyint(1) DEFAULT NULL,
-  `disability_id` int(11) DEFAULT NULL,
+  `disability_id` varchar(20) DEFAULT NULL,
   `single_parent` tinyint(1) DEFAULT NULL,
-  `single_parent_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ques_id`),
-  KEY `FK_questionnaire` (`criminal_record_id`),
+  `single_parent_id` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`question_id`),
+  KEY `FK_questionnaire` (`criminal_date_filed`),
   KEY `FK_questionnaire_emp_id` (`emp_id`),
-  CONSTRAINT `FK_questionnaire` FOREIGN KEY (`criminal_record_id`) REFERENCES `criminal_record` (`criminal_record_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_questionnaire_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `questionnaire` */
+
+insert  into `questionnaire`(`question_id`,`emp_id`,`relative_third_degree`,`relative_fourth_degree`,`relative_details`,`admin_offense`,`admin_offense_details`,`criminal_offense`,`criminal_case_status`,`criminal_date_filed`,`criminal_conviction`,`criminal_conviction_details`,`service_separation`,`separation_details`,`election_candidate`,`election_candidate_details`,`gov_resignation`,`gov_resignation_details`,`immigrant`,`immigrant_details`,`indigenous`,`indigenous_details`,`disability`,`disability_id`,`single_parent`,`single_parent_id`) values (32,168,0,0,'',0,'N/A',0,'','0000-00-00',0,'N/A',0,'N/A',0,'N/A',0,'N/A',0,'N/A',0,'N/A',0,'N/A',0,'N/A'),(35,171,0,1,'asdasd',0,'N/A',1,'finished','2024-05-29',0,'N/A',0,'N/A',1,'',0,'N/A',0,'N/A',0,'N/A',0,'N/A',0,'N/A');
 
 /*Table structure for table `reference` */
 
@@ -440,11 +465,11 @@ CREATE TABLE `reference` (
   `emp_id` int(11) DEFAULT NULL,
   `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `tel_no.` int(11) DEFAULT NULL,
+  `tel_no` int(11) DEFAULT NULL,
   PRIMARY KEY (`reference_id`),
   KEY `FK_reference_emp_id` (`emp_id`),
   CONSTRAINT `FK_reference_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `reference` */
 
@@ -454,6 +479,7 @@ DROP TABLE IF EXISTS `residential_address`;
 
 CREATE TABLE `residential_address` (
   `residential_id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_id` int(11) DEFAULT NULL,
   `house_no` int(11) DEFAULT NULL,
   `street` varchar(100) DEFAULT NULL,
   `village` varchar(100) DEFAULT NULL,
@@ -465,14 +491,16 @@ CREATE TABLE `residential_address` (
   KEY `municipality_id` (`municipality_id`),
   KEY `province_id` (`province_id`),
   KEY `brgy_id` (`brgy_id`),
+  KEY `emp_id` (`emp_id`),
   CONSTRAINT `residential_address_ibfk_1` FOREIGN KEY (`municipality_id`) REFERENCES `municipality` (`municipality_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `residential_address_ibfk_2` FOREIGN KEY (`brgy_id`) REFERENCES `brgy` (`brgy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `residential_address_ibfk_3` FOREIGN KEY (`province_id`) REFERENCES `province` (`province_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `residential_address_ibfk_3` FOREIGN KEY (`province_id`) REFERENCES `province` (`province_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `residential_address_ibfk_4` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `residential_address` */
 
-insert  into `residential_address`(`residential_id`,`house_no`,`street`,`village`,`brgy_id`,`municipality_id`,`province_id`,`zip`) values (18,2,'2','2',41029,160303,1603,'2'),(19,2,'2','2',1707,13313,133,'2506'),(20,2213,'2132132','312321321',14357,50505,505,'123123'),(21,2213,'2132132','312321321',14357,50505,505,'123123'),(22,2213,'2132132','312321321',14357,50505,505,'123123'),(23,213213,'213213','213123',31309,101317,1013,'213213'),(24,213213,'213213','213123',31309,101317,1013,'213213'),(25,213213,'213213','213123',31309,101317,1013,'213213'),(26,213213,'213213','213123',31309,101317,1013,'213213'),(27,213213,'213213','213123',31309,101317,1013,'213213'),(28,213213,'213213','213123',31309,101317,1013,'213213'),(29,213213,'213213','213123',31309,101317,1013,'213213'),(30,123,'23','213',3835,21518,215,'213213'),(31,213123,'1231231','213123',9281,41018,410,'8508'),(37,21312,'123123','123123123',37580,141110,1411,'8508'),(38,213213,'12312','3123123',31340,101318,1013,'123213'),(39,213213,'12312','3123123',31340,101318,1013,'123213'),(40,213213,'12312','3123123',31340,101318,1013,'123213'),(41,213213,'12312','3123123',31340,101318,1013,'123213'),(42,213213,'12312','3123123',31340,101318,1013,'123213'),(43,213213,'12312','3123123',31340,101318,1013,'123213'),(44,213213,'12312','3123123',31340,101318,1013,'123213'),(45,213213,'12312','3123123',31340,101318,1013,'123213'),(46,213213,'12312','3123123',31340,101318,1013,'123213'),(47,213213,'12312','3123123',31340,101318,1013,'123213'),(48,213213,'12312','3123123',31340,101318,1013,'123213'),(49,213213,'12312','3123123',31340,101318,1013,'123213'),(50,213213,'12312','3123123',31340,101318,1013,'123213'),(51,213213,'12312','3123123',31340,101318,1013,'123213'),(52,213213,'12312','3123123',31340,101318,1013,'123213'),(53,213213,'12312','3123123',31340,101318,1013,'123213'),(54,213213,'12312','3123123',31340,101318,1013,'123213'),(55,0,'asdasdasd','asdasd',8603,37706,377,'asdasd'),(56,213123,'123123','123123',41092,160305,1603,'qweqwe'),(57,213123,'123123','123123',41092,160305,1603,'qweqwe'),(58,213123,'123123','123123',41092,160305,1603,'qweqwe'),(59,213123,'123123','123123',41092,160305,1603,'qweqwe'),(60,213123,'123123','123123',41092,160305,1603,'qweqwe'),(61,213123,'123123','123123',41092,160305,1603,'qweqwe'),(62,213123,'123123','123123',41092,160305,1603,'qweqwe'),(63,23423424,'23432','432432',31351,101319,1013,'3214324'),(64,23423424,'23432','432432',31351,101319,1013,'3214324'),(65,2,'2','2',41075,160304,1603,'2'),(66,2,'2','2',41075,160304,1603,'2'),(67,2,'2','2',41075,160304,1603,'2'),(68,2,'2','2',14312,50504,505,'2'),(69,0,'q','q',3897,21521,215,'q'),(70,0,'q','q',3897,21521,215,'q');
+insert  into `residential_address`(`residential_id`,`emp_id`,`house_no`,`street`,`village`,`brgy_id`,`municipality_id`,`province_id`,`zip`) values (194,168,0,'N/A','N/A',41078,160304,1603,'8508'),(197,171,0,'asd','asdasd',40864,160204,1602,'23123');
 
 /*Table structure for table `skill` */
 
@@ -485,9 +513,11 @@ CREATE TABLE `skill` (
   PRIMARY KEY (`skill_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `skill_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2873 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `skill` */
+
+insert  into `skill`(`skill_id`,`emp_id`,`skill`) values (2869,168,'ICT'),(2872,171,'asdasd');
 
 /*Table structure for table `suffix` */
 
@@ -503,6 +533,24 @@ CREATE TABLE `suffix` (
 
 insert  into `suffix`(`suffix_id`,`suffix`) values (1,'Jr.'),(2,'Sr.'),(3,'II'),(4,'III'),(5,'IV'),(6,'V'),(7,'N/A');
 
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_id` int(11) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `emp_id` (`emp_id`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `user` */
+
+insert  into `user`(`user_id`,`emp_id`,`username`,`password`) values (1,168,'admin','admin123');
+
 /*Table structure for table `validation` */
 
 DROP TABLE IF EXISTS `validation`;
@@ -514,16 +562,21 @@ CREATE TABLE `validation` (
   `id_no` int(11) DEFAULT NULL,
   `issuance_date` date DEFAULT NULL,
   `issuance_place` varchar(50) DEFAULT NULL,
-  `signature` blob DEFAULT NULL,
+  `signature` varchar(100) DEFAULT NULL,
+  `signature_type` varchar(10) DEFAULT NULL,
   `date_accomplished` date DEFAULT NULL,
-  `photo` blob DEFAULT NULL,
-  `right_thumbmark` blob DEFAULT NULL,
+  `id_photo` varchar(100) DEFAULT NULL,
+  `id_photo_type` varchar(5) DEFAULT NULL,
+  `right_thumbmark` varchar(100) DEFAULT NULL,
+  `right_thumbmark_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`validation_id`),
   KEY `FK_validation_emp_id` (`emp_id`),
   CONSTRAINT `FK_validation_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `validation` */
+
+insert  into `validation`(`validation_id`,`emp_id`,`id_type`,`id_no`,`issuance_date`,`issuance_place`,`signature`,`signature_type`,`date_accomplished`,`id_photo`,`id_photo_type`,`right_thumbmark`,`right_thumbmark_type`) values (17,168,'N/A',0,'0000-00-00','N/A','','','2024-05-24','','','',''),(20,171,'N/A',0,'0000-00-00','N/A','','','2024-05-24','','','','');
 
 /*Table structure for table `vol_work_experience` */
 
@@ -540,11 +593,11 @@ CREATE TABLE `vol_work_experience` (
   PRIMARY KEY (`vol_work_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `FK_voluntary_involvement_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `vol_work_experience` */
 
-insert  into `vol_work_experience`(`vol_work_id`,`emp_id`,`org_name_address`,`work_start`,`work_end`,`total_hours`,`position`) values (1,55,'s','2024-05-13','2024-05-19',6,'s'),(2,56,'asdasd','2024-05-06','2024-05-05',45,'asdad'),(3,57,'asd','2024-05-07','2024-05-06',2,'asd'),(4,57,'asdasd','2024-05-20','2024-05-13',3,'asdasdasd'),(5,57,'asdasda','2024-05-13','2003-09-11',100,'dasdasd'),(6,58,'asd','2024-05-07','2024-05-06',2,'asd'),(7,58,'asdasd','2024-05-20','2024-05-13',3,'asdasdasd'),(8,58,'asdasda','2024-05-13','2003-09-11',100,'dasdasd');
+insert  into `vol_work_experience`(`vol_work_id`,`emp_id`,`org_name_address`,`work_start`,`work_end`,`total_hours`,`position`) values (189,171,'asda','2024-05-21','2024-05-06',123123,'sdasdasd');
 
 /*Table structure for table `work_experience` */
 
@@ -564,11 +617,11 @@ CREATE TABLE `work_experience` (
   PRIMARY KEY (`work_exp_id`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `FK_work_experience_emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=218 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 /*Data for the table `work_experience` */
 
-insert  into `work_experience`(`work_exp_id`,`emp_id`,`department`,`position`,`work_start`,`work_end`,`monthly_salary`,`salary_grade_step`,`appointment_status`,`gov_service`) values (1,23,'dfsdfsdfsfd','sdfsdfsdfs','2024-05-20','2024-05-19','231123','13-4','Contractual',1),(2,24,'sdfsdfsdf','sdfsdfsdf','2024-05-07','2024-05-06','234234234','33-4','Temporary',0),(3,26,'','','0000-00-00','0000-00-00','0','N/A','Contractual',1),(4,27,'','','0000-00-00','0000-00-00','0','N/A','Contractual',1),(5,33,'','','0000-00-00','0000-00-00','0','N/A','Contractual',1),(6,34,'','','0000-00-00','0000-00-00','0','N/A','Contractual',1),(7,44,'s','s','0000-00-00','0000-00-00','0','N/A','Permanent',1),(8,45,'s','s','0000-00-00','0000-00-00','0','N/A','Permanent',1),(9,51,'asdasda','asdasd','2024-05-13','2024-05-13','123213123','N/A','Permanent',0),(10,52,'asdasda','asdasd','2024-05-13','2024-05-13','123213123','N/A','Permanent',0),(11,53,'s','s','2024-05-28','2024-05-06','0','13-4','Permanent',1),(12,54,'s','s','2024-05-28','2024-05-06','0','13-4','Permanent',1),(13,55,'s','s','2024-05-28','2024-05-06','0','13-4','Permanent',1),(14,56,'s','s','2024-05-06','2024-05-05','232323','16-5','Contractual',0),(15,56,'s','s','2024-05-07','2024-05-07','234234234','16-4','Contractual',0),(16,56,'asdasd','asdasd','2024-05-08','2024-05-06','234324','15-3','Casual',0),(17,57,'s','s','2024-05-14','2024-05-21','9999999999','15-4','Contractual',0),(18,57,'d','asdas','2024-05-07','2024-05-07','0','15-4','Casual',0),(19,58,'s','s','2024-05-14','2024-05-21','9999999999','15-4','Contractual',0),(20,58,'d','asdas','2024-05-07','2024-05-07','0','15-4','Casual',0);
+insert  into `work_experience`(`work_exp_id`,`emp_id`,`department`,`position`,`work_start`,`work_end`,`monthly_salary`,`salary_grade_step`,`appointment_status`,`gov_service`) values (214,168,'Department of Education		','TEACHER II','2019-01-01','2024-05-24','22911','12-1','Permanent',1),(217,171,'asdadasd','dasdasd','2024-05-29','2024-05-30','213123','N/A','N/A',0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
