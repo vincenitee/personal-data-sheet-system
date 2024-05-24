@@ -9,10 +9,5 @@
             </button>
             <span class="text-xl text-white">Personal Data Sheet</span>
         </div>
-
-        <!-- User photo -->
-        <div class="size-9 overflow-hidden rounded-full ring-2 ring-white">
-            <img src="../images.jpg" alt="" class="object-contain object-center" />
-        </div>
     </div>
 </header>

@@ -1,13 +1,25 @@
 <?php
 require_once 'sql_statements.php';
 
+function getEmployeesBySearch($emp_id)
+{
+    $query = "SELECT e.emp_id, e.first_name, e.last_name, e.email, e.mobile_no, MAX(w.position) AS POSITION 
+                FROM employee e 
+                LEFT JOIN work_experience w ON e.emp_id = w.emp_id 
+                WHERE e.emp_id = $emp_id
+                GROUP BY e.emp_id, e.first_name, e.last_name, e.email, e.mobile_no, e.birthdate
+                ORDER BY e.emp_id desc";
+
+    return select_info_multiple_key($query);
+}
+
 function getEmployees()
 {
     $query = "SELECT e.emp_id, e.first_name, e.last_name, e.email, e.mobile_no, MAX(w.position) AS POSITION 
                 FROM employee e 
                 LEFT JOIN work_experience w ON e.emp_id = w.emp_id 
                 GROUP BY e.emp_id, e.first_name, e.last_name, e.email, e.mobile_no, e.birthdate
-                ORDER BY e.first_name ASC";
+                ORDER BY e.emp_id desc";
 
     return select_info_multiple_key($query);
 }

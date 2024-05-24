@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin_id'])){
+    header('Location: index.php');
+    exit();
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -8,7 +17,7 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     <script type="module" src="./assets/js/form.js" defer></script>
-    <script type="module" src="./assets/js/sidebar.js"></script>
+    <script type="module" src="./assets/js/sidebar.js" defer></script>
 </head>
 
 <body class="box-border grid h-screen grid-rows-mod-3 bg-gray-200 font-poppins">
@@ -21,7 +30,7 @@
             <div class="w-[65%] mx-auto">
                 <?php include './assets/form_steps/personal_details.php' ?>
             </div>
-
+            
             <div class="w-[65%] mx-auto">
                 <?php include './assets/form_steps/family_background.php' ?>
             </div>

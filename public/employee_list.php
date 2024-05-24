@@ -1,6 +1,13 @@
 <?php include './assets/database/sql_statements.php'; ?>
 <?php include './assets/database/employee_functions.php'; ?>
-
+<?php
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header('Location: index.php');
+    exit();
+}
+extract($_GET);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,11 +30,11 @@
     ">
         <h2 class="px-6 py-3 text-lg text-slate-700 font-medium">Employees</h2>
 
-        <form action="" method="get" class="px-4">
+        <form action="employee_list.php" method="get" class="px-4">
             <!-- search box and button -->
             <div class="shadow-sm border focus:border flex justify-between rounded-sm p-2">
                 <div class="flex items-center gap-1 flex-2 w-full">
-                    <input type="text" name="search" id="search" class="px-2 py-1 outline-none text-sm w-full" placeholder="Search...">
+                    <input type="text" name="search" id="search" class="px-2 py-1 outline-none text-sm w-full" value="<?php echo isset($search) ? $search : '' ?>" placeholder="Search...">
                     <button type="button" id="clear-search" class="bg-slate-200 text-slate-400 hover:bg-slate-400 active:bg-slate-500 hover:text-slate-700 rounded-full p-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -38,9 +45,10 @@
                         <label class="text-sm text-nowrap">Search By</label>
                         <select name="search-category" id="search-category" class="px-2 py-1 text-sm border rounded">
                             <option value="All">All</option>
-                            <option value="Education">Education</option>
-                            <option value="Training">Trainings Attended</option>
-                            <option value="CS Eligibility">CS Eligibility</option>
+                            <option value="employee" selected>Employee</option>
+                            <option value="education">Education</option>
+                            <option value="training">Trainings Attended</option>
+                            <option value="cs eligibility">CS Eligibility</option>
                         </select>
                     </div>
                 </div>
@@ -71,13 +79,27 @@
                 </thead>
                 <tbody class="h-[50%] divide-y">
                     <?php
-                    $employees = getEmployees();
-                    if ($employees) {
-                        foreach ($employees as $employee) {
-                            echo generateTableRow($employee);
+                    if (!empty($search)) {
+                        $query = "SELECT emp_id FROM employee WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%'";
+                        $employees = select_info_multiple_key($query);
+
+                        if ($employees) {
+                            foreach ($employees as $record) {
+                                $emp = getEmployeesBySearch($record['emp_id']);
+                                echo generateTableRow($emp[0]);
+                            }
+                        } else {
+                            echo generateRowMessage(6, 'No Employee Data Found');
                         }
                     } else {
-                        echo generateRowMessage(6, 'No Employee Data Found');
+                        $employees = getEmployees();
+                        if ($employees) {
+                            foreach ($employees as $employee) {
+                                echo generateTableRow($employee);
+                            }
+                        } else {
+                            echo generateRowMessage(6, 'No Employee Data Found');
+                        }
                     }
                     ?>
                 </tbody>

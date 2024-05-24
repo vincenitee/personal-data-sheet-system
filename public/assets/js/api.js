@@ -18,6 +18,7 @@ function fetchMunicipalities(selectedProvinceId, municipalitySelect, brgySelect)
             if (municipalities.length > 0) {
                 fetchBaranggays(municipalities[0].municipality_id, brgySelect) // Assuming you have residentBarangay select element
             }
+
         }
     }
 
@@ -25,7 +26,7 @@ function fetchMunicipalities(selectedProvinceId, municipalitySelect, brgySelect)
 }
 
 // Modified fetchBaranggays function to populate the barangay select
-function fetchBaranggays(selectedMunicipalityId, brgySelect) {
+function fetchBaranggays(selectedMunicipalityId, brgySelect, callback) {
     var xhr = new XMLHttpRequest()
 
     xhr.open('GET', `../public/assets/database/fetch_baranggays.php?municipalityId=${selectedMunicipalityId}`, true)
@@ -34,9 +35,12 @@ function fetchBaranggays(selectedMunicipalityId, brgySelect) {
             brgySelect.innerHTML = ''
 
             var barangay = JSON.parse(xhr.responseText)
+
             barangay.forEach((brgy, index) => {
                 brgySelect.appendChild(index === 0 ? new Option('', '') : new Option(brgy.brgy, brgy.brgy_id))
             })
+            
+            if(callback && typeof callback === 'function') callback()
         }
     }
 
@@ -93,10 +97,26 @@ function deleteEmployee(emp_id) {
     xhr.send()
 }
 
-function fetchEmployee(emp_id){
-    var xhr = new XMLHttpRequest()
+function fetchEmployee(emp_id) {
+    var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', )
+    xhr.open('GET', `../public/assets/database/fetch_employee.php?emp_id=${emp_id}`, true);
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                const empData = JSON.parse(xhr.responseText);
+                // stores the retrieved data to local storage for later use
+                localStorage.setItem('empData', JSON.stringify(empData))
+                // // redirect to the edit form
+                // window.location = '../public/edit_form.php' 
+            } else {
+                console.log(xhr.responseText);
+            }
+        }
+    };
+
+    xhr.send();
 }
 
-export { fetchMunicipalities, fetchBaranggays, fetchCountries, deleteEmployee }
+export { fetchMunicipalities, fetchBaranggays, fetchCountries, deleteEmployee, fetchEmployee }

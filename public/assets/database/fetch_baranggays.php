@@ -2,7 +2,7 @@
 
 $municipalityId = $_GET['municipalityId'];
 
-$sql = "SELECT brgy_id, brgy FROM brgy WHERE municipality_id = (SELECT municipality_id FROM municipality WHERE municipality_id = '" . $municipalityId . "')";
+$sql = "SELECT brgy_id, brgy FROM brgy WHERE municipality_id = '" . $municipalityId . "'";
 
 $result = select_info_multiple_key($sql);
 
@@ -22,5 +22,4 @@ $barangays_json = json_encode($barangays);
 header('Content-Type: application/json');
 
 echo $barangays_json;
-
 ?>

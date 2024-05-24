@@ -17,7 +17,7 @@
             if (isset($_GET['login'])) {
                 $error = $_GET['login'];
                 if ($error == 0) {
-                    echo "<h5 class='text-xs p-1 bg-red-200 text-red-500'> Incorrect Username or Password </h5>";
+                    echo "<h5 class='text-xs p-1 bg-red-200 text-red-500'> Login Failed </h5>";
                 }
             }
             ?>
@@ -51,6 +51,16 @@
             <button class="w-full rounded-sm bg-blue-500 py-2 text-white ring-blue-500 hover:bg-blue-600 hover:ring-2 active:bg-blue-800">Login</button>
         </form>
     </div>
+
+    <?php
+    if(isset($_GET['logout'])){
+        $logout = $_GET['logout'];
+    }
+
+    if(isset($logout) && $logout == true){
+        echo "<script>alert('Logout Successfull')</script>";
+    }
+    ?>
 </body>
 
 </html>

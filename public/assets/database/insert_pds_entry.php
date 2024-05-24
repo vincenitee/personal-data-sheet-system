@@ -99,7 +99,6 @@ $fam_bg_id = insert_update_delete($fam_bg_sql);
 
 // children details
 $child_total_entry = $_POST['child-total-entry'];
-
 for ($i = 1; $i <= $child_total_entry; $i++) {
     $child_name = $_POST["child-name-$i"];
     $child_bdate = $_POST["child-bdate-$i"];
@@ -199,14 +198,15 @@ for ($i = 1; $i <= $learning_dev_total; $i++) {
         'training_sponsor' => $_POST["training-sponsor-$i"]
     ];
 
-    if (checkEmptyFields($learning_dev_info) > 80) {
-        insert_learning_dev_info($employee_id, $learning_dev_info);
-    }
+    insert_learning_dev_info($employee_id, $learning_dev_info);
+
 }
 
 // for skill entries insertion
 $skill_total = $_POST["skills-total-entry"];
+echo "<br>" . $_POST["skill-6"];
 for ($i = 1; $i <= $skill_total; $i++) {
+    echo "<br>" . $_POST["skill-$i"];
     $skill_entry = $_POST["skill-$i"];
     if (!empty($skill_entry)) {
         insert_skills_info($employee_id, $skill_entry);
@@ -231,14 +231,8 @@ for ($i = 1; $i <= $membership_total; $i++) {
     }
 }
 
+
 // additional questions entries
-
-if($_POST['crim-offense'] == 1){
-    $query = "INSERT INTO criminal_record (date_filed, case_status) VALUES ('".$_POST['admin-offense-info']."', '". $_POST['date-filed'] ."')";
-
-    $crim_detail_id = insert_update_delete($query);
-}
-
 $questionnaire_reponses = [
     'relative_third_degree' => $_POST['third-degree'],
     'relative_fourth_degree' => $_POST['fourth-degree'],
@@ -266,7 +260,13 @@ $questionnaire_reponses = [
     'single_parent_id' => ($_POST['solo-parent'] == 1) ? $_POST['solo-parent-info'] : 'N/A',
 ];
 
-insert_questions_responses($employee_id, $questionnaire_reponses);
+$question_id = insert_questions_responses($employee_id, $questionnaire_reponses);
+
+if($_POST['crim-offense'] == 1){
+    $query = "INSERT INTO criminal_record (question_id, date_filed, case_status) VALUES ('".$question_id."', '".$_POST['admin-offense-info']."', '". $_POST['date-filed'] ."')";
+
+    $crim_detail_id = insert_update_delete($query);
+}
 
 // persons reference
 $reference_total = $_POST['references-total-entry'];

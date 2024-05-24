@@ -1,4 +1,16 @@
-<?php include './assets/database/employee_functions.php'; ?>
+<?php 
+include './assets/database/employee_functions.php';
+require_once './assets/database/sql_statements.php';
+
+session_start();
+if(!isset($_SESSION['admin_id'])){
+    header('Location: index.php');
+    exit();
+}
+$admin_id = $_SESSION['admin_id'];
+$admin_name = select_info_multiple_key("SELECT e.first_name FROM admin a JOIN employee e ON a.emp_id = e.`emp_id` WHERE a.admin_id = $admin_id")[0]['first_name'];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +32,7 @@
     <main class="mx-auto mt-2 w-[85%] grid grid-cols-mod-2 gap-2">
         <!-- Overview of Data Container -->
         <div class="p-4 border rounded-md space-y-4 bg-white shadow-lg">
+            <h1 class="text-lg font-medium">Welcome, <?php echo $admin_name; ?> </h1>
             <!-- Information Cards Container-->
             <div class="flex justify-around py-3 border-b-2">
                 <!-- Card Component -->
